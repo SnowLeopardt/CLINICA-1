@@ -30,5 +30,10 @@ namespace CLINICA_1
             Registro VentanaDeRegistro = new Registro();
             VentanaDeRegistro.Show();
         }
+
+        private void Menu_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

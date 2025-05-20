@@ -45,17 +45,18 @@ namespace CLINICA_1
             this.btnBuscar = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtdui = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.txtcorreo = new System.Windows.Forms.TextBox();
+            this.txttelefono2 = new System.Windows.Forms.TextBox();
+            this.txtdireccion2 = new System.Windows.Forms.TextBox();
+            this.txtresponsable = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btneliminar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -148,12 +149,13 @@ namespace CLINICA_1
             this.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNuevo.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.btnNuevo.ForeColor = System.Drawing.Color.White;
-            this.btnNuevo.Location = new System.Drawing.Point(106, 430);
+            this.btnNuevo.Location = new System.Drawing.Point(52, 430);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(120, 40);
             this.btnNuevo.TabIndex = 9;
             this.btnNuevo.Text = "NUEVO";
             this.btnNuevo.UseVisualStyleBackColor = false;
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
             // btnBuscar
             // 
@@ -161,12 +163,13 @@ namespace CLINICA_1
             this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscar.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.btnBuscar.ForeColor = System.Drawing.Color.White;
-            this.btnBuscar.Location = new System.Drawing.Point(288, 430);
+            this.btnBuscar.Location = new System.Drawing.Point(223, 430);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(120, 40);
             this.btnBuscar.TabIndex = 10;
             this.btnBuscar.Text = "BUSCAR";
             this.btnBuscar.UseVisualStyleBackColor = false;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // btnEditar
             // 
@@ -174,12 +177,13 @@ namespace CLINICA_1
             this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEditar.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.btnEditar.ForeColor = System.Drawing.Color.White;
-            this.btnEditar.Location = new System.Drawing.Point(465, 430);
+            this.btnEditar.Location = new System.Drawing.Point(394, 430);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(120, 40);
             this.btnEditar.TabIndex = 11;
             this.btnEditar.Text = "EDITAR";
             this.btnEditar.UseVisualStyleBackColor = false;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // btnGuardar
             // 
@@ -187,19 +191,20 @@ namespace CLINICA_1
             this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGuardar.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.btnGuardar.ForeColor = System.Drawing.Color.White;
-            this.btnGuardar.Location = new System.Drawing.Point(649, 430);
+            this.btnGuardar.Location = new System.Drawing.Point(573, 430);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(120, 40);
             this.btnGuardar.TabIndex = 12;
             this.btnGuardar.Text = "GUARDAR";
             this.btnGuardar.UseVisualStyleBackColor = false;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
-            // textBox1
+            // txtdui
             // 
-            this.textBox1.Location = new System.Drawing.Point(132, 354);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(250, 20);
-            this.textBox1.TabIndex = 13;
+            this.txtdui.Location = new System.Drawing.Point(132, 354);
+            this.txtdui.Name = "txtdui";
+            this.txtdui.Size = new System.Drawing.Size(250, 20);
+            this.txtdui.TabIndex = 13;
             // 
             // label1
             // 
@@ -218,7 +223,7 @@ namespace CLINICA_1
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(444, 295);
+            this.label2.Location = new System.Drawing.Point(436, 293);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(141, 21);
             this.label2.TabIndex = 15;
@@ -229,7 +234,7 @@ namespace CLINICA_1
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(514, 248);
+            this.label3.Location = new System.Drawing.Point(506, 246);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(71, 21);
             this.label3.TabIndex = 16;
@@ -240,7 +245,7 @@ namespace CLINICA_1
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(507, 199);
+            this.label4.Location = new System.Drawing.Point(499, 197);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(78, 21);
             this.label4.TabIndex = 17;
@@ -252,40 +257,39 @@ namespace CLINICA_1
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(488, 145);
+            this.label5.Location = new System.Drawing.Point(480, 143);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(101, 21);
             this.label5.TabIndex = 18;
             this.label5.Text = "Responsable:";
             // 
-            // textBox2
+            // txtcorreo
             // 
-            this.textBox2.Location = new System.Drawing.Point(595, 296);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(250, 20);
-            this.textBox2.TabIndex = 19;
+            this.txtcorreo.Location = new System.Drawing.Point(587, 294);
+            this.txtcorreo.Name = "txtcorreo";
+            this.txtcorreo.Size = new System.Drawing.Size(250, 20);
+            this.txtcorreo.TabIndex = 19;
             // 
-            // textBox3
+            // txttelefono2
             // 
-            this.textBox3.Location = new System.Drawing.Point(595, 249);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(250, 20);
-            this.textBox3.TabIndex = 20;
-            this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
+            this.txttelefono2.Location = new System.Drawing.Point(587, 247);
+            this.txttelefono2.Name = "txttelefono2";
+            this.txttelefono2.Size = new System.Drawing.Size(250, 20);
+            this.txttelefono2.TabIndex = 20;
             // 
-            // textBox4
+            // txtdireccion2
             // 
-            this.textBox4.Location = new System.Drawing.Point(595, 199);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(250, 20);
-            this.textBox4.TabIndex = 21;
+            this.txtdireccion2.Location = new System.Drawing.Point(587, 197);
+            this.txtdireccion2.Name = "txtdireccion2";
+            this.txtdireccion2.Size = new System.Drawing.Size(250, 20);
+            this.txtdireccion2.TabIndex = 21;
             // 
-            // textBox5
+            // txtresponsable
             // 
-            this.textBox5.Location = new System.Drawing.Point(595, 150);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(250, 20);
-            this.textBox5.TabIndex = 22;
+            this.txtresponsable.Location = new System.Drawing.Point(587, 148);
+            this.txtresponsable.Name = "txtresponsable";
+            this.txtresponsable.Size = new System.Drawing.Size(250, 20);
+            this.txtresponsable.TabIndex = 22;
             // 
             // pictureBox1
             // 
@@ -297,25 +301,39 @@ namespace CLINICA_1
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 23;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
+            // btneliminar
+            // 
+            this.btneliminar.BackColor = System.Drawing.Color.Red;
+            this.btneliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btneliminar.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.btneliminar.ForeColor = System.Drawing.Color.White;
+            this.btneliminar.Location = new System.Drawing.Point(748, 430);
+            this.btneliminar.Name = "btneliminar";
+            this.btneliminar.Size = new System.Drawing.Size(120, 40);
+            this.btneliminar.TabIndex = 24;
+            this.btneliminar.Text = "ELIMINAR";
+            this.btneliminar.UseVisualStyleBackColor = false;
+            this.btneliminar.Click += new System.EventHandler(this.btneliminar_Click);
             // 
             // Registro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(64)))), ((int)(((byte)(115)))));
-            this.ClientSize = new System.Drawing.Size(900, 500);
+            this.ClientSize = new System.Drawing.Size(883, 500);
+            this.Controls.Add(this.btneliminar);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txtresponsable);
+            this.Controls.Add(this.txtdireccion2);
+            this.Controls.Add(this.txttelefono2);
+            this.Controls.Add(this.txtcorreo);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtdui);
             this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.lblNombre);
             this.Controls.Add(this.txtNombre);
@@ -334,7 +352,7 @@ namespace CLINICA_1
             this.Name = "Registro";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CLINICA VARGAS - REGISTRO DE DATOS";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Load += new System.EventHandler(this.Registro_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -367,16 +385,17 @@ namespace CLINICA_1
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnGuardar;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtdui;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox txtcorreo;
+        private System.Windows.Forms.TextBox txttelefono2;
+        private System.Windows.Forms.TextBox txtdireccion2;
+        private System.Windows.Forms.TextBox txtresponsable;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button btneliminar;
     }
 }
