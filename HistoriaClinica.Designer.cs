@@ -32,9 +32,6 @@ namespace CLINICA_1
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HistoriaClinica));
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.label2 = new System.Windows.Forms.Label();
-            this.Hipertension = new System.Windows.Forms.RadioButton();
-            this.Hemodialisis = new System.Windows.Forms.RadioButton();
-            this.Diabetes = new System.Windows.Forms.RadioButton();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -125,6 +122,9 @@ namespace CLINICA_1
             this.label1 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.lblNombre = new System.Windows.Forms.Label();
+            this.checkBox39 = new System.Windows.Forms.CheckBox();
+            this.checkBox40 = new System.Windows.Forms.CheckBox();
+            this.checkBox41 = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // label2
@@ -132,7 +132,7 @@ namespace CLINICA_1
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.label2.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.label2.Location = new System.Drawing.Point(390, 132);
+            this.label2.Location = new System.Drawing.Point(380, 92);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(263, 26);
@@ -140,52 +140,13 @@ namespace CLINICA_1
             this.label2.Text = "Antecedentes Personales:";
             this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
-            // Hipertension
-            // 
-            this.Hipertension.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.Hipertension.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.Hipertension.Location = new System.Drawing.Point(394, 162);
-            this.Hipertension.Margin = new System.Windows.Forms.Padding(4);
-            this.Hipertension.Name = "Hipertension";
-            this.Hipertension.Size = new System.Drawing.Size(237, 21);
-            this.Hipertension.TabIndex = 8;
-            this.Hipertension.TabStop = true;
-            this.Hipertension.Text = "HIPERTENSION ARTERIAL \r\n";
-            this.Hipertension.UseVisualStyleBackColor = false;
-            // 
-            // Hemodialisis
-            // 
-            this.Hemodialisis.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.Hemodialisis.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.Hemodialisis.Location = new System.Drawing.Point(394, 220);
-            this.Hemodialisis.Margin = new System.Windows.Forms.Padding(4);
-            this.Hemodialisis.Name = "Hemodialisis";
-            this.Hemodialisis.Size = new System.Drawing.Size(160, 21);
-            this.Hemodialisis.TabIndex = 9;
-            this.Hemodialisis.TabStop = true;
-            this.Hemodialisis.Text = "HEMODIALISIS  ";
-            this.Hemodialisis.UseVisualStyleBackColor = false;
-            // 
-            // Diabetes
-            // 
-            this.Diabetes.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.Diabetes.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.Diabetes.Location = new System.Drawing.Point(394, 191);
-            this.Diabetes.Margin = new System.Windows.Forms.Padding(4);
-            this.Diabetes.Name = "Diabetes";
-            this.Diabetes.Size = new System.Drawing.Size(129, 21);
-            this.Diabetes.TabIndex = 10;
-            this.Diabetes.TabStop = true;
-            this.Diabetes.Text = " DIABETES ";
-            this.Diabetes.UseVisualStyleBackColor = false;
-            // 
             // label3
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.label3.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.label3.Location = new System.Drawing.Point(630, 111);
+            this.label3.Location = new System.Drawing.Point(630, 70);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(103, 21);
@@ -199,7 +160,7 @@ namespace CLINICA_1
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.label4.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.label4.Location = new System.Drawing.Point(615, 138);
+            this.label4.Location = new System.Drawing.Point(615, 97);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(120, 21);
@@ -213,7 +174,7 @@ namespace CLINICA_1
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.label5.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.label5.Location = new System.Drawing.Point(565, 215);
+            this.label5.Location = new System.Drawing.Point(565, 174);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(170, 21);
@@ -227,7 +188,7 @@ namespace CLINICA_1
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.label6.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.label6.Location = new System.Drawing.Point(565, 189);
+            this.label6.Location = new System.Drawing.Point(565, 148);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(175, 21);
@@ -241,7 +202,7 @@ namespace CLINICA_1
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.label7.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.label7.Location = new System.Drawing.Point(584, 162);
+            this.label7.Location = new System.Drawing.Point(584, 121);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(151, 21);
@@ -255,7 +216,7 @@ namespace CLINICA_1
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.label8.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.label8.Location = new System.Drawing.Point(690, 238);
+            this.label8.Location = new System.Drawing.Point(690, 197);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(45, 21);
@@ -269,7 +230,7 @@ namespace CLINICA_1
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.label9.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.label9.Location = new System.Drawing.Point(690, 264);
+            this.label9.Location = new System.Drawing.Point(690, 223);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(43, 21);
@@ -283,7 +244,7 @@ namespace CLINICA_1
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.label11.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.label11.Location = new System.Drawing.Point(999, 141);
+            this.label11.Location = new System.Drawing.Point(999, 93);
             this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(90, 21);
@@ -297,7 +258,7 @@ namespace CLINICA_1
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.label12.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.label12.Location = new System.Drawing.Point(999, 115);
+            this.label12.Location = new System.Drawing.Point(999, 67);
             this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(58, 21);
@@ -311,7 +272,7 @@ namespace CLINICA_1
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.label13.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.label13.Location = new System.Drawing.Point(999, 244);
+            this.label13.Location = new System.Drawing.Point(999, 196);
             this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(98, 21);
@@ -325,7 +286,7 @@ namespace CLINICA_1
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.label14.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.label14.Location = new System.Drawing.Point(999, 218);
+            this.label14.Location = new System.Drawing.Point(999, 170);
             this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(46, 21);
@@ -339,7 +300,7 @@ namespace CLINICA_1
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.label15.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.label15.Location = new System.Drawing.Point(1004, 197);
+            this.label15.Location = new System.Drawing.Point(1004, 229);
             this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(23, 21);
@@ -353,7 +314,7 @@ namespace CLINICA_1
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.label16.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.label16.Location = new System.Drawing.Point(999, 166);
+            this.label16.Location = new System.Drawing.Point(999, 118);
             this.label16.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(90, 21);
@@ -368,7 +329,7 @@ namespace CLINICA_1
             this.nuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.nuevo.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.nuevo.ForeColor = System.Drawing.Color.White;
-            this.nuevo.Location = new System.Drawing.Point(1058, 33);
+            this.nuevo.Location = new System.Drawing.Point(1084, 14);
             this.nuevo.Margin = new System.Windows.Forms.Padding(4);
             this.nuevo.Name = "nuevo";
             this.nuevo.Size = new System.Drawing.Size(115, 34);
@@ -383,7 +344,7 @@ namespace CLINICA_1
             this.guardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.guardar.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.guardar.ForeColor = System.Drawing.Color.White;
-            this.guardar.Location = new System.Drawing.Point(1199, 33);
+            this.guardar.Location = new System.Drawing.Point(1213, 14);
             this.guardar.Margin = new System.Windows.Forms.Padding(4);
             this.guardar.Name = "guardar";
             this.guardar.Size = new System.Drawing.Size(127, 34);
@@ -397,7 +358,7 @@ namespace CLINICA_1
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.label19.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.label19.Location = new System.Drawing.Point(1105, 170);
+            this.label19.Location = new System.Drawing.Point(1105, 122);
             this.label19.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(243, 105);
@@ -494,10 +455,10 @@ namespace CLINICA_1
             // 
             this.label20.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label20.AutoSize = true;
-            this.label20.BackColor = System.Drawing.Color.White;
+            this.label20.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label20.ForeColor = System.Drawing.Color.Black;
-            this.label20.Location = new System.Drawing.Point(458, 73);
+            this.label20.Location = new System.Drawing.Point(462, 28);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(169, 20);
             this.label20.TabIndex = 85;
@@ -506,49 +467,49 @@ namespace CLINICA_1
             // checkBox38
             // 
             this.checkBox38.AutoSize = true;
-            this.checkBox38.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.checkBox38.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox38.Location = new System.Drawing.Point(666, 618);
+            this.checkBox38.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.checkBox38.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox38.Location = new System.Drawing.Point(839, 492);
             this.checkBox38.Name = "checkBox38";
-            this.checkBox38.Size = new System.Drawing.Size(234, 22);
+            this.checkBox38.Size = new System.Drawing.Size(210, 19);
             this.checkBox38.TabIndex = 148;
-            this.checkBox38.Text = "Enfermedad Renal Cronica ";
+            this.checkBox38.Text = "ENFERMEDAD RENAL CRONICA";
             this.checkBox38.UseVisualStyleBackColor = false;
             // 
             // checkBox37
             // 
             this.checkBox37.AutoSize = true;
-            this.checkBox37.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.checkBox37.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox37.Location = new System.Drawing.Point(666, 699);
+            this.checkBox37.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.checkBox37.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox37.Location = new System.Drawing.Point(839, 513);
             this.checkBox37.Name = "checkBox37";
-            this.checkBox37.Size = new System.Drawing.Size(98, 22);
+            this.checkBox37.Size = new System.Drawing.Size(89, 19);
             this.checkBox37.TabIndex = 147;
-            this.checkBox37.Text = "Psoriasis";
+            this.checkBox37.Text = "PSORIASIS";
             this.checkBox37.UseVisualStyleBackColor = false;
             // 
             // checkBox36
             // 
             this.checkBox36.AutoSize = true;
-            this.checkBox36.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.checkBox36.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox36.Location = new System.Drawing.Point(665, 671);
+            this.checkBox36.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.checkBox36.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox36.Location = new System.Drawing.Point(265, 495);
             this.checkBox36.Name = "checkBox36";
-            this.checkBox36.Size = new System.Drawing.Size(150, 22);
+            this.checkBox36.Size = new System.Drawing.Size(124, 19);
             this.checkBox36.TabIndex = 146;
-            this.checkBox36.Text = "Diabetes Tipo 2 ";
+            this.checkBox36.Text = "DIABETES TIPO 2";
             this.checkBox36.UseVisualStyleBackColor = false;
             // 
             // checkBox35
             // 
             this.checkBox35.AutoSize = true;
-            this.checkBox35.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.checkBox35.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox35.Location = new System.Drawing.Point(665, 643);
+            this.checkBox35.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.checkBox35.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox35.Location = new System.Drawing.Point(517, 495);
             this.checkBox35.Name = "checkBox35";
-            this.checkBox35.Size = new System.Drawing.Size(235, 22);
+            this.checkBox35.Size = new System.Drawing.Size(232, 19);
             this.checkBox35.TabIndex = 145;
-            this.checkBox35.Text = "Hipertesion Arterial Cronica";
+            this.checkBox35.Text = "HIPERTENSION ARTERIAL CRONICA";
             this.checkBox35.UseVisualStyleBackColor = false;
             // 
             // label24
@@ -557,7 +518,7 @@ namespace CLINICA_1
             this.label24.AutoSize = true;
             this.label24.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label24.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.label24.Location = new System.Drawing.Point(974, 583);
+            this.label24.Location = new System.Drawing.Point(1183, 565);
             this.label24.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(48, 21);
@@ -567,7 +528,7 @@ namespace CLINICA_1
             // textBox14
             // 
             this.textBox14.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox14.Location = new System.Drawing.Point(654, 611);
+            this.textBox14.Location = new System.Drawing.Point(775, 598);
             this.textBox14.Multiline = true;
             this.textBox14.Name = "textBox14";
             this.textBox14.Size = new System.Drawing.Size(257, 134);
@@ -579,7 +540,7 @@ namespace CLINICA_1
             this.label23.AutoSize = true;
             this.label23.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label23.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.label23.Location = new System.Drawing.Point(335, 582);
+            this.label23.Location = new System.Drawing.Point(408, 574);
             this.label23.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(186, 21);
@@ -592,7 +553,7 @@ namespace CLINICA_1
             this.label22.AutoSize = true;
             this.label22.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label22.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.label22.Location = new System.Drawing.Point(650, 583);
+            this.label22.Location = new System.Drawing.Point(807, 565);
             this.label22.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(184, 21);
@@ -605,7 +566,7 @@ namespace CLINICA_1
             this.label21.AutoSize = true;
             this.label21.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label21.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.label21.Location = new System.Drawing.Point(21, 583);
+            this.label21.Location = new System.Drawing.Point(73, 565);
             this.label21.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(203, 21);
@@ -615,7 +576,7 @@ namespace CLINICA_1
             // textBox7
             // 
             this.textBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox7.Location = new System.Drawing.Point(339, 610);
+            this.textBox7.Location = new System.Drawing.Point(374, 598);
             this.textBox7.Multiline = true;
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(257, 134);
@@ -624,7 +585,7 @@ namespace CLINICA_1
             // textBox4
             // 
             this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.Location = new System.Drawing.Point(978, 610);
+            this.textBox4.Location = new System.Drawing.Point(1075, 598);
             this.textBox4.Multiline = true;
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(257, 134);
@@ -633,7 +594,7 @@ namespace CLINICA_1
             // textBox3
             // 
             this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(18, 611);
+            this.textBox3.Location = new System.Drawing.Point(50, 598);
             this.textBox3.Multiline = true;
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(257, 134);
@@ -642,7 +603,7 @@ namespace CLINICA_1
             // checkBox48
             // 
             this.checkBox48.AutoSize = true;
-            this.checkBox48.Location = new System.Drawing.Point(851, 513);
+            this.checkBox48.Location = new System.Drawing.Point(839, 449);
             this.checkBox48.Name = "checkBox48";
             this.checkBox48.Size = new System.Drawing.Size(152, 17);
             this.checkBox48.TabIndex = 190;
@@ -652,7 +613,7 @@ namespace CLINICA_1
             // checkBox47
             // 
             this.checkBox47.AutoSize = true;
-            this.checkBox47.Location = new System.Drawing.Point(851, 536);
+            this.checkBox47.Location = new System.Drawing.Point(839, 472);
             this.checkBox47.Name = "checkBox47";
             this.checkBox47.Size = new System.Drawing.Size(200, 17);
             this.checkBox47.TabIndex = 189;
@@ -662,7 +623,7 @@ namespace CLINICA_1
             // checkBox46
             // 
             this.checkBox46.AutoSize = true;
-            this.checkBox46.Location = new System.Drawing.Point(529, 518);
+            this.checkBox46.Location = new System.Drawing.Point(519, 449);
             this.checkBox46.Name = "checkBox46";
             this.checkBox46.Size = new System.Drawing.Size(146, 17);
             this.checkBox46.TabIndex = 188;
@@ -672,7 +633,7 @@ namespace CLINICA_1
             // checkBox45
             // 
             this.checkBox45.AutoSize = true;
-            this.checkBox45.Location = new System.Drawing.Point(529, 541);
+            this.checkBox45.Location = new System.Drawing.Point(518, 472);
             this.checkBox45.Name = "checkBox45";
             this.checkBox45.Size = new System.Drawing.Size(240, 17);
             this.checkBox45.TabIndex = 187;
@@ -682,7 +643,7 @@ namespace CLINICA_1
             // checkBox44
             // 
             this.checkBox44.AutoSize = true;
-            this.checkBox44.Location = new System.Drawing.Point(275, 541);
+            this.checkBox44.Location = new System.Drawing.Point(265, 472);
             this.checkBox44.Name = "checkBox44";
             this.checkBox44.Size = new System.Drawing.Size(186, 17);
             this.checkBox44.TabIndex = 186;
@@ -692,7 +653,7 @@ namespace CLINICA_1
             // checkBox43
             // 
             this.checkBox43.AutoSize = true;
-            this.checkBox43.Location = new System.Drawing.Point(28, 316);
+            this.checkBox43.Location = new System.Drawing.Point(18, 247);
             this.checkBox43.Name = "checkBox43";
             this.checkBox43.Size = new System.Drawing.Size(273, 17);
             this.checkBox43.TabIndex = 185;
@@ -702,7 +663,7 @@ namespace CLINICA_1
             // checkBox42
             // 
             this.checkBox42.AutoSize = true;
-            this.checkBox42.Location = new System.Drawing.Point(28, 555);
+            this.checkBox42.Location = new System.Drawing.Point(18, 486);
             this.checkBox42.Name = "checkBox42";
             this.checkBox42.Size = new System.Drawing.Size(215, 17);
             this.checkBox42.TabIndex = 184;
@@ -712,7 +673,7 @@ namespace CLINICA_1
             // checkBox34
             // 
             this.checkBox34.AutoSize = true;
-            this.checkBox34.Location = new System.Drawing.Point(851, 357);
+            this.checkBox34.Location = new System.Drawing.Point(839, 293);
             this.checkBox34.Name = "checkBox34";
             this.checkBox34.Size = new System.Drawing.Size(392, 17);
             this.checkBox34.TabIndex = 183;
@@ -722,7 +683,7 @@ namespace CLINICA_1
             // checkBox33
             // 
             this.checkBox33.AutoSize = true;
-            this.checkBox33.Location = new System.Drawing.Point(851, 380);
+            this.checkBox33.Location = new System.Drawing.Point(839, 316);
             this.checkBox33.Name = "checkBox33";
             this.checkBox33.Size = new System.Drawing.Size(193, 17);
             this.checkBox33.TabIndex = 182;
@@ -732,7 +693,7 @@ namespace CLINICA_1
             // checkBox32
             // 
             this.checkBox32.AutoSize = true;
-            this.checkBox32.Location = new System.Drawing.Point(851, 403);
+            this.checkBox32.Location = new System.Drawing.Point(839, 339);
             this.checkBox32.Name = "checkBox32";
             this.checkBox32.Size = new System.Drawing.Size(117, 17);
             this.checkBox32.TabIndex = 181;
@@ -742,7 +703,7 @@ namespace CLINICA_1
             // checkBox31
             // 
             this.checkBox31.AutoSize = true;
-            this.checkBox31.Location = new System.Drawing.Point(851, 426);
+            this.checkBox31.Location = new System.Drawing.Point(839, 362);
             this.checkBox31.Name = "checkBox31";
             this.checkBox31.Size = new System.Drawing.Size(104, 17);
             this.checkBox31.TabIndex = 180;
@@ -752,7 +713,7 @@ namespace CLINICA_1
             // checkBox30
             // 
             this.checkBox30.AutoSize = true;
-            this.checkBox30.Location = new System.Drawing.Point(851, 449);
+            this.checkBox30.Location = new System.Drawing.Point(839, 385);
             this.checkBox30.Name = "checkBox30";
             this.checkBox30.Size = new System.Drawing.Size(110, 17);
             this.checkBox30.TabIndex = 179;
@@ -762,7 +723,7 @@ namespace CLINICA_1
             // checkBox29
             // 
             this.checkBox29.AutoSize = true;
-            this.checkBox29.Location = new System.Drawing.Point(851, 495);
+            this.checkBox29.Location = new System.Drawing.Point(839, 429);
             this.checkBox29.Name = "checkBox29";
             this.checkBox29.Size = new System.Drawing.Size(493, 17);
             this.checkBox29.TabIndex = 178;
@@ -772,7 +733,7 @@ namespace CLINICA_1
             // checkBox28
             // 
             this.checkBox28.AutoSize = true;
-            this.checkBox28.Location = new System.Drawing.Point(851, 474);
+            this.checkBox28.Location = new System.Drawing.Point(839, 407);
             this.checkBox28.Name = "checkBox28";
             this.checkBox28.Size = new System.Drawing.Size(125, 17);
             this.checkBox28.TabIndex = 177;
@@ -782,7 +743,7 @@ namespace CLINICA_1
             // checkBox27
             // 
             this.checkBox27.AutoSize = true;
-            this.checkBox27.Location = new System.Drawing.Point(529, 358);
+            this.checkBox27.Location = new System.Drawing.Point(519, 289);
             this.checkBox27.Name = "checkBox27";
             this.checkBox27.Size = new System.Drawing.Size(216, 17);
             this.checkBox27.TabIndex = 176;
@@ -792,7 +753,7 @@ namespace CLINICA_1
             // checkBox26
             // 
             this.checkBox26.AutoSize = true;
-            this.checkBox26.Location = new System.Drawing.Point(529, 380);
+            this.checkBox26.Location = new System.Drawing.Point(519, 311);
             this.checkBox26.Name = "checkBox26";
             this.checkBox26.Size = new System.Drawing.Size(124, 17);
             this.checkBox26.TabIndex = 175;
@@ -802,7 +763,7 @@ namespace CLINICA_1
             // checkBox25
             // 
             this.checkBox25.AutoSize = true;
-            this.checkBox25.Location = new System.Drawing.Point(529, 403);
+            this.checkBox25.Location = new System.Drawing.Point(519, 334);
             this.checkBox25.Name = "checkBox25";
             this.checkBox25.Size = new System.Drawing.Size(228, 17);
             this.checkBox25.TabIndex = 174;
@@ -812,7 +773,7 @@ namespace CLINICA_1
             // checkBox24
             // 
             this.checkBox24.AutoSize = true;
-            this.checkBox24.Location = new System.Drawing.Point(529, 426);
+            this.checkBox24.Location = new System.Drawing.Point(519, 357);
             this.checkBox24.Name = "checkBox24";
             this.checkBox24.Size = new System.Drawing.Size(91, 17);
             this.checkBox24.TabIndex = 173;
@@ -822,7 +783,7 @@ namespace CLINICA_1
             // checkBox23
             // 
             this.checkBox23.AutoSize = true;
-            this.checkBox23.Location = new System.Drawing.Point(529, 449);
+            this.checkBox23.Location = new System.Drawing.Point(519, 380);
             this.checkBox23.Name = "checkBox23";
             this.checkBox23.Size = new System.Drawing.Size(152, 17);
             this.checkBox23.TabIndex = 172;
@@ -832,7 +793,7 @@ namespace CLINICA_1
             // checkBox22
             // 
             this.checkBox22.AutoSize = true;
-            this.checkBox22.Location = new System.Drawing.Point(529, 472);
+            this.checkBox22.Location = new System.Drawing.Point(519, 403);
             this.checkBox22.Name = "checkBox22";
             this.checkBox22.Size = new System.Drawing.Size(251, 17);
             this.checkBox22.TabIndex = 171;
@@ -842,7 +803,7 @@ namespace CLINICA_1
             // checkBox21
             // 
             this.checkBox21.AutoSize = true;
-            this.checkBox21.Location = new System.Drawing.Point(529, 495);
+            this.checkBox21.Location = new System.Drawing.Point(519, 426);
             this.checkBox21.Name = "checkBox21";
             this.checkBox21.Size = new System.Drawing.Size(157, 17);
             this.checkBox21.TabIndex = 170;
@@ -852,7 +813,7 @@ namespace CLINICA_1
             // checkBox20
             // 
             this.checkBox20.AutoSize = true;
-            this.checkBox20.Location = new System.Drawing.Point(851, 334);
+            this.checkBox20.Location = new System.Drawing.Point(839, 270);
             this.checkBox20.Name = "checkBox20";
             this.checkBox20.Size = new System.Drawing.Size(272, 17);
             this.checkBox20.TabIndex = 169;
@@ -862,7 +823,7 @@ namespace CLINICA_1
             // checkBox19
             // 
             this.checkBox19.AutoSize = true;
-            this.checkBox19.Location = new System.Drawing.Point(275, 363);
+            this.checkBox19.Location = new System.Drawing.Point(265, 294);
             this.checkBox19.Name = "checkBox19";
             this.checkBox19.Size = new System.Drawing.Size(153, 17);
             this.checkBox19.TabIndex = 168;
@@ -872,7 +833,7 @@ namespace CLINICA_1
             // checkBox18
             // 
             this.checkBox18.AutoSize = true;
-            this.checkBox18.Location = new System.Drawing.Point(275, 386);
+            this.checkBox18.Location = new System.Drawing.Point(265, 317);
             this.checkBox18.Name = "checkBox18";
             this.checkBox18.Size = new System.Drawing.Size(125, 17);
             this.checkBox18.TabIndex = 167;
@@ -882,7 +843,7 @@ namespace CLINICA_1
             // checkBox17
             // 
             this.checkBox17.AutoSize = true;
-            this.checkBox17.Location = new System.Drawing.Point(275, 408);
+            this.checkBox17.Location = new System.Drawing.Point(265, 339);
             this.checkBox17.Name = "checkBox17";
             this.checkBox17.Size = new System.Drawing.Size(136, 17);
             this.checkBox17.TabIndex = 166;
@@ -892,7 +853,7 @@ namespace CLINICA_1
             // checkBox16
             // 
             this.checkBox16.AutoSize = true;
-            this.checkBox16.Location = new System.Drawing.Point(275, 427);
+            this.checkBox16.Location = new System.Drawing.Point(265, 358);
             this.checkBox16.Name = "checkBox16";
             this.checkBox16.Size = new System.Drawing.Size(214, 17);
             this.checkBox16.TabIndex = 165;
@@ -902,7 +863,7 @@ namespace CLINICA_1
             // checkBox15
             // 
             this.checkBox15.AutoSize = true;
-            this.checkBox15.Location = new System.Drawing.Point(275, 449);
+            this.checkBox15.Location = new System.Drawing.Point(265, 380);
             this.checkBox15.Name = "checkBox15";
             this.checkBox15.Size = new System.Drawing.Size(194, 17);
             this.checkBox15.TabIndex = 164;
@@ -912,7 +873,7 @@ namespace CLINICA_1
             // checkBox14
             // 
             this.checkBox14.AutoSize = true;
-            this.checkBox14.Location = new System.Drawing.Point(275, 472);
+            this.checkBox14.Location = new System.Drawing.Point(265, 403);
             this.checkBox14.Name = "checkBox14";
             this.checkBox14.Size = new System.Drawing.Size(175, 17);
             this.checkBox14.TabIndex = 163;
@@ -922,7 +883,7 @@ namespace CLINICA_1
             // checkBox13
             // 
             this.checkBox13.AutoSize = true;
-            this.checkBox13.Location = new System.Drawing.Point(275, 495);
+            this.checkBox13.Location = new System.Drawing.Point(265, 426);
             this.checkBox13.Name = "checkBox13";
             this.checkBox13.Size = new System.Drawing.Size(110, 17);
             this.checkBox13.TabIndex = 162;
@@ -932,7 +893,7 @@ namespace CLINICA_1
             // checkBox12
             // 
             this.checkBox12.AutoSize = true;
-            this.checkBox12.Location = new System.Drawing.Point(275, 518);
+            this.checkBox12.Location = new System.Drawing.Point(265, 449);
             this.checkBox12.Name = "checkBox12";
             this.checkBox12.Size = new System.Drawing.Size(150, 17);
             this.checkBox12.TabIndex = 161;
@@ -942,7 +903,7 @@ namespace CLINICA_1
             // checkBox11
             // 
             this.checkBox11.AutoSize = true;
-            this.checkBox11.Location = new System.Drawing.Point(529, 334);
+            this.checkBox11.Location = new System.Drawing.Point(519, 265);
             this.checkBox11.Name = "checkBox11";
             this.checkBox11.Size = new System.Drawing.Size(255, 17);
             this.checkBox11.TabIndex = 160;
@@ -952,7 +913,7 @@ namespace CLINICA_1
             // checkBox10
             // 
             this.checkBox10.AutoSize = true;
-            this.checkBox10.Location = new System.Drawing.Point(275, 339);
+            this.checkBox10.Location = new System.Drawing.Point(265, 270);
             this.checkBox10.Name = "checkBox10";
             this.checkBox10.Size = new System.Drawing.Size(129, 17);
             this.checkBox10.TabIndex = 159;
@@ -962,7 +923,7 @@ namespace CLINICA_1
             // checkBox9
             // 
             this.checkBox9.AutoSize = true;
-            this.checkBox9.Location = new System.Drawing.Point(28, 385);
+            this.checkBox9.Location = new System.Drawing.Point(18, 316);
             this.checkBox9.Name = "checkBox9";
             this.checkBox9.Size = new System.Drawing.Size(163, 17);
             this.checkBox9.TabIndex = 158;
@@ -972,7 +933,7 @@ namespace CLINICA_1
             // checkBox8
             // 
             this.checkBox8.AutoSize = true;
-            this.checkBox8.Location = new System.Drawing.Point(28, 408);
+            this.checkBox8.Location = new System.Drawing.Point(18, 339);
             this.checkBox8.Name = "checkBox8";
             this.checkBox8.Size = new System.Drawing.Size(156, 17);
             this.checkBox8.TabIndex = 157;
@@ -982,7 +943,7 @@ namespace CLINICA_1
             // checkBox7
             // 
             this.checkBox7.AutoSize = true;
-            this.checkBox7.Location = new System.Drawing.Point(28, 431);
+            this.checkBox7.Location = new System.Drawing.Point(18, 362);
             this.checkBox7.Name = "checkBox7";
             this.checkBox7.Size = new System.Drawing.Size(124, 17);
             this.checkBox7.TabIndex = 156;
@@ -992,7 +953,7 @@ namespace CLINICA_1
             // checkBox6
             // 
             this.checkBox6.AutoSize = true;
-            this.checkBox6.Location = new System.Drawing.Point(28, 454);
+            this.checkBox6.Location = new System.Drawing.Point(18, 385);
             this.checkBox6.Name = "checkBox6";
             this.checkBox6.Size = new System.Drawing.Size(144, 17);
             this.checkBox6.TabIndex = 155;
@@ -1002,7 +963,7 @@ namespace CLINICA_1
             // checkBox5
             // 
             this.checkBox5.AutoSize = true;
-            this.checkBox5.Location = new System.Drawing.Point(28, 479);
+            this.checkBox5.Location = new System.Drawing.Point(18, 410);
             this.checkBox5.Name = "checkBox5";
             this.checkBox5.Size = new System.Drawing.Size(89, 17);
             this.checkBox5.TabIndex = 154;
@@ -1012,7 +973,7 @@ namespace CLINICA_1
             // checkBox4
             // 
             this.checkBox4.AutoSize = true;
-            this.checkBox4.Location = new System.Drawing.Point(28, 507);
+            this.checkBox4.Location = new System.Drawing.Point(18, 438);
             this.checkBox4.Name = "checkBox4";
             this.checkBox4.Size = new System.Drawing.Size(114, 17);
             this.checkBox4.TabIndex = 153;
@@ -1022,7 +983,7 @@ namespace CLINICA_1
             // checkBox3
             // 
             this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(28, 532);
+            this.checkBox3.Location = new System.Drawing.Point(18, 463);
             this.checkBox3.Name = "checkBox3";
             this.checkBox3.Size = new System.Drawing.Size(230, 17);
             this.checkBox3.TabIndex = 152;
@@ -1032,7 +993,7 @@ namespace CLINICA_1
             // checkBox2
             // 
             this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(28, 362);
+            this.checkBox2.Location = new System.Drawing.Point(18, 293);
             this.checkBox2.Name = "checkBox2";
             this.checkBox2.Size = new System.Drawing.Size(198, 17);
             this.checkBox2.TabIndex = 151;
@@ -1042,7 +1003,7 @@ namespace CLINICA_1
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(28, 339);
+            this.checkBox1.Location = new System.Drawing.Point(18, 270);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(157, 17);
             this.checkBox1.TabIndex = 150;
@@ -1055,7 +1016,7 @@ namespace CLINICA_1
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.label18.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.label18.Location = new System.Drawing.Point(862, 357);
+            this.label18.Location = new System.Drawing.Point(850, 325);
             this.label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(0, 21);
@@ -1065,90 +1026,83 @@ namespace CLINICA_1
             // 
             this.textBox13.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.textBox13.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox13.Location = new System.Drawing.Point(743, 266);
+            this.textBox13.Location = new System.Drawing.Point(743, 225);
             this.textBox13.Margin = new System.Windows.Forms.Padding(4);
             this.textBox13.Name = "textBox13";
             this.textBox13.Size = new System.Drawing.Size(248, 24);
             this.textBox13.TabIndex = 198;
-            this.textBox13.Text = "Obesidad";
             // 
             // textBox12
             // 
             this.textBox12.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.textBox12.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox12.Location = new System.Drawing.Point(743, 240);
+            this.textBox12.Location = new System.Drawing.Point(743, 199);
             this.textBox12.Margin = new System.Windows.Forms.Padding(4);
             this.textBox12.Name = "textBox12";
             this.textBox12.Size = new System.Drawing.Size(248, 24);
             this.textBox12.TabIndex = 197;
-            this.textBox12.Text = "1.56";
             this.textBox12.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBox11
             // 
             this.textBox11.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.textBox11.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox11.Location = new System.Drawing.Point(743, 214);
+            this.textBox11.Location = new System.Drawing.Point(743, 173);
             this.textBox11.Margin = new System.Windows.Forms.Padding(4);
             this.textBox11.Name = "textBox11";
             this.textBox11.Size = new System.Drawing.Size(248, 24);
             this.textBox11.TabIndex = 196;
-            this.textBox11.Text = "87";
             this.textBox11.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBox10
             // 
             this.textBox10.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.textBox10.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox10.Location = new System.Drawing.Point(743, 188);
+            this.textBox10.Location = new System.Drawing.Point(743, 147);
             this.textBox10.Margin = new System.Windows.Forms.Padding(4);
             this.textBox10.Name = "textBox10";
             this.textBox10.Size = new System.Drawing.Size(248, 24);
             this.textBox10.TabIndex = 195;
-            this.textBox10.Text = "96";
             this.textBox10.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBox9
             // 
             this.textBox9.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.textBox9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox9.Location = new System.Drawing.Point(743, 162);
+            this.textBox9.Location = new System.Drawing.Point(743, 121);
             this.textBox9.Margin = new System.Windows.Forms.Padding(4);
             this.textBox9.Name = "textBox9";
             this.textBox9.Size = new System.Drawing.Size(248, 24);
             this.textBox9.TabIndex = 194;
-            this.textBox9.Text = "22";
             this.textBox9.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBox6
             // 
             this.textBox6.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.textBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox6.Location = new System.Drawing.Point(743, 137);
+            this.textBox6.Location = new System.Drawing.Point(743, 96);
             this.textBox6.Margin = new System.Windows.Forms.Padding(4);
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(248, 24);
             this.textBox6.TabIndex = 193;
-            this.textBox6.Text = "97";
             this.textBox6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBox5
             // 
             this.textBox5.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.textBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox5.Location = new System.Drawing.Point(743, 111);
+            this.textBox5.Location = new System.Drawing.Point(743, 70);
             this.textBox5.Margin = new System.Windows.Forms.Padding(4);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(248, 24);
             this.textBox5.TabIndex = 192;
-            this.textBox5.Text = "140/90";
             this.textBox5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBox8
             // 
             this.textBox8.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.textBox8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox8.Location = new System.Drawing.Point(743, 114);
+            this.textBox8.Location = new System.Drawing.Point(743, 73);
             this.textBox8.Margin = new System.Windows.Forms.Padding(4);
             this.textBox8.Multiline = true;
             this.textBox8.Name = "textBox8";
@@ -1159,7 +1113,7 @@ namespace CLINICA_1
             // 
             this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(12, 115);
+            this.textBox1.Location = new System.Drawing.Point(13, 98);
             this.textBox1.Margin = new System.Windows.Forms.Padding(4);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
@@ -1172,7 +1126,7 @@ namespace CLINICA_1
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.label1.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.label1.Location = new System.Drawing.Point(20, 86);
+            this.label1.Location = new System.Drawing.Point(23, 65);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(161, 21);
@@ -1183,12 +1137,11 @@ namespace CLINICA_1
             // 
             this.textBox2.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(129, 49);
+            this.textBox2.Location = new System.Drawing.Point(129, 30);
             this.textBox2.Margin = new System.Windows.Forms.Padding(4);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(110, 24);
             this.textBox2.TabIndex = 200;
-            this.textBox2.Text = "Las rochas";
             // 
             // lblNombre
             // 
@@ -1196,12 +1149,42 @@ namespace CLINICA_1
             this.lblNombre.AutoSize = true;
             this.lblNombre.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.lblNombre.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.lblNombre.Location = new System.Drawing.Point(20, 46);
+            this.lblNombre.Location = new System.Drawing.Point(20, 27);
             this.lblNombre.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(101, 21);
             this.lblNombre.TabIndex = 199;
             this.lblNombre.Text = "Consulta Por:";
+            // 
+            // checkBox39
+            // 
+            this.checkBox39.AutoSize = true;
+            this.checkBox39.Location = new System.Drawing.Point(383, 123);
+            this.checkBox39.Name = "checkBox39";
+            this.checkBox39.Size = new System.Drawing.Size(163, 17);
+            this.checkBox39.TabIndex = 203;
+            this.checkBox39.Text = "HIPERTENSION ARTERIAL";
+            this.checkBox39.UseVisualStyleBackColor = true;
+            // 
+            // checkBox40
+            // 
+            this.checkBox40.AutoSize = true;
+            this.checkBox40.Location = new System.Drawing.Point(384, 151);
+            this.checkBox40.Name = "checkBox40";
+            this.checkBox40.Size = new System.Drawing.Size(79, 17);
+            this.checkBox40.TabIndex = 204;
+            this.checkBox40.Text = "DIABETES";
+            this.checkBox40.UseVisualStyleBackColor = true;
+            // 
+            // checkBox41
+            // 
+            this.checkBox41.AutoSize = true;
+            this.checkBox41.Location = new System.Drawing.Point(383, 178);
+            this.checkBox41.Name = "checkBox41";
+            this.checkBox41.Size = new System.Drawing.Size(102, 17);
+            this.checkBox41.TabIndex = 205;
+            this.checkBox41.Text = "HEMODIALISIS";
+            this.checkBox41.UseVisualStyleBackColor = true;
             // 
             // HistoriaClinica
             // 
@@ -1209,6 +1192,9 @@ namespace CLINICA_1
             this.AutoScroll = true;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1370, 749);
+            this.Controls.Add(this.checkBox41);
+            this.Controls.Add(this.checkBox40);
+            this.Controls.Add(this.checkBox39);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox2);
@@ -1299,9 +1285,6 @@ namespace CLINICA_1
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.Diabetes);
-            this.Controls.Add(this.Hemodialisis);
-            this.Controls.Add(this.Hipertension);
             this.Controls.Add(this.label2);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -1319,9 +1302,6 @@ namespace CLINICA_1
 
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.RadioButton Hipertension;
-        private System.Windows.Forms.RadioButton Hemodialisis;
-        private System.Windows.Forms.RadioButton Diabetes;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
@@ -1412,5 +1392,8 @@ namespace CLINICA_1
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label lblNombre;
+        private System.Windows.Forms.CheckBox checkBox39;
+        private System.Windows.Forms.CheckBox checkBox40;
+        private System.Windows.Forms.CheckBox checkBox41;
     }
 }
