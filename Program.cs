@@ -10,7 +10,7 @@ namespace CLINICA_1
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Registro()); // Cambia 'Form1' si tu formulario principal tiene otro nombre
+            Application.Run(new Login()); // Cambia 'Form1' si tu formulario principal tiene otro nombre
         }
     }
 }

@@ -32,9 +32,9 @@ namespace CLINICA_1
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Menu));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.rEGISTRARDATOSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.hISTORIACLINICAToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.hISTORIACLINICAToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -63,15 +63,6 @@ namespace CLINICA_1
             this.rEGISTRARDATOSToolStripMenuItem.Text = "REGISTRAR DATOS";
             this.rEGISTRARDATOSToolStripMenuItem.Click += new System.EventHandler(this.rEGISTRARDATOSToolStripMenuItem_Click);
             // 
-            // hISTORIACLINICAToolStripMenuItem
-            // 
-            this.hISTORIACLINICAToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.hISTORIACLINICAToolStripMenuItem.ForeColor = System.Drawing.Color.White;
-            this.hISTORIACLINICAToolStripMenuItem.Name = "hISTORIACLINICAToolStripMenuItem";
-            this.hISTORIACLINICAToolStripMenuItem.Size = new System.Drawing.Size(160, 25);
-            this.hISTORIACLINICAToolStripMenuItem.Text = "HISTORIA CLINICA";
-            this.hISTORIACLINICAToolStripMenuItem.Click += new System.EventHandler(this.hISTORIACLINICAToolStripMenuItem_Click);
-            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
@@ -93,6 +84,15 @@ namespace CLINICA_1
             this.label1.TabIndex = 25;
             this.label1.Text = "CLINICA VARGAS";
             // 
+            // hISTORIACLINICAToolStripMenuItem
+            // 
+            this.hISTORIACLINICAToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.hISTORIACLINICAToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.hISTORIACLINICAToolStripMenuItem.Name = "hISTORIACLINICAToolStripMenuItem";
+            this.hISTORIACLINICAToolStripMenuItem.Size = new System.Drawing.Size(160, 25);
+            this.hISTORIACLINICAToolStripMenuItem.Text = "HISTORIA CLINICA";
+            this.hISTORIACLINICAToolStripMenuItem.Click += new System.EventHandler(this.hISTORIACLINICAToolStripMenuItem_Click);
+            // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -103,10 +103,10 @@ namespace CLINICA_1
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Menu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "CLINICA VARGAS - MENU PRINCIPAL";
+            this.Text = "CLINICA VARGAS - MENU PRINCIPAL -DOCTOR";
             this.Load += new System.EventHandler(this.Menu_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -120,8 +120,8 @@ namespace CLINICA_1
 
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem rEGISTRARDATOSToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem hISTORIACLINICAToolStripMenuItem;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ToolStripMenuItem hISTORIACLINICAToolStripMenuItem;
     }
 }

@@ -31,9 +31,6 @@ namespace CLINICA_1
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HistoriaClinica));
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.lblNombre = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.Hipertension = new System.Windows.Forms.RadioButton();
             this.Hemodialisis = new System.Windows.Forms.RadioButton();
@@ -45,127 +42,97 @@ namespace CLINICA_1
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.textBox8 = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
             this.nuevo = new System.Windows.Forms.Button();
             this.guardar = new System.Windows.Forms.Button();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.textBox11 = new System.Windows.Forms.TextBox();
-            this.textBox12 = new System.Windows.Forms.TextBox();
-            this.textBox13 = new System.Windows.Forms.TextBox();
-            this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.radioButton4 = new System.Windows.Forms.RadioButton();
-            this.radioButton5 = new System.Windows.Forms.RadioButton();
-            this.radioButton6 = new System.Windows.Forms.RadioButton();
-            this.radioButton7 = new System.Windows.Forms.RadioButton();
-            this.radioButton8 = new System.Windows.Forms.RadioButton();
-            this.radioButton9 = new System.Windows.Forms.RadioButton();
-            this.radioButton10 = new System.Windows.Forms.RadioButton();
-            this.radioButton11 = new System.Windows.Forms.RadioButton();
-            this.radioButton12 = new System.Windows.Forms.RadioButton();
-            this.radioButton13 = new System.Windows.Forms.RadioButton();
-            this.radioButton14 = new System.Windows.Forms.RadioButton();
-            this.radioButton15 = new System.Windows.Forms.RadioButton();
-            this.radioButton16 = new System.Windows.Forms.RadioButton();
-            this.radioButton17 = new System.Windows.Forms.RadioButton();
-            this.radioButton18 = new System.Windows.Forms.RadioButton();
-            this.radioButton19 = new System.Windows.Forms.RadioButton();
-            this.radioButton20 = new System.Windows.Forms.RadioButton();
-            this.radioButton21 = new System.Windows.Forms.RadioButton();
-            this.radioButton22 = new System.Windows.Forms.RadioButton();
-            this.radioButton23 = new System.Windows.Forms.RadioButton();
-            this.radioButton24 = new System.Windows.Forms.RadioButton();
-            this.radioButton25 = new System.Windows.Forms.RadioButton();
-            this.radioButton26 = new System.Windows.Forms.RadioButton();
-            this.radioButton27 = new System.Windows.Forms.RadioButton();
-            this.radioButton28 = new System.Windows.Forms.RadioButton();
-            this.radioButton29 = new System.Windows.Forms.RadioButton();
             this.radioButton30 = new System.Windows.Forms.RadioButton();
-            this.radioButton31 = new System.Windows.Forms.RadioButton();
-            this.radioButton32 = new System.Windows.Forms.RadioButton();
-            this.radioButton33 = new System.Windows.Forms.RadioButton();
             this.radioButton34 = new System.Windows.Forms.RadioButton();
-            this.radioButton35 = new System.Windows.Forms.RadioButton();
-            this.radioButton36 = new System.Windows.Forms.RadioButton();
             this.radioButton37 = new System.Windows.Forms.RadioButton();
             this.radioButton38 = new System.Windows.Forms.RadioButton();
             this.radioButton39 = new System.Windows.Forms.RadioButton();
             this.radioButton40 = new System.Windows.Forms.RadioButton();
             this.radioButton41 = new System.Windows.Forms.RadioButton();
             this.label20 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
-            this.textBox14 = new System.Windows.Forms.TextBox();
-            this.label22 = new System.Windows.Forms.Label();
+            this.checkBox38 = new System.Windows.Forms.CheckBox();
+            this.checkBox37 = new System.Windows.Forms.CheckBox();
+            this.checkBox36 = new System.Windows.Forms.CheckBox();
+            this.checkBox35 = new System.Windows.Forms.CheckBox();
             this.label24 = new System.Windows.Forms.Label();
-            this.radioButton42 = new System.Windows.Forms.RadioButton();
-            this.radioButton43 = new System.Windows.Forms.RadioButton();
-            this.radioButton44 = new System.Windows.Forms.RadioButton();
-            this.radioButton45 = new System.Windows.Forms.RadioButton();
+            this.textBox14 = new System.Windows.Forms.TextBox();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.checkBox48 = new System.Windows.Forms.CheckBox();
+            this.checkBox47 = new System.Windows.Forms.CheckBox();
+            this.checkBox46 = new System.Windows.Forms.CheckBox();
+            this.checkBox45 = new System.Windows.Forms.CheckBox();
+            this.checkBox44 = new System.Windows.Forms.CheckBox();
+            this.checkBox43 = new System.Windows.Forms.CheckBox();
+            this.checkBox42 = new System.Windows.Forms.CheckBox();
+            this.checkBox34 = new System.Windows.Forms.CheckBox();
+            this.checkBox33 = new System.Windows.Forms.CheckBox();
+            this.checkBox32 = new System.Windows.Forms.CheckBox();
+            this.checkBox31 = new System.Windows.Forms.CheckBox();
+            this.checkBox30 = new System.Windows.Forms.CheckBox();
+            this.checkBox29 = new System.Windows.Forms.CheckBox();
+            this.checkBox28 = new System.Windows.Forms.CheckBox();
+            this.checkBox27 = new System.Windows.Forms.CheckBox();
+            this.checkBox26 = new System.Windows.Forms.CheckBox();
+            this.checkBox25 = new System.Windows.Forms.CheckBox();
+            this.checkBox24 = new System.Windows.Forms.CheckBox();
+            this.checkBox23 = new System.Windows.Forms.CheckBox();
+            this.checkBox22 = new System.Windows.Forms.CheckBox();
+            this.checkBox21 = new System.Windows.Forms.CheckBox();
+            this.checkBox20 = new System.Windows.Forms.CheckBox();
+            this.checkBox19 = new System.Windows.Forms.CheckBox();
+            this.checkBox18 = new System.Windows.Forms.CheckBox();
+            this.checkBox17 = new System.Windows.Forms.CheckBox();
+            this.checkBox16 = new System.Windows.Forms.CheckBox();
+            this.checkBox15 = new System.Windows.Forms.CheckBox();
+            this.checkBox14 = new System.Windows.Forms.CheckBox();
+            this.checkBox13 = new System.Windows.Forms.CheckBox();
+            this.checkBox12 = new System.Windows.Forms.CheckBox();
+            this.checkBox11 = new System.Windows.Forms.CheckBox();
+            this.checkBox10 = new System.Windows.Forms.CheckBox();
+            this.checkBox9 = new System.Windows.Forms.CheckBox();
+            this.checkBox8 = new System.Windows.Forms.CheckBox();
+            this.checkBox7 = new System.Windows.Forms.CheckBox();
+            this.checkBox6 = new System.Windows.Forms.CheckBox();
+            this.checkBox5 = new System.Windows.Forms.CheckBox();
+            this.checkBox4 = new System.Windows.Forms.CheckBox();
+            this.checkBox3 = new System.Windows.Forms.CheckBox();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.textBox13 = new System.Windows.Forms.TextBox();
+            this.textBox12 = new System.Windows.Forms.TextBox();
+            this.textBox11 = new System.Windows.Forms.TextBox();
+            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.lblNombre = new System.Windows.Forms.Label();
             this.SuspendLayout();
-            // 
-            // lblNombre
-            // 
-            this.lblNombre.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.lblNombre.AutoSize = true;
-            this.lblNombre.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.lblNombre.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.lblNombre.Location = new System.Drawing.Point(24, 22);
-            this.lblNombre.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(101, 21);
-            this.lblNombre.TabIndex = 2;
-            this.lblNombre.Text = "Consulta Por:";
-            this.lblNombre.Click += new System.EventHandler(this.lblNombre_Click);
-            // 
-            // textBox2
-            // 
-            this.textBox2.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.textBox2.Location = new System.Drawing.Point(133, 25);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(132, 20);
-            this.textBox2.TabIndex = 3;
-            this.textBox2.Text = "Las rochas";
-            // 
-            // label1
-            // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.label1.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.label1.Location = new System.Drawing.Point(24, 62);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(161, 21);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Presente Enfermedad:";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.label2.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.label2.Location = new System.Drawing.Point(390, 68);
+            this.label2.Location = new System.Drawing.Point(390, 132);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(263, 26);
@@ -177,7 +144,7 @@ namespace CLINICA_1
             // 
             this.Hipertension.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.Hipertension.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.Hipertension.Location = new System.Drawing.Point(394, 98);
+            this.Hipertension.Location = new System.Drawing.Point(394, 162);
             this.Hipertension.Margin = new System.Windows.Forms.Padding(4);
             this.Hipertension.Name = "Hipertension";
             this.Hipertension.Size = new System.Drawing.Size(237, 21);
@@ -190,7 +157,7 @@ namespace CLINICA_1
             // 
             this.Hemodialisis.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.Hemodialisis.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.Hemodialisis.Location = new System.Drawing.Point(394, 156);
+            this.Hemodialisis.Location = new System.Drawing.Point(394, 220);
             this.Hemodialisis.Margin = new System.Windows.Forms.Padding(4);
             this.Hemodialisis.Name = "Hemodialisis";
             this.Hemodialisis.Size = new System.Drawing.Size(160, 21);
@@ -203,7 +170,7 @@ namespace CLINICA_1
             // 
             this.Diabetes.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.Diabetes.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.Diabetes.Location = new System.Drawing.Point(394, 127);
+            this.Diabetes.Location = new System.Drawing.Point(394, 191);
             this.Diabetes.Margin = new System.Windows.Forms.Padding(4);
             this.Diabetes.Name = "Diabetes";
             this.Diabetes.Size = new System.Drawing.Size(129, 21);
@@ -218,7 +185,7 @@ namespace CLINICA_1
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.label3.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.label3.Location = new System.Drawing.Point(630, 47);
+            this.label3.Location = new System.Drawing.Point(630, 111);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(103, 21);
@@ -232,7 +199,7 @@ namespace CLINICA_1
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.label4.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.label4.Location = new System.Drawing.Point(615, 74);
+            this.label4.Location = new System.Drawing.Point(615, 138);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(120, 21);
@@ -246,7 +213,7 @@ namespace CLINICA_1
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.label5.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.label5.Location = new System.Drawing.Point(565, 151);
+            this.label5.Location = new System.Drawing.Point(565, 215);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(170, 21);
@@ -260,7 +227,7 @@ namespace CLINICA_1
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.label6.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.label6.Location = new System.Drawing.Point(565, 125);
+            this.label6.Location = new System.Drawing.Point(565, 189);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(175, 21);
@@ -274,7 +241,7 @@ namespace CLINICA_1
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.label7.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.label7.Location = new System.Drawing.Point(584, 98);
+            this.label7.Location = new System.Drawing.Point(584, 162);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(151, 21);
@@ -288,7 +255,7 @@ namespace CLINICA_1
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.label8.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.label8.Location = new System.Drawing.Point(690, 174);
+            this.label8.Location = new System.Drawing.Point(690, 238);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(45, 21);
@@ -302,7 +269,7 @@ namespace CLINICA_1
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.label9.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.label9.Location = new System.Drawing.Point(690, 200);
+            this.label9.Location = new System.Drawing.Point(690, 264);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(43, 21);
@@ -310,38 +277,13 @@ namespace CLINICA_1
             this.label9.Text = "Talla:";
             this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
-            // label10
-            // 
-            this.label10.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.label10.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.label10.Location = new System.Drawing.Point(562, 226);
-            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(178, 21);
-            this.label10.TabIndex = 21;
-            this.label10.Text = "Indice de masa corporal:";
-            this.label10.Click += new System.EventHandler(this.label10_Click);
-            // 
-            // textBox8
-            // 
-            this.textBox8.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.textBox8.Location = new System.Drawing.Point(748, 77);
-            this.textBox8.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox8.Multiline = true;
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(248, 176);
-            this.textBox8.TabIndex = 22;
-            this.textBox8.TextChanged += new System.EventHandler(this.textBox8_TextChanged);
-            // 
             // label11
             // 
             this.label11.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.label11.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.label11.Location = new System.Drawing.Point(1004, 97);
+            this.label11.Location = new System.Drawing.Point(999, 141);
             this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(90, 21);
@@ -355,7 +297,7 @@ namespace CLINICA_1
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.label12.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.label12.Location = new System.Drawing.Point(1004, 71);
+            this.label12.Location = new System.Drawing.Point(999, 115);
             this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(58, 21);
@@ -369,7 +311,7 @@ namespace CLINICA_1
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.label13.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.label13.Location = new System.Drawing.Point(1004, 200);
+            this.label13.Location = new System.Drawing.Point(999, 244);
             this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(98, 21);
@@ -383,7 +325,7 @@ namespace CLINICA_1
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.label14.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.label14.Location = new System.Drawing.Point(1004, 174);
+            this.label14.Location = new System.Drawing.Point(999, 218);
             this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(46, 21);
@@ -397,7 +339,7 @@ namespace CLINICA_1
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.label15.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.label15.Location = new System.Drawing.Point(1009, 153);
+            this.label15.Location = new System.Drawing.Point(1004, 197);
             this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(23, 21);
@@ -411,27 +353,13 @@ namespace CLINICA_1
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.label16.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.label16.Location = new System.Drawing.Point(1004, 122);
+            this.label16.Location = new System.Drawing.Point(999, 166);
             this.label16.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(90, 21);
             this.label16.TabIndex = 28;
             this.label16.Text = "Por minuto:";
             this.label16.Click += new System.EventHandler(this.label16_Click);
-            // 
-            // label17
-            // 
-            this.label17.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.label17.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.label17.Location = new System.Drawing.Point(16, 243);
-            this.label17.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(110, 21);
-            this.label17.TabIndex = 29;
-            this.label17.Text = "Examen Fisico:";
-            this.label17.Click += new System.EventHandler(this.label17_Click);
             // 
             // nuevo
             // 
@@ -440,7 +368,7 @@ namespace CLINICA_1
             this.nuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.nuevo.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.nuevo.ForeColor = System.Drawing.Color.White;
-            this.nuevo.Location = new System.Drawing.Point(1058, 9);
+            this.nuevo.Location = new System.Drawing.Point(1058, 33);
             this.nuevo.Margin = new System.Windows.Forms.Padding(4);
             this.nuevo.Name = "nuevo";
             this.nuevo.Size = new System.Drawing.Size(115, 34);
@@ -455,7 +383,7 @@ namespace CLINICA_1
             this.guardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.guardar.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.guardar.ForeColor = System.Drawing.Color.White;
-            this.guardar.Location = new System.Drawing.Point(1199, 9);
+            this.guardar.Location = new System.Drawing.Point(1199, 33);
             this.guardar.Margin = new System.Windows.Forms.Padding(4);
             this.guardar.Name = "guardar";
             this.guardar.Size = new System.Drawing.Size(127, 34);
@@ -463,109 +391,13 @@ namespace CLINICA_1
             this.guardar.Text = "GUARDAR";
             this.guardar.UseVisualStyleBackColor = false;
             // 
-            // textBox5
-            // 
-            this.textBox5.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.textBox5.Location = new System.Drawing.Point(748, 74);
-            this.textBox5.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(248, 20);
-            this.textBox5.TabIndex = 34;
-            this.textBox5.Text = "140/90";
-            this.textBox5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBox5.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
-            // 
-            // textBox6
-            // 
-            this.textBox6.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.textBox6.Location = new System.Drawing.Point(748, 100);
-            this.textBox6.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(248, 20);
-            this.textBox6.TabIndex = 35;
-            this.textBox6.Text = "97";
-            this.textBox6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBox6.TextChanged += new System.EventHandler(this.textBox6_TextChanged);
-            // 
-            // textBox9
-            // 
-            this.textBox9.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.textBox9.Location = new System.Drawing.Point(748, 125);
-            this.textBox9.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(248, 20);
-            this.textBox9.TabIndex = 36;
-            this.textBox9.Text = "22";
-            this.textBox9.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBox9.TextChanged += new System.EventHandler(this.textBox9_TextChanged);
-            // 
-            // textBox10
-            // 
-            this.textBox10.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.textBox10.Location = new System.Drawing.Point(748, 151);
-            this.textBox10.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(248, 20);
-            this.textBox10.TabIndex = 37;
-            this.textBox10.Text = "96";
-            this.textBox10.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBox10.TextChanged += new System.EventHandler(this.textBox10_TextChanged);
-            // 
-            // textBox11
-            // 
-            this.textBox11.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.textBox11.Location = new System.Drawing.Point(748, 177);
-            this.textBox11.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(248, 20);
-            this.textBox11.TabIndex = 38;
-            this.textBox11.Text = "87";
-            this.textBox11.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBox11.TextChanged += new System.EventHandler(this.textBox11_TextChanged);
-            // 
-            // textBox12
-            // 
-            this.textBox12.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.textBox12.Location = new System.Drawing.Point(748, 203);
-            this.textBox12.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(248, 20);
-            this.textBox12.TabIndex = 39;
-            this.textBox12.Text = "1.56";
-            this.textBox12.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBox12.TextChanged += new System.EventHandler(this.textBox12_TextChanged);
-            // 
-            // textBox13
-            // 
-            this.textBox13.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.textBox13.Location = new System.Drawing.Point(748, 229);
-            this.textBox13.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new System.Drawing.Size(248, 20);
-            this.textBox13.TabIndex = 40;
-            this.textBox13.Text = "Obesidad";
-            this.textBox13.TextChanged += new System.EventHandler(this.textBox13_TextChanged);
-            // 
-            // label18
-            // 
-            this.label18.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.label18.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.label18.Location = new System.Drawing.Point(870, 348);
-            this.label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(0, 21);
-            this.label18.TabIndex = 41;
-            this.label18.Click += new System.EventHandler(this.label18_Click);
-            // 
             // label19
             // 
             this.label19.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.label19.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.label19.Location = new System.Drawing.Point(1110, 144);
+            this.label19.Location = new System.Drawing.Point(1105, 170);
             this.label19.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(243, 105);
@@ -573,355 +405,6 @@ namespace CLINICA_1
             this.label19.Text = "Bajo peso: IMC menor 18.5\r\nNormal: IMC entre 18.5 y 24.9 \r\nSobrepeso: IMC entre 2" +
     "5.0 y 29.9 \r\nObesidad: IMC de 30.0 a o mas \r\n\r\n";
             this.label19.Click += new System.EventHandler(this.label19_Click);
-            // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(19, 280);
-            this.radioButton1.Margin = new System.Windows.Forms.Padding(4);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(159, 17);
-            this.radioButton1.TabIndex = 44;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "CABEZA NORMOCRANEO ";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
-            // 
-            // radioButton2
-            // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(314, 296);
-            this.radioButton2.Margin = new System.Windows.Forms.Padding(4);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(128, 17);
-            this.radioButton2.TabIndex = 45;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "NO HUNDIMIENTOS\r\n";
-            this.radioButton2.UseVisualStyleBackColor = true;
-            // 
-            // radioButton3
-            // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(315, 353);
-            this.radioButton3.Margin = new System.Windows.Forms.Padding(4);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(124, 17);
-            this.radioButton3.TabIndex = 46;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "NO ALETEO NASAL";
-            this.radioButton3.UseVisualStyleBackColor = true;
-            // 
-            // radioButton4
-            // 
-            this.radioButton4.AutoSize = true;
-            this.radioButton4.Location = new System.Drawing.Point(19, 338);
-            this.radioButton4.Margin = new System.Windows.Forms.Padding(4);
-            this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Size = new System.Drawing.Size(162, 17);
-            this.radioButton4.TabIndex = 47;
-            this.radioButton4.TabStop = true;
-            this.radioButton4.Text = "NO ADEMA DE CORNETES";
-            this.radioButton4.UseVisualStyleBackColor = true;
-            // 
-            // radioButton5
-            // 
-            this.radioButton5.AutoSize = true;
-            this.radioButton5.Location = new System.Drawing.Point(19, 365);
-            this.radioButton5.Margin = new System.Windows.Forms.Padding(4);
-            this.radioButton5.Name = "radioButton5";
-            this.radioButton5.Size = new System.Drawing.Size(155, 17);
-            this.radioButton5.TabIndex = 48;
-            this.radioButton5.TabStop = true;
-            this.radioButton5.Text = "BOCA NO DESVIACIONES";
-            this.radioButton5.UseVisualStyleBackColor = true;
-            // 
-            // radioButton6
-            // 
-            this.radioButton6.AutoSize = true;
-            this.radioButton6.Location = new System.Drawing.Point(537, 325);
-            this.radioButton6.Margin = new System.Windows.Forms.Padding(4);
-            this.radioButton6.Name = "radioButton6";
-            this.radioButton6.Size = new System.Drawing.Size(215, 17);
-            this.radioButton6.TabIndex = 49;
-            this.radioButton6.TabStop = true;
-            this.radioButton6.Text = "NO DESVIACION DE TABIQUE NASAL";
-            this.radioButton6.UseVisualStyleBackColor = true;
-            // 
-            // radioButton7
-            // 
-            this.radioButton7.AutoSize = true;
-            this.radioButton7.Location = new System.Drawing.Point(851, 411);
-            this.radioButton7.Margin = new System.Windows.Forms.Padding(4);
-            this.radioButton7.Name = "radioButton7";
-            this.radioButton7.Size = new System.Drawing.Size(103, 17);
-            this.radioButton7.TabIndex = 50;
-            this.radioButton7.TabStop = true;
-            this.radioButton7.Text = "NO LEUCOMAS";
-            this.radioButton7.UseVisualStyleBackColor = true;
-            // 
-            // radioButton8
-            // 
-            this.radioButton8.AutoSize = true;
-            this.radioButton8.Location = new System.Drawing.Point(315, 325);
-            this.radioButton8.Margin = new System.Windows.Forms.Padding(4);
-            this.radioButton8.Name = "radioButton8";
-            this.radioButton8.Size = new System.Drawing.Size(152, 17);
-            this.radioButton8.TabIndex = 51;
-            this.radioButton8.TabStop = true;
-            this.radioButton8.Text = "NARIZ NO DEFORMIDAD";
-            this.radioButton8.UseVisualStyleBackColor = true;
-            // 
-            // radioButton9
-            // 
-            this.radioButton9.AutoSize = true;
-            this.radioButton9.Location = new System.Drawing.Point(19, 309);
-            this.radioButton9.Margin = new System.Windows.Forms.Padding(4);
-            this.radioButton9.Name = "radioButton9";
-            this.radioButton9.Size = new System.Drawing.Size(197, 17);
-            this.radioButton9.TabIndex = 52;
-            this.radioButton9.TabStop = true;
-            this.radioButton9.Text = "MEMBRANA TIMPANICA NORMAL";
-            this.radioButton9.UseVisualStyleBackColor = true;
-            // 
-            // radioButton10
-            // 
-            this.radioButton10.AutoSize = true;
-            this.radioButton10.Location = new System.Drawing.Point(851, 325);
-            this.radioButton10.Margin = new System.Windows.Forms.Padding(4);
-            this.radioButton10.Name = "radioButton10";
-            this.radioButton10.Size = new System.Drawing.Size(396, 17);
-            this.radioButton10.TabIndex = 53;
-            this.radioButton10.TabStop = true;
-            this.radioButton10.Text = "OJOS PUPILAS ISOCORICAS REACTUVAS A LA LUZ Y LA ACOMODACION";
-            this.radioButton10.UseVisualStyleBackColor = true;
-            // 
-            // radioButton11
-            // 
-            this.radioButton11.AutoSize = true;
-            this.radioButton11.Location = new System.Drawing.Point(537, 296);
-            this.radioButton11.Margin = new System.Windows.Forms.Padding(4);
-            this.radioButton11.Name = "radioButton11";
-            this.radioButton11.Size = new System.Drawing.Size(251, 17);
-            this.radioButton11.TabIndex = 54;
-            this.radioButton11.TabStop = true;
-            this.radioButton11.Text = "CONDUCTO AUDITICO EXTERNOS NORMAL";
-            this.radioButton11.UseVisualStyleBackColor = true;
-            // 
-            // radioButton12
-            // 
-            this.radioButton12.AutoSize = true;
-            this.radioButton12.Location = new System.Drawing.Point(851, 383);
-            this.radioButton12.Margin = new System.Windows.Forms.Padding(4);
-            this.radioButton12.Name = "radioButton12";
-            this.radioButton12.Size = new System.Drawing.Size(116, 17);
-            this.radioButton12.TabIndex = 55;
-            this.radioButton12.TabStop = true;
-            this.radioButton12.Text = "NO DEFORMIDAD\r\n";
-            this.radioButton12.UseVisualStyleBackColor = true;
-            // 
-            // radioButton13
-            // 
-            this.radioButton13.AutoSize = true;
-            this.radioButton13.Location = new System.Drawing.Point(314, 411);
-            this.radioButton13.Margin = new System.Windows.Forms.Padding(4);
-            this.radioButton13.Name = "radioButton13";
-            this.radioButton13.Size = new System.Drawing.Size(213, 17);
-            this.radioButton13.TabIndex = 56;
-            this.radioButton13.TabStop = true;
-            this.radioButton13.Text = "FARINGE Y AMIGDALAS HPEREMICA";
-            this.radioButton13.UseVisualStyleBackColor = true;
-            // 
-            // radioButton14
-            // 
-            this.radioButton14.AutoSize = true;
-            this.radioButton14.Location = new System.Drawing.Point(537, 383);
-            this.radioButton14.Margin = new System.Windows.Forms.Padding(4);
-            this.radioButton14.Name = "radioButton14";
-            this.radioButton14.Size = new System.Drawing.Size(228, 17);
-            this.radioButton14.TabIndex = 57;
-            this.radioButton14.TabStop = true;
-            this.radioButton14.Text = "NO EDEMA DE GLANDULAS SALIVALES";
-            this.radioButton14.UseVisualStyleBackColor = true;
-            // 
-            // radioButton15
-            // 
-            this.radioButton15.AutoSize = true;
-            this.radioButton15.Location = new System.Drawing.Point(19, 394);
-            this.radioButton15.Margin = new System.Windows.Forms.Padding(4);
-            this.radioButton15.Name = "radioButton15";
-            this.radioButton15.Size = new System.Drawing.Size(123, 17);
-            this.radioButton15.TabIndex = 58;
-            this.radioButton15.TabStop = true;
-            this.radioButton15.Text = "NO DESVIACIONES";
-            this.radioButton15.UseVisualStyleBackColor = true;
-            // 
-            // radioButton16
-            // 
-            this.radioButton16.AutoSize = true;
-            this.radioButton16.Location = new System.Drawing.Point(851, 354);
-            this.radioButton16.Margin = new System.Windows.Forms.Padding(4);
-            this.radioButton16.Name = "radioButton16";
-            this.radioButton16.Size = new System.Drawing.Size(192, 17);
-            this.radioButton16.TabIndex = 59;
-            this.radioButton16.TabStop = true;
-            this.radioButton16.Text = "LENGUA NO FRENILLO LINGUAL";
-            this.radioButton16.UseVisualStyleBackColor = true;
-            // 
-            // radioButton17
-            // 
-            this.radioButton17.AutoSize = true;
-            this.radioButton17.Location = new System.Drawing.Point(851, 441);
-            this.radioButton17.Margin = new System.Windows.Forms.Padding(4);
-            this.radioButton17.Name = "radioButton17";
-            this.radioButton17.Size = new System.Drawing.Size(109, 17);
-            this.radioButton17.TabIndex = 60;
-            this.radioButton17.TabStop = true;
-            this.radioButton17.Text = "NO DESVIACION";
-            this.radioButton17.UseVisualStyleBackColor = true;
-            // 
-            // radioButton18
-            // 
-            this.radioButton18.AutoSize = true;
-            this.radioButton18.Location = new System.Drawing.Point(315, 382);
-            this.radioButton18.Margin = new System.Windows.Forms.Padding(4);
-            this.radioButton18.Name = "radioButton18";
-            this.radioButton18.Size = new System.Drawing.Size(135, 17);
-            this.radioButton18.TabIndex = 61;
-            this.radioButton18.TabStop = true;
-            this.radioButton18.Text = "LABIOS NO ULCERAS";
-            this.radioButton18.UseVisualStyleBackColor = true;
-            // 
-            // radioButton19
-            // 
-            this.radioButton19.AutoSize = true;
-            this.radioButton19.Location = new System.Drawing.Point(537, 354);
-            this.radioButton19.Margin = new System.Windows.Forms.Padding(4);
-            this.radioButton19.Name = "radioButton19";
-            this.radioButton19.Size = new System.Drawing.Size(123, 17);
-            this.radioButton19.TabIndex = 62;
-            this.radioButton19.TabStop = true;
-            this.radioButton19.Text = "NO HIPERTROFICA";
-            this.radioButton19.UseVisualStyleBackColor = true;
-            // 
-            // radioButton20
-            // 
-            this.radioButton20.AutoSize = true;
-            this.radioButton20.Location = new System.Drawing.Point(19, 422);
-            this.radioButton20.Margin = new System.Windows.Forms.Padding(4);
-            this.radioButton20.Name = "radioButton20";
-            this.radioButton20.Size = new System.Drawing.Size(146, 17);
-            this.radioButton20.TabIndex = 63;
-            this.radioButton20.TabStop = true;
-            this.radioButton20.Text = "NO SE PALPAN MASAS ";
-            this.radioButton20.UseVisualStyleBackColor = true;
-            // 
-            // radioButton21
-            // 
-            this.radioButton21.AutoSize = true;
-            this.radioButton21.Location = new System.Drawing.Point(314, 466);
-            this.radioButton21.Margin = new System.Windows.Forms.Padding(4);
-            this.radioButton21.Name = "radioButton21";
-            this.radioButton21.Size = new System.Drawing.Size(174, 17);
-            this.radioButton21.TabIndex = 64;
-            this.radioButton21.TabStop = true;
-            this.radioButton21.Text = "NO ENFISEMA SUBCUTANEA";
-            this.radioButton21.UseVisualStyleBackColor = true;
-            // 
-            // radioButton22
-            // 
-            this.radioButton22.AutoSize = true;
-            this.radioButton22.Location = new System.Drawing.Point(19, 450);
-            this.radioButton22.Margin = new System.Windows.Forms.Padding(4);
-            this.radioButton22.Name = "radioButton22";
-            this.radioButton22.Size = new System.Drawing.Size(88, 17);
-            this.radioButton22.TabIndex = 65;
-            this.radioButton22.TabStop = true;
-            this.radioButton22.Text = "NO TIRAJES";
-            this.radioButton22.UseVisualStyleBackColor = true;
-            // 
-            // radioButton23
-            // 
-            this.radioButton23.AutoSize = true;
-            this.radioButton23.Location = new System.Drawing.Point(537, 441);
-            this.radioButton23.Margin = new System.Windows.Forms.Padding(4);
-            this.radioButton23.Name = "radioButton23";
-            this.radioButton23.Size = new System.Drawing.Size(151, 17);
-            this.radioButton23.TabIndex = 66;
-            this.radioButton23.TabStop = true;
-            this.radioButton23.Text = "BUENA EXPACION COSA";
-            this.radioButton23.UseVisualStyleBackColor = true;
-            // 
-            // radioButton24
-            // 
-            this.radioButton24.AutoSize = true;
-            this.radioButton24.Location = new System.Drawing.Point(851, 470);
-            this.radioButton24.Margin = new System.Windows.Forms.Padding(4);
-            this.radioButton24.Name = "radioButton24";
-            this.radioButton24.Size = new System.Drawing.Size(124, 17);
-            this.radioButton24.TabIndex = 67;
-            this.radioButton24.TabStop = true;
-            this.radioButton24.Text = "TORAX SIMETRICO\r\n";
-            this.radioButton24.UseVisualStyleBackColor = true;
-            // 
-            // radioButton25
-            // 
-            this.radioButton25.AutoSize = true;
-            this.radioButton25.Location = new System.Drawing.Point(314, 438);
-            this.radioButton25.Margin = new System.Windows.Forms.Padding(4);
-            this.radioButton25.Name = "radioButton25";
-            this.radioButton25.Size = new System.Drawing.Size(193, 17);
-            this.radioButton25.TabIndex = 68;
-            this.radioButton25.TabStop = true;
-            this.radioButton25.Text = "GLANDULAS TIROIDES NORMAL";
-            this.radioButton25.UseVisualStyleBackColor = true;
-            // 
-            // radioButton26
-            // 
-            this.radioButton26.AutoSize = true;
-            this.radioButton26.Location = new System.Drawing.Point(537, 470);
-            this.radioButton26.Margin = new System.Windows.Forms.Padding(4);
-            this.radioButton26.Name = "radioButton26";
-            this.radioButton26.Size = new System.Drawing.Size(253, 17);
-            this.radioButton26.TabIndex = 69;
-            this.radioButton26.TabStop = true;
-            this.radioButton26.Text = "RONCHAS CON PUSTUSLULAS Y CONTRAS ";
-            this.radioButton26.UseVisualStyleBackColor = true;
-            // 
-            // radioButton27
-            // 
-            this.radioButton27.AutoSize = true;
-            this.radioButton27.Location = new System.Drawing.Point(537, 412);
-            this.radioButton27.Margin = new System.Windows.Forms.Padding(4);
-            this.radioButton27.Name = "radioButton27";
-            this.radioButton27.Size = new System.Drawing.Size(90, 17);
-            this.radioButton27.TabIndex = 70;
-            this.radioButton27.TabStop = true;
-            this.radioButton27.Text = "NO RONCUS";
-            this.radioButton27.UseVisualStyleBackColor = true;
-            // 
-            // radioButton28
-            // 
-            this.radioButton28.AutoSize = true;
-            this.radioButton28.Location = new System.Drawing.Point(851, 296);
-            this.radioButton28.Margin = new System.Windows.Forms.Padding(4);
-            this.radioButton28.Name = "radioButton28";
-            this.radioButton28.Size = new System.Drawing.Size(274, 17);
-            this.radioButton28.TabIndex = 71;
-            this.radioButton28.TabStop = true;
-            this.radioButton28.Text = "ABDOMEN GLOBOS POR PANICULULO ADIPOSO";
-            this.radioButton28.UseVisualStyleBackColor = true;
-            // 
-            // radioButton29
-            // 
-            this.radioButton29.AutoSize = true;
-            this.radioButton29.Location = new System.Drawing.Point(537, 495);
-            this.radioButton29.Margin = new System.Windows.Forms.Padding(4);
-            this.radioButton29.Name = "radioButton29";
-            this.radioButton29.Size = new System.Drawing.Size(156, 17);
-            this.radioButton29.TabIndex = 72;
-            this.radioButton29.TabStop = true;
-            this.radioButton29.Text = "NO FROTE PERICARDICO";
-            this.radioButton29.UseVisualStyleBackColor = true;
             // 
             // radioButton30
             // 
@@ -935,42 +418,6 @@ namespace CLINICA_1
             this.radioButton30.Text = "NO SOPLOS CARDIACO";
             this.radioButton30.UseVisualStyleBackColor = true;
             // 
-            // radioButton31
-            // 
-            this.radioButton31.AutoSize = true;
-            this.radioButton31.Location = new System.Drawing.Point(16, 507);
-            this.radioButton31.Margin = new System.Windows.Forms.Padding(4);
-            this.radioButton31.Name = "radioButton31";
-            this.radioButton31.Size = new System.Drawing.Size(229, 17);
-            this.radioButton31.TabIndex = 74;
-            this.radioButton31.TabStop = true;
-            this.radioButton31.Text = "NO CIRCULACION VENOSA COLATERAL";
-            this.radioButton31.UseVisualStyleBackColor = true;
-            // 
-            // radioButton32
-            // 
-            this.radioButton32.AutoSize = true;
-            this.radioButton32.Location = new System.Drawing.Point(315, 495);
-            this.radioButton32.Margin = new System.Windows.Forms.Padding(4);
-            this.radioButton32.Name = "radioButton32";
-            this.radioButton32.Size = new System.Drawing.Size(109, 17);
-            this.radioButton32.TabIndex = 75;
-            this.radioButton32.TabStop = true;
-            this.radioButton32.Text = "NO SIBILANCIAS";
-            this.radioButton32.UseVisualStyleBackColor = true;
-            // 
-            // radioButton33
-            // 
-            this.radioButton33.AutoSize = true;
-            this.radioButton33.Location = new System.Drawing.Point(16, 479);
-            this.radioButton33.Margin = new System.Windows.Forms.Padding(4);
-            this.radioButton33.Name = "radioButton33";
-            this.radioButton33.Size = new System.Drawing.Size(117, 17);
-            this.radioButton33.TabIndex = 76;
-            this.radioButton33.TabStop = true;
-            this.radioButton33.Text = "NO ESTERTORES";
-            this.radioButton33.UseVisualStyleBackColor = true;
-            // 
             // radioButton34
             // 
             this.radioButton34.AutoSize = true;
@@ -982,30 +429,6 @@ namespace CLINICA_1
             this.radioButton34.TabStop = true;
             this.radioButton34.Text = "NO TIMPANISMO EN MARCO COLICO ";
             this.radioButton34.UseVisualStyleBackColor = true;
-            // 
-            // radioButton35
-            // 
-            this.radioButton35.AutoSize = true;
-            this.radioButton35.Location = new System.Drawing.Point(851, 499);
-            this.radioButton35.Margin = new System.Windows.Forms.Padding(4);
-            this.radioButton35.Name = "radioButton35";
-            this.radioButton35.Size = new System.Drawing.Size(492, 17);
-            this.radioButton35.TabIndex = 78;
-            this.radioButton35.TabStop = true;
-            this.radioButton35.Text = "PERISTALISMO PRESENTA Y NORMAL DE  8 MOVIMIENTOS PERISTALTICOS POR MINUTO";
-            this.radioButton35.UseVisualStyleBackColor = true;
-            // 
-            // radioButton36
-            // 
-            this.radioButton36.AutoSize = true;
-            this.radioButton36.Location = new System.Drawing.Point(314, 523);
-            this.radioButton36.Margin = new System.Windows.Forms.Padding(4);
-            this.radioButton36.Name = "radioButton36";
-            this.radioButton36.Size = new System.Drawing.Size(149, 17);
-            this.radioButton36.TabIndex = 79;
-            this.radioButton36.TabStop = true;
-            this.radioButton36.Text = "BLANDO Y DEPRESIBLE";
-            this.radioButton36.UseVisualStyleBackColor = true;
             // 
             // radioButton37
             // 
@@ -1074,154 +497,711 @@ namespace CLINICA_1
             this.label20.BackColor = System.Drawing.Color.White;
             this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label20.ForeColor = System.Drawing.Color.Black;
-            this.label20.Location = new System.Drawing.Point(458, 9);
+            this.label20.Location = new System.Drawing.Point(458, 73);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(169, 20);
             this.label20.TabIndex = 85;
             this.label20.Text = "HISTORIA CLINICA";
             // 
-            // textBox1
+            // checkBox38
             // 
-            this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.textBox1.Location = new System.Drawing.Point(16, 91);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(370, 87);
-            this.textBox1.TabIndex = 86;
-            this.textBox1.Text = resources.GetString("textBox1.Text");
+            this.checkBox38.AutoSize = true;
+            this.checkBox38.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.checkBox38.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox38.Location = new System.Drawing.Point(666, 618);
+            this.checkBox38.Name = "checkBox38";
+            this.checkBox38.Size = new System.Drawing.Size(234, 22);
+            this.checkBox38.TabIndex = 148;
+            this.checkBox38.Text = "Enfermedad Renal Cronica ";
+            this.checkBox38.UseVisualStyleBackColor = false;
             // 
-            // textBox3
+            // checkBox37
             // 
-            this.textBox3.Location = new System.Drawing.Point(16, 593);
-            this.textBox3.Multiline = true;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(257, 134);
-            this.textBox3.TabIndex = 87;
+            this.checkBox37.AutoSize = true;
+            this.checkBox37.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.checkBox37.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox37.Location = new System.Drawing.Point(666, 699);
+            this.checkBox37.Name = "checkBox37";
+            this.checkBox37.Size = new System.Drawing.Size(98, 22);
+            this.checkBox37.TabIndex = 147;
+            this.checkBox37.Text = "Psoriasis";
+            this.checkBox37.UseVisualStyleBackColor = false;
             // 
-            // textBox4
+            // checkBox36
             // 
-            this.textBox4.Location = new System.Drawing.Point(972, 593);
-            this.textBox4.Multiline = true;
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(257, 134);
-            this.textBox4.TabIndex = 88;
+            this.checkBox36.AutoSize = true;
+            this.checkBox36.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.checkBox36.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox36.Location = new System.Drawing.Point(665, 671);
+            this.checkBox36.Name = "checkBox36";
+            this.checkBox36.Size = new System.Drawing.Size(150, 22);
+            this.checkBox36.TabIndex = 146;
+            this.checkBox36.Text = "Diabetes Tipo 2 ";
+            this.checkBox36.UseVisualStyleBackColor = false;
             // 
-            // textBox7
+            // checkBox35
             // 
-            this.textBox7.Location = new System.Drawing.Point(333, 593);
-            this.textBox7.Multiline = true;
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(257, 134);
-            this.textBox7.TabIndex = 89;
-            // 
-            // label21
-            // 
-            this.label21.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.label21.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.label21.Location = new System.Drawing.Point(24, 569);
-            this.label21.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(185, 21);
-            this.label21.TabIndex = 90;
-            this.label21.Text = "Examenes de Laboratorio";
-            // 
-            // label23
-            // 
-            this.label23.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label23.AutoSize = true;
-            this.label23.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.label23.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.label23.Location = new System.Drawing.Point(335, 569);
-            this.label23.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(168, 21);
-            this.label23.TabIndex = 92;
-            this.label23.Text = "Examenes de gabinete ";
-            // 
-            // textBox14
-            // 
-            this.textBox14.Location = new System.Drawing.Point(648, 594);
-            this.textBox14.Multiline = true;
-            this.textBox14.Name = "textBox14";
-            this.textBox14.Size = new System.Drawing.Size(257, 134);
-            this.textBox14.TabIndex = 93;
-            // 
-            // label22
-            // 
-            this.label22.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.label22.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.label22.Location = new System.Drawing.Point(656, 569);
-            this.label22.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(167, 21);
-            this.label22.TabIndex = 91;
-            this.label22.Text = "Impresion diagnostica ";
+            this.checkBox35.AutoSize = true;
+            this.checkBox35.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.checkBox35.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox35.Location = new System.Drawing.Point(665, 643);
+            this.checkBox35.Name = "checkBox35";
+            this.checkBox35.Size = new System.Drawing.Size(235, 22);
+            this.checkBox35.TabIndex = 145;
+            this.checkBox35.Text = "Hipertesion Arterial Cronica";
+            this.checkBox35.UseVisualStyleBackColor = false;
             // 
             // label24
             // 
             this.label24.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label24.AutoSize = true;
-            this.label24.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.label24.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label24.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.label24.Location = new System.Drawing.Point(979, 569);
+            this.label24.Location = new System.Drawing.Point(974, 583);
             this.label24.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(44, 21);
-            this.label24.TabIndex = 94;
+            this.label24.Size = new System.Drawing.Size(48, 21);
+            this.label24.TabIndex = 144;
             this.label24.Text = "Plan ";
             // 
-            // radioButton42
+            // textBox14
             // 
-            this.radioButton42.AutoSize = true;
-            this.radioButton42.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.radioButton42.Location = new System.Drawing.Point(660, 594);
-            this.radioButton42.Name = "radioButton42";
-            this.radioButton42.Size = new System.Drawing.Size(155, 17);
-            this.radioButton42.TabIndex = 95;
-            this.radioButton42.TabStop = true;
-            this.radioButton42.Text = "Enfermedad Renal Cronica ";
-            this.radioButton42.UseVisualStyleBackColor = false;
+            this.textBox14.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox14.Location = new System.Drawing.Point(654, 611);
+            this.textBox14.Multiline = true;
+            this.textBox14.Name = "textBox14";
+            this.textBox14.Size = new System.Drawing.Size(257, 134);
+            this.textBox14.TabIndex = 143;
             // 
-            // radioButton43
+            // label23
             // 
-            this.radioButton43.AutoSize = true;
-            this.radioButton43.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.radioButton43.Location = new System.Drawing.Point(660, 663);
-            this.radioButton43.Name = "radioButton43";
-            this.radioButton43.Size = new System.Drawing.Size(66, 17);
-            this.radioButton43.TabIndex = 96;
-            this.radioButton43.TabStop = true;
-            this.radioButton43.Text = "Psoriasis\r\n";
-            this.radioButton43.UseVisualStyleBackColor = false;
+            this.label23.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
+            this.label23.Location = new System.Drawing.Point(335, 582);
+            this.label23.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(186, 21);
+            this.label23.TabIndex = 142;
+            this.label23.Text = "Examenes de gabinete ";
             // 
-            // radioButton44
+            // label22
             // 
-            this.radioButton44.AutoSize = true;
-            this.radioButton44.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.radioButton44.Location = new System.Drawing.Point(660, 617);
-            this.radioButton44.Name = "radioButton44";
-            this.radioButton44.Size = new System.Drawing.Size(103, 17);
-            this.radioButton44.TabIndex = 97;
-            this.radioButton44.TabStop = true;
-            this.radioButton44.Text = "Diabetes Tipo 2 ";
-            this.radioButton44.UseVisualStyleBackColor = false;
+            this.label22.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
+            this.label22.Location = new System.Drawing.Point(650, 583);
+            this.label22.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(184, 21);
+            this.label22.TabIndex = 141;
+            this.label22.Text = "Impresion diagnostica ";
             // 
-            // radioButton45
+            // label21
             // 
-            this.radioButton45.AutoSize = true;
-            this.radioButton45.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.radioButton45.Location = new System.Drawing.Point(660, 640);
-            this.radioButton45.Name = "radioButton45";
-            this.radioButton45.Size = new System.Drawing.Size(161, 17);
-            this.radioButton45.TabIndex = 98;
-            this.radioButton45.TabStop = true;
-            this.radioButton45.Text = "Hipertension Arterial Cronica ";
-            this.radioButton45.UseVisualStyleBackColor = false;
+            this.label21.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
+            this.label21.Location = new System.Drawing.Point(21, 583);
+            this.label21.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(203, 21);
+            this.label21.TabIndex = 140;
+            this.label21.Text = "Examenes de Laboratorio";
+            // 
+            // textBox7
+            // 
+            this.textBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox7.Location = new System.Drawing.Point(339, 610);
+            this.textBox7.Multiline = true;
+            this.textBox7.Name = "textBox7";
+            this.textBox7.Size = new System.Drawing.Size(257, 134);
+            this.textBox7.TabIndex = 139;
+            // 
+            // textBox4
+            // 
+            this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox4.Location = new System.Drawing.Point(978, 610);
+            this.textBox4.Multiline = true;
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(257, 134);
+            this.textBox4.TabIndex = 138;
+            // 
+            // textBox3
+            // 
+            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox3.Location = new System.Drawing.Point(18, 611);
+            this.textBox3.Multiline = true;
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(257, 134);
+            this.textBox3.TabIndex = 137;
+            // 
+            // checkBox48
+            // 
+            this.checkBox48.AutoSize = true;
+            this.checkBox48.Location = new System.Drawing.Point(851, 513);
+            this.checkBox48.Name = "checkBox48";
+            this.checkBox48.Size = new System.Drawing.Size(152, 17);
+            this.checkBox48.TabIndex = 190;
+            this.checkBox48.Text = "GENITALES NORMALES ";
+            this.checkBox48.UseVisualStyleBackColor = true;
+            // 
+            // checkBox47
+            // 
+            this.checkBox47.AutoSize = true;
+            this.checkBox47.Location = new System.Drawing.Point(851, 536);
+            this.checkBox47.Name = "checkBox47";
+            this.checkBox47.Size = new System.Drawing.Size(200, 17);
+            this.checkBox47.TabIndex = 189;
+            this.checkBox47.Text = "PIEL PLACAS CON DESCAMACION";
+            this.checkBox47.UseVisualStyleBackColor = true;
+            // 
+            // checkBox46
+            // 
+            this.checkBox46.AutoSize = true;
+            this.checkBox46.Location = new System.Drawing.Point(529, 518);
+            this.checkBox46.Name = "checkBox46";
+            this.checkBox46.Size = new System.Drawing.Size(146, 17);
+            this.checkBox46.TabIndex = 188;
+            this.checkBox46.Text = "NO SOPLOS CARDIACO";
+            this.checkBox46.UseVisualStyleBackColor = true;
+            // 
+            // checkBox45
+            // 
+            this.checkBox45.AutoSize = true;
+            this.checkBox45.Location = new System.Drawing.Point(529, 541);
+            this.checkBox45.Name = "checkBox45";
+            this.checkBox45.Size = new System.Drawing.Size(240, 17);
+            this.checkBox45.TabIndex = 187;
+            this.checkBox45.Text = "NO SIGNOS DE IRRITACION PERITONEAL";
+            this.checkBox45.UseVisualStyleBackColor = true;
+            // 
+            // checkBox44
+            // 
+            this.checkBox44.AutoSize = true;
+            this.checkBox44.Location = new System.Drawing.Point(275, 541);
+            this.checkBox44.Name = "checkBox44";
+            this.checkBox44.Size = new System.Drawing.Size(186, 17);
+            this.checkBox44.TabIndex = 186;
+            this.checkBox44.Text = "NO HEPATOESPLENOMEGALIA";
+            this.checkBox44.UseVisualStyleBackColor = true;
+            // 
+            // checkBox43
+            // 
+            this.checkBox43.AutoSize = true;
+            this.checkBox43.Location = new System.Drawing.Point(28, 316);
+            this.checkBox43.Name = "checkBox43";
+            this.checkBox43.Size = new System.Drawing.Size(273, 17);
+            this.checkBox43.TabIndex = 185;
+            this.checkBox43.Text = "EXTREMIDADES NORMOTROFICAS SIN EDEMA ";
+            this.checkBox43.UseVisualStyleBackColor = true;
+            // 
+            // checkBox42
+            // 
+            this.checkBox42.AutoSize = true;
+            this.checkBox42.Location = new System.Drawing.Point(28, 555);
+            this.checkBox42.Name = "checkBox42";
+            this.checkBox42.Size = new System.Drawing.Size(215, 17);
+            this.checkBox42.TabIndex = 184;
+            this.checkBox42.Text = "NO TIMPANISMO EN MARCO COLICO";
+            this.checkBox42.UseVisualStyleBackColor = true;
+            // 
+            // checkBox34
+            // 
+            this.checkBox34.AutoSize = true;
+            this.checkBox34.Location = new System.Drawing.Point(851, 357);
+            this.checkBox34.Name = "checkBox34";
+            this.checkBox34.Size = new System.Drawing.Size(392, 17);
+            this.checkBox34.TabIndex = 183;
+            this.checkBox34.Text = "OJOS PUPILAS ISOCORICAS REACTIVAS A LA LUZ Y LA ACOMODACION";
+            this.checkBox34.UseVisualStyleBackColor = true;
+            // 
+            // checkBox33
+            // 
+            this.checkBox33.AutoSize = true;
+            this.checkBox33.Location = new System.Drawing.Point(851, 380);
+            this.checkBox33.Name = "checkBox33";
+            this.checkBox33.Size = new System.Drawing.Size(193, 17);
+            this.checkBox33.TabIndex = 182;
+            this.checkBox33.Text = "LENGUA NO FRENILLO LINGUAL";
+            this.checkBox33.UseVisualStyleBackColor = true;
+            // 
+            // checkBox32
+            // 
+            this.checkBox32.AutoSize = true;
+            this.checkBox32.Location = new System.Drawing.Point(851, 403);
+            this.checkBox32.Name = "checkBox32";
+            this.checkBox32.Size = new System.Drawing.Size(117, 17);
+            this.checkBox32.TabIndex = 181;
+            this.checkBox32.Text = "NO DEFORMIDAD";
+            this.checkBox32.UseVisualStyleBackColor = true;
+            // 
+            // checkBox31
+            // 
+            this.checkBox31.AutoSize = true;
+            this.checkBox31.Location = new System.Drawing.Point(851, 426);
+            this.checkBox31.Name = "checkBox31";
+            this.checkBox31.Size = new System.Drawing.Size(104, 17);
+            this.checkBox31.TabIndex = 180;
+            this.checkBox31.Text = "NO LEUCOMAS";
+            this.checkBox31.UseVisualStyleBackColor = true;
+            // 
+            // checkBox30
+            // 
+            this.checkBox30.AutoSize = true;
+            this.checkBox30.Location = new System.Drawing.Point(851, 449);
+            this.checkBox30.Name = "checkBox30";
+            this.checkBox30.Size = new System.Drawing.Size(110, 17);
+            this.checkBox30.TabIndex = 179;
+            this.checkBox30.Text = "NO DESVIACION";
+            this.checkBox30.UseVisualStyleBackColor = true;
+            // 
+            // checkBox29
+            // 
+            this.checkBox29.AutoSize = true;
+            this.checkBox29.Location = new System.Drawing.Point(851, 495);
+            this.checkBox29.Name = "checkBox29";
+            this.checkBox29.Size = new System.Drawing.Size(493, 17);
+            this.checkBox29.TabIndex = 178;
+            this.checkBox29.Text = "PERISTALISMO PRESENTA Y NORMAL DE 8 MOVIMIENTOS PERISTALTICOS POR MINUTO ";
+            this.checkBox29.UseVisualStyleBackColor = true;
+            // 
+            // checkBox28
+            // 
+            this.checkBox28.AutoSize = true;
+            this.checkBox28.Location = new System.Drawing.Point(851, 474);
+            this.checkBox28.Name = "checkBox28";
+            this.checkBox28.Size = new System.Drawing.Size(125, 17);
+            this.checkBox28.TabIndex = 177;
+            this.checkBox28.Text = "TORAX SIMETRICO";
+            this.checkBox28.UseVisualStyleBackColor = true;
+            // 
+            // checkBox27
+            // 
+            this.checkBox27.AutoSize = true;
+            this.checkBox27.Location = new System.Drawing.Point(529, 358);
+            this.checkBox27.Name = "checkBox27";
+            this.checkBox27.Size = new System.Drawing.Size(216, 17);
+            this.checkBox27.TabIndex = 176;
+            this.checkBox27.Text = "NO DESVIACION DE TABIQUE NASAL";
+            this.checkBox27.UseVisualStyleBackColor = true;
+            // 
+            // checkBox26
+            // 
+            this.checkBox26.AutoSize = true;
+            this.checkBox26.Location = new System.Drawing.Point(529, 380);
+            this.checkBox26.Name = "checkBox26";
+            this.checkBox26.Size = new System.Drawing.Size(124, 17);
+            this.checkBox26.TabIndex = 175;
+            this.checkBox26.Text = "NO HIPERTROFICA";
+            this.checkBox26.UseVisualStyleBackColor = true;
+            // 
+            // checkBox25
+            // 
+            this.checkBox25.AutoSize = true;
+            this.checkBox25.Location = new System.Drawing.Point(529, 403);
+            this.checkBox25.Name = "checkBox25";
+            this.checkBox25.Size = new System.Drawing.Size(228, 17);
+            this.checkBox25.TabIndex = 174;
+            this.checkBox25.Text = "NO EDEMA DE GLANDULAS SALIVAJES";
+            this.checkBox25.UseVisualStyleBackColor = true;
+            // 
+            // checkBox24
+            // 
+            this.checkBox24.AutoSize = true;
+            this.checkBox24.Location = new System.Drawing.Point(529, 426);
+            this.checkBox24.Name = "checkBox24";
+            this.checkBox24.Size = new System.Drawing.Size(91, 17);
+            this.checkBox24.TabIndex = 173;
+            this.checkBox24.Text = "NO RONCUS";
+            this.checkBox24.UseVisualStyleBackColor = true;
+            // 
+            // checkBox23
+            // 
+            this.checkBox23.AutoSize = true;
+            this.checkBox23.Location = new System.Drawing.Point(529, 449);
+            this.checkBox23.Name = "checkBox23";
+            this.checkBox23.Size = new System.Drawing.Size(152, 17);
+            this.checkBox23.TabIndex = 172;
+            this.checkBox23.Text = "BUENA EXPACION COSA";
+            this.checkBox23.UseVisualStyleBackColor = true;
+            // 
+            // checkBox22
+            // 
+            this.checkBox22.AutoSize = true;
+            this.checkBox22.Location = new System.Drawing.Point(529, 472);
+            this.checkBox22.Name = "checkBox22";
+            this.checkBox22.Size = new System.Drawing.Size(251, 17);
+            this.checkBox22.TabIndex = 171;
+            this.checkBox22.Text = "RONCHAS CON PUSTUSLULAS Y CONTRAS";
+            this.checkBox22.UseVisualStyleBackColor = true;
+            // 
+            // checkBox21
+            // 
+            this.checkBox21.AutoSize = true;
+            this.checkBox21.Location = new System.Drawing.Point(529, 495);
+            this.checkBox21.Name = "checkBox21";
+            this.checkBox21.Size = new System.Drawing.Size(157, 17);
+            this.checkBox21.TabIndex = 170;
+            this.checkBox21.Text = "NO FROTE PERICARDICO";
+            this.checkBox21.UseVisualStyleBackColor = true;
+            // 
+            // checkBox20
+            // 
+            this.checkBox20.AutoSize = true;
+            this.checkBox20.Location = new System.Drawing.Point(851, 334);
+            this.checkBox20.Name = "checkBox20";
+            this.checkBox20.Size = new System.Drawing.Size(272, 17);
+            this.checkBox20.TabIndex = 169;
+            this.checkBox20.Text = "ABDOMEN GLOBOS POR PANCULULO ADIPOSO";
+            this.checkBox20.UseVisualStyleBackColor = true;
+            // 
+            // checkBox19
+            // 
+            this.checkBox19.AutoSize = true;
+            this.checkBox19.Location = new System.Drawing.Point(275, 363);
+            this.checkBox19.Name = "checkBox19";
+            this.checkBox19.Size = new System.Drawing.Size(153, 17);
+            this.checkBox19.TabIndex = 168;
+            this.checkBox19.Text = "NARIZ NO DEFORMIDAD";
+            this.checkBox19.UseVisualStyleBackColor = true;
+            // 
+            // checkBox18
+            // 
+            this.checkBox18.AutoSize = true;
+            this.checkBox18.Location = new System.Drawing.Point(275, 386);
+            this.checkBox18.Name = "checkBox18";
+            this.checkBox18.Size = new System.Drawing.Size(125, 17);
+            this.checkBox18.TabIndex = 167;
+            this.checkBox18.Text = "NO ALETEO NASAL";
+            this.checkBox18.UseVisualStyleBackColor = true;
+            // 
+            // checkBox17
+            // 
+            this.checkBox17.AutoSize = true;
+            this.checkBox17.Location = new System.Drawing.Point(275, 408);
+            this.checkBox17.Name = "checkBox17";
+            this.checkBox17.Size = new System.Drawing.Size(136, 17);
+            this.checkBox17.TabIndex = 166;
+            this.checkBox17.Text = "LABIOS NO ULCERAS";
+            this.checkBox17.UseVisualStyleBackColor = true;
+            // 
+            // checkBox16
+            // 
+            this.checkBox16.AutoSize = true;
+            this.checkBox16.Location = new System.Drawing.Point(275, 427);
+            this.checkBox16.Name = "checkBox16";
+            this.checkBox16.Size = new System.Drawing.Size(214, 17);
+            this.checkBox16.TabIndex = 165;
+            this.checkBox16.Text = "FARINGE Y AMIGDALAS HPERAMICA";
+            this.checkBox16.UseVisualStyleBackColor = true;
+            // 
+            // checkBox15
+            // 
+            this.checkBox15.AutoSize = true;
+            this.checkBox15.Location = new System.Drawing.Point(275, 449);
+            this.checkBox15.Name = "checkBox15";
+            this.checkBox15.Size = new System.Drawing.Size(194, 17);
+            this.checkBox15.TabIndex = 164;
+            this.checkBox15.Text = "GLANDULAS TIROIDES NORMAL";
+            this.checkBox15.UseVisualStyleBackColor = true;
+            // 
+            // checkBox14
+            // 
+            this.checkBox14.AutoSize = true;
+            this.checkBox14.Location = new System.Drawing.Point(275, 472);
+            this.checkBox14.Name = "checkBox14";
+            this.checkBox14.Size = new System.Drawing.Size(175, 17);
+            this.checkBox14.TabIndex = 163;
+            this.checkBox14.Text = "NO ENFISEMA SUBCUTANEA";
+            this.checkBox14.UseVisualStyleBackColor = true;
+            // 
+            // checkBox13
+            // 
+            this.checkBox13.AutoSize = true;
+            this.checkBox13.Location = new System.Drawing.Point(275, 495);
+            this.checkBox13.Name = "checkBox13";
+            this.checkBox13.Size = new System.Drawing.Size(110, 17);
+            this.checkBox13.TabIndex = 162;
+            this.checkBox13.Text = "NO SIBILANCIAS";
+            this.checkBox13.UseVisualStyleBackColor = true;
+            // 
+            // checkBox12
+            // 
+            this.checkBox12.AutoSize = true;
+            this.checkBox12.Location = new System.Drawing.Point(275, 518);
+            this.checkBox12.Name = "checkBox12";
+            this.checkBox12.Size = new System.Drawing.Size(150, 17);
+            this.checkBox12.TabIndex = 161;
+            this.checkBox12.Text = "BLANDO Y DEPRESIBLE";
+            this.checkBox12.UseVisualStyleBackColor = true;
+            // 
+            // checkBox11
+            // 
+            this.checkBox11.AutoSize = true;
+            this.checkBox11.Location = new System.Drawing.Point(529, 334);
+            this.checkBox11.Name = "checkBox11";
+            this.checkBox11.Size = new System.Drawing.Size(255, 17);
+            this.checkBox11.TabIndex = 160;
+            this.checkBox11.Text = "CONDUCTO AUDITICO  EXTERNOS NORMAL";
+            this.checkBox11.UseVisualStyleBackColor = true;
+            // 
+            // checkBox10
+            // 
+            this.checkBox10.AutoSize = true;
+            this.checkBox10.Location = new System.Drawing.Point(275, 339);
+            this.checkBox10.Name = "checkBox10";
+            this.checkBox10.Size = new System.Drawing.Size(129, 17);
+            this.checkBox10.TabIndex = 159;
+            this.checkBox10.Text = "NO HUNDIMIENTOS";
+            this.checkBox10.UseVisualStyleBackColor = true;
+            // 
+            // checkBox9
+            // 
+            this.checkBox9.AutoSize = true;
+            this.checkBox9.Location = new System.Drawing.Point(28, 385);
+            this.checkBox9.Name = "checkBox9";
+            this.checkBox9.Size = new System.Drawing.Size(163, 17);
+            this.checkBox9.TabIndex = 158;
+            this.checkBox9.Text = "NO ADEMA DE CORNETES";
+            this.checkBox9.UseVisualStyleBackColor = true;
+            // 
+            // checkBox8
+            // 
+            this.checkBox8.AutoSize = true;
+            this.checkBox8.Location = new System.Drawing.Point(28, 408);
+            this.checkBox8.Name = "checkBox8";
+            this.checkBox8.Size = new System.Drawing.Size(156, 17);
+            this.checkBox8.TabIndex = 157;
+            this.checkBox8.Text = "BOCA NO DESVIACIONES";
+            this.checkBox8.UseVisualStyleBackColor = true;
+            // 
+            // checkBox7
+            // 
+            this.checkBox7.AutoSize = true;
+            this.checkBox7.Location = new System.Drawing.Point(28, 431);
+            this.checkBox7.Name = "checkBox7";
+            this.checkBox7.Size = new System.Drawing.Size(124, 17);
+            this.checkBox7.TabIndex = 156;
+            this.checkBox7.Text = "NO DESVIACIONES";
+            this.checkBox7.UseVisualStyleBackColor = true;
+            // 
+            // checkBox6
+            // 
+            this.checkBox6.AutoSize = true;
+            this.checkBox6.Location = new System.Drawing.Point(28, 454);
+            this.checkBox6.Name = "checkBox6";
+            this.checkBox6.Size = new System.Drawing.Size(144, 17);
+            this.checkBox6.TabIndex = 155;
+            this.checkBox6.Text = "NO SE PALPAN MASAS";
+            this.checkBox6.UseVisualStyleBackColor = true;
+            // 
+            // checkBox5
+            // 
+            this.checkBox5.AutoSize = true;
+            this.checkBox5.Location = new System.Drawing.Point(28, 479);
+            this.checkBox5.Name = "checkBox5";
+            this.checkBox5.Size = new System.Drawing.Size(89, 17);
+            this.checkBox5.TabIndex = 154;
+            this.checkBox5.Text = "NO TIRAJES";
+            this.checkBox5.UseVisualStyleBackColor = true;
+            // 
+            // checkBox4
+            // 
+            this.checkBox4.AutoSize = true;
+            this.checkBox4.Location = new System.Drawing.Point(28, 507);
+            this.checkBox4.Name = "checkBox4";
+            this.checkBox4.Size = new System.Drawing.Size(114, 17);
+            this.checkBox4.TabIndex = 153;
+            this.checkBox4.Text = "NO ESTEROIDES";
+            this.checkBox4.UseVisualStyleBackColor = true;
+            // 
+            // checkBox3
+            // 
+            this.checkBox3.AutoSize = true;
+            this.checkBox3.Location = new System.Drawing.Point(28, 532);
+            this.checkBox3.Name = "checkBox3";
+            this.checkBox3.Size = new System.Drawing.Size(230, 17);
+            this.checkBox3.TabIndex = 152;
+            this.checkBox3.Text = "NO CIRCULACION VENOSA COLATERAL";
+            this.checkBox3.UseVisualStyleBackColor = true;
+            // 
+            // checkBox2
+            // 
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Location = new System.Drawing.Point(28, 362);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(198, 17);
+            this.checkBox2.TabIndex = 151;
+            this.checkBox2.Text = "MEMBRANA TIMPANICA NORMAL";
+            this.checkBox2.UseVisualStyleBackColor = true;
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(28, 339);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(157, 17);
+            this.checkBox1.TabIndex = 150;
+            this.checkBox1.Text = "CABEZA NORMOCRANEO";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // label18
+            // 
+            this.label18.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.label18.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
+            this.label18.Location = new System.Drawing.Point(862, 357);
+            this.label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(0, 21);
+            this.label18.TabIndex = 149;
+            // 
+            // textBox13
+            // 
+            this.textBox13.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.textBox13.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox13.Location = new System.Drawing.Point(743, 266);
+            this.textBox13.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox13.Name = "textBox13";
+            this.textBox13.Size = new System.Drawing.Size(248, 24);
+            this.textBox13.TabIndex = 198;
+            this.textBox13.Text = "Obesidad";
+            // 
+            // textBox12
+            // 
+            this.textBox12.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.textBox12.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox12.Location = new System.Drawing.Point(743, 240);
+            this.textBox12.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox12.Name = "textBox12";
+            this.textBox12.Size = new System.Drawing.Size(248, 24);
+            this.textBox12.TabIndex = 197;
+            this.textBox12.Text = "1.56";
+            this.textBox12.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBox11
+            // 
+            this.textBox11.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.textBox11.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox11.Location = new System.Drawing.Point(743, 214);
+            this.textBox11.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox11.Name = "textBox11";
+            this.textBox11.Size = new System.Drawing.Size(248, 24);
+            this.textBox11.TabIndex = 196;
+            this.textBox11.Text = "87";
+            this.textBox11.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBox10
+            // 
+            this.textBox10.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.textBox10.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox10.Location = new System.Drawing.Point(743, 188);
+            this.textBox10.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox10.Name = "textBox10";
+            this.textBox10.Size = new System.Drawing.Size(248, 24);
+            this.textBox10.TabIndex = 195;
+            this.textBox10.Text = "96";
+            this.textBox10.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBox9
+            // 
+            this.textBox9.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.textBox9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox9.Location = new System.Drawing.Point(743, 162);
+            this.textBox9.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox9.Name = "textBox9";
+            this.textBox9.Size = new System.Drawing.Size(248, 24);
+            this.textBox9.TabIndex = 194;
+            this.textBox9.Text = "22";
+            this.textBox9.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBox6
+            // 
+            this.textBox6.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.textBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox6.Location = new System.Drawing.Point(743, 137);
+            this.textBox6.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(248, 24);
+            this.textBox6.TabIndex = 193;
+            this.textBox6.Text = "97";
+            this.textBox6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBox5
+            // 
+            this.textBox5.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.textBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox5.Location = new System.Drawing.Point(743, 111);
+            this.textBox5.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(248, 24);
+            this.textBox5.TabIndex = 192;
+            this.textBox5.Text = "140/90";
+            this.textBox5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBox8
+            // 
+            this.textBox8.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.textBox8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox8.Location = new System.Drawing.Point(743, 114);
+            this.textBox8.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox8.Multiline = true;
+            this.textBox8.Name = "textBox8";
+            this.textBox8.Size = new System.Drawing.Size(248, 176);
+            this.textBox8.TabIndex = 191;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(12, 115);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(348, 121);
+            this.textBox1.TabIndex = 202;
+            // 
+            // label1
+            // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.label1.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
+            this.label1.Location = new System.Drawing.Point(20, 86);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(161, 21);
+            this.label1.TabIndex = 201;
+            this.label1.Text = "Presente Enfermedad:";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox2.Location = new System.Drawing.Point(129, 49);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(110, 24);
+            this.textBox2.TabIndex = 200;
+            this.textBox2.Text = "Las rochas";
+            // 
+            // lblNombre
+            // 
+            this.lblNombre.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lblNombre.AutoSize = true;
+            this.lblNombre.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.lblNombre.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
+            this.lblNombre.Location = new System.Drawing.Point(20, 46);
+            this.lblNombre.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblNombre.Name = "lblNombre";
+            this.lblNombre.Size = new System.Drawing.Size(101, 21);
+            this.lblNombre.TabIndex = 199;
+            this.lblNombre.Text = "Consulta Por:";
             // 
             // HistoriaClinica
             // 
@@ -1229,10 +1209,64 @@ namespace CLINICA_1
             this.AutoScroll = true;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1370, 749);
-            this.Controls.Add(this.radioButton45);
-            this.Controls.Add(this.radioButton44);
-            this.Controls.Add(this.radioButton43);
-            this.Controls.Add(this.radioButton42);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.lblNombre);
+            this.Controls.Add(this.textBox13);
+            this.Controls.Add(this.textBox12);
+            this.Controls.Add(this.textBox11);
+            this.Controls.Add(this.textBox10);
+            this.Controls.Add(this.textBox9);
+            this.Controls.Add(this.textBox6);
+            this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.textBox8);
+            this.Controls.Add(this.checkBox48);
+            this.Controls.Add(this.checkBox47);
+            this.Controls.Add(this.checkBox46);
+            this.Controls.Add(this.checkBox45);
+            this.Controls.Add(this.checkBox44);
+            this.Controls.Add(this.checkBox43);
+            this.Controls.Add(this.checkBox42);
+            this.Controls.Add(this.checkBox34);
+            this.Controls.Add(this.checkBox33);
+            this.Controls.Add(this.checkBox32);
+            this.Controls.Add(this.checkBox31);
+            this.Controls.Add(this.checkBox30);
+            this.Controls.Add(this.checkBox29);
+            this.Controls.Add(this.checkBox28);
+            this.Controls.Add(this.checkBox27);
+            this.Controls.Add(this.checkBox26);
+            this.Controls.Add(this.checkBox25);
+            this.Controls.Add(this.checkBox24);
+            this.Controls.Add(this.checkBox23);
+            this.Controls.Add(this.checkBox22);
+            this.Controls.Add(this.checkBox21);
+            this.Controls.Add(this.checkBox20);
+            this.Controls.Add(this.checkBox19);
+            this.Controls.Add(this.checkBox18);
+            this.Controls.Add(this.checkBox17);
+            this.Controls.Add(this.checkBox16);
+            this.Controls.Add(this.checkBox15);
+            this.Controls.Add(this.checkBox14);
+            this.Controls.Add(this.checkBox13);
+            this.Controls.Add(this.checkBox12);
+            this.Controls.Add(this.checkBox11);
+            this.Controls.Add(this.checkBox10);
+            this.Controls.Add(this.checkBox9);
+            this.Controls.Add(this.checkBox8);
+            this.Controls.Add(this.checkBox7);
+            this.Controls.Add(this.checkBox6);
+            this.Controls.Add(this.checkBox5);
+            this.Controls.Add(this.checkBox4);
+            this.Controls.Add(this.checkBox3);
+            this.Controls.Add(this.checkBox2);
+            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.label18);
+            this.Controls.Add(this.checkBox38);
+            this.Controls.Add(this.checkBox37);
+            this.Controls.Add(this.checkBox36);
+            this.Controls.Add(this.checkBox35);
             this.Controls.Add(this.label24);
             this.Controls.Add(this.textBox14);
             this.Controls.Add(this.label23);
@@ -1241,69 +1275,23 @@ namespace CLINICA_1
             this.Controls.Add(this.textBox7);
             this.Controls.Add(this.textBox4);
             this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label20);
             this.Controls.Add(this.radioButton41);
             this.Controls.Add(this.radioButton40);
             this.Controls.Add(this.radioButton39);
             this.Controls.Add(this.radioButton38);
             this.Controls.Add(this.radioButton37);
-            this.Controls.Add(this.radioButton36);
-            this.Controls.Add(this.radioButton35);
             this.Controls.Add(this.radioButton34);
-            this.Controls.Add(this.radioButton33);
-            this.Controls.Add(this.radioButton32);
-            this.Controls.Add(this.radioButton31);
             this.Controls.Add(this.radioButton30);
-            this.Controls.Add(this.radioButton29);
-            this.Controls.Add(this.radioButton28);
-            this.Controls.Add(this.radioButton27);
-            this.Controls.Add(this.radioButton26);
-            this.Controls.Add(this.radioButton25);
-            this.Controls.Add(this.radioButton24);
-            this.Controls.Add(this.radioButton23);
-            this.Controls.Add(this.radioButton22);
-            this.Controls.Add(this.radioButton21);
-            this.Controls.Add(this.radioButton20);
-            this.Controls.Add(this.radioButton19);
-            this.Controls.Add(this.radioButton18);
-            this.Controls.Add(this.radioButton17);
-            this.Controls.Add(this.radioButton16);
-            this.Controls.Add(this.radioButton15);
-            this.Controls.Add(this.radioButton14);
-            this.Controls.Add(this.radioButton13);
-            this.Controls.Add(this.radioButton12);
-            this.Controls.Add(this.radioButton11);
-            this.Controls.Add(this.radioButton10);
-            this.Controls.Add(this.radioButton9);
-            this.Controls.Add(this.radioButton8);
-            this.Controls.Add(this.radioButton7);
-            this.Controls.Add(this.radioButton6);
-            this.Controls.Add(this.radioButton5);
-            this.Controls.Add(this.radioButton4);
-            this.Controls.Add(this.radioButton3);
-            this.Controls.Add(this.radioButton2);
-            this.Controls.Add(this.radioButton1);
             this.Controls.Add(this.label19);
-            this.Controls.Add(this.label18);
-            this.Controls.Add(this.textBox13);
-            this.Controls.Add(this.textBox12);
-            this.Controls.Add(this.textBox11);
-            this.Controls.Add(this.textBox10);
-            this.Controls.Add(this.textBox9);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.textBox5);
             this.Controls.Add(this.guardar);
             this.Controls.Add(this.nuevo);
-            this.Controls.Add(this.label17);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label11);
-            this.Controls.Add(this.textBox8);
-            this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
@@ -1315,9 +1303,6 @@ namespace CLINICA_1
             this.Controls.Add(this.Hemodialisis);
             this.Controls.Add(this.Hipertension);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.lblNombre);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "HistoriaClinica";
@@ -1333,9 +1318,6 @@ namespace CLINICA_1
         #endregion
 
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
-        private System.Windows.Forms.Label lblNombre;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.RadioButton Hipertension;
         private System.Windows.Forms.RadioButton Hemodialisis;
@@ -1347,80 +1329,88 @@ namespace CLINICA_1
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox textBox8;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Button nuevo;
         private System.Windows.Forms.Button guardar;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.TextBox textBox10;
-        private System.Windows.Forms.TextBox textBox11;
-        private System.Windows.Forms.TextBox textBox12;
-        private System.Windows.Forms.TextBox textBox13;
-        private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.RadioButton radioButton4;
-        private System.Windows.Forms.RadioButton radioButton5;
-        private System.Windows.Forms.RadioButton radioButton6;
-        private System.Windows.Forms.RadioButton radioButton7;
-        private System.Windows.Forms.RadioButton radioButton8;
-        private System.Windows.Forms.RadioButton radioButton9;
-        private System.Windows.Forms.RadioButton radioButton10;
-        private System.Windows.Forms.RadioButton radioButton11;
-        private System.Windows.Forms.RadioButton radioButton12;
-        private System.Windows.Forms.RadioButton radioButton13;
-        private System.Windows.Forms.RadioButton radioButton14;
-        private System.Windows.Forms.RadioButton radioButton15;
-        private System.Windows.Forms.RadioButton radioButton16;
-        private System.Windows.Forms.RadioButton radioButton17;
-        private System.Windows.Forms.RadioButton radioButton18;
-        private System.Windows.Forms.RadioButton radioButton19;
-        private System.Windows.Forms.RadioButton radioButton20;
-        private System.Windows.Forms.RadioButton radioButton21;
-        private System.Windows.Forms.RadioButton radioButton22;
-        private System.Windows.Forms.RadioButton radioButton23;
-        private System.Windows.Forms.RadioButton radioButton24;
-        private System.Windows.Forms.RadioButton radioButton25;
-        private System.Windows.Forms.RadioButton radioButton26;
-        private System.Windows.Forms.RadioButton radioButton27;
-        private System.Windows.Forms.RadioButton radioButton28;
-        private System.Windows.Forms.RadioButton radioButton29;
         private System.Windows.Forms.RadioButton radioButton30;
-        private System.Windows.Forms.RadioButton radioButton31;
-        private System.Windows.Forms.RadioButton radioButton32;
-        private System.Windows.Forms.RadioButton radioButton33;
         private System.Windows.Forms.RadioButton radioButton34;
-        private System.Windows.Forms.RadioButton radioButton35;
-        private System.Windows.Forms.RadioButton radioButton36;
         private System.Windows.Forms.RadioButton radioButton37;
         private System.Windows.Forms.RadioButton radioButton38;
         private System.Windows.Forms.RadioButton radioButton39;
         private System.Windows.Forms.RadioButton radioButton40;
         private System.Windows.Forms.RadioButton radioButton41;
         private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.TextBox textBox14;
-        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.CheckBox checkBox38;
+        private System.Windows.Forms.CheckBox checkBox37;
+        private System.Windows.Forms.CheckBox checkBox36;
+        private System.Windows.Forms.CheckBox checkBox35;
         private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.RadioButton radioButton42;
-        private System.Windows.Forms.RadioButton radioButton43;
-        private System.Windows.Forms.RadioButton radioButton44;
-        private System.Windows.Forms.RadioButton radioButton45;
+        private System.Windows.Forms.TextBox textBox14;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.CheckBox checkBox48;
+        private System.Windows.Forms.CheckBox checkBox47;
+        private System.Windows.Forms.CheckBox checkBox46;
+        private System.Windows.Forms.CheckBox checkBox45;
+        private System.Windows.Forms.CheckBox checkBox44;
+        private System.Windows.Forms.CheckBox checkBox43;
+        private System.Windows.Forms.CheckBox checkBox42;
+        private System.Windows.Forms.CheckBox checkBox34;
+        private System.Windows.Forms.CheckBox checkBox33;
+        private System.Windows.Forms.CheckBox checkBox32;
+        private System.Windows.Forms.CheckBox checkBox31;
+        private System.Windows.Forms.CheckBox checkBox30;
+        private System.Windows.Forms.CheckBox checkBox29;
+        private System.Windows.Forms.CheckBox checkBox28;
+        private System.Windows.Forms.CheckBox checkBox27;
+        private System.Windows.Forms.CheckBox checkBox26;
+        private System.Windows.Forms.CheckBox checkBox25;
+        private System.Windows.Forms.CheckBox checkBox24;
+        private System.Windows.Forms.CheckBox checkBox23;
+        private System.Windows.Forms.CheckBox checkBox22;
+        private System.Windows.Forms.CheckBox checkBox21;
+        private System.Windows.Forms.CheckBox checkBox20;
+        private System.Windows.Forms.CheckBox checkBox19;
+        private System.Windows.Forms.CheckBox checkBox18;
+        private System.Windows.Forms.CheckBox checkBox17;
+        private System.Windows.Forms.CheckBox checkBox16;
+        private System.Windows.Forms.CheckBox checkBox15;
+        private System.Windows.Forms.CheckBox checkBox14;
+        private System.Windows.Forms.CheckBox checkBox13;
+        private System.Windows.Forms.CheckBox checkBox12;
+        private System.Windows.Forms.CheckBox checkBox11;
+        private System.Windows.Forms.CheckBox checkBox10;
+        private System.Windows.Forms.CheckBox checkBox9;
+        private System.Windows.Forms.CheckBox checkBox8;
+        private System.Windows.Forms.CheckBox checkBox7;
+        private System.Windows.Forms.CheckBox checkBox6;
+        private System.Windows.Forms.CheckBox checkBox5;
+        private System.Windows.Forms.CheckBox checkBox4;
+        private System.Windows.Forms.CheckBox checkBox3;
+        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.TextBox textBox13;
+        private System.Windows.Forms.TextBox textBox12;
+        private System.Windows.Forms.TextBox textBox11;
+        private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label lblNombre;
     }
 }
