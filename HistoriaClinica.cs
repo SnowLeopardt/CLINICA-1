@@ -169,6 +169,9 @@ namespace CLINICA_1
         private void label5_Click(object sender, EventArgs e)
         {
 
+
+
+
         }
 
         private void label4_Click(object sender, EventArgs e)
@@ -193,86 +196,117 @@ namespace CLINICA_1
 
         private void guardar_Click(object sender, EventArgs e)
         {
-            using (SqlConnection conn = new SqlConnection(connectionString))
+
+            string connectionString = "Data Source=TU_SERVIDOR;Initial Catalog=TU_BASEDEDATOS;Integrated Security=True";
+
+            using (SqlConnection con = new SqlConnection(connectionString))
             {
                 string query = @"
-        INSERT INTO HistoriaClinica (
-            ConsultaPor, Paciente, PresenteEnfermedad, PresionArterial, FrecuenciaCardiaca, FrecuenciaRespiratoria, SaturacionOxigeno, Peso, Talla, IMC,
+            INSERT INTO HistoriaClinica (
+                ConsultaPor, Paciente, PresenteEnfermedad, PresionArterial, FrecuenciaCardiaca, 
+                FrecuenciaRespiratoria, SaturacionOxigeno, Peso, Talla, IndiceMasaCorporal,
+                Hemodialisis, HipertensionArterial, Diabetes, EnfermedadRenalCronica, Psoriasis,
+                Extremidades, Cabeza, Timpanica, Cornetes, Boca, Desviaciones, PalpanMasas, Tirajes, 
+                Esteroides, Circulacion, Timpanismo,
+                Hundimientos, Nariz, Aleteo, Labios, Faringe, Tiroides, Enfisema, Sibilancias, 
+                Blando, Hepatoesplenomegalia,
+                Conducto, Tabique, Hipertrofica, EdemaGlandulas, Roncus, Expacion, Ronchas, 
+                Frote, Soplos, Irritacion,
+                Abdomen, Pupilas, Lengua, Deformidad, Leucomas, Desviacion, Torax, Peristaltismo, 
+                Genitales, Piel
+            ) VALUES (
+                @ConsultaPor, @Paciente, @PresenteEnfermedad, @PresionArterial, @FrecuenciaCardiaca,
+                @FrecuenciaRespiratoria, @SaturacionOxigeno, @Peso, @Talla, @IndiceMasaCorporal,
+                @Hemodialisis, @HipertensionArterial, @Diabetes, @EnfermedadRenalCronica, @Psoriasis,
+                @Extremidades, @Cabeza, @Timpanica, @Cornetes, @Boca, @Desviaciones, @PalpanMasas, 
+                @Tirajes, @Esteroides, @Circulacion, @Timpanismo,
+                @Hundimientos, @Nariz, @Aleteo, @Labios, @Faringe, @Tiroides, @Enfisema, @Sibilancias, 
+                @Blando, @Hepatoesplenomegalia,
+                @Conducto, @Tabique, @Hipertrofica, @EdemaGlandulas, @Roncus, @Expacion, @Ronchas, 
+                @Frote, @Soplos, @Irritacion,
+                @Abdomen, @Pupilas, @Lengua, @Deformidad, @Leucomas, @Desviacion, @Torax, 
+                @Peristaltismo, @Genitales, @Piel
+            );";
 
-            Hemodialisis, HipertensionArterial, Diabetes, DiabetesTipo2, HipertensionArterialCronica,
-
-            ExtremidadesNormotroficas, CabezaNormocraneo, MembranaTimpanicaNormal, NoEdemaCorneales, BocaNoDesviaciones, NoDesviaciones1, NoSePalpanMasas, 
-            NoTirajes, NoEsteroides, NoCirculacionVenosaColateral, NoTimpanismoMarcoColico,
-
-            NoHundimientos, NarizNoDeformidad, NoAleteoNasal, LabiosNoUlceras, FaringeAmigdalasHiperemicas, GlandulasTiroidesNormal, NoEnfisemaSubcutaneo, 
-            NoSibilancias, BlandoDepresible, NoHepatoesplenomegalia,
-
-            ConductoAuditivoNormal, NoDesviacionTabiqueNasal, NoHipertrofica, NoEdemaGlandulasSalivales, NoRoncus, BuenaExpacionCosa, RonchasPustulas, 
-            NoFrotePericardico, NoSoplosCardiacos, NoSignosIrritacionPeritoneal,
-
-            AbdomenGloboso, PupilasIsocoricas, LenguaNoFrenillo, NoDeformidad, NoLeucomas, NoDesviacion2, ToraxSimetrico, PeristaltismoNormal,
-            GenitalesNormales, PielConDescamacion, EnfermedadRenalCronica, Psoriasis,
-
-            ExamenesLaboratorio, ExamenesGabinete, ImpresionDiagnostica
-        ) VALUES (
-            @ConsultaPor, @Paciente, @PresenteEnfermedad, @PresionArterial, @FrecuenciaCardiaca, @FrecuenciaRespiratoria, @SaturacionOxigeno, @Peso, @Talla, @IMC,
-
-            @Hemodialisis, @HipertensionArterial, @Diabetes, @DiabetesTipo2, @HipertensionArterialCronica,
-
-            @ExtremidadesNormotroficas, @CabezaNormocraneo, @MembranaTimpanicaNormal, @NoEdemaCorneales, @BocaNoDesviaciones, @NoDesviaciones1, @NoSePalpanMasas, 
-            @NoTirajes, @NoEsteroides, @NoCirculacionVenosaColateral, @NoTimpanismoMarcoColico,
-
-            @NoHundimientos, @NarizNoDeformidad, @NoAleteoNasal, @LabiosNoUlceras, @FaringeAmigdalasHiperemicas, @GlandulasTiroidesNormal, @NoEnfisemaSubcutaneo, 
-            @NoSibilancias, @BlandoDepresible, @NoHepatoesplenomegalia,
-
-            @ConductoAuditivoNormal, @NoDesviacionTabiqueNasal, @NoHipertrofica, @NoEdemaGlandulasSalivales, @NoRoncus, @BuenaExpacionCosa, @RonchasPustulas, 
-            @NoFrotePericardico, @NoSoplosCardiacos, @NoSignosIrritacionPeritoneal,
-
-            @AbdomenGloboso, @PupilasIsocoricas, @LenguaNoFrenillo, @NoDeformidad, @NoLeucomas, @NoDesviacion2, @ToraxSimetrico, @PeristaltismoNormal,
-            @GenitalesNormales, @PielConDescamacion, @EnfermedadRenalCronica, @Psoriasis,
-
-            @ExamenesLaboratorio, @ExamenesGabinete, @ImpresionDiagnostica
-        )";
-
-                SqlCommand cmd = new SqlCommand(query, conn);
-
-                // Datos generales
-                cmd.Parameters.AddWithValue("@ConsultaPor", txtConsultaPor.Text);
-                cmd.Parameters.AddWithValue("@Paciente", txtPaciente.Text);
-                cmd.Parameters.AddWithValue("@PresenteEnfermedad", txtPresenteEnfermedad.Text);
-                cmd.Parameters.AddWithValue("@PresionArterial", txtPresionArterial.Text);
-                cmd.Parameters.AddWithValue("@FrecuenciaCardiaca", txtFrecuenciaCardiaca.Text);
-                cmd.Parameters.AddWithValue("@FrecuenciaRespiratoria", txtFrecuenciaRespiratoria.Text);
-                cmd.Parameters.AddWithValue("@SaturacionOxigeno", txtOxigeno.Text);
-
-                decimal peso = Convert.ToDecimal(txtPeso.Text);
-                decimal talla = Convert.ToDecimal(txtTalla.Text);
-                decimal imc = peso / (talla * talla);
-                cmd.Parameters.AddWithValue("@Peso", peso);
-                cmd.Parameters.AddWithValue("@Talla", talla);
-                cmd.Parameters.AddWithValue("@IMC", imc);
-
-                // Generación automática de parámetros de checkbox
-                foreach (Control control in this.Controls)
+                using (SqlCommand cmd = new SqlCommand(query, con))
                 {
-                    if (control is CheckBox chk)
+                    // Agregar TODOS los parámetros
+                    cmd.Parameters.AddWithValue("@ConsultaPor", txtConsultaPor.Text);
+                    cmd.Parameters.AddWithValue("@Paciente", txtPaciente.Text);
+                    cmd.Parameters.AddWithValue("@PresenteEnfermedad", txtPresenteEnfermedad.Text);
+                    cmd.Parameters.AddWithValue("@PresionArterial", txtPresion.Text);
+                    cmd.Parameters.AddWithValue("@FrecuenciaCardiaca", txtFC.Text);
+                    cmd.Parameters.AddWithValue("@FrecuenciaRespiratoria", txtFR.Text);
+                    cmd.Parameters.AddWithValue("@SaturacionOxigeno", txtSaturacion.Text);
+                    cmd.Parameters.AddWithValue("@Peso", txtPeso.Text);
+                    cmd.Parameters.AddWithValue("@Talla", txtTalla.Text);
+            
+
+                    cmd.Parameters.AddWithValue("@Hemodialisis", chkHemodialisis.Checked);
+                    cmd.Parameters.AddWithValue("@HipertensionArterial", chkHipertension.Checked);
+                    cmd.Parameters.AddWithValue("@Diabetes", chkDiabetes.Checked);
+                    cmd.Parameters.AddWithValue("@EnfermedadRenalCronica", chkRenal.Checked);
+                    cmd.Parameters.AddWithValue("@Psoriasis", chkPsoriasis.Checked);
+
+                    cmd.Parameters.AddWithValue("@Extremidades", chkExtremidades.Checked);
+                    cmd.Parameters.AddWithValue("@Cabeza", chkCabeza.Checked);
+                    cmd.Parameters.AddWithValue("@Timpanica", chkTimpanica.Checked);
+                    cmd.Parameters.AddWithValue("@Cornetes", chkCornetes.Checked);
+                    cmd.Parameters.AddWithValue("@Boca", chkBoca.Checked);
+                    cmd.Parameters.AddWithValue("@Desviaciones", chkDesviaciones.Checked);
+                    cmd.Parameters.AddWithValue("@PalpanMasas", chkPalpanMasas.Checked);
+                    cmd.Parameters.AddWithValue("@Tirajes", chkTirajes.Checked);
+                    cmd.Parameters.AddWithValue("@Esteroides", chkEsteroides.Checked);
+                    cmd.Parameters.AddWithValue("@Circulacion", chkCirculacion.Checked);
+                    cmd.Parameters.AddWithValue("@Timpanismo", chkTimpanismo.Checked);
+
+                    cmd.Parameters.AddWithValue("@Hundimientos", chkHundimientos.Checked);
+                    cmd.Parameters.AddWithValue("@Nariz", chkNariz.Checked);
+                    cmd.Parameters.AddWithValue("@Aleteo", chkAleteo.Checked);
+                    cmd.Parameters.AddWithValue("@Labios", chkLabios.Checked);
+                    cmd.Parameters.AddWithValue("@Faringe", chkFaringe.Checked);
+                    cmd.Parameters.AddWithValue("@Tiroides", chkTiroides.Checked);
+                    cmd.Parameters.AddWithValue("@Enfisema", chkEnfisema.Checked);
+                    cmd.Parameters.AddWithValue("@Sibilancias", chkSibilancias.Checked);
+                    cmd.Parameters.AddWithValue("@Blando", chkBlando.Checked);
+                    cmd.Parameters.AddWithValue("@Hepatoesplenomegalia", chkHepatoesplenomegalia.Checked);
+
+                    cmd.Parameters.AddWithValue("@Conducto", chkConducto.Checked);
+                    cmd.Parameters.AddWithValue("@Tabique", chkTabique.Checked);
+                    cmd.Parameters.AddWithValue("@Hipertrofica", chkHipertrofica.Checked);
+                    cmd.Parameters.AddWithValue("@EdemaGlandulas", chkEdemaGlandulas.Checked);
+                    cmd.Parameters.AddWithValue("@Roncus", chkRoncus.Checked);
+                    cmd.Parameters.AddWithValue("@Expacion", chkExpacion.Checked);
+                    cmd.Parameters.AddWithValue("@Ronchas", chkRonchas.Checked);
+                    cmd.Parameters.AddWithValue("@Frote", chkFrote.Checked);
+                    cmd.Parameters.AddWithValue("@Soplos", chkSoplos.Checked);
+                    cmd.Parameters.AddWithValue("@Irritacion", chkIrritacion.Checked);
+
+                    cmd.Parameters.AddWithValue("@Abdomen", chkAbdomen.Checked);
+                    cmd.Parameters.AddWithValue("@Pupilas", chkPupilas.Checked);
+                    cmd.Parameters.AddWithValue("@Lengua", chkLengua.Checked);
+                    cmd.Parameters.AddWithValue("@Deformidad", chkDeformidad.Checked);
+                    cmd.Parameters.AddWithValue("@Leucomas", chkLeucomas.Checked);
+                    cmd.Parameters.AddWithValue("@Desviacion", chkDesviacion.Checked);
+                    cmd.Parameters.AddWithValue("@Torax", chkTorax.Checked);
+                    cmd.Parameters.AddWithValue("@Peristaltismo", chkPeristaltismo.Checked);
+                    cmd.Parameters.AddWithValue("@Genitales", chkGenitales.Checked);
+                    cmd.Parameters.AddWithValue("@Piel", chkPiel.Checked);
+
+                    try
                     {
-                        string paramName = "@" + chk.Name.Substring(3); // Elimina "chk" del nombre
-                        cmd.Parameters.AddWithValue(paramName, chk.Checked);
+                        con.Open();
+                        cmd.ExecuteNonQuery();
+                        MessageBox.Show("Datos guardados correctamente.");
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error al guardar: " + ex.Message);
                     }
                 }
-
-                cmd.Parameters.AddWithValue("@ExamenesLaboratorio", txtExLab.Text);
-                cmd.Parameters.AddWithValue("@ExamenesGabinete", txtExGab.Text);
-                cmd.Parameters.AddWithValue("@ImpresionDiagnostica", txtImpresion.Text);
-
-                conn.Open();
-                cmd.ExecuteNonQuery();
-                conn.Close();
-
-                MessageBox.Show("Datos guardados correctamente.");
             }
         }
+
 
         private void checkBox3_CheckedChanged(object sender, EventArgs e)
         {
@@ -295,4 +329,4 @@ namespace CLINICA_1
         }
     }
     }
-}
+
