@@ -8,6 +8,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.IO;
+using DocumentFormat.OpenXml.Packaging;
+using DocumentFormat.OpenXml.Wordprocessing;
+using System.Diagnostics;
 
 namespace CLINICA_1
 {
@@ -19,59 +23,14 @@ namespace CLINICA_1
         public Registro()
         {
             InitializeComponent();
+
+            Button botonAbrirCarpeta = new Button();
+            botonAbrirCarpeta.Click += botonAbrirCarpeta_Click;
+
+            this.Controls.Add(botonAbrirCarpeta);
         }
 
-        // Evento del botón NUEVO
-        private void btnNuevo_Click(object sender, EventArgs e)
-        {
-            // Limpia todos los campos del formulario
-            txtNombre.Text = "";
-            txtEdad.Text = "";
-            txtTelefono.Text = "";
-            txtDireccion.Text = "";
-            txtdui.Text = "";
 
-            txtresponsable.Text = "";
-            txttelefono2.Text = "";
-            txtdireccion2.Text = "";
-            txtcorreo.Text = "";
-
-            txtNombre.Focus();
-        }
-
-        // Evento del botón GUARDAR
-        private void btnGuardar_Click(object sender, EventArgs e)
-        {
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                try
-                {
-                    connection.Open();
-                    string query = @"INSERT INTO Pacientes 
-                    (Nombre, Edad, Telefono, Direccion, DUI, Responsable, TelResponsable, DirResponsable, CorreoResponsable) 
-                    VALUES 
-                    (@Nombre, @Edad, @Telefono, @Direccion, @DUI, @Responsable, @TelResponsable, @DirResponsable, @CorreoResponsable)";
-
-                    SqlCommand command = new SqlCommand(query, connection);
-                    command.Parameters.AddWithValue("@Nombre", txtNombre.Text);
-                    command.Parameters.AddWithValue("@Edad", int.Parse(txtEdad.Text));
-                    command.Parameters.AddWithValue("@Telefono", txtTelefono.Text);
-                    command.Parameters.AddWithValue("@Direccion", txtDireccion.Text);
-                    command.Parameters.AddWithValue("@DUI", txtdui.Text);
-                    command.Parameters.AddWithValue("@Responsable", txtresponsable.Text);
-                    command.Parameters.AddWithValue("@TelResponsable", txttelefono2.Text);
-                    command.Parameters.AddWithValue("@DirResponsable", txtdireccion2.Text);
-                    command.Parameters.AddWithValue("@CorreoResponsable", txtcorreo.Text);
-
-                    command.ExecuteNonQuery();
-                    MessageBox.Show("Datos guardados correctamente", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error al guardar: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-        }
         //boton eliminar
         private void btneliminar_Click(object sender, EventArgs e)
         {
@@ -112,8 +71,136 @@ namespace CLINICA_1
                 }
             }
         }
-        //boton de editar
-        private void btnEditar_Click(object sender, EventArgs e)
+
+
+
+        private void Registro_Load(object sender, EventArgs e)
+        {
+
+        }
+
+
+        //boton de guardar
+
+        private void btnGuardar_Click_1(object sender, EventArgs e)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    connection.Open();
+                    string query = @"INSERT INTO Pacientes 
+                (Nombre, Edad, Telefono, Direccion, DUI, Responsable, TelResponsable, DirResponsable, CorreoResponsable) 
+                VALUES 
+                (@Nombre, @Edad, @Telefono, @Direccion, @DUI, @Responsable, @TelResponsable, @DirResponsable, @CorreoResponsable)";
+
+                    SqlCommand command = new SqlCommand(query, connection);
+                    command.Parameters.AddWithValue("@Nombre", txtNombre.Text);
+                    command.Parameters.AddWithValue("@Edad", int.Parse(txtEdad.Text));
+                    command.Parameters.AddWithValue("@Telefono", txtTelefono.Text);
+                    command.Parameters.AddWithValue("@Direccion", txtDireccion.Text);
+                    command.Parameters.AddWithValue("@DUI", txtdui.Text);
+                    command.Parameters.AddWithValue("@Responsable", txtresponsable.Text);
+                    command.Parameters.AddWithValue("@TelResponsable", txttelefono2.Text);
+                    command.Parameters.AddWithValue("@DirResponsable", txtdireccion2.Text);
+                    command.Parameters.AddWithValue("@CorreoResponsable", txtcorreo.Text);
+
+                    command.ExecuteNonQuery();
+
+                    // Crear subcarpeta dentro de "Documentos\Pacientes"
+                    string carpetaDocumentos = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+                    string carpetaBase = Path.Combine(carpetaDocumentos, "Pacientes");
+
+                    if (!Directory.Exists(carpetaBase))
+                    {
+                        Directory.CreateDirectory(carpetaBase);
+                    }
+
+                    string nombrePaciente = txtNombre.Text.Trim();
+                    foreach (char c in Path.GetInvalidFileNameChars())
+                    {
+                        nombrePaciente = nombrePaciente.Replace(c, '_');
+                    }
+
+                    string rutaPaciente = Path.Combine(carpetaBase, nombrePaciente);
+                    if (!Directory.Exists(rutaPaciente))
+                    {
+                        Directory.CreateDirectory(rutaPaciente);
+                    }
+
+                    // Crear documento Word con datos del paciente
+                    string rutaArchivoWord = Path.Combine(rutaPaciente, "DatosPaciente.docx");
+                    using (WordprocessingDocument wordDoc = WordprocessingDocument.Create(rutaArchivoWord, DocumentFormat.OpenXml.WordprocessingDocumentType.Document))
+                    {
+                        MainDocumentPart mainPart = wordDoc.AddMainDocumentPart();
+                        mainPart.Document = new Document();
+                        Body body = new Body();
+
+                        void AddTexto(string texto)
+                        {
+                            body.Append(new Paragraph(new Run(new Text(texto))));
+                        }
+
+                        AddTexto("Datos del Paciente:");
+                        AddTexto($"Nombre: {txtNombre.Text}");
+                        AddTexto($"Edad: {txtEdad.Text}");
+                        AddTexto($"Teléfono: {txtTelefono.Text}");
+                        AddTexto($"Dirección: {txtDireccion.Text}");
+                        AddTexto($"DUI: {txtdui.Text}");
+                        AddTexto($"Responsable: {txtresponsable.Text}");
+                        AddTexto($"Tel. Responsable: {txttelefono2.Text}");
+                        AddTexto($"Dir. Responsable: {txtdireccion2.Text}");
+                        AddTexto($"Correo Responsable: {txtcorreo.Text}");
+
+                        mainPart.Document.Append(body);
+                        mainPart.Document.Save();
+                    }
+
+                    MessageBox.Show("Datos guardados, carpeta creada y datos.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LimpiarCampos();
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error al guardar: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void LimpiarCampos()
+        {
+            txtNombre.Clear();
+            txtEdad.Clear();
+            txtTelefono.Clear();
+            txtDireccion.Clear();
+            txtdui.Clear();
+            txtresponsable.Clear();
+            txttelefono2.Clear();
+            txtdireccion2.Clear();
+            txtcorreo.Clear();
+        }
+
+
+
+        // Evento del botón NUEVO
+        private void btnNuevo_Click_1(object sender, EventArgs e)
+        {
+            // Limpia todos los campos del formulario
+            txtNombre.Text = "";
+            txtEdad.Text = "";
+            txtTelefono.Text = "";
+            txtDireccion.Text = "";
+            txtdui.Text = "";
+
+            txtresponsable.Text = "";
+            txttelefono2.Text = "";
+            txtdireccion2.Text = "";
+            txtcorreo.Text = "";
+
+            txtNombre.Focus();
+        }
+
+        private void btnEditar_Click_1(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtdui.Text))
             {
@@ -191,8 +278,7 @@ namespace CLINICA_1
             }
         }
 
-
-        private void btnBuscar_Click(object sender, EventArgs e)
+        private void btnBuscar_Click_1(object sender, EventArgs e)
         {
             string criterio = Microsoft.VisualBasic.Interaction.InputBox("Ingrese nombre, DUI, teléfono o cualquier dato del paciente:", "Buscar paciente", "");
 
@@ -252,9 +338,18 @@ namespace CLINICA_1
             }
         }
 
-        private void Registro_Load(object sender, EventArgs e)
+        private void botonAbrirCarpeta_Click(object sender, EventArgs e)
         {
+            string ruta = @"C:\Users\emili\OneDrive\Documentos\Pacientes"; // Cambia esta ruta si está en otro lugar
 
+            if (Directory.Exists(ruta))
+            {
+                Process.Start("explorer", ruta);
+            }
+            else
+            {
+                MessageBox.Show("La carpeta 'Pacientes' no existe en la ruta:\n" + ruta, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
-}  
+}

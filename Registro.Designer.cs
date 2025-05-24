@@ -57,6 +57,7 @@ namespace CLINICA_1
             this.btnBuscar = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
+            this.botonAbrirCarpeta = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -273,25 +274,27 @@ namespace CLINICA_1
             this.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNuevo.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.btnNuevo.ForeColor = System.Drawing.Color.White;
-            this.btnNuevo.Location = new System.Drawing.Point(36, 428);
+            this.btnNuevo.Location = new System.Drawing.Point(52, 428);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(120, 40);
             this.btnNuevo.TabIndex = 34;
             this.btnNuevo.Text = "NUEVO";
             this.btnNuevo.UseVisualStyleBackColor = false;
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click_1);
             // 
             // btnBuscar
             // 
-            this.btnBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(125)))), ((int)(((byte)(32)))));
+            this.btnBuscar.BackColor = System.Drawing.Color.Violet;
             this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscar.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.btnBuscar.ForeColor = System.Drawing.Color.White;
-            this.btnBuscar.Location = new System.Drawing.Point(226, 428);
+            this.btnBuscar.Location = new System.Drawing.Point(232, 428);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(120, 40);
             this.btnBuscar.TabIndex = 35;
             this.btnBuscar.Text = "BUSCAR";
             this.btnBuscar.UseVisualStyleBackColor = false;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click_1);
             // 
             // btnEditar
             // 
@@ -305,6 +308,7 @@ namespace CLINICA_1
             this.btnEditar.TabIndex = 36;
             this.btnEditar.Text = "EDITAR";
             this.btnEditar.UseVisualStyleBackColor = false;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click_1);
             // 
             // btnGuardar
             // 
@@ -318,6 +322,21 @@ namespace CLINICA_1
             this.btnGuardar.TabIndex = 37;
             this.btnGuardar.Text = "GUARDAR";
             this.btnGuardar.UseVisualStyleBackColor = false;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click_1);
+            // 
+            // botonAbrirCarpeta
+            // 
+            this.botonAbrirCarpeta.BackColor = System.Drawing.Color.Gold;
+            this.botonAbrirCarpeta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.botonAbrirCarpeta.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.botonAbrirCarpeta.ForeColor = System.Drawing.Color.Black;
+            this.botonAbrirCarpeta.Location = new System.Drawing.Point(728, 44);
+            this.botonAbrirCarpeta.Name = "botonAbrirCarpeta";
+            this.botonAbrirCarpeta.Size = new System.Drawing.Size(134, 40);
+            this.botonAbrirCarpeta.TabIndex = 49;
+            this.botonAbrirCarpeta.Text = "BASE DE DATOS";
+            this.botonAbrirCarpeta.UseVisualStyleBackColor = false;
+            this.botonAbrirCarpeta.Click += new System.EventHandler(this.botonAbrirCarpeta_Click);
             // 
             // Registro
             // 
@@ -325,6 +344,7 @@ namespace CLINICA_1
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(64)))), ((int)(((byte)(115)))));
             this.ClientSize = new System.Drawing.Size(883, 500);
+            this.Controls.Add(this.botonAbrirCarpeta);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.txtresponsable);
             this.Controls.Add(this.txtdireccion2);
@@ -398,5 +418,6 @@ namespace CLINICA_1
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnGuardar;
+        private System.Windows.Forms.Button botonAbrirCarpeta;
     }
 }

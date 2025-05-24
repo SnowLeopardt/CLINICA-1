@@ -42,21 +42,17 @@ namespace CLINICA_1
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.nuevo = new System.Windows.Forms.Button();
             this.guardar = new System.Windows.Forms.Button();
             this.label19 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
-            this.chkRenal = new System.Windows.Forms.CheckBox();
-            this.chkPsoriasis = new System.Windows.Forms.CheckBox();
-            this.chckhipertensioncronica = new System.Windows.Forms.CheckBox();
             this.label23 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
-            this.txtexamenesgabinete = new System.Windows.Forms.TextBox();
-            this.txtexameneslaboratorio = new System.Windows.Forms.TextBox();
+            this.txtExamenesGabinete = new System.Windows.Forms.TextBox();
+            this.txtExamenesLaboratorio = new System.Windows.Forms.TextBox();
             this.chkGenitales = new System.Windows.Forms.CheckBox();
             this.chkPiel = new System.Windows.Forms.CheckBox();
             this.chkSoplos = new System.Windows.Forms.CheckBox();
@@ -99,13 +95,13 @@ namespace CLINICA_1
             this.chkTimpanica = new System.Windows.Forms.CheckBox();
             this.chkCabeza = new System.Windows.Forms.CheckBox();
             this.label18 = new System.Windows.Forms.Label();
-            this.txtindicedemasacorporal = new System.Windows.Forms.TextBox();
+            this.txtMasaCorporal = new System.Windows.Forms.TextBox();
             this.txtPeso = new System.Windows.Forms.TextBox();
             this.txtSaturacion = new System.Windows.Forms.TextBox();
             this.txtFR = new System.Windows.Forms.TextBox();
             this.txtFC = new System.Windows.Forms.TextBox();
             this.txtPresion = new System.Windows.Forms.TextBox();
-            this.txtsignosvitales = new System.Windows.Forms.TextBox();
+            this.txtSignosVitales = new System.Windows.Forms.TextBox();
             this.txtTalla = new System.Windows.Forms.TextBox();
             this.txtPresenteEnfermedad = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -116,8 +112,9 @@ namespace CLINICA_1
             this.chkHemodialisis = new System.Windows.Forms.CheckBox();
             this.label10 = new System.Windows.Forms.Label();
             this.txtPaciente = new System.Windows.Forms.TextBox();
-            this.txtimpresion = new System.Windows.Forms.TextBox();
+            this.txtImpresion = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label2
@@ -181,7 +178,7 @@ namespace CLINICA_1
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.label6.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.label6.Location = new System.Drawing.Point(573, 109);
+            this.label6.Location = new System.Drawing.Point(573, 107);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(175, 21);
@@ -265,7 +262,7 @@ namespace CLINICA_1
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.label13.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.label13.Location = new System.Drawing.Point(1007, 163);
+            this.label13.Location = new System.Drawing.Point(1007, 187);
             this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(98, 21);
@@ -273,27 +270,13 @@ namespace CLINICA_1
             this.label13.Text = "Centimetros:";
             this.label13.Click += new System.EventHandler(this.label13_Click);
             // 
-            // label14
-            // 
-            this.label14.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.label14.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.label14.Location = new System.Drawing.Point(1007, 132);
-            this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(46, 21);
-            this.label14.TabIndex = 26;
-            this.label14.Text = "Kilos:";
-            this.label14.Click += new System.EventHandler(this.label14_Click);
-            // 
             // label15
             // 
             this.label15.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.label15.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.label15.Location = new System.Drawing.Point(1007, 189);
+            this.label15.Location = new System.Drawing.Point(1007, 134);
             this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(23, 21);
@@ -322,12 +305,12 @@ namespace CLINICA_1
             this.nuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.nuevo.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.nuevo.ForeColor = System.Drawing.Color.White;
-            this.nuevo.Location = new System.Drawing.Point(1213, 33);
+            this.nuevo.Location = new System.Drawing.Point(1213, 47);
             this.nuevo.Margin = new System.Windows.Forms.Padding(4);
             this.nuevo.Name = "nuevo";
             this.nuevo.Size = new System.Drawing.Size(127, 34);
             this.nuevo.TabIndex = 32;
-            this.nuevo.Text = "NUEVO";
+            this.nuevo.Text = "IMPRIMIR";
             this.nuevo.UseVisualStyleBackColor = false;
             // 
             // guardar
@@ -337,7 +320,7 @@ namespace CLINICA_1
             this.guardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.guardar.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.guardar.ForeColor = System.Drawing.Color.White;
-            this.guardar.Location = new System.Drawing.Point(1213, 76);
+            this.guardar.Location = new System.Drawing.Point(1213, 92);
             this.guardar.Margin = new System.Windows.Forms.Padding(4);
             this.guardar.Name = "guardar";
             this.guardar.Size = new System.Drawing.Size(127, 34);
@@ -352,7 +335,7 @@ namespace CLINICA_1
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.label19.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.label19.Location = new System.Drawing.Point(1114, 163);
+            this.label19.Location = new System.Drawing.Point(1123, 171);
             this.label19.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(243, 84);
@@ -368,47 +351,11 @@ namespace CLINICA_1
             this.label20.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label20.ForeColor = System.Drawing.Color.Black;
-            this.label20.Location = new System.Drawing.Point(1179, 9);
+            this.label20.Location = new System.Drawing.Point(1158, 14);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(169, 20);
             this.label20.TabIndex = 85;
             this.label20.Text = "HISTORIA CLINICA";
-            // 
-            // chkRenal
-            // 
-            this.chkRenal.AutoSize = true;
-            this.chkRenal.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.chkRenal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkRenal.Location = new System.Drawing.Point(820, 605);
-            this.chkRenal.Name = "chkRenal";
-            this.chkRenal.Size = new System.Drawing.Size(210, 19);
-            this.chkRenal.TabIndex = 148;
-            this.chkRenal.Text = "ENFERMEDAD RENAL CRONICA";
-            this.chkRenal.UseVisualStyleBackColor = false;
-            // 
-            // chkPsoriasis
-            // 
-            this.chkPsoriasis.AutoSize = true;
-            this.chkPsoriasis.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.chkPsoriasis.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkPsoriasis.Location = new System.Drawing.Point(820, 630);
-            this.chkPsoriasis.Name = "chkPsoriasis";
-            this.chkPsoriasis.Size = new System.Drawing.Size(89, 19);
-            this.chkPsoriasis.TabIndex = 147;
-            this.chkPsoriasis.Text = "PSORIASIS";
-            this.chkPsoriasis.UseVisualStyleBackColor = false;
-            // 
-            // chckhipertensioncronica
-            // 
-            this.chckhipertensioncronica.AutoSize = true;
-            this.chckhipertensioncronica.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.chckhipertensioncronica.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chckhipertensioncronica.Location = new System.Drawing.Point(820, 655);
-            this.chckhipertensioncronica.Name = "chckhipertensioncronica";
-            this.chckhipertensioncronica.Size = new System.Drawing.Size(232, 19);
-            this.chckhipertensioncronica.TabIndex = 145;
-            this.chckhipertensioncronica.Text = "HIPERTENSION ARTERIAL CRONICA";
-            this.chckhipertensioncronica.UseVisualStyleBackColor = false;
             // 
             // label23
             // 
@@ -416,7 +363,7 @@ namespace CLINICA_1
             this.label23.AutoSize = true;
             this.label23.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label23.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.label23.Location = new System.Drawing.Point(530, 578);
+            this.label23.Location = new System.Drawing.Point(603, 531);
             this.label23.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(186, 21);
@@ -429,7 +376,7 @@ namespace CLINICA_1
             this.label22.AutoSize = true;
             this.label22.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label22.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.label22.Location = new System.Drawing.Point(846, 578);
+            this.label22.Location = new System.Drawing.Point(1039, 531);
             this.label22.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(184, 21);
@@ -442,30 +389,30 @@ namespace CLINICA_1
             this.label21.AutoSize = true;
             this.label21.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label21.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.label21.Location = new System.Drawing.Point(186, 578);
+            this.label21.Location = new System.Drawing.Point(134, 531);
             this.label21.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(203, 21);
             this.label21.TabIndex = 140;
             this.label21.Text = "Examenes de Laboratorio";
             // 
-            // txtexamenesgabinete
+            // txtExamenesGabinete
             // 
-            this.txtexamenesgabinete.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtexamenesgabinete.Location = new System.Drawing.Point(488, 601);
-            this.txtexamenesgabinete.Multiline = true;
-            this.txtexamenesgabinete.Name = "txtexamenesgabinete";
-            this.txtexamenesgabinete.Size = new System.Drawing.Size(257, 134);
-            this.txtexamenesgabinete.TabIndex = 139;
+            this.txtExamenesGabinete.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtExamenesGabinete.Location = new System.Drawing.Point(495, 576);
+            this.txtExamenesGabinete.Multiline = true;
+            this.txtExamenesGabinete.Name = "txtExamenesGabinete";
+            this.txtExamenesGabinete.Size = new System.Drawing.Size(385, 159);
+            this.txtExamenesGabinete.TabIndex = 139;
             // 
-            // txtexameneslaboratorio
+            // txtExamenesLaboratorio
             // 
-            this.txtexameneslaboratorio.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtexameneslaboratorio.Location = new System.Drawing.Point(164, 601);
-            this.txtexameneslaboratorio.Multiline = true;
-            this.txtexameneslaboratorio.Name = "txtexameneslaboratorio";
-            this.txtexameneslaboratorio.Size = new System.Drawing.Size(257, 134);
-            this.txtexameneslaboratorio.TabIndex = 137;
+            this.txtExamenesLaboratorio.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtExamenesLaboratorio.Location = new System.Drawing.Point(55, 576);
+            this.txtExamenesLaboratorio.Multiline = true;
+            this.txtExamenesLaboratorio.Name = "txtExamenesLaboratorio";
+            this.txtExamenesLaboratorio.Size = new System.Drawing.Size(388, 159);
+            this.txtExamenesLaboratorio.TabIndex = 137;
             // 
             // chkGenitales
             // 
@@ -722,7 +669,7 @@ namespace CLINICA_1
             // chkFaringe
             // 
             this.chkFaringe.AutoSize = true;
-            this.chkFaringe.Location = new System.Drawing.Point(265, 358);
+            this.chkFaringe.Location = new System.Drawing.Point(265, 360);
             this.chkFaringe.Name = "chkFaringe";
             this.chkFaringe.Size = new System.Drawing.Size(214, 17);
             this.chkFaringe.TabIndex = 165;
@@ -892,15 +839,15 @@ namespace CLINICA_1
             this.label18.Size = new System.Drawing.Size(0, 21);
             this.label18.TabIndex = 149;
             // 
-            // txtindicedemasacorporal
+            // txtMasaCorporal
             // 
-            this.txtindicedemasacorporal.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtindicedemasacorporal.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtindicedemasacorporal.Location = new System.Drawing.Point(751, 208);
-            this.txtindicedemasacorporal.Margin = new System.Windows.Forms.Padding(4);
-            this.txtindicedemasacorporal.Name = "txtindicedemasacorporal";
-            this.txtindicedemasacorporal.Size = new System.Drawing.Size(248, 24);
-            this.txtindicedemasacorporal.TabIndex = 198;
+            this.txtMasaCorporal.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txtMasaCorporal.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMasaCorporal.Location = new System.Drawing.Point(751, 211);
+            this.txtMasaCorporal.Margin = new System.Windows.Forms.Padding(4);
+            this.txtMasaCorporal.Name = "txtMasaCorporal";
+            this.txtMasaCorporal.Size = new System.Drawing.Size(248, 24);
+            this.txtMasaCorporal.TabIndex = 198;
             // 
             // txtPeso
             // 
@@ -912,12 +859,14 @@ namespace CLINICA_1
             this.txtPeso.Size = new System.Drawing.Size(248, 24);
             this.txtPeso.TabIndex = 197;
             this.txtPeso.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtPeso.TextChanged += new System.EventHandler(this.txtPeso_TextChanged_1);
+            this.txtPeso.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPeso_KeyPress);
             // 
             // txtSaturacion
             // 
             this.txtSaturacion.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.txtSaturacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSaturacion.Location = new System.Drawing.Point(751, 134);
+            this.txtSaturacion.Location = new System.Drawing.Point(751, 133);
             this.txtSaturacion.Margin = new System.Windows.Forms.Padding(4);
             this.txtSaturacion.Name = "txtSaturacion";
             this.txtSaturacion.Size = new System.Drawing.Size(248, 24);
@@ -927,57 +876,59 @@ namespace CLINICA_1
             // txtFR
             // 
             this.txtFR.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtFR.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFR.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtFR.Location = new System.Drawing.Point(751, 108);
             this.txtFR.Margin = new System.Windows.Forms.Padding(4);
             this.txtFR.Name = "txtFR";
-            this.txtFR.Size = new System.Drawing.Size(248, 24);
+            this.txtFR.Size = new System.Drawing.Size(248, 22);
             this.txtFR.TabIndex = 195;
             this.txtFR.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtFC
             // 
             this.txtFC.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtFC.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFC.Location = new System.Drawing.Point(751, 82);
+            this.txtFC.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFC.Location = new System.Drawing.Point(751, 83);
             this.txtFC.Margin = new System.Windows.Forms.Padding(4);
             this.txtFC.Name = "txtFC";
-            this.txtFC.Size = new System.Drawing.Size(248, 24);
+            this.txtFC.Size = new System.Drawing.Size(248, 22);
             this.txtFC.TabIndex = 194;
             this.txtFC.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtPresion
             // 
             this.txtPresion.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtPresion.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPresion.Location = new System.Drawing.Point(751, 57);
+            this.txtPresion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPresion.Location = new System.Drawing.Point(751, 58);
             this.txtPresion.Margin = new System.Windows.Forms.Padding(4);
             this.txtPresion.Name = "txtPresion";
-            this.txtPresion.Size = new System.Drawing.Size(248, 24);
+            this.txtPresion.Size = new System.Drawing.Size(248, 22);
             this.txtPresion.TabIndex = 193;
             this.txtPresion.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // txtsignosvitales
+            // txtSignosVitales
             // 
-            this.txtsignosvitales.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtsignosvitales.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtsignosvitales.Location = new System.Drawing.Point(751, 34);
-            this.txtsignosvitales.Margin = new System.Windows.Forms.Padding(4);
-            this.txtsignosvitales.Name = "txtsignosvitales";
-            this.txtsignosvitales.Size = new System.Drawing.Size(248, 24);
-            this.txtsignosvitales.TabIndex = 192;
-            this.txtsignosvitales.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtSignosVitales.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txtSignosVitales.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSignosVitales.Location = new System.Drawing.Point(751, 34);
+            this.txtSignosVitales.Margin = new System.Windows.Forms.Padding(4);
+            this.txtSignosVitales.Name = "txtSignosVitales";
+            this.txtSignosVitales.Size = new System.Drawing.Size(248, 22);
+            this.txtSignosVitales.TabIndex = 192;
+            this.txtSignosVitales.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtTalla
             // 
             this.txtTalla.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.txtTalla.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTalla.Location = new System.Drawing.Point(751, 34);
+            this.txtTalla.Location = new System.Drawing.Point(751, 186);
             this.txtTalla.Margin = new System.Windows.Forms.Padding(4);
             this.txtTalla.Multiline = true;
             this.txtTalla.Name = "txtTalla";
-            this.txtTalla.Size = new System.Drawing.Size(248, 176);
+            this.txtTalla.Size = new System.Drawing.Size(248, 24);
             this.txtTalla.TabIndex = 191;
+            this.txtTalla.TextChanged += new System.EventHandler(this.txtTalla_TextChanged_1);
+            this.txtTalla.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTalla_KeyPress);
             // 
             // txtPresenteEnfermedad
             // 
@@ -1006,8 +957,8 @@ namespace CLINICA_1
             // txtConsultaPor
             // 
             this.txtConsultaPor.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtConsultaPor.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtConsultaPor.Location = new System.Drawing.Point(129, 13);
+            this.txtConsultaPor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtConsultaPor.Location = new System.Drawing.Point(129, 17);
             this.txtConsultaPor.Margin = new System.Windows.Forms.Padding(4);
             this.txtConsultaPor.Multiline = true;
             this.txtConsultaPor.Name = "txtConsultaPor";
@@ -1073,7 +1024,7 @@ namespace CLINICA_1
             // txtPaciente
             // 
             this.txtPaciente.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtPaciente.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPaciente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPaciente.Location = new System.Drawing.Point(129, 51);
             this.txtPaciente.Margin = new System.Windows.Forms.Padding(4);
             this.txtPaciente.Multiline = true;
@@ -1081,15 +1032,15 @@ namespace CLINICA_1
             this.txtPaciente.Size = new System.Drawing.Size(289, 20);
             this.txtPaciente.TabIndex = 207;
             // 
-            // txtimpresion
+            // txtImpresion
             // 
-            this.txtimpresion.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtimpresion.Location = new System.Drawing.Point(808, 601);
-            this.txtimpresion.Multiline = true;
-            this.txtimpresion.Name = "txtimpresion";
-            this.txtimpresion.Size = new System.Drawing.Size(257, 134);
-            this.txtimpresion.TabIndex = 143;
-            this.txtimpresion.UseWaitCursor = true;
+            this.txtImpresion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtImpresion.Location = new System.Drawing.Point(955, 576);
+            this.txtImpresion.Multiline = true;
+            this.txtImpresion.Name = "txtImpresion";
+            this.txtImpresion.Size = new System.Drawing.Size(385, 159);
+            this.txtImpresion.TabIndex = 143;
+            this.txtImpresion.UseWaitCursor = true;
             // 
             // label17
             // 
@@ -1097,12 +1048,25 @@ namespace CLINICA_1
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.label17.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.label17.Location = new System.Drawing.Point(565, 211);
+            this.label17.Location = new System.Drawing.Point(560, 211);
             this.label17.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(183, 21);
             this.label17.TabIndex = 208;
             this.label17.Text = "Indice De Masa Corporal:";
+            // 
+            // label14
+            // 
+            this.label14.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.label14.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
+            this.label14.Location = new System.Drawing.Point(1007, 161);
+            this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(46, 21);
+            this.label14.TabIndex = 209;
+            this.label14.Text = "Kilos:";
             // 
             // HistoriaClinica
             // 
@@ -1110,6 +1074,7 @@ namespace CLINICA_1
             this.AutoScroll = true;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1370, 749);
+            this.Controls.Add(this.label14);
             this.Controls.Add(this.label17);
             this.Controls.Add(this.txtPaciente);
             this.Controls.Add(this.label10);
@@ -1120,13 +1085,13 @@ namespace CLINICA_1
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtConsultaPor);
             this.Controls.Add(this.lblNombre);
-            this.Controls.Add(this.txtindicedemasacorporal);
+            this.Controls.Add(this.txtMasaCorporal);
             this.Controls.Add(this.txtPeso);
             this.Controls.Add(this.txtSaturacion);
             this.Controls.Add(this.txtFR);
             this.Controls.Add(this.txtFC);
             this.Controls.Add(this.txtPresion);
-            this.Controls.Add(this.txtsignosvitales);
+            this.Controls.Add(this.txtSignosVitales);
             this.Controls.Add(this.txtTalla);
             this.Controls.Add(this.chkGenitales);
             this.Controls.Add(this.chkPiel);
@@ -1170,22 +1135,18 @@ namespace CLINICA_1
             this.Controls.Add(this.chkTimpanica);
             this.Controls.Add(this.chkCabeza);
             this.Controls.Add(this.label18);
-            this.Controls.Add(this.chkRenal);
-            this.Controls.Add(this.chkPsoriasis);
-            this.Controls.Add(this.chckhipertensioncronica);
-            this.Controls.Add(this.txtimpresion);
+            this.Controls.Add(this.txtImpresion);
             this.Controls.Add(this.label23);
             this.Controls.Add(this.label22);
             this.Controls.Add(this.label21);
-            this.Controls.Add(this.txtexamenesgabinete);
-            this.Controls.Add(this.txtexameneslaboratorio);
+            this.Controls.Add(this.txtExamenesGabinete);
+            this.Controls.Add(this.txtExamenesLaboratorio);
             this.Controls.Add(this.label20);
             this.Controls.Add(this.label19);
             this.Controls.Add(this.guardar);
             this.Controls.Add(this.nuevo);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.label15);
-            this.Controls.Add(this.label14);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label11);
@@ -1223,21 +1184,17 @@ namespace CLINICA_1
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Button nuevo;
         private System.Windows.Forms.Button guardar;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.CheckBox chkRenal;
-        private System.Windows.Forms.CheckBox chkPsoriasis;
-        private System.Windows.Forms.CheckBox chckhipertensioncronica;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.TextBox txtexamenesgabinete;
-        private System.Windows.Forms.TextBox txtexameneslaboratorio;
+        private System.Windows.Forms.TextBox txtExamenesGabinete;
+        private System.Windows.Forms.TextBox txtExamenesLaboratorio;
         private System.Windows.Forms.CheckBox chkGenitales;
         private System.Windows.Forms.CheckBox chkPiel;
         private System.Windows.Forms.CheckBox chkSoplos;
@@ -1280,13 +1237,13 @@ namespace CLINICA_1
         private System.Windows.Forms.CheckBox chkTimpanica;
         private System.Windows.Forms.CheckBox chkCabeza;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.TextBox txtindicedemasacorporal;
+        private System.Windows.Forms.TextBox txtMasaCorporal;
         private System.Windows.Forms.TextBox txtPeso;
         private System.Windows.Forms.TextBox txtSaturacion;
         private System.Windows.Forms.TextBox txtFR;
         private System.Windows.Forms.TextBox txtFC;
         private System.Windows.Forms.TextBox txtPresion;
-        private System.Windows.Forms.TextBox txtsignosvitales;
+        private System.Windows.Forms.TextBox txtSignosVitales;
         private System.Windows.Forms.TextBox txtTalla;
         private System.Windows.Forms.TextBox txtPresenteEnfermedad;
         private System.Windows.Forms.Label label1;
@@ -1297,7 +1254,8 @@ namespace CLINICA_1
         private System.Windows.Forms.CheckBox chkHemodialisis;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txtPaciente;
-        private System.Windows.Forms.TextBox txtimpresion;
+        private System.Windows.Forms.TextBox txtImpresion;
         private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label14;
     }
 }
