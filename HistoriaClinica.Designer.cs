@@ -44,7 +44,7 @@ namespace CLINICA_1
             this.label13 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
-            this.nuevo = new System.Windows.Forms.Button();
+            this.btnImprimir = new System.Windows.Forms.Button();
             this.guardar = new System.Windows.Forms.Button();
             this.label19 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
@@ -298,20 +298,21 @@ namespace CLINICA_1
             this.label16.Text = "Por minuto:";
             this.label16.Click += new System.EventHandler(this.label16_Click);
             // 
-            // nuevo
+            // btnImprimir
             // 
-            this.nuevo.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.nuevo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.nuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.nuevo.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.nuevo.ForeColor = System.Drawing.Color.White;
-            this.nuevo.Location = new System.Drawing.Point(1213, 47);
-            this.nuevo.Margin = new System.Windows.Forms.Padding(4);
-            this.nuevo.Name = "nuevo";
-            this.nuevo.Size = new System.Drawing.Size(127, 34);
-            this.nuevo.TabIndex = 32;
-            this.nuevo.Text = "IMPRIMIR";
-            this.nuevo.UseVisualStyleBackColor = false;
+            this.btnImprimir.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.btnImprimir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.btnImprimir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnImprimir.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.btnImprimir.ForeColor = System.Drawing.Color.White;
+            this.btnImprimir.Location = new System.Drawing.Point(1213, 47);
+            this.btnImprimir.Margin = new System.Windows.Forms.Padding(4);
+            this.btnImprimir.Name = "btnImprimir";
+            this.btnImprimir.Size = new System.Drawing.Size(127, 34);
+            this.btnImprimir.TabIndex = 32;
+            this.btnImprimir.Text = "IMPRIMIR";
+            this.btnImprimir.UseVisualStyleBackColor = false;
+            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
             // 
             // guardar
             // 
@@ -1144,7 +1145,7 @@ namespace CLINICA_1
             this.Controls.Add(this.label20);
             this.Controls.Add(this.label19);
             this.Controls.Add(this.guardar);
-            this.Controls.Add(this.nuevo);
+            this.Controls.Add(this.btnImprimir);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.label13);
@@ -1162,8 +1163,7 @@ namespace CLINICA_1
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "HistoriaClinica";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "CLINICA VARGAS - HISTORIA CLINICA";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Text = "CLINICA VARGAS - HISTORIA CLINICA - DOCTOR";
             this.Load += new System.EventHandler(this.HistoriaClinica_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -1186,7 +1186,7 @@ namespace CLINICA_1
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Button nuevo;
+        private System.Windows.Forms.Button btnImprimir;
         private System.Windows.Forms.Button guardar;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label20;

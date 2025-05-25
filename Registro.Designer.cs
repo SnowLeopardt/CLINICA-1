@@ -67,7 +67,7 @@ namespace CLINICA_1
             this.btneliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btneliminar.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.btneliminar.ForeColor = System.Drawing.Color.White;
-            this.btneliminar.Location = new System.Drawing.Point(751, 428);
+            this.btneliminar.Location = new System.Drawing.Point(728, 428);
             this.btneliminar.Name = "btneliminar";
             this.btneliminar.Size = new System.Drawing.Size(120, 40);
             this.btneliminar.TabIndex = 24;
@@ -88,24 +88,24 @@ namespace CLINICA_1
             // 
             // txtresponsable
             // 
-            this.txtresponsable.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtresponsable.Location = new System.Drawing.Point(595, 148);
+            this.txtresponsable.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtresponsable.Location = new System.Drawing.Point(599, 151);
             this.txtresponsable.Name = "txtresponsable";
-            this.txtresponsable.Size = new System.Drawing.Size(250, 24);
+            this.txtresponsable.Size = new System.Drawing.Size(250, 22);
             this.txtresponsable.TabIndex = 47;
             // 
             // txtdireccion2
             // 
-            this.txtdireccion2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtdireccion2.Location = new System.Drawing.Point(595, 197);
+            this.txtdireccion2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtdireccion2.Location = new System.Drawing.Point(598, 197);
             this.txtdireccion2.Name = "txtdireccion2";
-            this.txtdireccion2.Size = new System.Drawing.Size(250, 24);
+            this.txtdireccion2.Size = new System.Drawing.Size(250, 22);
             this.txtdireccion2.TabIndex = 46;
             // 
             // txttelefono2
             // 
             this.txttelefono2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txttelefono2.Location = new System.Drawing.Point(595, 247);
+            this.txttelefono2.Location = new System.Drawing.Point(598, 247);
             this.txttelefono2.Name = "txttelefono2";
             this.txttelefono2.Size = new System.Drawing.Size(250, 24);
             this.txttelefono2.TabIndex = 45;
@@ -113,7 +113,7 @@ namespace CLINICA_1
             // txtcorreo
             // 
             this.txtcorreo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtcorreo.Location = new System.Drawing.Point(595, 294);
+            this.txtcorreo.Location = new System.Drawing.Point(598, 294);
             this.txtcorreo.Name = "txtcorreo";
             this.txtcorreo.Size = new System.Drawing.Size(250, 24);
             this.txtcorreo.TabIndex = 44;
@@ -123,7 +123,7 @@ namespace CLINICA_1
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(488, 143);
+            this.label5.Location = new System.Drawing.Point(485, 152);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(110, 21);
             this.label5.TabIndex = 43;
@@ -149,7 +149,7 @@ namespace CLINICA_1
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(81, 21);
             this.label3.TabIndex = 41;
-            this.label3.Text = "Telefono:";
+            this.label3.Text = "Télefono:";
             // 
             // label2
             // 
@@ -167,7 +167,7 @@ namespace CLINICA_1
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(72, 349);
+            this.label1.Location = new System.Drawing.Point(84, 349);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(43, 21);
             this.label1.TabIndex = 39;
@@ -175,10 +175,10 @@ namespace CLINICA_1
             // 
             // txtdui
             // 
-            this.txtdui.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtdui.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtdui.Location = new System.Drawing.Point(132, 352);
             this.txtdui.Name = "txtdui";
-            this.txtdui.Size = new System.Drawing.Size(250, 24);
+            this.txtdui.Size = new System.Drawing.Size(250, 22);
             this.txtdui.TabIndex = 38;
             // 
             // lblTitulo
@@ -197,7 +197,7 @@ namespace CLINICA_1
             this.lblNombre.AutoSize = true;
             this.lblNombre.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNombre.ForeColor = System.Drawing.Color.White;
-            this.lblNombre.Location = new System.Drawing.Point(48, 141);
+            this.lblNombre.Location = new System.Drawing.Point(50, 141);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(77, 21);
             this.lblNombre.TabIndex = 26;
@@ -205,10 +205,10 @@ namespace CLINICA_1
             // 
             // txtNombre
             // 
-            this.txtNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombre.Location = new System.Drawing.Point(132, 144);
+            this.txtNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNombre.Location = new System.Drawing.Point(132, 142);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(250, 24);
+            this.txtNombre.Size = new System.Drawing.Size(250, 22);
             this.txtNombre.TabIndex = 27;
             // 
             // lblEdad
@@ -216,7 +216,7 @@ namespace CLINICA_1
             this.lblEdad.AutoSize = true;
             this.lblEdad.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEdad.ForeColor = System.Drawing.Color.White;
-            this.lblEdad.Location = new System.Drawing.Point(72, 191);
+            this.lblEdad.Location = new System.Drawing.Point(73, 191);
             this.lblEdad.Name = "lblEdad";
             this.lblEdad.Size = new System.Drawing.Size(52, 21);
             this.lblEdad.TabIndex = 28;
@@ -224,10 +224,10 @@ namespace CLINICA_1
             // 
             // txtEdad
             // 
-            this.txtEdad.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEdad.Location = new System.Drawing.Point(132, 194);
+            this.txtEdad.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEdad.Location = new System.Drawing.Point(132, 190);
             this.txtEdad.Name = "txtEdad";
-            this.txtEdad.Size = new System.Drawing.Size(250, 24);
+            this.txtEdad.Size = new System.Drawing.Size(250, 22);
             this.txtEdad.TabIndex = 29;
             // 
             // lblTelefono
@@ -243,10 +243,10 @@ namespace CLINICA_1
             // 
             // txtTelefono
             // 
-            this.txtTelefono.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTelefono.Location = new System.Drawing.Point(132, 244);
+            this.txtTelefono.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTelefono.Location = new System.Drawing.Point(132, 241);
             this.txtTelefono.Name = "txtTelefono";
-            this.txtTelefono.Size = new System.Drawing.Size(250, 24);
+            this.txtTelefono.Size = new System.Drawing.Size(250, 22);
             this.txtTelefono.TabIndex = 31;
             // 
             // lblDireccion
@@ -254,7 +254,7 @@ namespace CLINICA_1
             this.lblDireccion.AutoSize = true;
             this.lblDireccion.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDireccion.ForeColor = System.Drawing.Color.White;
-            this.lblDireccion.Location = new System.Drawing.Point(39, 293);
+            this.lblDireccion.Location = new System.Drawing.Point(42, 293);
             this.lblDireccion.Name = "lblDireccion";
             this.lblDireccion.Size = new System.Drawing.Size(87, 21);
             this.lblDireccion.TabIndex = 32;
@@ -262,10 +262,10 @@ namespace CLINICA_1
             // 
             // txtDireccion
             // 
-            this.txtDireccion.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDireccion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDireccion.Location = new System.Drawing.Point(132, 294);
             this.txtDireccion.Name = "txtDireccion";
-            this.txtDireccion.Size = new System.Drawing.Size(250, 24);
+            this.txtDireccion.Size = new System.Drawing.Size(250, 22);
             this.txtDireccion.TabIndex = 33;
             // 
             // btnNuevo
@@ -274,7 +274,7 @@ namespace CLINICA_1
             this.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNuevo.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.btnNuevo.ForeColor = System.Drawing.Color.White;
-            this.btnNuevo.Location = new System.Drawing.Point(52, 428);
+            this.btnNuevo.Location = new System.Drawing.Point(43, 428);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(120, 40);
             this.btnNuevo.TabIndex = 34;
@@ -288,7 +288,7 @@ namespace CLINICA_1
             this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscar.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.btnBuscar.ForeColor = System.Drawing.Color.White;
-            this.btnBuscar.Location = new System.Drawing.Point(232, 428);
+            this.btnBuscar.Location = new System.Drawing.Point(217, 428);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(120, 40);
             this.btnBuscar.TabIndex = 35;
@@ -302,7 +302,7 @@ namespace CLINICA_1
             this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEditar.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.btnEditar.ForeColor = System.Drawing.Color.White;
-            this.btnEditar.Location = new System.Drawing.Point(413, 428);
+            this.btnEditar.Location = new System.Drawing.Point(394, 428);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(120, 40);
             this.btnEditar.TabIndex = 36;
@@ -316,7 +316,7 @@ namespace CLINICA_1
             this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGuardar.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.btnGuardar.ForeColor = System.Drawing.Color.White;
-            this.btnGuardar.Location = new System.Drawing.Point(583, 428);
+            this.btnGuardar.Location = new System.Drawing.Point(564, 428);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(120, 40);
             this.btnGuardar.TabIndex = 37;
@@ -374,7 +374,7 @@ namespace CLINICA_1
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Registro";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "CLINICA VARGAS - REGISTRO DE DATOS";
+            this.Text = "CLINICA VARGAS - REGISTRO DE DATOS - DOCTOR";
             this.Load += new System.EventHandler(this.Registro_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

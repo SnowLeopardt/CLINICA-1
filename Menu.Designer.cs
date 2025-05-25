@@ -32,9 +32,10 @@ namespace CLINICA_1
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Menu));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.rEGISTRARDATOSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.hISTORIACLINICAToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.hISTORIACLINICAToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -46,7 +47,8 @@ namespace CLINICA_1
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.rEGISTRARDATOSToolStripMenuItem,
-            this.hISTORIACLINICAToolStripMenuItem});
+            this.hISTORIACLINICAToolStripMenuItem,
+            this.toolStripMenuItem1});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
@@ -56,12 +58,34 @@ namespace CLINICA_1
             // 
             // rEGISTRARDATOSToolStripMenuItem
             // 
+            this.rEGISTRARDATOSToolStripMenuItem.Checked = true;
+            this.rEGISTRARDATOSToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.rEGISTRARDATOSToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rEGISTRARDATOSToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.rEGISTRARDATOSToolStripMenuItem.Name = "rEGISTRARDATOSToolStripMenuItem";
             this.rEGISTRARDATOSToolStripMenuItem.Size = new System.Drawing.Size(161, 25);
             this.rEGISTRARDATOSToolStripMenuItem.Text = "REGISTRAR DATOS";
             this.rEGISTRARDATOSToolStripMenuItem.Click += new System.EventHandler(this.rEGISTRARDATOSToolStripMenuItem_Click);
+            // 
+            // hISTORIACLINICAToolStripMenuItem
+            // 
+            this.hISTORIACLINICAToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.hISTORIACLINICAToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.hISTORIACLINICAToolStripMenuItem.Name = "hISTORIACLINICAToolStripMenuItem";
+            this.hISTORIACLINICAToolStripMenuItem.Size = new System.Drawing.Size(160, 25);
+            this.hISTORIACLINICAToolStripMenuItem.Text = "HISTORIA CLINICA";
+            this.hISTORIACLINICAToolStripMenuItem.Click += new System.EventHandler(this.hISTORIACLINICAToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Checked = true;
+            this.toolStripMenuItem1.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.toolStripMenuItem1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripMenuItem1.ForeColor = System.Drawing.Color.White;
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(68, 25);
+            this.toolStripMenuItem1.Text = "HOJA ";
+            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
             // pictureBox1
             // 
@@ -84,15 +108,6 @@ namespace CLINICA_1
             this.label1.TabIndex = 25;
             this.label1.Text = "CLINICA VARGAS";
             // 
-            // hISTORIACLINICAToolStripMenuItem
-            // 
-            this.hISTORIACLINICAToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.hISTORIACLINICAToolStripMenuItem.ForeColor = System.Drawing.Color.White;
-            this.hISTORIACLINICAToolStripMenuItem.Name = "hISTORIACLINICAToolStripMenuItem";
-            this.hISTORIACLINICAToolStripMenuItem.Size = new System.Drawing.Size(160, 25);
-            this.hISTORIACLINICAToolStripMenuItem.Text = "HISTORIA CLINICA";
-            this.hISTORIACLINICAToolStripMenuItem.Click += new System.EventHandler(this.hISTORIACLINICAToolStripMenuItem_Click);
-            // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -106,7 +121,7 @@ namespace CLINICA_1
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Menu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "CLINICA VARGAS - MENU PRINCIPAL -DOCTOR";
+            this.Text = "CLINICA VARGAS - MENU PRINCIPAL - DOCTOR";
             this.Load += new System.EventHandler(this.Menu_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -123,5 +138,6 @@ namespace CLINICA_1
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ToolStripMenuItem hISTORIACLINICAToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
     }
 }

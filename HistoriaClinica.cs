@@ -1,16 +1,26 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
-using Xceed.Document.NET;
 using System.IO;
-using Xceed.Words.NET;
+using System.Drawing;
+using System.Diagnostics;
+using DocumentFormat.OpenXml.Packaging;
+using DocumentFormat.OpenXml.Wordprocessing;
+using PdfDocument = iTextSharp.text.Document;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
+using WordDocument = DocumentFormat.OpenXml.Wordprocessing.Document;
+using WordParagraph = DocumentFormat.OpenXml.Wordprocessing.Paragraph;
+using WordRun = DocumentFormat.OpenXml.Wordprocessing.Run;
+using WordBreak = DocumentFormat.OpenXml.Wordprocessing.Break;
+using WordBody = DocumentFormat.OpenXml.Wordprocessing.Body;
+using WordText = DocumentFormat.OpenXml.Wordprocessing.Text;
+using WordRunProperties = DocumentFormat.OpenXml.Wordprocessing.RunProperties;
+using WordBold = DocumentFormat.OpenXml.Wordprocessing.Bold;
+using WordFontSize = DocumentFormat.OpenXml.Wordprocessing.FontSize;
+
+
 
 
 namespace CLINICA_1
@@ -256,7 +266,7 @@ namespace CLINICA_1
                     cmd.Parameters.AddWithValue("@Hemodialisis", chkHemodialisis.Checked ? "SI" : "NO");
                     cmd.Parameters.AddWithValue("@HipertensionArterial", chkHipertension.Checked ? "SI" : "NO");
                     cmd.Parameters.AddWithValue("@Diabetes", chkDiabetes.Checked ? "SI" : "NO");
-    
+
 
                     cmd.Parameters.AddWithValue("@Extremidades", chkExtremidades.Checked ? "SI" : "NO");
                     cmd.Parameters.AddWithValue("@Cabeza", chkCabeza.Checked ? "SI" : "NO");
@@ -307,108 +317,128 @@ namespace CLINICA_1
                     {
                         con.Open();
                         cmd.ExecuteNonQuery();
-                        MessageBox.Show("Los datos se han guardado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        LimpiarCampos(); // Llama al método para limpiar los campos
+
+                        // =======================================
+                        // GENERAR DOCUMENTO WORD CON OPEN XML SDK
+                        // =======================================
+
+                        string pacienteFolder = Path.Combine(
+                            Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments),
+                            "Pacientes",
+                            txtPaciente.Text.Trim()
+                        );
+
+                        // Verificar si la carpeta del paciente ya existe
+                        if (!Directory.Exists(pacienteFolder))
+                        {
+                            MessageBox.Show($"La carpeta del paciente '{txtPaciente.Text}' no existe.\nVerifica en: {pacienteFolder}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+
+                        // Crear nombre de archivo con marca de tiempo para evitar sobreescrituras
+                        string fileName = $"HistoriaClinica_{txtPaciente.Text.Trim()}.docx";
+                        string docPath = Path.Combine(pacienteFolder, fileName);
+
+                        using (WordprocessingDocument wordDoc = WordprocessingDocument.Create(docPath, DocumentFormat.OpenXml.WordprocessingDocumentType.Document))
+                        {
+                            MainDocumentPart mainPart = wordDoc.AddMainDocumentPart();
+                            mainPart.Document = new WordDocument();
+                            WordBody body = new WordBody();
+
+                            void AddParagraph(string text, bool bold = false, int fontSize = 24)
+                            {
+                                WordRunProperties props = new WordRunProperties();
+                                props.Append(new WordFontSize() { Val = fontSize.ToString() });
+
+                                if (bold)
+                                    props.Append(new WordBold());
+
+                                WordRun run = new WordRun();
+                                run.Append(props);
+                                run.Append(new WordText(text));
+
+                                WordParagraph para = new WordParagraph(run);
+                                body.Append(para);
+                            }
+
+                            // Contenido del documento
+                            AddParagraph("HISTORIA CLÍNICA", bold: true, fontSize: 32);
+                            body.Append(new WordParagraph(new WordRun(new WordBreak()))); // Salto de línea
+
+                            AddParagraph($"Consulta por: {txtConsultaPor.Text}");
+                            AddParagraph($"Paciente: {txtPaciente.Text}");
+                            AddParagraph($"Presente Enfermedad: {txtPresenteEnfermedad.Text}");
+                            AddParagraph($"Signos Vitales: {txtSignosVitales.Text}");
+                            AddParagraph($"Presión Arterial: {txtPresion.Text}");
+                            AddParagraph($"Frecuencia Cardiaca: {txtFC.Text}");
+                            AddParagraph($"Frecuencia Respiratoria: {txtFR.Text}");
+                            AddParagraph($"Saturación Oxígeno: {txtSaturacion.Text}");
+                            AddParagraph($"Peso: {txtPeso.Text}");
+                            AddParagraph($"Talla: {txtTalla.Text}");
+                            AddParagraph($"IMC: {txtMasaCorporal.Text}");
+                            AddParagraph($"Gabinete: {txtExamenesGabinete.Text}");
+                            AddParagraph($"Laboratorios: {txtExamenesLaboratorio.Text}");
+                            AddParagraph($"Impresión Diagnóstica: {txtImpresion.Text}");
+
+                            // Checkbox
+                            AddParagraph($"Hemodiálisis: {(chkHemodialisis.Checked ? "Sí" : "No")}");
+                            AddParagraph($"Hipertensión: {(chkHipertension.Checked ? "Sí" : "No")}");
+                            AddParagraph($"Diabetes: {(chkDiabetes.Checked ? "Sí" : "No")}");
+                            AddParagraph($"Extremidades: {(chkExtremidades.Checked ? "Sí" : "No")}");
+                            AddParagraph($"Cabeza: {(chkCabeza.Checked ? "Sí" : "No")}");
+                            AddParagraph($"Timpánica: {(chkTimpanica.Checked ? "Sí" : "No")}");
+                            AddParagraph($"Cornetes: {(chkCornetes.Checked ? "Sí" : "No")}");
+                            AddParagraph($"Boca: {(chkBoca.Checked ? "Sí" : "No")}");
+                            AddParagraph($"Desviaciones: {(chkDesviaciones.Checked ? "Sí" : "No")}");
+                            AddParagraph($"Palpan Masas: {(chkPalpanMasas.Checked ? "Sí" : "No")}");
+                            AddParagraph($"Tirajes: {(chkTirajes.Checked ? "Sí" : "No")}");
+                            AddParagraph($"Esteroides: {(chkEsteroides.Checked ? "Sí" : "No")}");
+                            AddParagraph($"Circulación: {(chkCirculacion.Checked ? "Sí" : "No")}");
+                            AddParagraph($"Timpanismo: {(chkTimpanismo.Checked ? "Sí" : "No")}");
+                            AddParagraph($"Hundimientos: {(chkHundimientos.Checked ? "Sí" : "No")}");
+                            AddParagraph($"Nariz: {(chkNariz.Checked ? "Sí" : "No")}");
+                            AddParagraph($"Aleteo: {(chkAleteo.Checked ? "Sí" : "No")}");
+                            AddParagraph($"Labios: {(chkLabios.Checked ? "Sí" : "No")}");
+                            AddParagraph($"Faringe: {(chkFaringe.Checked ? "Sí" : "No")}");
+                            AddParagraph($"Tiroides: {(chkTiroides.Checked ? "Sí" : "No")}");
+                            AddParagraph($"Enfisema: {(chkEnfisema.Checked ? "Sí" : "No")}");
+                            AddParagraph($"Sibilancias: {(chkSibilancias.Checked ? "Sí" : "No")}");
+                            AddParagraph($"Blando: {(chkBlando.Checked ? "Sí" : "No")}");
+                            AddParagraph($"Hepatoesplenomegalia: {(chkHepatoesplenomegalia.Checked ? "Sí" : "No")}");
+                            AddParagraph($"Conducto: {(chkConducto.Checked ? "Sí" : "No")}");
+                            AddParagraph($"Tabique: {(chkTabique.Checked ? "Sí" : "No")}");
+                            AddParagraph($"Hipertrofica: {(chkHipertrofica.Checked ? "Sí" : "No")}");
+                            AddParagraph($"Edema Glandulas: {(chkEdemaGlandulas.Checked ? "Sí" : "No")}");
+                            AddParagraph($"Roncus: {(chkRoncus.Checked ? "Sí" : "No")}");
+                            AddParagraph($"Expación: {(chkExpacion.Checked ? "Sí" : "No")}");
+                            AddParagraph($"Ronchas: {(chkRonchas.Checked ? "Sí" : "No")}");
+                            AddParagraph($"Frote: {(chkFrote.Checked ? "Sí" : "No")}");
+                            AddParagraph($"Soplos: {(chkSoplos.Checked ? "Sí" : "No")}");
+                            AddParagraph($"Irritación: {(chkIrritacion.Checked ? "Sí" : "No")}");
+                            AddParagraph($"Abdomen: {(chkAbdomen.Checked ? "Sí" : "No")}");
+                            AddParagraph($"Pupilas: {(chkPupilas.Checked ? "Sí" : "No")}");
+                            AddParagraph($"Lengua: {(chkLengua.Checked ? "Sí" : "No")}");
+                            AddParagraph($"Deformidad: {(chkDeformidad.Checked ? "Sí" : "No")}");
+                            AddParagraph($"Leucomas: {(chkLeucomas.Checked ? "Sí" : "No")}");
+                            AddParagraph($"Desviación: {(chkDesviacion.Checked ? "Sí" : "No")}");
+                            AddParagraph($"Tórax: {(chkTorax.Checked ? "Sí" : "No")}");
+                            AddParagraph($"Peristaltismo: {(chkPeristaltismo.Checked ? "Sí" : "No")}");
+                            AddParagraph($"Genitales: {(chkGenitales.Checked ? "Sí" : "No")}");
+                            AddParagraph($"Piel: {(chkPiel.Checked ? "Sí" : "No")}");
+
+                            mainPart.Document.Append(body);
+                            mainPart.Document.Save();
+                        }
+
+                        MessageBox.Show("Datos guardados correctamente y documento Word generado.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        LimpiarCampos(); // Método para limpiar campos
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Ocurrió un error al intentar guardar los datos: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
+
                 }
-            }
-
-            try
-            {
-                // ==========================
-                // GENERACIÓN DEL DOCUMENTO
-                // ==========================
-                string docPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "HistoriaClinica_" + txtPaciente.Text + ".docx");
-
-                using (var doc = DocX.Create(docPath))
-                {
-                    // Título
-                    var titulo = doc.InsertParagraph("Historia Clínica")
-                                    .FontSize(16)
-                                    .Bold();
-                    titulo.Alignment = Alignment.center;
-
-                    doc.InsertParagraph(Environment.NewLine);
-
-                    // TextBox
-                    doc.InsertParagraph($"Consulta por: {txtConsultaPor.Text}");
-                    doc.InsertParagraph($"Paciente: {txtPaciente.Text}");
-                    doc.InsertParagraph($"Presente Enfermedad: {txtPresenteEnfermedad.Text}");
-                    doc.InsertParagraph($"Signos Vitales: {txtSignosVitales.Text}");
-                    doc.InsertParagraph($"Presión Arterial: {txtPresion.Text}");
-                    doc.InsertParagraph($"Frecuencia Cardiaca: {txtFC.Text}");
-                    doc.InsertParagraph($"Frecuencia Respiratoria: {txtFR.Text}");
-                    doc.InsertParagraph($"Saturación Oxígeno: {txtSaturacion.Text}");
-                    doc.InsertParagraph($"Peso: {txtPeso.Text}");
-                    doc.InsertParagraph($"Talla: {txtTalla.Text}");
-                    doc.InsertParagraph($"IMC: {txtMasaCorporal.Text}");
-                    doc.InsertParagraph($"Gabinete: {txtExamenesGabinete.Text}");
-                    doc.InsertParagraph($"Laboratorios: {txtExamenesLaboratorio.Text}");
-                    doc.InsertParagraph($"Impresión Diagnóstica: {txtImpresion.Text}");
-
-                    // CheckBox
-                    doc.InsertParagraph($"Hemodiálisis: {(chkHemodialisis.Checked ? "Sí" : "No")}");
-                    doc.InsertParagraph($"Hipertensión Arterial: {(chkHipertension.Checked ? "Sí" : "No")}");
-                    doc.InsertParagraph($"Diabetes: {(chkDiabetes.Checked ? "Sí" : "No")}");
-
-                    doc.InsertParagraph($"Extremidades: {(chkExtremidades.Checked ? "Sí" : "No")}");
-                    doc.InsertParagraph($"Cabeza: {(chkCabeza.Checked ? "Sí" : "No")}");
-                    doc.InsertParagraph($"Timpánica: {(chkTimpanica.Checked ? "Sí" : "No")}");
-                    doc.InsertParagraph($"Cornetes: {(chkCornetes.Checked ? "Sí" : "No")}");
-                    doc.InsertParagraph($"Boca: {(chkBoca.Checked ? "Sí" : "No")}");
-                    doc.InsertParagraph($"Desviaciones: {(chkDesviaciones.Checked ? "Sí" : "No")}");
-                    doc.InsertParagraph($"Palpan Masas: {(chkPalpanMasas.Checked ? "Sí" : "No")}");
-                    doc.InsertParagraph($"Tirajes: {(chkTirajes.Checked ? "Sí" : "No")}");
-                    doc.InsertParagraph($"Esteroides: {(chkEsteroides.Checked ? "Sí" : "No")}");
-                    doc.InsertParagraph($"Circulación: {(chkCirculacion.Checked ? "Sí" : "No")}");
-                    doc.InsertParagraph($"Timpanismo: {(chkTimpanismo.Checked ? "Sí" : "No")}");
-
-                    doc.InsertParagraph($"Hundimientos: {(chkHundimientos.Checked ? "Sí" : "No")}");
-                    doc.InsertParagraph($"Nariz: {(chkNariz.Checked ? "Sí" : "No")}");
-                    doc.InsertParagraph($"Aleteo: {(chkAleteo.Checked ? "Sí" : "No")}");
-                    doc.InsertParagraph($"Labios: {(chkLabios.Checked ? "Sí" : "No")}");
-                    doc.InsertParagraph($"Faringe: {(chkFaringe.Checked ? "Sí" : "No")}");
-                    doc.InsertParagraph($"Tiroides: {(chkTiroides.Checked ? "Sí" : "No")}");
-                    doc.InsertParagraph($"Enfisema: {(chkEnfisema.Checked ? "Sí" : "No")}");
-                    doc.InsertParagraph($"Sibilancias: {(chkSibilancias.Checked ? "Sí" : "No")}");
-                    doc.InsertParagraph($"Blando: {(chkBlando.Checked ? "Sí" : "No")}");
-                    doc.InsertParagraph($"Hepatoesplenomegalia: {(chkHepatoesplenomegalia.Checked ? "Sí" : "No")}");
-
-                    doc.InsertParagraph($"Conducto: {(chkConducto.Checked ? "Sí" : "No")}");
-                    doc.InsertParagraph($"Tabique: {(chkTabique.Checked ? "Sí" : "No")}");
-                    doc.InsertParagraph($"Hipertrofica: {(chkHipertrofica.Checked ? "Sí" : "No")}");
-                    doc.InsertParagraph($"Edema Glandulas: {(chkEdemaGlandulas.Checked ? "Sí" : "No")}");
-                    doc.InsertParagraph($"Roncus: {(chkRoncus.Checked ? "Sí" : "No")}");
-                    doc.InsertParagraph($"Expación: {(chkExpacion.Checked ? "Sí" : "No")}");
-                    doc.InsertParagraph($"Ronchas: {(chkRonchas.Checked ? "Sí" : "No")}");
-                    doc.InsertParagraph($"Frote: {(chkFrote.Checked ? "Sí" : "No")}");
-                    doc.InsertParagraph($"Soplos: {(chkSoplos.Checked ? "Sí" : "No")}");
-                    doc.InsertParagraph($"Irritación: {(chkIrritacion.Checked ? "Sí" : "No")}");
-
-                    doc.InsertParagraph($"Abdomen: {(chkAbdomen.Checked ? "Sí" : "No")}");
-                    doc.InsertParagraph($"Pupilas: {(chkPupilas.Checked ? "Sí" : "No")}");
-                    doc.InsertParagraph($"Lengua: {(chkLengua.Checked ? "Sí" : "No")}");
-                    doc.InsertParagraph($"Deformidad: {(chkDeformidad.Checked ? "Sí" : "No")}");
-                    doc.InsertParagraph($"Leucomas: {(chkLeucomas.Checked ? "Sí" : "No")}");
-                    doc.InsertParagraph($"Desviación: {(chkDesviacion.Checked ? "Sí" : "No")}");
-                    doc.InsertParagraph($"Tórax: {(chkTorax.Checked ? "Sí" : "No")}");
-                    doc.InsertParagraph($"Peristaltismo: {(chkPeristaltismo.Checked ? "Sí" : "No")}");
-                    doc.InsertParagraph($"Genitales: {(chkGenitales.Checked ? "Sí" : "No")}");
-                    doc.InsertParagraph($"Piel: {(chkPiel.Checked ? "Sí" : "No")}");
-
-                    doc.Save();
-                }
-
-                MessageBox.Show("Los datos se han guardado correctamente y se generó el documento Word.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                LimpiarCampos();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Ocurrió un error al intentar generar el documento: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
 
@@ -481,9 +511,7 @@ namespace CLINICA_1
                 chkGenitales.Checked = false;
                 chkPiel.Checked = false;
             }
-
         }
-
         private void CalcularIMC()
         {
             if (double.TryParse(txtPeso.Text, out double peso) &&
@@ -573,6 +601,169 @@ namespace CLINICA_1
         {
             SoloNumerosDecimales(e, txtTalla);
         }
+
+
+
+
+        private void btnImprimir_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Ruta temporal del PDF
+                string rutaPDF = Path.Combine(Path.GetTempPath(), $"HistoriaClinica_{txtPaciente.Text.Trim()}.pdf");
+
+                // Crear documento PDF sin ambigüedad
+                iTextSharp.text.Document documentoPDF = new iTextSharp.text.Document(iTextSharp.text.PageSize.A4, 40f, 40f, 40f, 40f);
+                iTextSharp.text.pdf.PdfWriter escritorPDF = iTextSharp.text.pdf.PdfWriter.GetInstance(documentoPDF, new FileStream(rutaPDF, FileMode.Create));
+
+                // Establecer color de fondo para toda la página
+                System.Drawing.Color colorFondo = System.Drawing.SystemColors.ActiveCaption;
+                escritorPDF.PageEvent = new FondoPaginaCompleto(colorFondo);
+
+                documentoPDF.Open();
+
+                // Estilos explícitos
+                var fuenteTitulo = iTextSharp.text.FontFactory.GetFont(iTextSharp.text.FontFactory.HELVETICA_BOLD, 15, iTextSharp.text.BaseColor.BLACK);
+                var fuenteSeccion = iTextSharp.text.FontFactory.GetFont(iTextSharp.text.FontFactory.HELVETICA_BOLD, 11, iTextSharp.text.BaseColor.WHITE);
+                var fuenteEtiqueta = iTextSharp.text.FontFactory.GetFont(iTextSharp.text.FontFactory.HELVETICA_BOLD, 10);
+                var fuenteValor = iTextSharp.text.FontFactory.GetFont(iTextSharp.text.FontFactory.HELVETICA, 10);
+
+                // Título
+                iTextSharp.text.Paragraph encabezado = new iTextSharp.text.Paragraph("HISTORIA CLÍNICA DEL PACIENTE", fuenteTitulo);
+                encabezado.Alignment = iTextSharp.text.Element.ALIGN_CENTER;
+                encabezado.SpacingAfter = 20f;
+                documentoPDF.Add(encabezado);
+
+                // Tabla de 2 columnas
+                iTextSharp.text.pdf.PdfPTable CrearTabla(string etiqueta, string valor)
+                {
+                    var tabla = new iTextSharp.text.pdf.PdfPTable(2);
+                    tabla.WidthPercentage = 100;
+                    tabla.SpacingAfter = 10f;
+                    tabla.SetWidths(new float[] { 1f, 3f });
+
+                    tabla.AddCell(new iTextSharp.text.pdf.PdfPCell(new iTextSharp.text.Phrase(etiqueta, fuenteEtiqueta)) { Border = 0 });
+                    tabla.AddCell(new iTextSharp.text.pdf.PdfPCell(new iTextSharp.text.Phrase(valor, fuenteValor)) { Border = 0 });
+                    return tabla;
+                }
+
+                // Datos generales
+                documentoPDF.Add(new iTextSharp.text.Paragraph("Datos Generales:", fuenteSeccion));
+                documentoPDF.Add(CrearTabla("Paciente:", txtPaciente.Text));
+                documentoPDF.Add(CrearTabla("Consulta por:", txtConsultaPor.Text));
+                documentoPDF.Add(CrearTabla("Presente Enfermedad:", txtPresenteEnfermedad.Text));
+
+                // Signos vitales
+                documentoPDF.Add(new iTextSharp.text.Paragraph("Signos Vitales:", fuenteSeccion));
+                documentoPDF.Add(CrearTabla("Signos Vitales:", txtSignosVitales.Text));
+                documentoPDF.Add(CrearTabla("Presión Arterial:", txtPresion.Text));
+                documentoPDF.Add(CrearTabla("Frecuencia Cardiaca:", txtFC.Text));
+                documentoPDF.Add(CrearTabla("Frecuencia Respiratoria:", txtFR.Text));
+                documentoPDF.Add(CrearTabla("Saturación Oxígeno:", txtSaturacion.Text));
+                documentoPDF.Add(CrearTabla("Peso:", txtPeso.Text));
+                documentoPDF.Add(CrearTabla("Talla:", txtTalla.Text));
+                documentoPDF.Add(CrearTabla("IMC:", txtMasaCorporal.Text));
+
+                // Exámenes
+                documentoPDF.Add(new iTextSharp.text.Paragraph("Exámenes Complementarios:", fuenteSeccion));
+                documentoPDF.Add(CrearTabla("Gabinete:", txtExamenesGabinete.Text));
+                documentoPDF.Add(CrearTabla("Laboratorios:", txtExamenesLaboratorio.Text));
+                documentoPDF.Add(CrearTabla("Impresión Diagnóstica:", txtImpresion.Text));
+
+                // CheckBoxes agrupados
+                documentoPDF.Add(new iTextSharp.text.Paragraph("Exploración Clínica:", fuenteSeccion));
+                string[] etiquetas = {
+        "Hemodiálisis", "Hipertensión", "Diabetes", "Extremidades", "Cabeza", "Timpánica", "Cornetes", "Boca",
+        "Desviaciones", "Palpan Masas", "Tirajes", "Esteroides", "Circulación", "Timpanismo", "Hundimientos",
+        "Nariz", "Aleteo", "Labios", "Faringe", "Tiroides", "Enfisema", "Sibilancias", "Blando", "Hepatoesplenomegalia",
+        "Conducto", "Tabique", "Hipertrofica", "Edema Glandulas", "Roncus", "Expación", "Ronchas", "Frote", "Soplos",
+        "Irritación", "Abdomen", "Pupilas", "Lengua", "Deformidad", "Leucomas", "Desviación", "Tórax", "Peristaltismo",
+        "Genitales", "Piel"
+    };
+
+                System.Windows.Forms.CheckBox[] checks = {
+        chkHemodialisis, chkHipertension, chkDiabetes, chkExtremidades, chkCabeza, chkTimpanica, chkCornetes, chkBoca,
+        chkDesviaciones, chkPalpanMasas, chkTirajes, chkEsteroides, chkCirculacion, chkTimpanismo, chkHundimientos,
+        chkNariz, chkAleteo, chkLabios, chkFaringe, chkTiroides, chkEnfisema, chkSibilancias, chkBlando, chkHepatoesplenomegalia,
+        chkConducto, chkTabique, chkHipertrofica, chkEdemaGlandulas, chkRoncus, chkExpacion, chkRonchas, chkFrote, chkSoplos,
+        chkIrritacion, chkAbdomen, chkPupilas, chkLengua, chkDeformidad, chkLeucomas, chkDesviacion, chkTorax, chkPeristaltismo,
+        chkGenitales, chkPiel
+    };
+                var tablaChecks = new iTextSharp.text.pdf.PdfPTable(3);
+                tablaChecks.WidthPercentage = 100;
+                tablaChecks.SpacingBefore = 10f;
+                tablaChecks.DefaultCell.Border = 0;
+
+                // Color de fondo
+                System.Drawing.Color colorSystem = System.Drawing.SystemColors.ActiveCaption;
+                var fondoCelda = new iTextSharp.text.BaseColor(colorSystem.R, colorSystem.G, colorSystem.B);
+
+                // Fuente para todo el texto
+                var fuenteTexto = iTextSharp.text.FontFactory.GetFont(iTextSharp.text.FontFactory.HELVETICA, 10, iTextSharp.text.BaseColor.BLACK);
+
+                for (int i = 0; i < etiquetas.Length; i++)
+                {
+                    bool marcado = checks[i].Checked;
+
+                    string valor = marcado ? "Sí" : "No";
+
+                    // Construir texto como: "Cabeza: Sí"
+                    string texto = $"{etiquetas[i]}: {valor}";
+
+                    var frase = new iTextSharp.text.Phrase(texto, fuenteTexto);
+
+                    var celda = new iTextSharp.text.pdf.PdfPCell(frase)
+                    {
+                        Border = 0,
+                        BackgroundColor = fondoCelda,
+                        Padding = 5f,
+                        VerticalAlignment = iTextSharp.text.Element.ALIGN_MIDDLE
+                    };
+
+                    tablaChecks.AddCell(celda);
+                }
+
+                documentoPDF.Add(tablaChecks);
+
+                documentoPDF.Close();
+
+                // Abrir PDF
+                Process.Start(new ProcessStartInfo
+                {
+                    FileName = rutaPDF,
+                    UseShellExecute = true
+                });
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al generar el PDF: " + ex.Message);
+            }
+        }
+
+        public class FondoPaginaCompleto : iTextSharp.text.pdf.PdfPageEventHelper
+        {
+            private readonly iTextSharp.text.BaseColor fondoColor;
+
+            public FondoPaginaCompleto(System.Drawing.Color colorWindows)
+            {
+                fondoColor = new iTextSharp.text.BaseColor(colorWindows.R, colorWindows.G, colorWindows.B);
+            }
+
+            public override void OnEndPage(iTextSharp.text.pdf.PdfWriter writer, iTextSharp.text.Document document)
+            {
+                var content = writer.DirectContentUnder;
+                content.SaveState();
+                content.SetColorFill(fondoColor);
+
+                // Rectángulo que cubre TODA la página
+                content.Rectangle(0, 0, document.PageSize.Width, document.PageSize.Height);
+
+                content.Fill();
+                content.RestoreState();
+            }
+        }
+
+
+
     }
 }
-

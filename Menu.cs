@@ -35,5 +35,10 @@ namespace CLINICA_1
         {
 
         }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
