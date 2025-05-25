@@ -17,7 +17,7 @@ namespace CLINICA_1
 {
     public partial class Registro : Form
     {
-        // Cadena de conexión a SQL Server
+        // Cadena de conexión a SQL Server  //Cambiar Conexion:
         private string connectionString = "Server=LAPTOP-M35CB1FF;Database=ClinicaVargas;Integrated Security=True;";
 
         public Registro()
@@ -28,15 +28,20 @@ namespace CLINICA_1
             botonAbrirCarpeta.Click += botonAbrirCarpeta_Click;
 
             this.Controls.Add(botonAbrirCarpeta);
+
+            dateTimePickerNacimiento.ValueChanged += dateTimePickerNacimiento_ValueChanged;
         }
 
 
         //boton eliminar
         private void btneliminar_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtdui.Text))
+            if (string.IsNullOrWhiteSpace(txtdui.Text) ||
+     string.IsNullOrWhiteSpace(txtNombre.Text) ||
+     string.IsNullOrWhiteSpace(txtEdad.Text) ||
+     string.IsNullOrWhiteSpace(txtDireccion.Text))
             {
-                MessageBox.Show("Por favor ingrese el número de DUI para eliminar el registro.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Por favor complete todos los campos del formulario para eliminar el registro.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -48,9 +53,17 @@ namespace CLINICA_1
                     try
                     {
                         connection.Open();
-                        string query = "DELETE FROM Pacientes WHERE DUI = @DUI";
+                        string query = @"DELETE FROM Pacientes 
+                             WHERE DUI = @DUI AND 
+                                   Nombre = @Nombre AND 
+                                   Edad = @Edad AND 
+                                   Direccion = @Direccion";
+
                         SqlCommand command = new SqlCommand(query, connection);
                         command.Parameters.AddWithValue("@DUI", txtdui.Text);
+                        command.Parameters.AddWithValue("@Nombre", txtNombre.Text);
+                        command.Parameters.AddWithValue("@Edad", txtEdad.Text);
+                        command.Parameters.AddWithValue("@Direccion", txtDireccion.Text);
 
                         int filasAfectadas = command.ExecuteNonQuery();
 
@@ -61,7 +74,7 @@ namespace CLINICA_1
                         }
                         else
                         {
-                            MessageBox.Show("No se encontró ningún registro con ese DUI.", "No encontrado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            MessageBox.Show("No se encontró ningún registro con los datos proporcionados.", "No encontrado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         }
                     }
                     catch (Exception ex)
@@ -70,6 +83,7 @@ namespace CLINICA_1
                     }
                 }
             }
+
         }
 
 
@@ -90,13 +104,24 @@ namespace CLINICA_1
                 {
                     connection.Open();
                     string query = @"INSERT INTO Pacientes 
-                (Nombre, Edad, Telefono, Direccion, DUI, Responsable, TelResponsable, DirResponsable, CorreoResponsable) 
-                VALUES 
-                (@Nombre, @Edad, @Telefono, @Direccion, @DUI, @Responsable, @TelResponsable, @DirResponsable, @CorreoResponsable)";
+            (Nombre, Edad, Telefono, Direccion, DUI, Responsable, TelResponsable, DirResponsable, CorreoResponsable, FechaNacimiento, FechaHoraRegistro) 
+            VALUES 
+            (@Nombre, @Edad, @Telefono, @Direccion, @DUI, @Responsable, @TelResponsable, @DirResponsable, @CorreoResponsable, @FechaNacimiento, @FechaHoraRegistro)";
 
                     SqlCommand command = new SqlCommand(query, connection);
+
+                    // Fecha de nacimiento y cálculo de edad
+                    DateTime fechaNacimiento = dateTimePickerNacimiento.Value;
+                    int edad = DateTime.Now.Year - fechaNacimiento.Year;
+                    if (DateTime.Now.Date < fechaNacimiento.Date.AddYears(edad))
+                        edad--;
+
+                    // Fecha y hora actual del ingreso
+                    DateTime fechaHoraRegistro = dateTimePicker1.Value;
+
+                    // Asignar parámetros
                     command.Parameters.AddWithValue("@Nombre", txtNombre.Text);
-                    command.Parameters.AddWithValue("@Edad", int.Parse(txtEdad.Text));
+                    command.Parameters.AddWithValue("@Edad", edad);
                     command.Parameters.AddWithValue("@Telefono", txtTelefono.Text);
                     command.Parameters.AddWithValue("@Direccion", txtDireccion.Text);
                     command.Parameters.AddWithValue("@DUI", txtdui.Text);
@@ -104,31 +129,27 @@ namespace CLINICA_1
                     command.Parameters.AddWithValue("@TelResponsable", txttelefono2.Text);
                     command.Parameters.AddWithValue("@DirResponsable", txtdireccion2.Text);
                     command.Parameters.AddWithValue("@CorreoResponsable", txtcorreo.Text);
+                    command.Parameters.AddWithValue("@FechaNacimiento", fechaNacimiento.Date);
+                    command.Parameters.AddWithValue("@FechaHoraRegistro", fechaHoraRegistro);
 
                     command.ExecuteNonQuery();
 
-                    // Crear subcarpeta dentro de "Documentos\Pacientes"
+                    // Crear carpeta
                     string carpetaDocumentos = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
                     string carpetaBase = Path.Combine(carpetaDocumentos, "Pacientes");
 
                     if (!Directory.Exists(carpetaBase))
-                    {
                         Directory.CreateDirectory(carpetaBase);
-                    }
 
                     string nombrePaciente = txtNombre.Text.Trim();
                     foreach (char c in Path.GetInvalidFileNameChars())
-                    {
                         nombrePaciente = nombrePaciente.Replace(c, '_');
-                    }
 
                     string rutaPaciente = Path.Combine(carpetaBase, nombrePaciente);
                     if (!Directory.Exists(rutaPaciente))
-                    {
                         Directory.CreateDirectory(rutaPaciente);
-                    }
 
-                    // Crear documento Word con datos del paciente
+                    // Crear documento Word
                     string rutaArchivoWord = Path.Combine(rutaPaciente, "DatosPaciente.docx");
                     using (WordprocessingDocument wordDoc = WordprocessingDocument.Create(rutaArchivoWord, DocumentFormat.OpenXml.WordprocessingDocumentType.Document))
                     {
@@ -143,28 +164,31 @@ namespace CLINICA_1
 
                         AddTexto("Datos del Paciente:");
                         AddTexto($"Nombre: {txtNombre.Text}");
-                        AddTexto($"Edad: {txtEdad.Text}");
+                        AddTexto($"Edad: {edad} años");
+                        AddTexto($"Fecha de Nacimiento: {fechaNacimiento:yyyy-MM-dd}");
                         AddTexto($"Teléfono: {txtTelefono.Text}");
                         AddTexto($"Dirección: {txtDireccion.Text}");
                         AddTexto($"DUI: {txtdui.Text}");
                         AddTexto($"Responsable: {txtresponsable.Text}");
-                        AddTexto($"Tel. Responsable: {txttelefono2.Text}");
-                        AddTexto($"Dir. Responsable: {txtdireccion2.Text}");
+                        AddTexto($"Telefono Responsable: {txttelefono2.Text}");
+                        AddTexto($"Dirreccion Responsable: {txtdireccion2.Text}");
                         AddTexto($"Correo Responsable: {txtcorreo.Text}");
+                        AddTexto($"Fecha y Hora de Registro: {fechaHoraRegistro:yyyy-MM-dd hh:mm tt}"); // formato 12h en doc
 
                         mainPart.Document.Append(body);
                         mainPart.Document.Save();
                     }
 
-                    MessageBox.Show("Datos guardados, carpeta creada y datos.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Datos guardados, carpeta creada y documento generado.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     LimpiarCampos();
-
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show("Error al guardar: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+
+
         }
 
         private void LimpiarCampos()
@@ -178,6 +202,7 @@ namespace CLINICA_1
             txttelefono2.Clear();
             txtdireccion2.Clear();
             txtcorreo.Clear();
+
         }
 
 
@@ -351,5 +376,27 @@ namespace CLINICA_1
                 MessageBox.Show("La carpeta 'Pacientes' no existe en la ruta:\n" + ruta, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void txttelefono2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dateTimePickerNacimiento_ValueChanged(object sender, EventArgs e)
+        {         
+                DateTime fechaNacimiento = dateTimePickerNacimiento.Value;
+                int edad = DateTime.Now.Year - fechaNacimiento.Year;
+
+                if (DateTime.Now.Date < fechaNacimiento.Date.AddYears(edad))
+                    edad--;
+
+                txtEdad.Text = edad.ToString();
+            }
+
+        }
     }
-}

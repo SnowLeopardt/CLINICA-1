@@ -40,5 +40,15 @@ namespace CLINICA_1
         {
 
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            // Cerrar el formulario actual
+            this.Hide();
+
+            // Volver al formulario de login
+            Login login = new Login();
+            login.Show();
+        }
     }
 }

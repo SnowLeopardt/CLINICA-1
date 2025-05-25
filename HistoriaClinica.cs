@@ -21,13 +21,11 @@ using WordBold = DocumentFormat.OpenXml.Wordprocessing.Bold;
 using WordFontSize = DocumentFormat.OpenXml.Wordprocessing.FontSize;
 
 
-
-
 namespace CLINICA_1
 {
     public partial class HistoriaClinica : Form
     {
-
+        //Cambiar Conexion:
         private string connectionString = "Server=LAPTOP-M35CB1FF;Database=ClinicaVargas;Integrated Security=True;";
 
         public HistoriaClinica()

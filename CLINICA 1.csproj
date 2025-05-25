@@ -118,17 +118,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="respaldo.cs">
+    <Compile Include="RegistroEnfermera.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="respaldo.Designer.cs">
-      <DependentUpon>respaldo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Historia Clinica.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Historia Clinica.Designer.cs">
-      <DependentUpon>Historia Clinica.cs</DependentUpon>
+    <Compile Include="RegistroEnfermera.Designer.cs">
+      <DependentUpon>RegistroEnfermera.cs</DependentUpon>
     </Compile>
     <Compile Include="Menu Enfermera.cs">
       <SubType>Form</SubType>
@@ -165,6 +159,9 @@
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Menu Enfermera.resx">
+      <DependentUpon>Menu Enfermera.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>
     </EmbeddedResource>
@@ -183,6 +180,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="RegistroEnfermera.resx">
+      <DependentUpon>RegistroEnfermera.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

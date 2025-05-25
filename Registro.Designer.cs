@@ -58,6 +58,10 @@ namespace CLINICA_1
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.botonAbrirCarpeta = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.dateTimePickerNacimiento = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -104,18 +108,19 @@ namespace CLINICA_1
             // 
             // txttelefono2
             // 
-            this.txttelefono2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txttelefono2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txttelefono2.Location = new System.Drawing.Point(598, 247);
             this.txttelefono2.Name = "txttelefono2";
-            this.txttelefono2.Size = new System.Drawing.Size(250, 24);
+            this.txttelefono2.Size = new System.Drawing.Size(250, 21);
             this.txttelefono2.TabIndex = 45;
+            this.txttelefono2.TextChanged += new System.EventHandler(this.txttelefono2_TextChanged);
             // 
             // txtcorreo
             // 
-            this.txtcorreo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtcorreo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtcorreo.Location = new System.Drawing.Point(598, 294);
             this.txtcorreo.Name = "txtcorreo";
-            this.txtcorreo.Size = new System.Drawing.Size(250, 24);
+            this.txtcorreo.Size = new System.Drawing.Size(250, 21);
             this.txtcorreo.TabIndex = 44;
             // 
             // label5
@@ -167,7 +172,7 @@ namespace CLINICA_1
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(84, 349);
+            this.label1.Location = new System.Drawing.Point(83, 286);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(43, 21);
             this.label1.TabIndex = 39;
@@ -176,7 +181,7 @@ namespace CLINICA_1
             // txtdui
             // 
             this.txtdui.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtdui.Location = new System.Drawing.Point(132, 352);
+            this.txtdui.Location = new System.Drawing.Point(132, 287);
             this.txtdui.Name = "txtdui";
             this.txtdui.Size = new System.Drawing.Size(250, 22);
             this.txtdui.TabIndex = 38;
@@ -197,7 +202,7 @@ namespace CLINICA_1
             this.lblNombre.AutoSize = true;
             this.lblNombre.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNombre.ForeColor = System.Drawing.Color.White;
-            this.lblNombre.Location = new System.Drawing.Point(50, 141);
+            this.lblNombre.Location = new System.Drawing.Point(50, 179);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(77, 21);
             this.lblNombre.TabIndex = 26;
@@ -206,7 +211,7 @@ namespace CLINICA_1
             // txtNombre
             // 
             this.txtNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombre.Location = new System.Drawing.Point(132, 142);
+            this.txtNombre.Location = new System.Drawing.Point(132, 180);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(250, 22);
             this.txtNombre.TabIndex = 27;
@@ -216,7 +221,7 @@ namespace CLINICA_1
             this.lblEdad.AutoSize = true;
             this.lblEdad.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEdad.ForeColor = System.Drawing.Color.White;
-            this.lblEdad.Location = new System.Drawing.Point(73, 191);
+            this.lblEdad.Location = new System.Drawing.Point(74, 219);
             this.lblEdad.Name = "lblEdad";
             this.lblEdad.Size = new System.Drawing.Size(52, 21);
             this.lblEdad.TabIndex = 28;
@@ -225,7 +230,7 @@ namespace CLINICA_1
             // txtEdad
             // 
             this.txtEdad.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEdad.Location = new System.Drawing.Point(132, 190);
+            this.txtEdad.Location = new System.Drawing.Point(132, 218);
             this.txtEdad.Name = "txtEdad";
             this.txtEdad.Size = new System.Drawing.Size(250, 22);
             this.txtEdad.TabIndex = 29;
@@ -235,7 +240,7 @@ namespace CLINICA_1
             this.lblTelefono.AutoSize = true;
             this.lblTelefono.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTelefono.ForeColor = System.Drawing.Color.White;
-            this.lblTelefono.Location = new System.Drawing.Point(48, 241);
+            this.lblTelefono.Location = new System.Drawing.Point(45, 325);
             this.lblTelefono.Name = "lblTelefono";
             this.lblTelefono.Size = new System.Drawing.Size(81, 21);
             this.lblTelefono.TabIndex = 30;
@@ -244,7 +249,7 @@ namespace CLINICA_1
             // txtTelefono
             // 
             this.txtTelefono.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTelefono.Location = new System.Drawing.Point(132, 241);
+            this.txtTelefono.Location = new System.Drawing.Point(132, 367);
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(250, 22);
             this.txtTelefono.TabIndex = 31;
@@ -254,7 +259,7 @@ namespace CLINICA_1
             this.lblDireccion.AutoSize = true;
             this.lblDireccion.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDireccion.ForeColor = System.Drawing.Color.White;
-            this.lblDireccion.Location = new System.Drawing.Point(42, 293);
+            this.lblDireccion.Location = new System.Drawing.Point(38, 368);
             this.lblDireccion.Name = "lblDireccion";
             this.lblDireccion.Size = new System.Drawing.Size(87, 21);
             this.lblDireccion.TabIndex = 32;
@@ -263,7 +268,7 @@ namespace CLINICA_1
             // txtDireccion
             // 
             this.txtDireccion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDireccion.Location = new System.Drawing.Point(132, 294);
+            this.txtDireccion.Location = new System.Drawing.Point(131, 326);
             this.txtDireccion.Name = "txtDireccion";
             this.txtDireccion.Size = new System.Drawing.Size(250, 22);
             this.txtDireccion.TabIndex = 33;
@@ -338,12 +343,54 @@ namespace CLINICA_1
             this.botonAbrirCarpeta.UseVisualStyleBackColor = false;
             this.botonAbrirCarpeta.Click += new System.EventHandler(this.botonAbrirCarpeta_Click);
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(7, 251);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(119, 21);
+            this.label6.TabIndex = 50;
+            this.label6.Text = "F. Nacimiento:";
+            // 
+            // dateTimePickerNacimiento
+            // 
+            this.dateTimePickerNacimiento.Location = new System.Drawing.Point(131, 253);
+            this.dateTimePickerNacimiento.Name = "dateTimePickerNacimiento";
+            this.dateTimePickerNacimiento.Size = new System.Drawing.Size(250, 20);
+            this.dateTimePickerNacimiento.TabIndex = 52;
+            this.dateTimePickerNacimiento.ValueChanged += new System.EventHandler(this.dateTimePickerNacimiento_ValueChanged);
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(131, 147);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(250, 20);
+            this.dateTimePicker1.TabIndex = 53;
+            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.White;
+            this.label7.Location = new System.Drawing.Point(56, 145);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(71, 21);
+            this.label7.TabIndex = 54;
+            this.label7.Text = "Ingreso:";
+            // 
             // Registro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(64)))), ((int)(((byte)(115)))));
             this.ClientSize = new System.Drawing.Size(883, 500);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.dateTimePickerNacimiento);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.botonAbrirCarpeta);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.txtresponsable);
@@ -419,5 +466,9 @@ namespace CLINICA_1
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Button botonAbrirCarpeta;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.DateTimePicker dateTimePickerNacimiento;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Label label7;
     }
 }

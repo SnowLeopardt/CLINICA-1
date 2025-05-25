@@ -52,6 +52,7 @@ namespace CLINICA_1
             this.button2.TabIndex = 37;
             this.button2.Text = "SALIR";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // txtpassword
             // 
@@ -60,6 +61,7 @@ namespace CLINICA_1
             this.txtpassword.Margin = new System.Windows.Forms.Padding(2);
             this.txtpassword.Multiline = true;
             this.txtpassword.Name = "txtpassword";
+            this.txtpassword.PasswordChar = '*';
             this.txtpassword.Size = new System.Drawing.Size(152, 26);
             this.txtpassword.TabIndex = 36;
             // 
@@ -107,6 +109,7 @@ namespace CLINICA_1
             this.button1.TabIndex = 32;
             this.button1.Text = "INICIAR SESION";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // pictureBox1
             // 
