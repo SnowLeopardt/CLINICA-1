@@ -118,6 +118,24 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="respaldo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="respaldo.Designer.cs">
+      <DependentUpon>respaldo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Historia Clinica.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Historia Clinica.Designer.cs">
+      <DependentUpon>Historia Clinica.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Menu Enfermera.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menu Enfermera.Designer.cs">
+      <DependentUpon>Menu Enfermera.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
