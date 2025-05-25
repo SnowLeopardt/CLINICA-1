@@ -254,6 +254,7 @@ namespace CLINICA_1
             this.dateTimePickerNacimiento.Name = "dateTimePickerNacimiento";
             this.dateTimePickerNacimiento.Size = new System.Drawing.Size(250, 20);
             this.dateTimePickerNacimiento.TabIndex = 86;
+            this.dateTimePickerNacimiento.ValueChanged += new System.EventHandler(this.dateTimePickerNacimiento_ValueChanged);
             // 
             // label6
             // 

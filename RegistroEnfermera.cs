@@ -29,6 +29,8 @@ namespace CLINICA_1
             botonAbrirCarpeta.Click += botonAbrirCarpeta_Click;
 
             this.Controls.Add(botonAbrirCarpeta);
+
+            dateTimePickerNacimiento.ValueChanged += dateTimePickerNacimiento_ValueChanged;
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)
@@ -292,9 +294,13 @@ namespace CLINICA_1
         }
         private void btneliminar_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtdui.Text))
+
+            if (string.IsNullOrWhiteSpace(txtdui.Text) ||
+     string.IsNullOrWhiteSpace(txtNombre.Text) ||
+     string.IsNullOrWhiteSpace(txtEdad.Text) ||
+     string.IsNullOrWhiteSpace(txtDireccion.Text))
             {
-                MessageBox.Show("Por favor ingrese el número de DUI para eliminar el registro.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Por favor complete todos los campos del formulario para eliminar el registro.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -306,9 +312,17 @@ namespace CLINICA_1
                     try
                     {
                         connection.Open();
-                        string query = "DELETE FROM Pacientes WHERE DUI = @DUI";
+                        string query = @"DELETE FROM Pacientes 
+                             WHERE DUI = @DUI AND 
+                                   Nombre = @Nombre AND 
+                                   Edad = @Edad AND 
+                                   Direccion = @Direccion";
+
                         SqlCommand command = new SqlCommand(query, connection);
                         command.Parameters.AddWithValue("@DUI", txtdui.Text);
+                        command.Parameters.AddWithValue("@Nombre", txtNombre.Text);
+                        command.Parameters.AddWithValue("@Edad", txtEdad.Text);
+                        command.Parameters.AddWithValue("@Direccion", txtDireccion.Text);
 
                         int filasAfectadas = command.ExecuteNonQuery();
 
@@ -319,7 +333,7 @@ namespace CLINICA_1
                         }
                         else
                         {
-                            MessageBox.Show("No se encontró ningún registro con ese DUI.", "No encontrado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            MessageBox.Show("No se encontró ningún registro con los datos proporcionados.", "No encontrado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         }
                     }
                     catch (Exception ex)
@@ -351,5 +365,17 @@ namespace CLINICA_1
         {
 
         }
+
+        private void dateTimePickerNacimiento_ValueChanged(object sender, EventArgs e)
+        {
+            DateTime fechaNacimiento = dateTimePickerNacimiento.Value;
+            int edad = DateTime.Now.Year - fechaNacimiento.Year;
+
+            if (DateTime.Now.Date < fechaNacimiento.Date.AddYears(edad))
+                edad--;
+
+            txtEdad.Text = edad.ToString();
+        }
     }
-}
+ }
+
