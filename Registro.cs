@@ -87,16 +87,7 @@ namespace CLINICA_1
 
         }
 
-        private void btnAbrirPDF_Click(object sender, EventArgs e)
-        {
-            Registro.NombrePacienteSeleccionado = txtNombre.Text; // Aquí tomás el nombre del TextBox
-
-            HistoriaClinica frmPDF = new HistoriaClinica();
-            frmPDF.Show(); // o ShowDialog si lo necesitás modal
-        }
-
-
-
+   
 
         private void Registro_Load(object sender, EventArgs e)
         {

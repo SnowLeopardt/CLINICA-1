@@ -83,7 +83,7 @@ namespace CLINICA_1
             // txtresponsable
             // 
             this.txtresponsable.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtresponsable.Location = new System.Drawing.Point(898, 232);
+            this.txtresponsable.Location = new System.Drawing.Point(855, 234);
             this.txtresponsable.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtresponsable.Name = "txtresponsable";
             this.txtresponsable.Size = new System.Drawing.Size(373, 22);
@@ -92,7 +92,7 @@ namespace CLINICA_1
             // txtdireccion2
             // 
             this.txtdireccion2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtdireccion2.Location = new System.Drawing.Point(897, 303);
+            this.txtdireccion2.Location = new System.Drawing.Point(855, 304);
             this.txtdireccion2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtdireccion2.Name = "txtdireccion2";
             this.txtdireccion2.Size = new System.Drawing.Size(373, 22);
@@ -101,7 +101,7 @@ namespace CLINICA_1
             // txttelefono2
             // 
             this.txttelefono2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txttelefono2.Location = new System.Drawing.Point(897, 380);
+            this.txttelefono2.Location = new System.Drawing.Point(855, 379);
             this.txttelefono2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txttelefono2.Name = "txttelefono2";
             this.txttelefono2.Size = new System.Drawing.Size(373, 21);
@@ -111,7 +111,7 @@ namespace CLINICA_1
             // txtcorreo
             // 
             this.txtcorreo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtcorreo.Location = new System.Drawing.Point(897, 452);
+            this.txtcorreo.Location = new System.Drawing.Point(855, 452);
             this.txtcorreo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtcorreo.Name = "txtcorreo";
             this.txtcorreo.Size = new System.Drawing.Size(373, 21);
@@ -122,7 +122,7 @@ namespace CLINICA_1
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(728, 234);
+            this.label5.Location = new System.Drawing.Point(737, 233);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(110, 21);
@@ -134,7 +134,7 @@ namespace CLINICA_1
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(760, 303);
+            this.label4.Location = new System.Drawing.Point(765, 303);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(87, 21);
@@ -158,7 +158,7 @@ namespace CLINICA_1
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(666, 451);
+            this.label2.Location = new System.Drawing.Point(692, 451);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(155, 21);
@@ -170,7 +170,7 @@ namespace CLINICA_1
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(124, 440);
+            this.label1.Location = new System.Drawing.Point(124, 451);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(43, 21);
@@ -180,7 +180,7 @@ namespace CLINICA_1
             // txtdui
             // 
             this.txtdui.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtdui.Location = new System.Drawing.Point(198, 442);
+            this.txtdui.Location = new System.Drawing.Point(198, 450);
             this.txtdui.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtdui.Name = "txtdui";
             this.txtdui.Size = new System.Drawing.Size(373, 22);
@@ -203,7 +203,7 @@ namespace CLINICA_1
             this.lblNombre.AutoSize = true;
             this.lblNombre.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNombre.ForeColor = System.Drawing.Color.White;
-            this.lblNombre.Location = new System.Drawing.Point(86, 278);
+            this.lblNombre.Location = new System.Drawing.Point(88, 278);
             this.lblNombre.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(77, 21);
@@ -255,7 +255,7 @@ namespace CLINICA_1
             // txtTelefono
             // 
             this.txtTelefono.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTelefono.Location = new System.Drawing.Point(198, 565);
+            this.txtTelefono.Location = new System.Drawing.Point(198, 502);
             this.txtTelefono.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(373, 22);
@@ -276,7 +276,7 @@ namespace CLINICA_1
             // txtDireccion
             // 
             this.txtDireccion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDireccion.Location = new System.Drawing.Point(196, 502);
+            this.txtDireccion.Location = new System.Drawing.Point(198, 565);
             this.txtDireccion.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtDireccion.Name = "txtDireccion";
             this.txtDireccion.Size = new System.Drawing.Size(373, 22);
@@ -362,7 +362,7 @@ namespace CLINICA_1
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(48, 394);
+            this.label6.Location = new System.Drawing.Point(48, 398);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(119, 21);
@@ -371,7 +371,7 @@ namespace CLINICA_1
             // 
             // dateTimePickerNacimiento
             // 
-            this.dateTimePickerNacimiento.Location = new System.Drawing.Point(196, 389);
+            this.dateTimePickerNacimiento.Location = new System.Drawing.Point(198, 399);
             this.dateTimePickerNacimiento.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dateTimePickerNacimiento.Name = "dateTimePickerNacimiento";
             this.dateTimePickerNacimiento.Size = new System.Drawing.Size(373, 26);
