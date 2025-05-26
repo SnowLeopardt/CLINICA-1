@@ -18,7 +18,7 @@ namespace CLINICA_1
     public partial class RegistroEnfermera : Form
     {
         //Cambiar Conexion:
-        private string connectionString = "Server=LAPTOP-M35CB1FF;Database=ClinicaVargas;Integrated Security=True;";
+        private string connectionString = "Server=localhost;Database=ClinicaVargas;Integrated Security=True;";
 
 
         public RegistroEnfermera()
@@ -349,7 +349,7 @@ namespace CLINICA_1
 
         private void botonAbrirCarpeta_Click(object sender, EventArgs e)
         {
-            string ruta = @"C:\Users\\OneDrive\Documentos\Pacientes"; // Cambia esta ruta si está en otro lugar
+            string ruta = @"C:\Users\User\Documents\Pacientes"; // Cambia esta ruta si está en otro lugar
 
             if (Directory.Exists(ruta))
             {

@@ -20,6 +20,7 @@ namespace CLINICA_1
         // Cadena de conexión a SQL Server  //Cambiar Conexion:
         private string connectionString = "Server=LAPTOP-M35CB1FF;Database=ClinicaVargas;Integrated Security=True;";
 
+        public static string NombrePacienteSeleccionado = "";
         public Registro()
         {
             InitializeComponent();
@@ -85,6 +86,15 @@ namespace CLINICA_1
             }
 
         }
+
+        private void btnAbrirPDF_Click(object sender, EventArgs e)
+        {
+            Registro.NombrePacienteSeleccionado = txtNombre.Text; // Aquí tomás el nombre del TextBox
+
+            HistoriaClinica frmPDF = new HistoriaClinica();
+            frmPDF.Show(); // o ShowDialog si lo necesitás modal
+        }
+
 
 
 
@@ -365,7 +375,7 @@ namespace CLINICA_1
 
         private void botonAbrirCarpeta_Click(object sender, EventArgs e)
         {
-            string ruta = @"C:\Users\emili\OneDrive\Documentos\Pacientes"; // Cambia esta ruta si está en otro lugar
+            string ruta = @"C:\Users\User\Documents\Pacientes"; // Cambia esta ruta si está en otro lugar
 
             if (Directory.Exists(ruta))
             {
@@ -397,6 +407,6 @@ namespace CLINICA_1
 
                 txtEdad.Text = edad.ToString();
             }
-
-        }
+       
+    }
     }
