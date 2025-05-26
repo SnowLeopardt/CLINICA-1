@@ -37,6 +37,7 @@ namespace CLINICA_1
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -49,7 +50,8 @@ namespace CLINICA_1
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.rEGISTRARDATOSToolStripMenuItem,
             this.hISTORIACLINICAToolStripMenuItem,
-            this.toolStripMenuItem1});
+            this.toolStripMenuItem1,
+            this.toolStripMenuItem2});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(6, 3, 0, 3);
@@ -84,8 +86,8 @@ namespace CLINICA_1
             this.toolStripMenuItem1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStripMenuItem1.ForeColor = System.Drawing.Color.White;
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(68, 25);
-            this.toolStripMenuItem1.Text = "HOJA ";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(182, 25);
+            this.toolStripMenuItem1.Text = "HOJA INDICACIONES";
             this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
             // pictureBox1
@@ -122,6 +124,16 @@ namespace CLINICA_1
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Checked = true;
+            this.toolStripMenuItem2.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.toolStripMenuItem2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripMenuItem2.ForeColor = System.Drawing.Color.White;
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(79, 25);
+            this.toolStripMenuItem2.Text = "RECETA";
+            // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -154,5 +166,6 @@ namespace CLINICA_1
         private System.Windows.Forms.ToolStripMenuItem hISTORIACLINICAToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
     }
 }

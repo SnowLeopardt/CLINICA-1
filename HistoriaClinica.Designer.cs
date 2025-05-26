@@ -77,8 +77,11 @@ namespace CLINICA_1
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnImprimir = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // label3
@@ -412,7 +415,6 @@ namespace CLINICA_1
             this.txtMasaCorporal.Name = "txtMasaCorporal";
             this.txtMasaCorporal.Size = new System.Drawing.Size(248, 22);
             this.txtMasaCorporal.TabIndex = 246;
-            this.txtMasaCorporal.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMasaCorporal_KeyPress);
             // 
             // label17
             // 
@@ -501,6 +503,8 @@ namespace CLINICA_1
             // panel1
             // 
             this.panel1.AutoScroll = true;
+            this.panel1.Controls.Add(this.pictureBox2);
+            this.panel1.Controls.Add(this.label25);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.txtPlan);
             this.panel1.Controls.Add(this.label24);
@@ -691,6 +695,25 @@ namespace CLINICA_1
             this.label2.TabIndex = 216;
             this.label2.Text = "Antecedentes Personales:";
             // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(994, 1012);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(158, 20);
+            this.label25.TabIndex = 261;
+            this.label25.Text = "F._______________";
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(998, 945);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(147, 50);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 262;
+            this.pictureBox2.TabStop = false;
+            // 
             // HistoriaClinica
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -709,6 +732,7 @@ namespace CLINICA_1
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -762,5 +786,7 @@ namespace CLINICA_1
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Button btnImprimir;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Label label25;
     }
 }

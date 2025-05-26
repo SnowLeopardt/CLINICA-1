@@ -3,7 +3,6 @@ using System.Linq;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.IO;
-using System.Drawing;
 using System.Diagnostics;
 using DocumentFormat.OpenXml.Packaging;
 using DocumentFormat.OpenXml.Wordprocessing;
@@ -461,110 +460,116 @@ namespace CLINICA_1
             {
                 string rutaPDF = Path.Combine(Path.GetTempPath(), $"HistoriaClinica_{txtPaciente.Text.Trim()}.pdf");
 
-                iTextSharp.text.Document documentoPDF = new iTextSharp.text.Document(iTextSharp.text.PageSize.A4, 40f, 40f, 40f, 40f);
-                iTextSharp.text.pdf.PdfWriter escritorPDF = iTextSharp.text.pdf.PdfWriter.GetInstance(documentoPDF, new FileStream(rutaPDF, FileMode.Create));
+                // 📄 Documento PDF 
+                iTextSharp.text.Document pdfDoc = new iTextSharp.text.Document(iTextSharp.text.PageSize.A4, 40f, 40f, 40f, 40f);
+                PdfWriter writer = PdfWriter.GetInstance(pdfDoc, new FileStream(rutaPDF, FileMode.Create));
+                writer.PageEvent = new FondoPaginaCompleto(System.Drawing.SystemColors.ActiveCaption);
 
-                // Fondo de página si tenés clase personalizada
-                System.Drawing.Color colorFondo = System.Drawing.SystemColors.ActiveCaption;
-                escritorPDF.PageEvent = new FondoPaginaCompleto(colorFondo); // Comentá esta línea si no usás esa clase
+                pdfDoc.Open();
 
-                // ================== OBTENER DATOS DE LA TABLA PACIENTES ==================
-                string nombrePaciente = txtPaciente.Text.Trim();
-                string connectionString = "Server=LAPTOP-M35CB1FF;Database=ClinicaVargas;Integrated Security=True;"; 
-                string query = @"SELECT Nombre, Edad, Telefono, Direccion, DUI, Responsable, TelResponsable, DirResponsable, CorreoResponsable, FechaNacimiento, FechaHoraRegistro 
-                     FROM Pacientes WHERE Nombre = @Nombre";
-
-                // Variables para los datos
-                int edad = 0;
-                string telefono = "", direccion = "", dui = "";
-                string responsable = "", telResponsable = "", dirResponsable = "", correoResponsable = "";
-                DateTime fechaNacimiento = DateTime.MinValue;
-                DateTime fechaHoraRegistro = DateTime.Now;
-
-                using (SqlConnection conexion = new SqlConnection(connectionString))
+                // 🖼️ Agregar Imagen
+                string rutaImagenSello = @"C:\Users\emili\OneDrive\Documentos\selloimprimir.png";
+                if (File.Exists(rutaImagenSello))
                 {
-                    SqlCommand comando = new SqlCommand(query, conexion);
-                    comando.Parameters.AddWithValue("@Nombre", nombrePaciente);
-                    conexion.Open();
-                    SqlDataReader lector = comando.ExecuteReader();
-                    if (lector.Read())
+                    iTextSharp.text.Image sello = iTextSharp.text.Image.GetInstance(rutaImagenSello);
+                    sello.ScaleAbsolute(120f, 90f);
+                    sello.SetAbsolutePosition(pdfDoc.PageSize.Width - sello.ScaledWidth - 40f, pdfDoc.PageSize.Height - sello.ScaledHeight - 40f);
+                    pdfDoc.Add(sello);
+                }
+
+                // 🖋️ Fuentes
+                var fuenteTitulo = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 20, BaseColor.BLACK);
+                var fuenteCampo = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 12);
+                var fuenteTexto = FontFactory.GetFont(FontFactory.HELVETICA, 12);
+
+                // 🧩 Función para agregar campos
+                void AddCampoValor(string campo, string valor)
+                {
+                    iTextSharp.text.Paragraph p = new iTextSharp.text.Paragraph();
+                    p.Add(new Chunk(campo + ": ", fuenteCampo));
+                    p.Add(new Chunk(valor + "\n", fuenteTexto));
+                    pdfDoc.Add(p);
+                }
+
+                void AddTitulo(string texto)
+                {
+                    iTextSharp.text.Paragraph p = new iTextSharp.text.Paragraph(texto, fuenteTitulo)
                     {
-                        edad = lector["Edad"] != DBNull.Value ? Convert.ToInt32(lector["Edad"]) : 0;
-                        telefono = lector["Telefono"].ToString();
-                        direccion = lector["Direccion"].ToString();
-                        dui = lector["DUI"].ToString();
-                        responsable = lector["Responsable"].ToString();
-                        telResponsable = lector["TelResponsable"].ToString();
-                        dirResponsable = lector["DirResponsable"].ToString();
-                        correoResponsable = lector["CorreoResponsable"].ToString();
-                        fechaNacimiento = lector["FechaNacimiento"] != DBNull.Value ? Convert.ToDateTime(lector["FechaNacimiento"]) : DateTime.MinValue;
-                        fechaHoraRegistro = lector["FechaHoraRegistro"] != DBNull.Value ? Convert.ToDateTime(lector["FechaHoraRegistro"]) : DateTime.Now;
+                        SpacingAfter = 10f,
+                        Alignment = Element.ALIGN_CENTER
+                    };
+                    pdfDoc.Add(p);
+                }
+
+                // 🔍 Datos desde SQL
+                string nombrePaciente = txtPaciente.Text.Trim();
+                string cs = "Server=LAPTOP-M35CB1FF;Database=ClinicaVargas;Integrated Security=True;";
+                string sql = @"SELECT Nombre, Edad, Telefono, Direccion, DUI, Responsable, TelResponsable, DirResponsable, CorreoResponsable, FechaNacimiento, FechaHoraRegistro 
+                       FROM Pacientes WHERE Nombre = @Nombre";
+
+                int edad = 0;
+                string telefono = "", direccion = "", dui = "", responsable = "", telResponsable = "", dirResponsable = "", correoResponsable = "";
+                DateTime fechaNacimiento = DateTime.MinValue, fechaHoraRegistro = DateTime.Now;
+
+                using (SqlConnection con = new SqlConnection(cs))
+                {
+                    SqlCommand cmd = new SqlCommand(sql, con);
+                    cmd.Parameters.AddWithValue("@Nombre", nombrePaciente);
+                    con.Open();
+                    SqlDataReader dr = cmd.ExecuteReader();
+                    if (dr.Read())
+                    {
+                        edad = Convert.ToInt32(dr["Edad"]);
+                        telefono = dr["Telefono"].ToString();
+                        direccion = dr["Direccion"].ToString();
+                        dui = dr["DUI"].ToString();
+                        responsable = dr["Responsable"].ToString();
+                        telResponsable = dr["TelResponsable"].ToString();
+                        dirResponsable = dr["DirResponsable"].ToString();
+                        correoResponsable = dr["CorreoResponsable"].ToString();
+                        fechaNacimiento = Convert.ToDateTime(dr["FechaNacimiento"]);
+                        fechaHoraRegistro = Convert.ToDateTime(dr["FechaHoraRegistro"]);
                     }
                 }
 
-                // ================== ABRIR EL DOCUMENTO PDF ==================
-                documentoPDF.Open();
+                // 📝 Escritura de datos
+                AddTitulo("HISTORIA CLÍNICA");
+                AddCampoValor("Paciente", nombrePaciente);
+                AddCampoValor("Consulta por", txtConsultaPor.Text);
+                AddCampoValor("Edad", edad + " años");
+                AddCampoValor("Fecha de Nacimiento", fechaNacimiento.ToShortDateString());
+                AddCampoValor("Teléfono", telefono);
+                AddCampoValor("Dirección", direccion);
+                AddCampoValor("DUI", dui);
 
-                // Fuentes
-                var fuenteTitulo = iTextSharp.text.FontFactory.GetFont(iTextSharp.text.FontFactory.HELVETICA_BOLD, 18, iTextSharp.text.BaseColor.BLACK);
-                var fuenteCampo = iTextSharp.text.FontFactory.GetFont(iTextSharp.text.FontFactory.HELVETICA_BOLD, 12);
-                var fuenteValor = iTextSharp.text.FontFactory.GetFont(iTextSharp.text.FontFactory.HELVETICA, 12);
+                pdfDoc.Add(new iTextSharp.text.Paragraph("\n"));
 
-                // Función auxiliar para agregar texto
-                void AddParagraph(string texto, bool bold = false, int fontSize = 12)
-                {
-                    var font = iTextSharp.text.FontFactory.GetFont(
-                        iTextSharp.text.FontFactory.HELVETICA,
-                        fontSize,
-                        bold ? iTextSharp.text.Font.BOLD : iTextSharp.text.Font.NORMAL
-                    );
-                    var p = new iTextSharp.text.Paragraph(texto, font);
-                    p.SpacingAfter = 8f;
-                    documentoPDF.Add(p);
-                }
+                AddCampoValor("Responsable", responsable);
+                AddCampoValor("Tel. Responsable", telResponsable);
+                AddCampoValor("Dir. Responsable", dirResponsable);
+                AddCampoValor("Correo Responsable", correoResponsable);
+                AddCampoValor("Fecha y Hora de Registro", fechaHoraRegistro.ToString("yyyy-MM-dd hh:mm tt"));
 
-                // Título
-                AddParagraph("HISTORIA CLÍNICA", bold: true, fontSize: 32);
-                AddParagraph("", bold: false);
-                AddParagraph("Datos del Paciente:", bold: true);
-                AddParagraph($"Paciente: {nombrePaciente}");
-                AddParagraph($"Consulta por: {txtConsultaPor.Text}");
+                pdfDoc.Add(new iTextSharp.text.Paragraph("\n"));
 
-                // === DATOS DEL PACIENTE ===
-                AddParagraph($"Edad: {edad} años");
-                AddParagraph($"Fecha de Nacimiento: {fechaNacimiento:yyyy-MM-dd}");
-                AddParagraph($"Teléfono: {telefono}");
-                AddParagraph($"Dirección: {direccion}");
-                AddParagraph($"DUI: {dui}");
+                AddCampoValor("Presente Enfermedad", txtPresenteEnfermedad.Text);
+                AddCampoValor("Antecedentes Personales", txtAntecedentesPersonales.Text);
+                AddCampoValor("Signos Vitales", txtSignosVitales.Text);
+                AddCampoValor("Presión Arterial", txtPresion.Text);
+                AddCampoValor("Frecuencia Cardíaca", txtFC.Text);
+                AddCampoValor("Frecuencia Respiratoria", txtFR.Text);
+                AddCampoValor("Saturación", txtSaturacion.Text);
+                AddCampoValor("Peso", txtPeso.Text);
+                AddCampoValor("Talla", txtTalla.Text);
+                AddCampoValor("IMC", txtMasaCorporal.Text);
+                AddCampoValor("Examen Físico", txtExamenFisico.Text);
+                AddCampoValor("Exámenes de Laboratorio", txtExamenesLaboratorio.Text);
+                AddCampoValor("Exámenes de Gabinete", txtExamenesGabinete.Text);
+                AddCampoValor("Impresión Diagnóstica", txtImpresion.Text);
+                AddCampoValor("Plan", txtPlan.Text);
 
-                AddParagraph("Datos del Responsable:", bold: true);
-                AddParagraph("", bold: false);
-                AddParagraph($"Responsable: {responsable}");
-                AddParagraph($"Teléfono Responsable: {telResponsable}");
-                AddParagraph($"Dirección Responsable: {dirResponsable}");
-                AddParagraph($"Correo Responsable: {correoResponsable}");
-                AddParagraph($"Fecha y Hora de Registro: {fechaHoraRegistro:yyyy-MM-dd hh:mm tt}");
+                pdfDoc.Close();
 
-                // === HISTORIA CLÍNICA ===
-                AddParagraph($"Presente Enfermedad: {txtPresenteEnfermedad.Text}");
-                AddParagraph($"Antecedentes Personales: {txtAntecedentesPersonales.Text}");
-                AddParagraph($"Signos Vitales: {txtSignosVitales.Text}");
-                AddParagraph($"Presión Arterial: {txtPresion.Text}");
-                AddParagraph($"Frecuencia Cardiaca: {txtFC.Text}");
-                AddParagraph($"Frecuencia Respiratoria: {txtFR.Text}");
-                AddParagraph($"Saturación Oxígeno: {txtSaturacion.Text}");
-                AddParagraph($"Peso: {txtPeso.Text}");
-                AddParagraph($"Talla: {txtTalla.Text}");
-                AddParagraph($"IMC: {txtMasaCorporal.Text}");
-                AddParagraph($"Examen Físico: {txtExamenFisico.Text}");
-                AddParagraph($"Exámenes de Laboratorio: {txtExamenesLaboratorio.Text}");
-                AddParagraph($"Exámenes de Gabinete: {txtExamenesGabinete.Text}");
-                AddParagraph($"Impresión Diagnóstica: {txtImpresion.Text}");
-                AddParagraph($"Plan: {txtPlan.Text}");
-
-                documentoPDF.Close();
-
-                // Abrir el PDF automáticamente
                 Process.Start(new ProcessStartInfo
                 {
                     FileName = rutaPDF,
@@ -575,63 +580,60 @@ namespace CLINICA_1
             {
                 MessageBox.Show("Error al generar el PDF: " + ex.Message);
             }
-
-
-            // Método para limpiar los campos
-            void LimpiarCampos()
-            {
-                txtConsultaPor.Clear();
-                txtPaciente.Clear();
-                txtPresenteEnfermedad.Clear();
-                txtPresion.Clear();
-                txtSignosVitales.Clear();
-                txtFC.Clear();
-                txtFR.Clear();
-                txtSaturacion.Clear();
-                txtPeso.Clear();
-                txtTalla.Clear();
-                txtMasaCorporal.Clear();
-                txtExamenesGabinete.Clear();
-                txtImpresion.Clear();
-                txtExamenesLaboratorio.Clear();
-                txtPlan.Clear();
-                txtAntecedentesPersonales.Clear();
-                txtExamenFisico.Clear();
-            }
         }
 
 
-
-
-
-
-        public class FondoPaginaCompleto : iTextSharp.text.pdf.PdfPageEventHelper
+        // Método para limpiar los campos
+        void LimpiarCampos()
         {
-            private readonly iTextSharp.text.BaseColor fondoColor;
+            txtConsultaPor.Clear();
+            txtPaciente.Clear();
+            txtPresenteEnfermedad.Clear();
+            txtPresion.Clear();
+            txtSignosVitales.Clear();
+            txtFC.Clear();
+            txtFR.Clear();
+            txtSaturacion.Clear();
+            txtPeso.Clear();
+            txtTalla.Clear();
+            txtMasaCorporal.Clear();
+            txtExamenesGabinete.Clear();
+            txtImpresion.Clear();
+            txtExamenesLaboratorio.Clear();
+            txtPlan.Clear();
+            txtAntecedentesPersonales.Clear();
+            txtExamenFisico.Clear();
+        }
+    }
 
-            public FondoPaginaCompleto(System.Drawing.Color colorWindows)
-            {
-                fondoColor = new iTextSharp.text.BaseColor(colorWindows.R, colorWindows.G, colorWindows.B);
-            }
 
-            public override void OnEndPage(iTextSharp.text.pdf.PdfWriter writer, iTextSharp.text.Document document)
-            {
-                var content = writer.DirectContentUnder;
-                content.SaveState();
-                content.SetColorFill(fondoColor);
 
-                // Rectángulo que cubre TODA la página
-                content.Rectangle(0, 0, document.PageSize.Width, document.PageSize.Height);
 
-                content.Fill();
-                content.RestoreState();
-            }
+
+
+    public class FondoPaginaCompleto : iTextSharp.text.pdf.PdfPageEventHelper
+    {
+        private readonly iTextSharp.text.BaseColor fondoColor;
+
+        public FondoPaginaCompleto(System.Drawing.Color colorWindows)
+        {
+            fondoColor = new iTextSharp.text.BaseColor(colorWindows.R, colorWindows.G, colorWindows.B);
         }
 
-        private void txtMasaCorporal_KeyPress(object sender, KeyPressEventArgs e)
+        public override void OnEndPage(iTextSharp.text.pdf.PdfWriter writer, iTextSharp.text.Document document)
         {
+            var content = writer.DirectContentUnder;
+            content.SaveState();
+            content.SetColorFill(fondoColor);
 
+            // Rectángulo que cubre TODA la página
+            content.Rectangle(0, 0, document.PageSize.Width, document.PageSize.Height);
+
+            content.Fill();
+            content.RestoreState();
         }
     }
 }
+
+
 
