@@ -27,12 +27,12 @@ namespace CLINICA_1
 
         private void button2_Click(object sender, EventArgs e)
         {
-           
-                Application.Exit(); // Cierra toda la aplicación
+
+            Application.Exit(); // Cierra toda la aplicación
         }
 
         private void button1_Click_1(object sender, EventArgs e)
-        {         
+        {
 
             string username = txtusername.Text.Trim();
             string password = txtpassword.Text.Trim();
@@ -48,41 +48,59 @@ namespace CLINICA_1
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
-                    string query = "SELECT Rol FROM Usuarios WHERE Usuario = @usuario AND Contrasena = @contrasena";
+
+                    string query = "SELECT Rol, FechaCambioPassword FROM Usuarios WHERE Usuario = @usuario AND Contrasena = @contrasena";
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
                         command.Parameters.AddWithValue("@usuario", username);
                         command.Parameters.AddWithValue("@contrasena", password);
 
-                        object result = command.ExecuteScalar();
-
-                        if (result != null)
+                        using (SqlDataReader reader = command.ExecuteReader())
                         {
-                            string rol = result.ToString();
-
-                            MessageBox.Show("Inicio de sesión exitoso como " + rol + ".", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            this.Hide();
-
-                            // Mostrar el formulario correspondiente según el rol
-                            if (rol == "Doctor")
+                            if (reader.Read())
                             {
-                                var doctorForm = new Menu();
-                                doctorForm.Show();
-                            }
-                            else if (rol == "Enfermera")
-                            {
-                                var enfermeraForm = new Form1();
-                                enfermeraForm.Show();
+                                string rol = reader["Rol"].ToString();
+                                DateTime fechaCambio = reader["FechaCambioPassword"] == DBNull.Value ? DateTime.MinValue : Convert.ToDateTime(reader["FechaCambioPassword"]);
+                                int diasDesdeCambio = (DateTime.Now - fechaCambio).Days;
+
+                                if (diasDesdeCambio >= 60)
+                                {
+                                    lblDiasRestantes.Text = "Contraseña expirada.";
+                                    MessageBox.Show($"Su contraseña ha expirado. Han pasado {diasDesdeCambio} días desde el último cambio.\nPor favor, cambie su contraseña.", "Contraseña Expirada", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                                    // Puedes abrir el formulario de cambio de contraseña aquí
+                                    var cambiarForm = new CambiarContrasenaForm(username, connectionString);
+                                    cambiarForm.ShowDialog();
+                                    return;
+                                }
+                                else
+                                {
+                                    int diasRestantes = 60 - diasDesdeCambio;
+                                    lblDiasRestantes.Text = $"Quedan {diasRestantes} día(s) antes de que expire su contraseña.";
+                                }
+
+                                MessageBox.Show("Inicio de sesión exitoso como " + rol + ".", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                this.Hide();
+
+                                // Mostrar formulario correspondiente según el rol
+                                if (rol == "Doctor")
+                                {
+                                    new Menu().Show();
+                                }
+                                else if (rol == "Enfermera")
+                                {
+                                    new Form1().Show();
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Rol no reconocido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    this.Show();
+                                }
                             }
                             else
                             {
-                                MessageBox.Show("Rol no reconocido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                this.Show();
+                                MessageBox.Show("Usuario o contraseña incorrectos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             }
-                        }
-                        else
-                        {
-                            MessageBox.Show("Usuario o contraseña incorrectos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
                 }
@@ -92,9 +110,6 @@ namespace CLINICA_1
                 MessageBox.Show("Error al conectar con la base de datos: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-       
-       
-
     }
 }
 

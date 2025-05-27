@@ -460,14 +460,12 @@ namespace CLINICA_1
             {
                 string rutaPDF = Path.Combine(Path.GetTempPath(), $"HistoriaClinica_{txtPaciente.Text.Trim()}.pdf");
 
-                // 📄 Documento PDF 
                 iTextSharp.text.Document pdfDoc = new iTextSharp.text.Document(iTextSharp.text.PageSize.A4, 40f, 40f, 40f, 40f);
                 PdfWriter writer = PdfWriter.GetInstance(pdfDoc, new FileStream(rutaPDF, FileMode.Create));
                 writer.PageEvent = new FondoPaginaCompleto(System.Drawing.SystemColors.ActiveCaption);
-
                 pdfDoc.Open();
 
-                // 🖼️ Agregar Imagen
+                // 🖼️ Agregar imagen superior derecha (sello que SÍ se imprime)
                 string rutaImagenSello = @"C:\Users\emili\OneDrive\Documentos\selloimprimir.png";
                 if (File.Exists(rutaImagenSello))
                 {
@@ -475,6 +473,32 @@ namespace CLINICA_1
                     sello.ScaleAbsolute(120f, 90f);
                     sello.SetAbsolutePosition(pdfDoc.PageSize.Width - sello.ScaledWidth - 40f, pdfDoc.PageSize.Height - sello.ScaledHeight - 40f);
                     pdfDoc.Add(sello);
+                }
+
+                // 🖼️ Agregar imagen inferior derecha (NO se imprime - solo visualización)
+                string rutaImagenNoImprimir = @"C:\Users\emili\OneDrive\Escritorio\sello jvpm.png";
+                if (File.Exists(rutaImagenNoImprimir))
+                {
+                    iTextSharp.text.Image firma = iTextSharp.text.Image.GetInstance(rutaImagenNoImprimir);
+                    firma.ScaleAbsolute(160f, 70f); // tamaño ajustado
+                    firma.SetAbsolutePosition(pdfDoc.PageSize.Width - firma.ScaledWidth - 40f, 45f); // esquina inferior derecha
+
+                    // Crear capa OCG (Optional Content Group)
+                    PdfLayer capaFirma = new PdfLayer("FirmaDigital", writer);
+                    capaFirma.OnPanel = false;
+
+                    // Ocultar al imprimir
+                    PdfDictionary usage = new PdfDictionary();
+                    PdfDictionary print = new PdfDictionary();
+                    print.Put(PdfName.SUBTYPE, PdfName.PRINT);
+                    print.Put(PdfName.PRINTSTATE, PdfName.OFF);
+                    usage.Put(PdfName.PRINT, print);
+                    capaFirma.Put(PdfName.USAGE, usage);
+
+                    PdfContentByte cb = writer.DirectContent;
+                    cb.BeginLayer(capaFirma);
+                    cb.AddImage(firma);
+                    cb.EndLayer();
                 }
 
                 // 🖋️ Fuentes
@@ -505,7 +529,7 @@ namespace CLINICA_1
                 string nombrePaciente = txtPaciente.Text.Trim();
                 string cs = "Server=LAPTOP-M35CB1FF;Database=ClinicaVargas;Integrated Security=True;";
                 string sql = @"SELECT Nombre, Edad, Telefono, Direccion, DUI, Responsable, TelResponsable, DirResponsable, CorreoResponsable, FechaNacimiento, FechaHoraRegistro 
-                       FROM Pacientes WHERE Nombre = @Nombre";
+                   FROM Pacientes WHERE Nombre = @Nombre";
 
                 int edad = 0;
                 string telefono = "", direccion = "", dui = "", responsable = "", telResponsable = "", dirResponsable = "", correoResponsable = "";
@@ -580,57 +604,56 @@ namespace CLINICA_1
             {
                 MessageBox.Show("Error al generar el PDF: " + ex.Message);
             }
+
+            // Método para limpiar los campos
+            void LimpiarCampos()
+            {
+                txtConsultaPor.Clear();
+                txtPaciente.Clear();
+                txtPresenteEnfermedad.Clear();
+                txtPresion.Clear();
+                txtSignosVitales.Clear();
+                txtFC.Clear();
+                txtFR.Clear();
+                txtSaturacion.Clear();
+                txtPeso.Clear();
+                txtTalla.Clear();
+                txtMasaCorporal.Clear();
+                txtExamenesGabinete.Clear();
+                txtImpresion.Clear();
+                txtExamenesLaboratorio.Clear();
+                txtPlan.Clear();
+                txtAntecedentesPersonales.Clear();
+                txtExamenFisico.Clear();
+            }
         }
 
 
-        // Método para limpiar los campos
-        void LimpiarCampos()
+
+
+
+
+        public class FondoPaginaCompleto : iTextSharp.text.pdf.PdfPageEventHelper
         {
-            txtConsultaPor.Clear();
-            txtPaciente.Clear();
-            txtPresenteEnfermedad.Clear();
-            txtPresion.Clear();
-            txtSignosVitales.Clear();
-            txtFC.Clear();
-            txtFR.Clear();
-            txtSaturacion.Clear();
-            txtPeso.Clear();
-            txtTalla.Clear();
-            txtMasaCorporal.Clear();
-            txtExamenesGabinete.Clear();
-            txtImpresion.Clear();
-            txtExamenesLaboratorio.Clear();
-            txtPlan.Clear();
-            txtAntecedentesPersonales.Clear();
-            txtExamenFisico.Clear();
-        }
-    }
+            private readonly iTextSharp.text.BaseColor fondoColor;
 
+            public FondoPaginaCompleto(System.Drawing.Color colorWindows)
+            {
+                fondoColor = new iTextSharp.text.BaseColor(colorWindows.R, colorWindows.G, colorWindows.B);
+            }
 
+            public override void OnEndPage(iTextSharp.text.pdf.PdfWriter writer, iTextSharp.text.Document document)
+            {
+                var content = writer.DirectContentUnder;
+                content.SaveState();
+                content.SetColorFill(fondoColor);
 
+                // Rectángulo que cubre TODA la página
+                content.Rectangle(0, 0, document.PageSize.Width, document.PageSize.Height);
 
-
-
-    public class FondoPaginaCompleto : iTextSharp.text.pdf.PdfPageEventHelper
-    {
-        private readonly iTextSharp.text.BaseColor fondoColor;
-
-        public FondoPaginaCompleto(System.Drawing.Color colorWindows)
-        {
-            fondoColor = new iTextSharp.text.BaseColor(colorWindows.R, colorWindows.G, colorWindows.B);
-        }
-
-        public override void OnEndPage(iTextSharp.text.pdf.PdfWriter writer, iTextSharp.text.Document document)
-        {
-            var content = writer.DirectContentUnder;
-            content.SaveState();
-            content.SetColorFill(fondoColor);
-
-            // Rectángulo que cubre TODA la página
-            content.Rectangle(0, 0, document.PageSize.Width, document.PageSize.Height);
-
-            content.Fill();
-            content.RestoreState();
+                content.Fill();
+                content.RestoreState();
+            }
         }
     }
 }

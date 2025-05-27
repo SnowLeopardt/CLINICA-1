@@ -37,6 +37,7 @@ namespace CLINICA_1
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.lblDiasRestantes = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -116,10 +117,19 @@ namespace CLINICA_1
             this.pictureBox1.TabIndex = 31;
             this.pictureBox1.TabStop = false;
             // 
+            // lblDiasRestantes
+            // 
+            this.lblDiasRestantes.AutoSize = true;
+            this.lblDiasRestantes.Location = new System.Drawing.Point(104, 141);
+            this.lblDiasRestantes.Name = "lblDiasRestantes";
+            this.lblDiasRestantes.Size = new System.Drawing.Size(0, 13);
+            this.lblDiasRestantes.TabIndex = 38;
+            // 
             // Login
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(522, 250);
+            this.Controls.Add(this.lblDiasRestantes);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.txtpassword);
             this.Controls.Add(this.label2);
@@ -147,5 +157,6 @@ namespace CLINICA_1
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label lblDiasRestantes;
     }
 }

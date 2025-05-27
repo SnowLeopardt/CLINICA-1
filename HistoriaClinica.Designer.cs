@@ -66,6 +66,8 @@ namespace CLINICA_1
             this.txtPlan = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.label25 = new System.Windows.Forms.Label();
             this.txtAntecedentesPersonales = new System.Windows.Forms.TextBox();
             this.txtPaciente = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -77,8 +79,6 @@ namespace CLINICA_1
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnImprimir = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.label25 = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -555,6 +555,25 @@ namespace CLINICA_1
             this.panel1.Size = new System.Drawing.Size(1197, 1050);
             this.panel1.TabIndex = 0;
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(998, 945);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(147, 50);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 262;
+            this.pictureBox2.TabStop = false;
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(924, 1011);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(148, 13);
+            this.label25.TabIndex = 261;
+            this.label25.Text = "F.______________________";
+            // 
             // txtAntecedentesPersonales
             // 
             this.txtAntecedentesPersonales.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -694,25 +713,6 @@ namespace CLINICA_1
             this.label2.Size = new System.Drawing.Size(293, 26);
             this.label2.TabIndex = 216;
             this.label2.Text = "Antecedentes Personales:";
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(994, 1012);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(158, 20);
-            this.label25.TabIndex = 261;
-            this.label25.Text = "F._______________";
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(998, 945);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(147, 50);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 262;
-            this.pictureBox2.TabStop = false;
             // 
             // HistoriaClinica
             // 
