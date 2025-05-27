@@ -655,6 +655,11 @@ namespace CLINICA_1
                 content.RestoreState();
             }
         }
+
+        private void txtExamenFisico_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 

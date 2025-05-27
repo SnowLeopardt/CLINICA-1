@@ -465,6 +465,7 @@ namespace CLINICA_1
             this.txtExamenFisico.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtExamenFisico.Size = new System.Drawing.Size(1146, 63);
             this.txtExamenFisico.TabIndex = 257;
+            this.txtExamenFisico.TextChanged += new System.EventHandler(this.txtExamenFisico_TextChanged);
             // 
             // label24
             // 
@@ -720,7 +721,7 @@ namespace CLINICA_1
             this.AutoScroll = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(1197, 1050);
+            this.ClientSize = new System.Drawing.Size(1197, 749);
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
