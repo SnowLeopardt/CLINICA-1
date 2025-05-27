@@ -46,7 +46,7 @@ namespace CLINICA_1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(91, 92);
+            this.label1.Location = new System.Drawing.Point(91, 95);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(58, 16);
             this.label1.TabIndex = 0;
@@ -57,7 +57,7 @@ namespace CLINICA_1
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(29, 133);
+            this.label2.Location = new System.Drawing.Point(29, 137);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(120, 16);
             this.label2.TabIndex = 1;
@@ -83,7 +83,7 @@ namespace CLINICA_1
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(14, 213);
+            this.label3.Location = new System.Drawing.Point(12, 220);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(140, 16);
             this.label3.TabIndex = 5;
@@ -93,7 +93,7 @@ namespace CLINICA_1
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(29, 177);
+            this.label4.Location = new System.Drawing.Point(30, 181);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(123, 16);
             this.label4.TabIndex = 4;
@@ -119,7 +119,7 @@ namespace CLINICA_1
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(123, 29);
+            this.label5.Location = new System.Drawing.Point(92, 35);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(215, 20);
             this.label5.TabIndex = 10;
@@ -131,13 +131,14 @@ namespace CLINICA_1
             this.btnCambiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCambiar.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.btnCambiar.ForeColor = System.Drawing.Color.White;
-            this.btnCambiar.Location = new System.Drawing.Point(172, 270);
+            this.btnCambiar.Location = new System.Drawing.Point(144, 271);
             this.btnCambiar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnCambiar.Name = "btnCambiar";
             this.btnCambiar.Size = new System.Drawing.Size(135, 36);
             this.btnCambiar.TabIndex = 36;
             this.btnCambiar.Text = "CAMBIAR";
             this.btnCambiar.UseVisualStyleBackColor = false;
+            this.btnCambiar.Click += new System.EventHandler(this.btnCambiar_Click);
             // 
             // CambiarContrasena
             // 
@@ -157,7 +158,8 @@ namespace CLINICA_1
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "CambiarContrasena";
-            this.Text = "CambiarContrasena";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "CLINICA VARGAS - CAMBIAR CONTRASEÑA";
             this.Load += new System.EventHandler(this.CambiarContrasena_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
