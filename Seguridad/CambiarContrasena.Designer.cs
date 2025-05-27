@@ -76,6 +76,7 @@ namespace CLINICA_1
             this.txtActual.Location = new System.Drawing.Point(168, 132);
             this.txtActual.Multiline = true;
             this.txtActual.Name = "txtActual";
+            this.txtActual.PasswordChar = '*';
             this.txtActual.Size = new System.Drawing.Size(139, 25);
             this.txtActual.TabIndex = 3;
             // 
@@ -104,6 +105,7 @@ namespace CLINICA_1
             this.txtConfirmar.Location = new System.Drawing.Point(168, 216);
             this.txtConfirmar.Multiline = true;
             this.txtConfirmar.Name = "txtConfirmar";
+            this.txtConfirmar.PasswordChar = '*';
             this.txtConfirmar.Size = new System.Drawing.Size(139, 25);
             this.txtConfirmar.TabIndex = 7;
             // 
@@ -112,6 +114,7 @@ namespace CLINICA_1
             this.txtNueva.Location = new System.Drawing.Point(168, 176);
             this.txtNueva.Multiline = true;
             this.txtNueva.Name = "txtNueva";
+            this.txtNueva.PasswordChar = '*';
             this.txtNueva.Size = new System.Drawing.Size(139, 25);
             this.txtNueva.TabIndex = 6;
             // 

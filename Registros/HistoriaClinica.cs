@@ -25,7 +25,7 @@ namespace CLINICA_1
     public partial class HistoriaClinica : Form
     {
         //Cambiar Conexion:
-        private string connectionString = "Server=LAPTOP-M35CB1FF;Database=ClinicaVargas;Integrated Security=True;";
+        private string connectionString = "Server=localhost;Database=ClinicaVargas;Integrated Security=True;";
 
         public HistoriaClinica()
         {
@@ -458,7 +458,8 @@ namespace CLINICA_1
                 pdfDoc.Open();
 
                 // 🖼️ Agregar imagen superior derecha (sello que SÍ se imprime)
-                string rutaImagenSello = @"C:\Users\emili\source\repos\CLINICA-1\Imagenes\selloimprimir.png";
+                string rutaImagenSello = @"C:\Users\User\Documents\imagenes\selloimprimir.png";
+                
                 if (File.Exists(rutaImagenSello))
                 {
                     iTextSharp.text.Image sello = iTextSharp.text.Image.GetInstance(rutaImagenSello);
@@ -466,50 +467,7 @@ namespace CLINICA_1
                     sello.SetAbsolutePosition(pdfDoc.PageSize.Width - sello.ScaledWidth - 40f, pdfDoc.PageSize.Height - sello.ScaledHeight - 40f);
                     pdfDoc.Add(sello);
                 }
-                // 🖼️ Agregar imagen inferior derecha (sello NO visible al imprimir)
-                string rutaImagenNoImprimir = @"C:\Users\emili\source\repos\CLINICA-1\Imagenes\sello jvpm.png"; // Ruta completa del sello
-
-                if (File.Exists(rutaImagenNoImprimir))
-                {
-                    iTextSharp.text.Image firma = iTextSharp.text.Image.GetInstance(rutaImagenNoImprimir);
-                    firma.ScaleAbsolute(160f, 70f); // Tamaño del sello
-                    float firmaX = pdfDoc.PageSize.Width - firma.ScaledWidth - 40f;
-                    float firmaY = 45f;
-                    firma.SetAbsolutePosition(firmaX, firmaY); // Posición inferior derecha
-
-                    // Crear capa OCG (Optional Content Group) SOLO para la imagen
-                    PdfLayer capaNoImprimir = new PdfLayer("SelloVisiblePantalla", writer);
-                    capaNoImprimir.OnPanel = false;
-
-                    // Configurar para que NO se imprima
-                    PdfDictionary usage = new PdfDictionary();
-                    PdfDictionary print = new PdfDictionary();
-                    print.Put(PdfName.SUBTYPE, PdfName.PRINT);
-                    print.Put(PdfName.PRINTSTATE, PdfName.OFF);
-                    usage.Put(PdfName.PRINT, print);
-                    capaNoImprimir.Put(PdfName.USAGE, usage);
-
-                    // Agregar la imagen a la capa
-                    PdfContentByte cb = writer.DirectContent;
-                    cb.BeginLayer(capaNoImprimir);
-                    cb.AddImage(firma);
-                    cb.EndLayer();
-
-                    // 🖊️ Agregar texto "F. __________________________" debajo del sello (fuera de la capa para que sí se imprima)
-                    BaseFont baseFont = BaseFont.CreateFont(BaseFont.HELVETICA, BaseFont.CP1252, false);
-                    cb.BeginText();
-                    cb.SetFontAndSize(baseFont, 12);
-                    cb.ShowTextAligned(
-                        Element.ALIGN_LEFT,
-                        "F. __________________________",
-                        firmaX,
-                        25f, // Justo debajo del sello
-                        0
-                    );
-                    cb.EndText();
-                }
-
-
+               
 
                 // 🖋️ Fuentes
                 var fuenteTitulo = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 20, BaseColor.BLACK);
@@ -520,8 +478,9 @@ namespace CLINICA_1
                 void AddCampoValor(string campo, string valor)
                 {
                     iTextSharp.text.Paragraph p = new iTextSharp.text.Paragraph();
+                    p.SpacingAfter = 10f; // Espacio entre renglones
                     p.Add(new Chunk(campo + ": ", fuenteCampo));
-                    p.Add(new Chunk(valor + "\n", fuenteTexto));
+                    p.Add(new Chunk(valor, fuenteTexto));
                     pdfDoc.Add(p);
                 }
 
@@ -537,7 +496,7 @@ namespace CLINICA_1
 
                 // 🔍 Datos desde SQL
                 string nombrePaciente = txtPaciente.Text.Trim();
-                string cs = "Server=LAPTOP-M35CB1FF;Database=ClinicaVargas;Integrated Security=True;";
+                string cs = "Server=localhost;Database=ClinicaVargas;Integrated Security=True;";
                 string sql = @"SELECT Nombre, Edad, Telefono, Direccion, DUI, Responsable, TelResponsable, DirResponsable, CorreoResponsable, FechaNacimiento, FechaHoraRegistro 
                    FROM Pacientes WHERE Nombre = @Nombre";
 
@@ -839,7 +798,11 @@ namespace CLINICA_1
             txtAntecedentesPersonales.Clear();
             txtExamenFisico.Clear();
         }
+
+
+
     }
+
 }
     
 
