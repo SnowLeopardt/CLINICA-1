@@ -458,7 +458,7 @@ namespace CLINICA_1
                 pdfDoc.Open();
 
                 // 🖼️ Agregar imagen superior derecha (sello que SÍ se imprime)
-                string rutaImagenSello = @"C:\Users\emili\source\repos\CLINICA-1\Imagenes\";
+                string rutaImagenSello = @"C:\Users\emili\source\repos\CLINICA-1\Imagenes\selloimprimir.png";
                 if (File.Exists(rutaImagenSello))
                 {
                     iTextSharp.text.Image sello = iTextSharp.text.Image.GetInstance(rutaImagenSello);
@@ -466,32 +466,50 @@ namespace CLINICA_1
                     sello.SetAbsolutePosition(pdfDoc.PageSize.Width - sello.ScaledWidth - 40f, pdfDoc.PageSize.Height - sello.ScaledHeight - 40f);
                     pdfDoc.Add(sello);
                 }
+                // 🖼️ Agregar imagen inferior derecha (sello NO visible al imprimir)
+                string rutaImagenNoImprimir = @"C:\Users\emili\source\repos\CLINICA-1\Imagenes\sello jvpm.png"; // Ruta completa del sello
 
-                // 🖼️ Agregar imagen inferior derecha (NO se imprime - solo visualización)
-                string rutaImagenNoImprimir = @"C:\Users\emili\source\repos\CLINICA-1\Imagenes\";
                 if (File.Exists(rutaImagenNoImprimir))
                 {
                     iTextSharp.text.Image firma = iTextSharp.text.Image.GetInstance(rutaImagenNoImprimir);
-                    firma.ScaleAbsolute(160f, 70f); // tamaño ajustado
-                    firma.SetAbsolutePosition(pdfDoc.PageSize.Width - firma.ScaledWidth - 40f, 45f); // esquina inferior derecha
+                    firma.ScaleAbsolute(160f, 70f); // Tamaño del sello
+                    float firmaX = pdfDoc.PageSize.Width - firma.ScaledWidth - 40f;
+                    float firmaY = 45f;
+                    firma.SetAbsolutePosition(firmaX, firmaY); // Posición inferior derecha
 
-                    // Crear capa OCG (Optional Content Group)
-                    PdfLayer capaFirma = new PdfLayer("FirmaDigital", writer);
-                    capaFirma.OnPanel = false;
+                    // Crear capa OCG (Optional Content Group) SOLO para la imagen
+                    PdfLayer capaNoImprimir = new PdfLayer("SelloVisiblePantalla", writer);
+                    capaNoImprimir.OnPanel = false;
 
-                    // Ocultar al imprimir
+                    // Configurar para que NO se imprima
                     PdfDictionary usage = new PdfDictionary();
                     PdfDictionary print = new PdfDictionary();
                     print.Put(PdfName.SUBTYPE, PdfName.PRINT);
                     print.Put(PdfName.PRINTSTATE, PdfName.OFF);
                     usage.Put(PdfName.PRINT, print);
-                    capaFirma.Put(PdfName.USAGE, usage);
+                    capaNoImprimir.Put(PdfName.USAGE, usage);
 
+                    // Agregar la imagen a la capa
                     PdfContentByte cb = writer.DirectContent;
-                    cb.BeginLayer(capaFirma);
+                    cb.BeginLayer(capaNoImprimir);
                     cb.AddImage(firma);
                     cb.EndLayer();
+
+                    // 🖊️ Agregar texto "F. __________________________" debajo del sello (fuera de la capa para que sí se imprima)
+                    BaseFont baseFont = BaseFont.CreateFont(BaseFont.HELVETICA, BaseFont.CP1252, false);
+                    cb.BeginText();
+                    cb.SetFontAndSize(baseFont, 12);
+                    cb.ShowTextAligned(
+                        Element.ALIGN_LEFT,
+                        "F. __________________________",
+                        firmaX,
+                        25f, // Justo debajo del sello
+                        0
+                    );
+                    cb.EndText();
                 }
+
+
 
                 // 🖋️ Fuentes
                 var fuenteTitulo = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 20, BaseColor.BLACK);
