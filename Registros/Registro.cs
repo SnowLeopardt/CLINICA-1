@@ -100,95 +100,101 @@ namespace CLINICA_1
         private void btnGuardar_Click_1(object sender, EventArgs e)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                try
-                {
-                    connection.Open();
-                    string query = @"INSERT INTO Pacientes 
+{
+    try
+    {
+        connection.Open();
+        string query = @"INSERT INTO Pacientes 
             (Nombre, Edad, Telefono, Direccion, DUI, Responsable, TelResponsable, DirResponsable, CorreoResponsable, FechaNacimiento, FechaHoraRegistro) 
             VALUES 
             (@Nombre, @Edad, @Telefono, @Direccion, @DUI, @Responsable, @TelResponsable, @DirResponsable, @CorreoResponsable, @FechaNacimiento, @FechaHoraRegistro)";
 
-                    SqlCommand command = new SqlCommand(query, connection);
+        SqlCommand command = new SqlCommand(query, connection);
 
-                    // Fecha de nacimiento y cálculo de edad
-                    DateTime fechaNacimiento = dateTimePickerNacimiento.Value;
-                    int edad = DateTime.Now.Year - fechaNacimiento.Year;
-                    if (DateTime.Now.Date < fechaNacimiento.Date.AddYears(edad))
-                        edad--;
+        // Fecha de nacimiento y cálculo de edad
+        DateTime fechaNacimiento = dateTimePickerNacimiento.Value;
+        int edad = DateTime.Now.Year - fechaNacimiento.Year;
+        if (DateTime.Now.Date < fechaNacimiento.Date.AddYears(edad))
+            edad--;
 
-                    // Fecha y hora actual del ingreso
-                    DateTime fechaHoraRegistro = dateTimePicker1.Value;
+        // Fecha y hora actual del ingreso
+        DateTime fechaHoraRegistro = dateTimePicker1.Value;
 
-                    // Asignar parámetros
-                    command.Parameters.AddWithValue("@Nombre", txtNombre.Text);
-                    command.Parameters.AddWithValue("@Edad", edad);
-                    command.Parameters.AddWithValue("@Telefono", txtTelefono.Text);
-                    command.Parameters.AddWithValue("@Direccion", txtDireccion.Text);
-                    command.Parameters.AddWithValue("@DUI", txtdui.Text);
-                    command.Parameters.AddWithValue("@Responsable", txtresponsable.Text);
-                    command.Parameters.AddWithValue("@TelResponsable", txttelefono2.Text);
-                    command.Parameters.AddWithValue("@DirResponsable", txtdireccion2.Text);
-                    command.Parameters.AddWithValue("@CorreoResponsable", txtcorreo.Text);
-                    command.Parameters.AddWithValue("@FechaNacimiento", fechaNacimiento.Date);
-                    command.Parameters.AddWithValue("@FechaHoraRegistro", fechaHoraRegistro);
+        // Asignar parámetros
+        command.Parameters.AddWithValue("@Nombre", txtNombre.Text);
+        command.Parameters.AddWithValue("@Edad", edad);
+        command.Parameters.AddWithValue("@Telefono", txtTelefono.Text);
+        command.Parameters.AddWithValue("@Direccion", txtDireccion.Text);
+        command.Parameters.AddWithValue("@DUI", txtdui.Text);
+        command.Parameters.AddWithValue("@Responsable", txtresponsable.Text);
+        command.Parameters.AddWithValue("@TelResponsable", txttelefono2.Text);
+        command.Parameters.AddWithValue("@DirResponsable", txtdireccion2.Text);
+        command.Parameters.AddWithValue("@CorreoResponsable", txtcorreo.Text);
+        command.Parameters.AddWithValue("@FechaNacimiento", fechaNacimiento.Date);
+        command.Parameters.AddWithValue("@FechaHoraRegistro", fechaHoraRegistro);
 
-                    command.ExecuteNonQuery();
+        command.ExecuteNonQuery();
 
-                    // Crear carpeta
-                    string carpetaDocumentos = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-                    string carpetaBase = Path.Combine(carpetaDocumentos, "Pacientes");
+        // Crear carpeta
+        string carpetaDocumentos = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+        string carpetaBase = Path.Combine(carpetaDocumentos, "Pacientes");
 
-                    if (!Directory.Exists(carpetaBase))
-                        Directory.CreateDirectory(carpetaBase);
+        if (!Directory.Exists(carpetaBase))
+            Directory.CreateDirectory(carpetaBase);
 
-                    string nombrePaciente = txtNombre.Text.Trim();
-                    foreach (char c in Path.GetInvalidFileNameChars())
-                        nombrePaciente = nombrePaciente.Replace(c, '_');
+        // Reemplazar caracteres inválidos
+        string nombrePaciente = txtNombre.Text.Trim();
+        foreach (char c in Path.GetInvalidFileNameChars())
+            nombrePaciente = nombrePaciente.Replace(c, '_');
 
-                    string rutaPaciente = Path.Combine(carpetaBase, nombrePaciente);
-                    if (!Directory.Exists(rutaPaciente))
-                        Directory.CreateDirectory(rutaPaciente);
+        string rutaPaciente = Path.Combine(carpetaBase, nombrePaciente);
 
-                    // Crear documento Word
-                    string rutaArchivoWord = Path.Combine(rutaPaciente, "DatosPaciente.docx");
-                    using (WordprocessingDocument wordDoc = WordprocessingDocument.Create(rutaArchivoWord, DocumentFormat.OpenXml.WordprocessingDocumentType.Document))
-                    {
-                        MainDocumentPart mainPart = wordDoc.AddMainDocumentPart();
-                        mainPart.Document = new Document();
-                        Body body = new Body();
+        // Solo crea carpeta si no existe
+        if (!Directory.Exists(rutaPaciente))
+        {
+            Directory.CreateDirectory(rutaPaciente);
+        }
 
-                        void AddTexto(string texto)
-                        {
-                            body.Append(new Paragraph(new Run(new Text(texto))));
-                        }
+                    // Crear documento Word SIEMPRE, incluso si la carpeta ya existe
+                    string nombreArchivo = $"Datos Personales del Paciente - {DateTime.Now:yyyy-MM-dd - hh-mm-ss tt}.docx";
+                    string rutaArchivoWord = Path.Combine(rutaPaciente, nombreArchivo);
 
-                        AddTexto("Datos del Paciente:");
-                        AddTexto($"Nombre: {txtNombre.Text}");
-                        AddTexto($"Edad: {edad} años");
-                        AddTexto($"Fecha de Nacimiento: {fechaNacimiento:yyyy-MM-dd}");
-                        AddTexto($"Teléfono: {txtTelefono.Text}");
-                        AddTexto($"Dirección: {txtDireccion.Text}");
-                        AddTexto($"DUI: {txtdui.Text}");
-                        AddTexto($"Responsable: {txtresponsable.Text}");
-                        AddTexto($"Telefono Responsable: {txttelefono2.Text}");
-                        AddTexto($"Dirreccion Responsable: {txtdireccion2.Text}");
-                        AddTexto($"Correo Responsable: {txtcorreo.Text}");
-                        AddTexto($"Fecha y Hora de Registro: {fechaHoraRegistro:yyyy-MM-dd hh:mm tt}"); // formato 12h en doc
+        using (WordprocessingDocument wordDoc = WordprocessingDocument.Create(rutaArchivoWord, DocumentFormat.OpenXml.WordprocessingDocumentType.Document))
+        {
+            MainDocumentPart mainPart = wordDoc.AddMainDocumentPart();
+            mainPart.Document = new Document();
+            Body body = new Body();
 
-                        mainPart.Document.Append(body);
-                        mainPart.Document.Save();
-                    }
-
-                    MessageBox.Show("Datos guardados, carpeta creada y documento generado.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    LimpiarCampos();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error al guardar: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+            void AddTexto(string texto)
+            {
+                body.Append(new Paragraph(new Run(new Text(texto))));
             }
 
+            AddTexto("Datos del Paciente:");
+            AddTexto($"Nombre: {txtNombre.Text}");
+            AddTexto($"Edad: {edad} años");
+            AddTexto($"Fecha de Nacimiento: {fechaNacimiento:yyyy-MM-dd}");
+            AddTexto($"Teléfono: {txtTelefono.Text}");
+            AddTexto($"Dirección: {txtDireccion.Text}");
+            AddTexto($"DUI: {txtdui.Text}");
+            AddTexto($"Responsable: {txtresponsable.Text}");
+            AddTexto($"Teléfono Responsable: {txttelefono2.Text}");
+            AddTexto($"Dirección Responsable: {txtdireccion2.Text}");
+            AddTexto($"Correo Responsable: {txtcorreo.Text}");
+            AddTexto($"Fecha y Hora de Registro: {fechaHoraRegistro:yyyy-MM-dd hh:mm tt}");
+
+            mainPart.Document.Append(body);
+            mainPart.Document.Save();
+        }
+
+        MessageBox.Show("Datos guardados, carpeta creada si no existía, y documento generado.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        LimpiarCampos();
+    }
+    catch (Exception ex)
+    {
+        MessageBox.Show("Error al guardar: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+    }
+}
 
         }
 

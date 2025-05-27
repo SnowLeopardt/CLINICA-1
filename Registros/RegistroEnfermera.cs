@@ -233,16 +233,23 @@ namespace CLINICA_1
                     if (!Directory.Exists(carpetaBase))
                         Directory.CreateDirectory(carpetaBase);
 
+                    // Reemplazar caracteres inválidos
                     string nombrePaciente = txtNombre.Text.Trim();
                     foreach (char c in Path.GetInvalidFileNameChars())
                         nombrePaciente = nombrePaciente.Replace(c, '_');
 
                     string rutaPaciente = Path.Combine(carpetaBase, nombrePaciente);
-                    if (!Directory.Exists(rutaPaciente))
-                        Directory.CreateDirectory(rutaPaciente);
 
-                    // Crear documento Word
-                    string rutaArchivoWord = Path.Combine(rutaPaciente, "DatosPaciente.docx");
+                    // Solo crea carpeta si no existe
+                    if (!Directory.Exists(rutaPaciente))
+                    {
+                        Directory.CreateDirectory(rutaPaciente);
+                    }
+
+                    // Crear documento Word SIEMPRE, incluso si la carpeta ya existe
+                    string nombreArchivo = $"Datos Personales del Paciente - {DateTime.Now:yyyy-MM-dd - hh-mm-ss tt}.docx";
+                    string rutaArchivoWord = Path.Combine(rutaPaciente, nombreArchivo);
+
                     using (WordprocessingDocument wordDoc = WordprocessingDocument.Create(rutaArchivoWord, DocumentFormat.OpenXml.WordprocessingDocumentType.Document))
                     {
                         MainDocumentPart mainPart = wordDoc.AddMainDocumentPart();
@@ -262,16 +269,16 @@ namespace CLINICA_1
                         AddTexto($"Dirección: {txtDireccion.Text}");
                         AddTexto($"DUI: {txtdui.Text}");
                         AddTexto($"Responsable: {txtresponsable.Text}");
-                        AddTexto($"Telefono Responsable: {txttelefono2.Text}");
-                        AddTexto($"Dirreccion Responsable: {txtdireccion2.Text}");
+                        AddTexto($"Teléfono Responsable: {txttelefono2.Text}");
+                        AddTexto($"Dirección Responsable: {txtdireccion2.Text}");
                         AddTexto($"Correo Responsable: {txtcorreo.Text}");
-                        AddTexto($"Fecha y Hora de Registro: {fechaHoraRegistro:yyyy-MM-dd hh:mm tt}"); // formato 12h en doc
+                        AddTexto($"Fecha y Hora de Registro: {fechaHoraRegistro:yyyy-MM-dd hh:mm tt}");
 
                         mainPart.Document.Append(body);
                         mainPart.Document.Save();
                     }
 
-                    MessageBox.Show("Datos guardados, carpeta creada y documento generado.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Datos guardados, carpeta creada si no existía, y documento generado.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     LimpiarCampos();
                 }
                 catch (Exception ex)

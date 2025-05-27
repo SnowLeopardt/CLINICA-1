@@ -393,7 +393,7 @@ namespace CLINICA_1
 
         }
         //CALCULAR LA IMC
-     
+
 
         private bool yaMostroMensaje = false;
 
@@ -693,8 +693,156 @@ namespace CLINICA_1
         {
 
         }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                using (SqlConnection conexion = new SqlConnection(connectionString))
+                {
+                    string query = @"
+    INSERT INTO HistoriaClinica (
+        Paciente, ConsultaPor, PresenteEnfermedad, AntecedentesPersonales,
+        SignosVitales, PresionArterial, FrecuenciaCardiaca, FrecuenciaRespiratoria,
+        SaturacionOxigeno, Peso, Talla, IndiceMasaCorporal,
+        ExamenFisico, ExamenesLaboratorios, ExamenesGabinete,
+        Impresion, [Plan]
+    ) VALUES (
+        @Paciente, @ConsultaPor, @PresenteEnfermedad, @AntecedentesPersonales,
+        @SignosVitales, @PresionArterial, @FrecuenciaCardiaca, @FrecuenciaRespiratoria,
+        @SaturacionOxigeno, @Peso, @Talla, @IndiceMasaCorporal,
+        @ExamenFisico, @ExamenesLaboratorios, @ExamenesGabinete,
+        @Impresion, @Plan
+    );";
+
+                    using (SqlCommand cmd = new SqlCommand(query, con))
+                    {
+                        // Parámetros visibles en la imagen
+                        cmd.Parameters.AddWithValue("@Paciente", txtPaciente.Text);
+                        cmd.Parameters.AddWithValue("@ConsultaPor", txtConsultaPor.Text);
+                        cmd.Parameters.AddWithValue("@PresenteEnfermedad", txtPresenteEnfermedad.Text);
+                        cmd.Parameters.AddWithValue("@AntecedentesPersonales", txtAntecedentesPersonales.Text);
+                        cmd.Parameters.AddWithValue("@SignosVitales", txtSignosVitales.Text);
+                        cmd.Parameters.AddWithValue("@PresionArterial", txtPresion.Text);
+                        cmd.Parameters.AddWithValue("@FrecuenciaCardiaca", txtFC.Text);
+                        cmd.Parameters.AddWithValue("@FrecuenciaRespiratoria", txtFR.Text);
+                        cmd.Parameters.AddWithValue("@SaturacionOxigeno", txtSaturacion.Text);
+                        cmd.Parameters.AddWithValue("@Peso", txtPeso.Text);
+                        cmd.Parameters.AddWithValue("@Talla", txtTalla.Text);
+                        cmd.Parameters.AddWithValue("@IndiceMasaCorporal", txtMasaCorporal.Text);
+                        cmd.Parameters.AddWithValue("@ExamenFisico", txtExamenFisico.Text);
+                        cmd.Parameters.AddWithValue("@ExamenesLaboratorios", txtExamenesLaboratorio.Text);
+                        cmd.Parameters.AddWithValue("@ExamenesGabinete", txtExamenesGabinete.Text);
+                        cmd.Parameters.AddWithValue("@Impresion", txtImpresion.Text);
+                        cmd.Parameters.AddWithValue("@Plan", txtPlan.Text);
+
+                        try
+                        {
+                            con.Open();
+                            cmd.ExecuteNonQuery();
+
+                            // ================================
+                            // GENERAR DOCUMENTO WORD
+                            // ================================
+                            string pacienteFolder = Path.Combine(
+                                Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments),
+                                "Pacientes",
+                                txtPaciente.Text.Trim()
+                            );
+
+                            if (!Directory.Exists(pacienteFolder))
+                            {
+                                MessageBox.Show($"La carpeta del paciente '{txtPaciente.Text}' no existe.\nVerifica en: {pacienteFolder}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                return;
+                            }
+
+                            string fileName = $"HistoriaClinica_{txtPaciente.Text.Trim()}.docx";
+                            string docPath = Path.Combine(pacienteFolder, fileName);
+
+                            using (WordprocessingDocument wordDoc = WordprocessingDocument.Create(docPath, DocumentFormat.OpenXml.WordprocessingDocumentType.Document))
+                            {
+                                MainDocumentPart mainPart = wordDoc.AddMainDocumentPart();
+                                mainPart.Document = new WordDocument();
+                                WordBody body = new WordBody();
+
+                                void AddParagraph(string text, bool bold = false, int fontSize = 24)
+                                {
+                                    WordRunProperties props = new WordRunProperties();
+                                    props.Append(new WordFontSize() { Val = fontSize.ToString() });
+
+                                    if (bold)
+                                        props.Append(new WordBold());
+
+                                    WordRun run = new WordRun();
+                                    run.Append(props);
+                                    run.Append(new WordText(text));
+
+                                    WordParagraph para = new WordParagraph(run);
+                                    body.Append(para);
+                                }
+
+                                // Contenido del documento Word
+                                AddParagraph("HISTORIA CLÍNICA", bold: true, fontSize: 32);
+                                AddParagraph($"Paciente: {txtPaciente.Text}");
+                                AddParagraph($"Consulta por: {txtConsultaPor.Text}");
+                                AddParagraph($"Presente Enfermedad: {txtPresenteEnfermedad.Text}");
+                                AddParagraph($"Antecedentes Personales: {txtAntecedentesPersonales.Text}");
+
+                                AddParagraph($"Signos Vitales: {txtSignosVitales.Text}");
+                                AddParagraph($"Presión Arterial: {txtPresion.Text}");
+                                AddParagraph($"Frecuencia Cardiaca: {txtFC.Text}");
+                                AddParagraph($"Frecuencia Respiratoria: {txtFR.Text}");
+                                AddParagraph($"Saturación Oxígeno: {txtSaturacion.Text}");
+                                AddParagraph($"Peso: {txtPeso.Text}");
+                                AddParagraph($"Talla: {txtTalla.Text}");
+                                AddParagraph($"IMC: {txtMasaCorporal.Text}");
+
+                                AddParagraph($"Examen Físico: {txtExamenFisico.Text}");
+                                AddParagraph($"Exámenes de Laboratorios: {txtExamenesLaboratorio.Text}");
+                                AddParagraph($"Exámenes de Gabinete: {txtExamenesGabinete.Text}");
+                                AddParagraph($"Impresión Diagnóstica: {txtImpresion.Text}");
+                                AddParagraph($"Plan: {txtPlan.Text}");
+
+                                mainPart.Document.Append(body);
+                                mainPart.Document.Save();
+                            }
+
+                            MessageBox.Show("Datos guardados correctamente y documento Word generado.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            LimpiarCampos();
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                }
+                
+            }
+        }
+        void LimpiarCampos()
+        {
+            txtConsultaPor.Clear();
+            txtPaciente.Clear();
+            txtPresenteEnfermedad.Clear();
+            txtPresion.Clear();
+            txtSignosVitales.Clear();
+            txtFC.Clear();
+            txtFR.Clear();
+            txtSaturacion.Clear();
+            txtPeso.Clear();
+            txtTalla.Clear();
+            txtMasaCorporal.Clear();
+            txtExamenesGabinete.Clear();
+            txtImpresion.Clear();
+            txtExamenesLaboratorio.Clear();
+            txtPlan.Clear();
+            txtAntecedentesPersonales.Clear();
+            txtExamenFisico.Clear();
+        }
     }
 }
+    
+
 
 
 
