@@ -209,7 +209,7 @@ namespace CLINICA_1
         {
 
         }
-
+        //BOTON DE GUARDAR
         private void guardar_Click(object sender, EventArgs e)
         {
             using (SqlConnection con = new SqlConnection(connectionString))
@@ -392,16 +392,8 @@ namespace CLINICA_1
         {
 
         }
-
-        private void txtTalla_TextChanged_1(object sender, EventArgs e)
-        {
-            CalcularIMC();
-        }
-
-        private void txtPeso_TextChanged_1(object sender, EventArgs e)
-        {
-            CalcularIMC();
-        }
+        //CALCULAR LA IMC
+     
 
         private bool yaMostroMensaje = false;
 
@@ -466,7 +458,7 @@ namespace CLINICA_1
                 pdfDoc.Open();
 
                 // 🖼️ Agregar imagen superior derecha (sello que SÍ se imprime)
-                string rutaImagenSello = @"C:\Users\emili\OneDrive\Documentos\selloimprimir.png";
+                string rutaImagenSello = @"C:\Users\emili\source\repos\CLINICA-1\Imagenes\";
                 if (File.Exists(rutaImagenSello))
                 {
                     iTextSharp.text.Image sello = iTextSharp.text.Image.GetInstance(rutaImagenSello);
@@ -476,7 +468,7 @@ namespace CLINICA_1
                 }
 
                 // 🖼️ Agregar imagen inferior derecha (NO se imprime - solo visualización)
-                string rutaImagenNoImprimir = @"C:\Users\emili\OneDrive\Escritorio\sello jvpm.png";
+                string rutaImagenNoImprimir = @"C:\Users\emili\source\repos\CLINICA-1\Imagenes\";
                 if (File.Exists(rutaImagenNoImprimir))
                 {
                     iTextSharp.text.Image firma = iTextSharp.text.Image.GetInstance(rutaImagenNoImprimir);
@@ -628,11 +620,7 @@ namespace CLINICA_1
             }
         }
 
-
-
-
-
-
+        //FONDO PDF
         public class FondoPaginaCompleto : iTextSharp.text.pdf.PdfPageEventHelper
         {
             private readonly iTextSharp.text.BaseColor fondoColor;
@@ -657,6 +645,33 @@ namespace CLINICA_1
         }
 
         private void txtExamenFisico_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        //BOTON DE REGRESAR
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Menu menuForm = new Menu(); // Crear una instancia del formulario Menu
+            this.Hide();
+        }
+
+        private void txtPeso_TextChanged(object sender, EventArgs e)
+        {
+            CalcularIMC();
+        }
+
+        private void txtTalla_TextChanged(object sender, EventArgs e)
+        {
+            CalcularIMC();
+        }
+
+        private void txtMasaCorporal_TextChanged(object sender, EventArgs e)
         {
 
         }

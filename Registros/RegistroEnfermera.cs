@@ -376,6 +376,12 @@ namespace CLINICA_1
 
             txtEdad.Text = edad.ToString();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Menu menuForm = new Menu(); // Crear una instancia del formulario Menu
+            this.Hide();
+        }
     }
  }
 

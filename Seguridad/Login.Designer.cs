@@ -58,7 +58,7 @@ namespace CLINICA_1
             // 
             // txtpassword
             // 
-            this.txtpassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtpassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtpassword.Location = new System.Drawing.Point(107, 106);
             this.txtpassword.Multiline = true;
             this.txtpassword.Name = "txtpassword";
@@ -78,7 +78,7 @@ namespace CLINICA_1
             // 
             // txtusername
             // 
-            this.txtusername.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtusername.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtusername.Location = new System.Drawing.Point(107, 54);
             this.txtusername.Multiline = true;
             this.txtusername.Name = "txtusername";

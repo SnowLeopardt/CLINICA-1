@@ -118,10 +118,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CambiarContrasena.cs">
+    <Compile Include="Seguridad\CambiarContrasena.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CambiarContrasena.Designer.cs">
+    <Compile Include="Seguridad\CambiarContrasena.Designer.cs">
       <DependentUpon>CambiarContrasena.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
@@ -129,60 +129,60 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="RegistroEnfermera.cs">
+    <Compile Include="Registros\RegistroEnfermera.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RegistroEnfermera.Designer.cs">
+    <Compile Include="Registros\RegistroEnfermera.Designer.cs">
       <DependentUpon>RegistroEnfermera.cs</DependentUpon>
     </Compile>
-    <Compile Include="Menu Enfermera.cs">
+    <Compile Include="Menu\Menu Enfermera.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Menu Enfermera.Designer.cs">
+    <Compile Include="Menu\Menu Enfermera.Designer.cs">
       <DependentUpon>Menu Enfermera.cs</DependentUpon>
     </Compile>
-    <Compile Include="Login.cs">
+    <Compile Include="Seguridad\Login.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Login.Designer.cs">
+    <Compile Include="Seguridad\Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="Menu.cs">
+    <Compile Include="Menu\Menu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Menu.Designer.cs">
+    <Compile Include="Menu\Menu.Designer.cs">
       <DependentUpon>Menu.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
-    <Compile Include="Registro.cs">
+    <Compile Include="Registros\Registro.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Registro.Designer.cs">
+    <Compile Include="Registros\Registro.Designer.cs">
       <DependentUpon>Registro.cs</DependentUpon>
     </Compile>
-    <Compile Include="HistoriaClinica.cs">
+    <Compile Include="Registros\HistoriaClinica.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="HistoriaClinica.Designer.cs">
+    <Compile Include="Registros\HistoriaClinica.Designer.cs">
       <DependentUpon>HistoriaClinica.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="CambiarContrasena.resx">
+    <EmbeddedResource Include="Seguridad\CambiarContrasena.resx">
       <DependentUpon>CambiarContrasena.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Login.resx">
+    <EmbeddedResource Include="Seguridad\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Menu Enfermera.resx">
+    <EmbeddedResource Include="Menu\Menu Enfermera.resx">
       <DependentUpon>Menu Enfermera.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Menu.resx">
+    <EmbeddedResource Include="Menu\Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Registro.resx">
+    <EmbeddedResource Include="Registros\Registro.resx">
       <DependentUpon>Registro.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="HistoriaClinica.resx">
+    <EmbeddedResource Include="Registros\HistoriaClinica.resx">
       <DependentUpon>HistoriaClinica.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -190,7 +190,7 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="RegistroEnfermera.resx">
+    <EmbeddedResource Include="Registros\RegistroEnfermera.resx">
       <DependentUpon>RegistroEnfermera.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
@@ -219,8 +219,10 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Resources\" />
+    <Content Include="Imagenes\sello jvpm.png" />
+    <Content Include="Imagenes\selloimprimir.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -62,6 +62,7 @@ namespace CLINICA_1
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label7 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
@@ -191,7 +192,7 @@ namespace CLINICA_1
             this.lblTitulo.AutoSize = true;
             this.lblTitulo.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold);
             this.lblTitulo.ForeColor = System.Drawing.Color.White;
-            this.lblTitulo.Location = new System.Drawing.Point(420, 68);
+            this.lblTitulo.Location = new System.Drawing.Point(556, 78);
             this.lblTitulo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTitulo.Name = "lblTitulo";
             this.lblTitulo.Size = new System.Drawing.Size(333, 45);
@@ -348,7 +349,7 @@ namespace CLINICA_1
             this.botonAbrirCarpeta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.botonAbrirCarpeta.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.botonAbrirCarpeta.ForeColor = System.Drawing.Color.Black;
-            this.botonAbrirCarpeta.Location = new System.Drawing.Point(1092, 68);
+            this.botonAbrirCarpeta.Location = new System.Drawing.Point(1092, 52);
             this.botonAbrirCarpeta.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.botonAbrirCarpeta.Name = "botonAbrirCarpeta";
             this.botonAbrirCarpeta.Size = new System.Drawing.Size(201, 62);
@@ -374,7 +375,7 @@ namespace CLINICA_1
             this.dateTimePickerNacimiento.Location = new System.Drawing.Point(198, 399);
             this.dateTimePickerNacimiento.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dateTimePickerNacimiento.Name = "dateTimePickerNacimiento";
-            this.dateTimePickerNacimiento.Size = new System.Drawing.Size(373, 26);
+            this.dateTimePickerNacimiento.Size = new System.Drawing.Size(373, 20);
             this.dateTimePickerNacimiento.TabIndex = 52;
             this.dateTimePickerNacimiento.ValueChanged += new System.EventHandler(this.dateTimePickerNacimiento_ValueChanged);
             // 
@@ -383,7 +384,7 @@ namespace CLINICA_1
             this.dateTimePicker1.Location = new System.Drawing.Point(196, 226);
             this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(373, 26);
+            this.dateTimePicker1.Size = new System.Drawing.Size(373, 20);
             this.dateTimePicker1.TabIndex = 53;
             this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
@@ -402,7 +403,7 @@ namespace CLINICA_1
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(-11, 4);
+            this.pictureBox2.Location = new System.Drawing.Point(172, 25);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(213, 164);
@@ -410,11 +411,29 @@ namespace CLINICA_1
             this.pictureBox2.TabIndex = 75;
             this.pictureBox2.TabStop = false;
             // 
+            // button1
+            // 
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.BackColor = System.Drawing.Color.Transparent;
+            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(64)))), ((int)(((byte)(115)))));
+            this.button1.Location = new System.Drawing.Point(0, 0);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(74, 71);
+            this.button1.TabIndex = 264;
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Registro
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(64)))), ((int)(((byte)(115)))));
             this.ClientSize = new System.Drawing.Size(1324, 769);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.dateTimePicker1);
@@ -499,5 +518,6 @@ namespace CLINICA_1
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Button button1;
     }
 }

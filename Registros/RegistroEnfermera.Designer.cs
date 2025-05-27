@@ -59,13 +59,14 @@ namespace CLINICA_1
             this.txtTelefono = new System.Windows.Forms.TextBox();
             this.lblDireccion = new System.Windows.Forms.Label();
             this.txtDireccion = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(-14, 2);
+            this.pictureBox1.Location = new System.Drawing.Point(158, 35);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(213, 164);
@@ -162,7 +163,7 @@ namespace CLINICA_1
             this.lblTitulo.AutoSize = true;
             this.lblTitulo.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold);
             this.lblTitulo.ForeColor = System.Drawing.Color.White;
-            this.lblTitulo.Location = new System.Drawing.Point(420, 69);
+            this.lblTitulo.Location = new System.Drawing.Point(583, 83);
             this.lblTitulo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTitulo.Name = "lblTitulo";
             this.lblTitulo.Size = new System.Drawing.Size(333, 45);
@@ -261,7 +262,7 @@ namespace CLINICA_1
             this.dateTimePicker1.Location = new System.Drawing.Point(240, 235);
             this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(373, 26);
+            this.dateTimePicker1.Size = new System.Drawing.Size(373, 20);
             this.dateTimePicker1.TabIndex = 87;
             // 
             // dateTimePickerNacimiento
@@ -269,7 +270,7 @@ namespace CLINICA_1
             this.dateTimePickerNacimiento.Location = new System.Drawing.Point(240, 398);
             this.dateTimePickerNacimiento.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dateTimePickerNacimiento.Name = "dateTimePickerNacimiento";
-            this.dateTimePickerNacimiento.Size = new System.Drawing.Size(373, 26);
+            this.dateTimePickerNacimiento.Size = new System.Drawing.Size(373, 20);
             this.dateTimePickerNacimiento.TabIndex = 86;
             this.dateTimePickerNacimiento.ValueChanged += new System.EventHandler(this.dateTimePickerNacimiento_ValueChanged);
             // 
@@ -390,11 +391,29 @@ namespace CLINICA_1
             this.txtDireccion.Size = new System.Drawing.Size(373, 22);
             this.txtDireccion.TabIndex = 82;
             // 
+            // button1
+            // 
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.BackColor = System.Drawing.Color.Transparent;
+            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(64)))), ((int)(((byte)(115)))));
+            this.button1.Location = new System.Drawing.Point(1, -1);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(74, 71);
+            this.button1.TabIndex = 265;
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // RegistroEnfermera
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(64)))), ((int)(((byte)(115)))));
             this.ClientSize = new System.Drawing.Size(1324, 769);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.dateTimePickerNacimiento);
@@ -466,5 +485,6 @@ namespace CLINICA_1
         private System.Windows.Forms.TextBox txtTelefono;
         private System.Windows.Forms.Label lblDireccion;
         private System.Windows.Forms.TextBox txtDireccion;
+        private System.Windows.Forms.Button button1;
     }
 }
