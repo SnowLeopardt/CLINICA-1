@@ -87,12 +87,19 @@ namespace CLINICA_1
 
         }
 
-   
-
         private void Registro_Load(object sender, EventArgs e)
         {
-
+           
         }
+
+  
+
+
+
+
+
+
+
 
 
         //boton de guardar
@@ -100,101 +107,109 @@ namespace CLINICA_1
         private void btnGuardar_Click_1(object sender, EventArgs e)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
-{
-    try
-    {
-        connection.Open();
-        string query = @"INSERT INTO Pacientes 
+            {
+                try
+                {
+                    connection.Open();
+
+                    // Query para insertar y obtener el ID recién insertado
+                    string query = @"
+            INSERT INTO Pacientes 
             (Nombre, Edad, Telefono, Direccion, DUI, Responsable, TelResponsable, DirResponsable, CorreoResponsable, FechaNacimiento, FechaHoraRegistro) 
             VALUES 
-            (@Nombre, @Edad, @Telefono, @Direccion, @DUI, @Responsable, @TelResponsable, @DirResponsable, @CorreoResponsable, @FechaNacimiento, @FechaHoraRegistro)";
+            (@Nombre, @Edad, @Telefono, @Direccion, @DUI, @Responsable, @TelResponsable, @DirResponsable, @CorreoResponsable, @FechaNacimiento, @FechaHoraRegistro);
+            SELECT SCOPE_IDENTITY();"; // Obtener el último ID insertado
 
-        SqlCommand command = new SqlCommand(query, connection);
+                    SqlCommand command = new SqlCommand(query, connection);
 
-        // Fecha de nacimiento y cálculo de edad
-        DateTime fechaNacimiento = dateTimePickerNacimiento.Value;
-        int edad = DateTime.Now.Year - fechaNacimiento.Year;
-        if (DateTime.Now.Date < fechaNacimiento.Date.AddYears(edad))
-            edad--;
+                    // Fecha de nacimiento y cálculo de edad
+                    DateTime fechaNacimiento = dateTimePickerNacimiento.Value;
+                    int edad = DateTime.Now.Year - fechaNacimiento.Year;
+                    if (DateTime.Now.Date < fechaNacimiento.Date.AddYears(edad))
+                        edad--;
 
-        // Fecha y hora actual del ingreso
-        DateTime fechaHoraRegistro = dateTimePicker1.Value;
+                    DateTime fechaHoraRegistro = dateTimePicker1.Value;
 
-        // Asignar parámetros
-        command.Parameters.AddWithValue("@Nombre", txtNombre.Text);
-        command.Parameters.AddWithValue("@Edad", edad);
-        command.Parameters.AddWithValue("@Telefono", txtTelefono.Text);
-        command.Parameters.AddWithValue("@Direccion", txtDireccion.Text);
-        command.Parameters.AddWithValue("@DUI", txtdui.Text);
-        command.Parameters.AddWithValue("@Responsable", txtresponsable.Text);
-        command.Parameters.AddWithValue("@TelResponsable", txttelefono2.Text);
-        command.Parameters.AddWithValue("@DirResponsable", txtdireccion2.Text);
-        command.Parameters.AddWithValue("@CorreoResponsable", txtcorreo.Text);
-        command.Parameters.AddWithValue("@FechaNacimiento", fechaNacimiento.Date);
-        command.Parameters.AddWithValue("@FechaHoraRegistro", fechaHoraRegistro);
+                    // Asignar parámetros
+                    command.Parameters.AddWithValue("@Nombre", txtNombre.Text);
+                    command.Parameters.AddWithValue("@Edad", edad);
+                    command.Parameters.AddWithValue("@Telefono", txtTelefono.Text);
+                    command.Parameters.AddWithValue("@Direccion", txtDireccion.Text);
+                    command.Parameters.AddWithValue("@DUI", txtdui.Text);
+                    command.Parameters.AddWithValue("@Responsable", txtresponsable.Text);
+                    command.Parameters.AddWithValue("@TelResponsable", txttelefono2.Text);
+                    command.Parameters.AddWithValue("@DirResponsable", txtdireccion2.Text);
+                    command.Parameters.AddWithValue("@CorreoResponsable", txtcorreo.Text);
+                    command.Parameters.AddWithValue("@FechaNacimiento", fechaNacimiento.Date);
+                    command.Parameters.AddWithValue("@FechaHoraRegistro", fechaHoraRegistro);
 
-        command.ExecuteNonQuery();
+                    // Ejecutar y obtener ID insertado
+                    int idPaciente = Convert.ToInt32(command.ExecuteScalar());
 
-        // Crear carpeta
-        string carpetaDocumentos = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-        string carpetaBase = Path.Combine(carpetaDocumentos, "Pacientes");
+                    // Crear carpeta del paciente
+                    string carpetaDocumentos = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+                    string carpetaBase = Path.Combine(carpetaDocumentos, "Pacientes");
 
-        if (!Directory.Exists(carpetaBase))
-            Directory.CreateDirectory(carpetaBase);
+                    if (!Directory.Exists(carpetaBase))
+                        Directory.CreateDirectory(carpetaBase);
 
-        // Reemplazar caracteres inválidos
-        string nombrePaciente = txtNombre.Text.Trim();
-        foreach (char c in Path.GetInvalidFileNameChars())
-            nombrePaciente = nombrePaciente.Replace(c, '_');
+                    string nombrePaciente = txtNombre.Text.Trim();
+                    foreach (char c in Path.GetInvalidFileNameChars())
+                        nombrePaciente = nombrePaciente.Replace(c, '_');
 
-        string rutaPaciente = Path.Combine(carpetaBase, nombrePaciente);
+                    string rutaPaciente = Path.Combine(carpetaBase, nombrePaciente);
 
-        // Solo crea carpeta si no existe
-        if (!Directory.Exists(rutaPaciente))
-        {
-            Directory.CreateDirectory(rutaPaciente);
-        }
+                    if (!Directory.Exists(rutaPaciente))
+                        Directory.CreateDirectory(rutaPaciente);
 
-                    // Crear documento Word SIEMPRE, incluso si la carpeta ya existe
+                    // Crear documento Word con los datos
                     string nombreArchivo = $"Datos Personales del Paciente - {DateTime.Now:yyyy-MM-dd - hh-mm-ss tt}.docx";
                     string rutaArchivoWord = Path.Combine(rutaPaciente, nombreArchivo);
 
-        using (WordprocessingDocument wordDoc = WordprocessingDocument.Create(rutaArchivoWord, DocumentFormat.OpenXml.WordprocessingDocumentType.Document))
-        {
-            MainDocumentPart mainPart = wordDoc.AddMainDocumentPart();
-            mainPart.Document = new Document();
-            Body body = new Body();
+                    using (WordprocessingDocument wordDoc = WordprocessingDocument.Create(rutaArchivoWord, DocumentFormat.OpenXml.WordprocessingDocumentType.Document))
+                    {
+                        MainDocumentPart mainPart = wordDoc.AddMainDocumentPart();
+                        mainPart.Document = new Document();
+                        Body body = new Body();
 
-            void AddTexto(string texto)
-            {
-                body.Append(new Paragraph(new Run(new Text(texto))));
+                        void AddTexto(string texto)
+                        {
+                            body.Append(new Paragraph(new Run(new Text(texto))));
+                        }
+
+                        AddTexto("Datos del Paciente:");
+                        AddTexto($"Nombre: {txtNombre.Text}");
+                        AddTexto($"Edad: {edad} años");
+                        AddTexto($"Fecha de Nacimiento: {fechaNacimiento:yyyy-MM-dd}");
+                        AddTexto($"Teléfono: {txtTelefono.Text}");
+                        AddTexto($"Dirección: {txtDireccion.Text}");
+                        AddTexto($"DUI: {txtdui.Text}");
+                        AddTexto($"Responsable: {txtresponsable.Text}");
+                        AddTexto($"Teléfono Responsable: {txttelefono2.Text}");
+                        AddTexto($"Dirección Responsable: {txtdireccion2.Text}");
+                        AddTexto($"Correo Responsable: {txtcorreo.Text}");
+                        AddTexto($"Fecha y Hora de Registro: {fechaHoraRegistro:yyyy-MM-dd hh:mm tt}");
+
+                        mainPart.Document.Append(body);
+                        mainPart.Document.Save();
+                    }
+
+                    // Mostrar mensaje de éxito
+                    MessageBox.Show("Datos guardados, carpeta creada y documento generado.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    // Abrir formulario Historia Clínica y pasar el ID del paciente
+                    HistoriaClinica historiaForm = new HistoriaClinica(idPaciente);
+                    historiaForm.Show();
+                    this.Hide();
+
+                    LimpiarCampos();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error al guardar: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
 
-            AddTexto("Datos del Paciente:");
-            AddTexto($"Nombre: {txtNombre.Text}");
-            AddTexto($"Edad: {edad} años");
-            AddTexto($"Fecha de Nacimiento: {fechaNacimiento:yyyy-MM-dd}");
-            AddTexto($"Teléfono: {txtTelefono.Text}");
-            AddTexto($"Dirección: {txtDireccion.Text}");
-            AddTexto($"DUI: {txtdui.Text}");
-            AddTexto($"Responsable: {txtresponsable.Text}");
-            AddTexto($"Teléfono Responsable: {txttelefono2.Text}");
-            AddTexto($"Dirección Responsable: {txtdireccion2.Text}");
-            AddTexto($"Correo Responsable: {txtcorreo.Text}");
-            AddTexto($"Fecha y Hora de Registro: {fechaHoraRegistro:yyyy-MM-dd hh:mm tt}");
-
-            mainPart.Document.Append(body);
-            mainPart.Document.Save();
-        }
-
-        MessageBox.Show("Datos guardados, carpeta creada si no existía, y documento generado.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        LimpiarCampos();
-    }
-    catch (Exception ex)
-    {
-        MessageBox.Show("Error al guardar: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-    }
-}
 
         }
 

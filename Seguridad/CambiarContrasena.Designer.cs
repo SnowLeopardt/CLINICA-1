@@ -130,7 +130,7 @@ namespace CLINICA_1
             // 
             // btnCambiar
             // 
-            this.btnCambiar.BackColor = System.Drawing.Color.Violet;
+            this.btnCambiar.BackColor = System.Drawing.Color.Blue;
             this.btnCambiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCambiar.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.btnCambiar.ForeColor = System.Drawing.Color.White;

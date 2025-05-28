@@ -27,9 +27,15 @@ namespace CLINICA_1
         //Cambiar Conexion:
         private string connectionString = "Server=LAPTOP-M35CB1FF;Database=ClinicaVargas;Integrated Security=True;";
         string clasificacionIMC = "";
-        public HistoriaClinica()
+        private int pacienteId;
+
+        public HistoriaClinica() : this(0) { }
+        public HistoriaClinica(int idPaciente)
         {
             InitializeComponent();
+
+            pacienteId = idPaciente;
+            CargarNombrePaciente();
 
             txtPeso.KeyPress += txtPeso_KeyPress;
             txtTalla.KeyPress += txtTalla_KeyPress;
@@ -37,7 +43,26 @@ namespace CLINICA_1
             txtMasaCorporal.ReadOnly = true;
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void CargarNombrePaciente()
+        {
+            string connectionString = "Server=LAPTOP-M35CB1FF;Database=ClinicaVargas;Integrated Security=True;";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                string query = "SELECT Nombre FROM Pacientes WHERE Id = @Id";
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@Id", pacienteId);
+
+                SqlDataReader reader = command.ExecuteReader();
+                if (reader.Read())
+                {
+                    txtPaciente.Text = reader["Nombre"].ToString(); // Asegúrate que el TextBox se llame txtPaciente
+                }
+            }
+        }
+            private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
         }
@@ -779,9 +804,6 @@ namespace CLINICA_1
                                 AddParagraph($"Clasificación IMC: {lblClasificacionIMC.Text}");
 
 
-
-
-
                                 AddParagraph($"Examen Físico: {txtExamenFisico.Text}");
                                 AddParagraph($"Exámenes de Laboratorios: {txtExamenesLaboratorio.Text}");
                                 AddParagraph($"Exámenes de Gabinete: {txtExamenesGabinete.Text}");
@@ -1030,8 +1052,8 @@ namespace CLINICA_1
 
         }
     }
-
 }
+
     
 
 

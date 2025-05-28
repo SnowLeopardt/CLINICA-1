@@ -19,9 +19,9 @@ namespace CLINICA_1
 
         private void hISTORIACLINICAToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
-            HistoriaClinica VentanaDeHistoria = new HistoriaClinica();
-            VentanaDeHistoria.Show();
+
+            HistoriaClinica ventanaDeHistoria = new HistoriaClinica(); // se usa el constructor sin parámetros
+            ventanaDeHistoria.Show();
         }
 
         private void rEGISTRARDATOSToolStripMenuItem_Click(object sender, EventArgs e)
