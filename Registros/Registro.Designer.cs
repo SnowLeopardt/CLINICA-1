@@ -56,14 +56,16 @@ namespace CLINICA_1
             this.btnBuscar = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
-            this.botonAbrirCarpeta = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.dateTimePickerNacimiento = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label7 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.botonAbrirCarpeta = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btneliminar
@@ -72,10 +74,10 @@ namespace CLINICA_1
             this.btneliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btneliminar.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.btneliminar.ForeColor = System.Drawing.Color.White;
-            this.btneliminar.Location = new System.Drawing.Point(1092, 658);
+            this.btneliminar.Location = new System.Drawing.Point(675, 556);
             this.btneliminar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btneliminar.Name = "btneliminar";
-            this.btneliminar.Size = new System.Drawing.Size(180, 62);
+            this.btneliminar.Size = new System.Drawing.Size(134, 67);
             this.btneliminar.TabIndex = 24;
             this.btneliminar.Text = "ELIMINAR";
             this.btneliminar.UseVisualStyleBackColor = false;
@@ -84,38 +86,38 @@ namespace CLINICA_1
             // txtresponsable
             // 
             this.txtresponsable.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtresponsable.Location = new System.Drawing.Point(855, 234);
+            this.txtresponsable.Location = new System.Drawing.Point(687, 236);
             this.txtresponsable.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtresponsable.Name = "txtresponsable";
-            this.txtresponsable.Size = new System.Drawing.Size(373, 22);
+            this.txtresponsable.Size = new System.Drawing.Size(318, 22);
             this.txtresponsable.TabIndex = 47;
             // 
             // txtdireccion2
             // 
             this.txtdireccion2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtdireccion2.Location = new System.Drawing.Point(855, 304);
+            this.txtdireccion2.Location = new System.Drawing.Point(687, 277);
             this.txtdireccion2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtdireccion2.Name = "txtdireccion2";
-            this.txtdireccion2.Size = new System.Drawing.Size(373, 22);
+            this.txtdireccion2.Size = new System.Drawing.Size(318, 22);
             this.txtdireccion2.TabIndex = 46;
             // 
             // txttelefono2
             // 
             this.txttelefono2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txttelefono2.Location = new System.Drawing.Point(855, 379);
+            this.txttelefono2.Location = new System.Drawing.Point(687, 319);
             this.txttelefono2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txttelefono2.Name = "txttelefono2";
-            this.txttelefono2.Size = new System.Drawing.Size(373, 21);
+            this.txttelefono2.Size = new System.Drawing.Size(318, 21);
             this.txttelefono2.TabIndex = 45;
             this.txttelefono2.TextChanged += new System.EventHandler(this.txttelefono2_TextChanged);
             // 
             // txtcorreo
             // 
             this.txtcorreo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtcorreo.Location = new System.Drawing.Point(855, 452);
+            this.txtcorreo.Location = new System.Drawing.Point(687, 355);
             this.txtcorreo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtcorreo.Name = "txtcorreo";
-            this.txtcorreo.Size = new System.Drawing.Size(373, 21);
+            this.txtcorreo.Size = new System.Drawing.Size(318, 21);
             this.txtcorreo.TabIndex = 44;
             // 
             // label5
@@ -123,7 +125,7 @@ namespace CLINICA_1
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(737, 233);
+            this.label5.Location = new System.Drawing.Point(569, 235);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(110, 21);
@@ -135,7 +137,7 @@ namespace CLINICA_1
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(765, 303);
+            this.label4.Location = new System.Drawing.Point(592, 278);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(87, 21);
@@ -147,7 +149,7 @@ namespace CLINICA_1
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(771, 378);
+            this.label3.Location = new System.Drawing.Point(598, 319);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(81, 21);
@@ -159,7 +161,7 @@ namespace CLINICA_1
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(692, 451);
+            this.label2.Location = new System.Drawing.Point(524, 355);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(155, 21);
@@ -171,7 +173,7 @@ namespace CLINICA_1
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(124, 451);
+            this.label1.Location = new System.Drawing.Point(139, 368);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(43, 21);
@@ -181,10 +183,10 @@ namespace CLINICA_1
             // txtdui
             // 
             this.txtdui.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtdui.Location = new System.Drawing.Point(198, 450);
+            this.txtdui.Location = new System.Drawing.Point(187, 368);
             this.txtdui.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtdui.Name = "txtdui";
-            this.txtdui.Size = new System.Drawing.Size(373, 22);
+            this.txtdui.Size = new System.Drawing.Size(295, 22);
             this.txtdui.TabIndex = 38;
             // 
             // lblTitulo
@@ -192,7 +194,7 @@ namespace CLINICA_1
             this.lblTitulo.AutoSize = true;
             this.lblTitulo.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold);
             this.lblTitulo.ForeColor = System.Drawing.Color.White;
-            this.lblTitulo.Location = new System.Drawing.Point(556, 78);
+            this.lblTitulo.Location = new System.Drawing.Point(364, 80);
             this.lblTitulo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTitulo.Name = "lblTitulo";
             this.lblTitulo.Size = new System.Drawing.Size(333, 45);
@@ -204,7 +206,7 @@ namespace CLINICA_1
             this.lblNombre.AutoSize = true;
             this.lblNombre.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNombre.ForeColor = System.Drawing.Color.White;
-            this.lblNombre.Location = new System.Drawing.Point(88, 278);
+            this.lblNombre.Location = new System.Drawing.Point(101, 259);
             this.lblNombre.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(77, 21);
@@ -214,10 +216,10 @@ namespace CLINICA_1
             // txtNombre
             // 
             this.txtNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombre.Location = new System.Drawing.Point(198, 277);
+            this.txtNombre.Location = new System.Drawing.Point(185, 259);
             this.txtNombre.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(373, 22);
+            this.txtNombre.Size = new System.Drawing.Size(295, 22);
             this.txtNombre.TabIndex = 27;
             // 
             // lblEdad
@@ -225,7 +227,7 @@ namespace CLINICA_1
             this.lblEdad.AutoSize = true;
             this.lblEdad.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEdad.ForeColor = System.Drawing.Color.White;
-            this.lblEdad.Location = new System.Drawing.Point(111, 337);
+            this.lblEdad.Location = new System.Drawing.Point(126, 293);
             this.lblEdad.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblEdad.Name = "lblEdad";
             this.lblEdad.Size = new System.Drawing.Size(52, 21);
@@ -235,10 +237,10 @@ namespace CLINICA_1
             // txtEdad
             // 
             this.txtEdad.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEdad.Location = new System.Drawing.Point(198, 335);
+            this.txtEdad.Location = new System.Drawing.Point(185, 294);
             this.txtEdad.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtEdad.Name = "txtEdad";
-            this.txtEdad.Size = new System.Drawing.Size(373, 22);
+            this.txtEdad.Size = new System.Drawing.Size(295, 22);
             this.txtEdad.TabIndex = 29;
             // 
             // lblTelefono
@@ -246,7 +248,7 @@ namespace CLINICA_1
             this.lblTelefono.AutoSize = true;
             this.lblTelefono.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTelefono.ForeColor = System.Drawing.Color.White;
-            this.lblTelefono.Location = new System.Drawing.Point(82, 501);
+            this.lblTelefono.Location = new System.Drawing.Point(101, 404);
             this.lblTelefono.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTelefono.Name = "lblTelefono";
             this.lblTelefono.Size = new System.Drawing.Size(81, 21);
@@ -256,10 +258,10 @@ namespace CLINICA_1
             // txtTelefono
             // 
             this.txtTelefono.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTelefono.Location = new System.Drawing.Point(198, 502);
+            this.txtTelefono.Location = new System.Drawing.Point(187, 405);
             this.txtTelefono.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtTelefono.Name = "txtTelefono";
-            this.txtTelefono.Size = new System.Drawing.Size(373, 22);
+            this.txtTelefono.Size = new System.Drawing.Size(295, 22);
             this.txtTelefono.TabIndex = 31;
             // 
             // lblDireccion
@@ -267,7 +269,7 @@ namespace CLINICA_1
             this.lblDireccion.AutoSize = true;
             this.lblDireccion.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDireccion.ForeColor = System.Drawing.Color.White;
-            this.lblDireccion.Location = new System.Drawing.Point(76, 564);
+            this.lblDireccion.Location = new System.Drawing.Point(95, 441);
             this.lblDireccion.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDireccion.Name = "lblDireccion";
             this.lblDireccion.Size = new System.Drawing.Size(87, 21);
@@ -277,10 +279,10 @@ namespace CLINICA_1
             // txtDireccion
             // 
             this.txtDireccion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDireccion.Location = new System.Drawing.Point(198, 565);
+            this.txtDireccion.Location = new System.Drawing.Point(187, 442);
             this.txtDireccion.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtDireccion.Name = "txtDireccion";
-            this.txtDireccion.Size = new System.Drawing.Size(373, 22);
+            this.txtDireccion.Size = new System.Drawing.Size(295, 22);
             this.txtDireccion.TabIndex = 33;
             // 
             // btnNuevo
@@ -289,10 +291,10 @@ namespace CLINICA_1
             this.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNuevo.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.btnNuevo.ForeColor = System.Drawing.Color.White;
-            this.btnNuevo.Location = new System.Drawing.Point(64, 658);
+            this.btnNuevo.Location = new System.Drawing.Point(185, 556);
             this.btnNuevo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnNuevo.Name = "btnNuevo";
-            this.btnNuevo.Size = new System.Drawing.Size(180, 62);
+            this.btnNuevo.Size = new System.Drawing.Size(134, 67);
             this.btnNuevo.TabIndex = 34;
             this.btnNuevo.Text = "NUEVO";
             this.btnNuevo.UseVisualStyleBackColor = false;
@@ -304,10 +306,10 @@ namespace CLINICA_1
             this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscar.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.btnBuscar.ForeColor = System.Drawing.Color.White;
-            this.btnBuscar.Location = new System.Drawing.Point(326, 658);
+            this.btnBuscar.Location = new System.Drawing.Point(346, 556);
             this.btnBuscar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(180, 62);
+            this.btnBuscar.Size = new System.Drawing.Size(134, 67);
             this.btnBuscar.TabIndex = 35;
             this.btnBuscar.Text = "BUSCAR";
             this.btnBuscar.UseVisualStyleBackColor = false;
@@ -319,10 +321,10 @@ namespace CLINICA_1
             this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEditar.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.btnEditar.ForeColor = System.Drawing.Color.White;
-            this.btnEditar.Location = new System.Drawing.Point(591, 658);
+            this.btnEditar.Location = new System.Drawing.Point(514, 556);
             this.btnEditar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(180, 62);
+            this.btnEditar.Size = new System.Drawing.Size(134, 67);
             this.btnEditar.TabIndex = 36;
             this.btnEditar.Text = "EDITAR";
             this.btnEditar.UseVisualStyleBackColor = false;
@@ -334,36 +336,21 @@ namespace CLINICA_1
             this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGuardar.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.btnGuardar.ForeColor = System.Drawing.Color.White;
-            this.btnGuardar.Location = new System.Drawing.Point(846, 658);
+            this.btnGuardar.Location = new System.Drawing.Point(832, 556);
             this.btnGuardar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(180, 62);
+            this.btnGuardar.Size = new System.Drawing.Size(134, 67);
             this.btnGuardar.TabIndex = 37;
             this.btnGuardar.Text = "GUARDAR";
             this.btnGuardar.UseVisualStyleBackColor = false;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click_1);
-            // 
-            // botonAbrirCarpeta
-            // 
-            this.botonAbrirCarpeta.BackColor = System.Drawing.Color.Gold;
-            this.botonAbrirCarpeta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.botonAbrirCarpeta.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.botonAbrirCarpeta.ForeColor = System.Drawing.Color.Black;
-            this.botonAbrirCarpeta.Location = new System.Drawing.Point(1092, 52);
-            this.botonAbrirCarpeta.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.botonAbrirCarpeta.Name = "botonAbrirCarpeta";
-            this.botonAbrirCarpeta.Size = new System.Drawing.Size(201, 62);
-            this.botonAbrirCarpeta.TabIndex = 49;
-            this.botonAbrirCarpeta.Text = "BASE DE DATOS";
-            this.botonAbrirCarpeta.UseVisualStyleBackColor = false;
-            this.botonAbrirCarpeta.Click += new System.EventHandler(this.botonAbrirCarpeta_Click);
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(48, 398);
+            this.label6.Location = new System.Drawing.Point(61, 331);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(119, 21);
@@ -372,19 +359,19 @@ namespace CLINICA_1
             // 
             // dateTimePickerNacimiento
             // 
-            this.dateTimePickerNacimiento.Location = new System.Drawing.Point(198, 399);
+            this.dateTimePickerNacimiento.Location = new System.Drawing.Point(185, 331);
             this.dateTimePickerNacimiento.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dateTimePickerNacimiento.Name = "dateTimePickerNacimiento";
-            this.dateTimePickerNacimiento.Size = new System.Drawing.Size(373, 20);
+            this.dateTimePickerNacimiento.Size = new System.Drawing.Size(295, 20);
             this.dateTimePickerNacimiento.TabIndex = 52;
             this.dateTimePickerNacimiento.ValueChanged += new System.EventHandler(this.dateTimePickerNacimiento_ValueChanged);
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(196, 226);
+            this.dateTimePicker1.Location = new System.Drawing.Point(185, 225);
             this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(373, 20);
+            this.dateTimePicker1.Size = new System.Drawing.Size(297, 20);
             this.dateTimePicker1.TabIndex = 53;
             this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
@@ -393,7 +380,7 @@ namespace CLINICA_1
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(96, 230);
+            this.label7.Location = new System.Drawing.Point(107, 225);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(71, 21);
@@ -403,7 +390,7 @@ namespace CLINICA_1
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(172, 25);
+            this.pictureBox2.Location = new System.Drawing.Point(87, 24);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(213, 164);
@@ -416,6 +403,7 @@ namespace CLINICA_1
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.button1.BackColor = System.Drawing.Color.Transparent;
             this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
             this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -423,47 +411,71 @@ namespace CLINICA_1
             this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(64)))), ((int)(((byte)(115)))));
             this.button1.Location = new System.Drawing.Point(0, 0);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(74, 71);
+            this.button1.Size = new System.Drawing.Size(46, 45);
             this.button1.TabIndex = 264;
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.txtresponsable);
+            this.panel1.Controls.Add(this.btneliminar);
+            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.btnGuardar);
+            this.panel1.Controls.Add(this.botonAbrirCarpeta);
+            this.panel1.Controls.Add(this.pictureBox2);
+            this.panel1.Controls.Add(this.btnEditar);
+            this.panel1.Controls.Add(this.label7);
+            this.panel1.Controls.Add(this.btnBuscar);
+            this.panel1.Controls.Add(this.dateTimePicker1);
+            this.panel1.Controls.Add(this.btnNuevo);
+            this.panel1.Controls.Add(this.dateTimePickerNacimiento);
+            this.panel1.Controls.Add(this.txtDireccion);
+            this.panel1.Controls.Add(this.label6);
+            this.panel1.Controls.Add(this.lblDireccion);
+            this.panel1.Controls.Add(this.txtTelefono);
+            this.panel1.Controls.Add(this.lblTelefono);
+            this.panel1.Controls.Add(this.txtdireccion2);
+            this.panel1.Controls.Add(this.txtEdad);
+            this.panel1.Controls.Add(this.txttelefono2);
+            this.panel1.Controls.Add(this.lblEdad);
+            this.panel1.Controls.Add(this.txtcorreo);
+            this.panel1.Controls.Add(this.txtNombre);
+            this.panel1.Controls.Add(this.label5);
+            this.panel1.Controls.Add(this.lblNombre);
+            this.panel1.Controls.Add(this.label4);
+            this.panel1.Controls.Add(this.lblTitulo);
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.txtdui);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1048, 649);
+            this.panel1.TabIndex = 265;
+            // 
+            // botonAbrirCarpeta
+            // 
+            this.botonAbrirCarpeta.BackColor = System.Drawing.Color.Gold;
+            this.botonAbrirCarpeta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.botonAbrirCarpeta.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.botonAbrirCarpeta.ForeColor = System.Drawing.Color.Black;
+            this.botonAbrirCarpeta.Location = new System.Drawing.Point(832, 80);
+            this.botonAbrirCarpeta.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.botonAbrirCarpeta.Name = "botonAbrirCarpeta";
+            this.botonAbrirCarpeta.Size = new System.Drawing.Size(144, 55);
+            this.botonAbrirCarpeta.TabIndex = 49;
+            this.botonAbrirCarpeta.Text = "BASE DE DATOS";
+            this.botonAbrirCarpeta.UseVisualStyleBackColor = false;
+            this.botonAbrirCarpeta.Click += new System.EventHandler(this.botonAbrirCarpeta_Click);
             // 
             // Registro
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(64)))), ((int)(((byte)(115)))));
-            this.ClientSize = new System.Drawing.Size(1324, 769);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.dateTimePickerNacimiento);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.botonAbrirCarpeta);
-            this.Controls.Add(this.txtresponsable);
-            this.Controls.Add(this.txtdireccion2);
-            this.Controls.Add(this.txttelefono2);
-            this.Controls.Add(this.txtcorreo);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.txtdui);
-            this.Controls.Add(this.lblTitulo);
-            this.Controls.Add(this.lblNombre);
-            this.Controls.Add(this.txtNombre);
-            this.Controls.Add(this.lblEdad);
-            this.Controls.Add(this.txtEdad);
-            this.Controls.Add(this.lblTelefono);
-            this.Controls.Add(this.txtTelefono);
-            this.Controls.Add(this.lblDireccion);
-            this.Controls.Add(this.txtDireccion);
-            this.Controls.Add(this.btnNuevo);
-            this.Controls.Add(this.btnBuscar);
-            this.Controls.Add(this.btnEditar);
-            this.Controls.Add(this.btnGuardar);
-            this.Controls.Add(this.btneliminar);
+            this.ClientSize = new System.Drawing.Size(1048, 649);
+            this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -472,8 +484,9 @@ namespace CLINICA_1
             this.Text = "CLINICA VARGAS - REGISTRO DE DATOS - DOCTOR";
             this.Load += new System.EventHandler(this.Registro_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -512,12 +525,13 @@ namespace CLINICA_1
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnGuardar;
-        private System.Windows.Forms.Button botonAbrirCarpeta;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.DateTimePicker dateTimePickerNacimiento;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button botonAbrirCarpeta;
     }
 }

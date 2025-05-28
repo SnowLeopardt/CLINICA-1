@@ -389,6 +389,12 @@ namespace CLINICA_1
             Menu menuForm = new Menu(); // Crear una instancia del formulario Menu
             this.Hide();
         }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            Menu menuForm = new Menu(); // Crear una instancia del formulario Menu
+            this.Hide();
+        }
     }
  }
 

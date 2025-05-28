@@ -18,7 +18,7 @@ namespace CLINICA_1
     public partial class Registro : Form
     {
         // Cadena de conexión a SQL Server  //Cambiar Conexion:
-        private string connectionString = "Server=localhost;Database=ClinicaVargas;Integrated Security=True;";
+        private string connectionString = "Server=LAPTOP-M35CB1FF;Database=ClinicaVargas;Integrated Security=True;";
 
         public static string NombrePacienteSeleccionado = "";
         public Registro()
@@ -372,7 +372,7 @@ namespace CLINICA_1
 
         private void botonAbrirCarpeta_Click(object sender, EventArgs e)
         {
-            string ruta = @"C:\Users\User\Documents\Pacientes"; // Cambia esta ruta si está en otro lugar
+            string ruta = @"C:\Users\emili\OneDrive\Documentos\Pacientes"; // Cambia esta ruta si está en otro lugar
 
             if (Directory.Exists(ruta))
             {

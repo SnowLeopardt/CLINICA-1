@@ -8,7 +8,7 @@ namespace CLINICA_1
     public partial class Login : Form
     {
         //cadena de conexion de sql
-        private string connectionString = "Server=localhost;Database=ClinicaVargas;Integrated Security=True;";
+        private string connectionString = "Server=LAPTOP-M35CB1FF;Database=ClinicaVargas;Integrated Security=True;";
 
         public Login()
         {

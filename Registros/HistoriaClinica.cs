@@ -25,8 +25,8 @@ namespace CLINICA_1
     public partial class HistoriaClinica : Form
     {
         //Cambiar Conexion:
-        private string connectionString = "Server=localhost;Database=ClinicaVargas;Integrated Security=True;";
-
+        private string connectionString = "Server=LAPTOP-M35CB1FF;Database=ClinicaVargas;Integrated Security=True;";
+        string clasificacionIMC = "";
         public HistoriaClinica()
         {
             InitializeComponent();
@@ -212,22 +212,23 @@ namespace CLINICA_1
         //BOTON DE GUARDAR
         private void guardar_Click(object sender, EventArgs e)
         {
+            CalcularIMC();
+
             using (SqlConnection con = new SqlConnection(connectionString))
             {
                 using (SqlConnection conexion = new SqlConnection(connectionString))
                 {
                     string query = @"
     INSERT INTO HistoriaClinica (
-        Paciente, ConsultaPor, PresenteEnfermedad, AntecedentesPersonales,
-        SignosVitales, PresionArterial, FrecuenciaCardiaca, FrecuenciaRespiratoria,
-        SaturacionOxigeno, Peso, Talla, IndiceMasaCorporal,
+        Paciente, ConsultaPor, PresenteEnfermedad, AntecedentesPersonales, PresionArterial, FrecuenciaCardiaca, FrecuenciaRespiratoria,
+        SaturacionOxigeno, Peso, Talla, IndiceMasaCorporal, ClasificacionIMC,
         ExamenFisico, ExamenesLaboratorios, ExamenesGabinete,
         Impresion, [Plan]
     ) VALUES (
         @Paciente, @ConsultaPor, @PresenteEnfermedad, @AntecedentesPersonales,
-        @SignosVitales, @PresionArterial, @FrecuenciaCardiaca, @FrecuenciaRespiratoria,
+         @PresionArterial, @FrecuenciaCardiaca, @FrecuenciaRespiratoria,
         @SaturacionOxigeno, @Peso, @Talla, @IndiceMasaCorporal,
-        @ExamenFisico, @ExamenesLaboratorios, @ExamenesGabinete,
+        @ExamenFisico, @ExamenesLaboratorios, @ExamenesGabinete, @ClasificacionIMC,
         @Impresion, @Plan
     );";
 
@@ -238,7 +239,7 @@ namespace CLINICA_1
                         cmd.Parameters.AddWithValue("@ConsultaPor", txtConsultaPor.Text);
                         cmd.Parameters.AddWithValue("@PresenteEnfermedad", txtPresenteEnfermedad.Text);
                         cmd.Parameters.AddWithValue("@AntecedentesPersonales", txtAntecedentesPersonales.Text);
-                        cmd.Parameters.AddWithValue("@SignosVitales", txtSignosVitales.Text);
+     
                         cmd.Parameters.AddWithValue("@PresionArterial", txtPresion.Text);
                         cmd.Parameters.AddWithValue("@FrecuenciaCardiaca", txtFC.Text);
                         cmd.Parameters.AddWithValue("@FrecuenciaRespiratoria", txtFR.Text);
@@ -246,6 +247,7 @@ namespace CLINICA_1
                         cmd.Parameters.AddWithValue("@Peso", txtPeso.Text);
                         cmd.Parameters.AddWithValue("@Talla", txtTalla.Text);
                         cmd.Parameters.AddWithValue("@IndiceMasaCorporal", txtMasaCorporal.Text);
+                        cmd.Parameters.AddWithValue("@ClasificacionIMC", lblClasificacionIMC.Text);
                         cmd.Parameters.AddWithValue("@ExamenFisico", txtExamenFisico.Text);
                         cmd.Parameters.AddWithValue("@ExamenesLaboratorios", txtExamenesLaboratorio.Text);
                         cmd.Parameters.AddWithValue("@ExamenesGabinete", txtExamenesGabinete.Text);
@@ -304,7 +306,6 @@ namespace CLINICA_1
                                 AddParagraph($"Presente Enfermedad: {txtPresenteEnfermedad.Text}");
                                 AddParagraph($"Antecedentes Personales: {txtAntecedentesPersonales.Text}");
 
-                                AddParagraph($"Signos Vitales: {txtSignosVitales.Text}");
                                 AddParagraph($"Presión Arterial: {txtPresion.Text}");
                                 AddParagraph($"Frecuencia Cardiaca: {txtFC.Text}");
                                 AddParagraph($"Frecuencia Respiratoria: {txtFR.Text}");
@@ -312,6 +313,11 @@ namespace CLINICA_1
                                 AddParagraph($"Peso: {txtPeso.Text}");
                                 AddParagraph($"Talla: {txtTalla.Text}");
                                 AddParagraph($"IMC: {txtMasaCorporal.Text}");
+                                AddParagraph($"Clasificación IMC: {lblClasificacionIMC.Text}");
+
+
+
+
 
                                 AddParagraph($"Examen Físico: {txtExamenFisico.Text}");
                                 AddParagraph($"Exámenes de Laboratorios: {txtExamenesLaboratorio.Text}");
@@ -343,7 +349,6 @@ namespace CLINICA_1
                 txtPaciente.Clear();
                 txtPresenteEnfermedad.Clear();
                 txtPresion.Clear();
-                txtSignosVitales.Clear();
                 txtFC.Clear();
                 txtFR.Clear();
                 txtSaturacion.Clear();
@@ -365,12 +370,26 @@ namespace CLINICA_1
             {
                 double imc = peso / (tallaEnMetros * tallaEnMetros);
                 txtMasaCorporal.Text = imc.ToString("0.00");
+
+                if (imc < 18.5)
+                    clasificacionIMC = "Bajo peso";
+                else if (imc <= 24.9)
+                    clasificacionIMC = "Normal";
+                else if (imc <= 29.9)
+                    clasificacionIMC = "Sobrepeso";
+                else
+                    clasificacionIMC = "Obesidad";
+
+                lblClasificacionIMC.Text = clasificacionIMC;
             }
             else
             {
                 txtMasaCorporal.Text = "";
+                lblClasificacionIMC.Text = "";
+                clasificacionIMC = "";
             }
         }
+
 
 
         private void checkBox3_CheckedChanged(object sender, EventArgs e)
@@ -458,8 +477,10 @@ namespace CLINICA_1
                 pdfDoc.Open();
 
                 // 🖼️ Agregar imagen superior derecha (sello que SÍ se imprime)
-                string rutaImagenSello = @"C:\Users\User\Documents\imagenes\selloimprimir.png";
-                
+                string rutaImagenSello = @"C:\Users\emili\OneDrive\Documentos\imagenes\selloimprimir.png";
+            
+
+
                 if (File.Exists(rutaImagenSello))
                 {
                     iTextSharp.text.Image sello = iTextSharp.text.Image.GetInstance(rutaImagenSello);
@@ -496,7 +517,7 @@ namespace CLINICA_1
 
                 // 🔍 Datos desde SQL
                 string nombrePaciente = txtPaciente.Text.Trim();
-                string cs = "Server=localhost;Database=ClinicaVargas;Integrated Security=True;";
+                string cs = "Server=LAPTOP-M35CB1FF;Database=ClinicaVargas;Integrated Security=True;";
                 string sql = @"SELECT Nombre, Edad, Telefono, Direccion, DUI, Responsable, TelResponsable, DirResponsable, CorreoResponsable, FechaNacimiento, FechaHoraRegistro 
                    FROM Pacientes WHERE Nombre = @Nombre";
 
@@ -538,8 +559,8 @@ namespace CLINICA_1
                 pdfDoc.Add(new iTextSharp.text.Paragraph("\n"));
 
                 AddCampoValor("Responsable", responsable);
-                AddCampoValor("Tel. Responsable", telResponsable);
-                AddCampoValor("Dir. Responsable", dirResponsable);
+                AddCampoValor("Telefono Responsable", telResponsable);
+                AddCampoValor("Direccion Responsable", dirResponsable);
                 AddCampoValor("Correo Responsable", correoResponsable);
                 AddCampoValor("Fecha y Hora de Registro", fechaHoraRegistro.ToString("yyyy-MM-dd hh:mm tt"));
 
@@ -547,7 +568,6 @@ namespace CLINICA_1
 
                 AddCampoValor("Presente Enfermedad", txtPresenteEnfermedad.Text);
                 AddCampoValor("Antecedentes Personales", txtAntecedentesPersonales.Text);
-                AddCampoValor("Signos Vitales", txtSignosVitales.Text);
                 AddCampoValor("Presión Arterial", txtPresion.Text);
                 AddCampoValor("Frecuencia Cardíaca", txtFC.Text);
                 AddCampoValor("Frecuencia Respiratoria", txtFR.Text);
@@ -555,6 +575,7 @@ namespace CLINICA_1
                 AddCampoValor("Peso", txtPeso.Text);
                 AddCampoValor("Talla", txtTalla.Text);
                 AddCampoValor("IMC", txtMasaCorporal.Text);
+                AddCampoValor("Clasificación IMC", clasificacionIMC);
                 AddCampoValor("Examen Físico", txtExamenFisico.Text);
                 AddCampoValor("Exámenes de Laboratorio", txtExamenesLaboratorio.Text);
                 AddCampoValor("Exámenes de Gabinete", txtExamenesGabinete.Text);
@@ -581,7 +602,6 @@ namespace CLINICA_1
                 txtPaciente.Clear();
                 txtPresenteEnfermedad.Clear();
                 txtPresion.Clear();
-                txtSignosVitales.Clear();
                 txtFC.Clear();
                 txtFR.Clear();
                 txtSaturacion.Clear();
@@ -655,22 +675,23 @@ namespace CLINICA_1
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
+            CalcularIMC();
+
             using (SqlConnection con = new SqlConnection(connectionString))
             {
                 using (SqlConnection conexion = new SqlConnection(connectionString))
                 {
                     string query = @"
     INSERT INTO HistoriaClinica (
-        Paciente, ConsultaPor, PresenteEnfermedad, AntecedentesPersonales,
-        SignosVitales, PresionArterial, FrecuenciaCardiaca, FrecuenciaRespiratoria,
-        SaturacionOxigeno, Peso, Talla, IndiceMasaCorporal,
+        Paciente, ConsultaPor, PresenteEnfermedad, AntecedentesPersonales, PresionArterial, FrecuenciaCardiaca, FrecuenciaRespiratoria,
+        SaturacionOxigeno, Peso, Talla, IndiceMasaCorporal, ClasificacionIMC,
         ExamenFisico, ExamenesLaboratorios, ExamenesGabinete,
         Impresion, [Plan]
     ) VALUES (
         @Paciente, @ConsultaPor, @PresenteEnfermedad, @AntecedentesPersonales,
-        @SignosVitales, @PresionArterial, @FrecuenciaCardiaca, @FrecuenciaRespiratoria,
+         @PresionArterial, @FrecuenciaCardiaca, @FrecuenciaRespiratoria,
         @SaturacionOxigeno, @Peso, @Talla, @IndiceMasaCorporal,
-        @ExamenFisico, @ExamenesLaboratorios, @ExamenesGabinete,
+        @ExamenFisico, @ExamenesLaboratorios, @ExamenesGabinete, @ClasificacionIMC,
         @Impresion, @Plan
     );";
 
@@ -681,7 +702,7 @@ namespace CLINICA_1
                         cmd.Parameters.AddWithValue("@ConsultaPor", txtConsultaPor.Text);
                         cmd.Parameters.AddWithValue("@PresenteEnfermedad", txtPresenteEnfermedad.Text);
                         cmd.Parameters.AddWithValue("@AntecedentesPersonales", txtAntecedentesPersonales.Text);
-                        cmd.Parameters.AddWithValue("@SignosVitales", txtSignosVitales.Text);
+
                         cmd.Parameters.AddWithValue("@PresionArterial", txtPresion.Text);
                         cmd.Parameters.AddWithValue("@FrecuenciaCardiaca", txtFC.Text);
                         cmd.Parameters.AddWithValue("@FrecuenciaRespiratoria", txtFR.Text);
@@ -689,6 +710,7 @@ namespace CLINICA_1
                         cmd.Parameters.AddWithValue("@Peso", txtPeso.Text);
                         cmd.Parameters.AddWithValue("@Talla", txtTalla.Text);
                         cmd.Parameters.AddWithValue("@IndiceMasaCorporal", txtMasaCorporal.Text);
+                        cmd.Parameters.AddWithValue("@ClasificacionIMC", lblClasificacionIMC.Text);
                         cmd.Parameters.AddWithValue("@ExamenFisico", txtExamenFisico.Text);
                         cmd.Parameters.AddWithValue("@ExamenesLaboratorios", txtExamenesLaboratorio.Text);
                         cmd.Parameters.AddWithValue("@ExamenesGabinete", txtExamenesGabinete.Text);
@@ -747,7 +769,6 @@ namespace CLINICA_1
                                 AddParagraph($"Presente Enfermedad: {txtPresenteEnfermedad.Text}");
                                 AddParagraph($"Antecedentes Personales: {txtAntecedentesPersonales.Text}");
 
-                                AddParagraph($"Signos Vitales: {txtSignosVitales.Text}");
                                 AddParagraph($"Presión Arterial: {txtPresion.Text}");
                                 AddParagraph($"Frecuencia Cardiaca: {txtFC.Text}");
                                 AddParagraph($"Frecuencia Respiratoria: {txtFR.Text}");
@@ -755,6 +776,11 @@ namespace CLINICA_1
                                 AddParagraph($"Peso: {txtPeso.Text}");
                                 AddParagraph($"Talla: {txtTalla.Text}");
                                 AddParagraph($"IMC: {txtMasaCorporal.Text}");
+                                AddParagraph($"Clasificación IMC: {lblClasificacionIMC.Text}");
+
+
+
+
 
                                 AddParagraph($"Examen Físico: {txtExamenFisico.Text}");
                                 AddParagraph($"Exámenes de Laboratorios: {txtExamenesLaboratorio.Text}");
@@ -775,16 +801,16 @@ namespace CLINICA_1
                         }
                     }
                 }
-                
+
             }
         }
+        
         void LimpiarCampos()
         {
             txtConsultaPor.Clear();
             txtPaciente.Clear();
             txtPresenteEnfermedad.Clear();
             txtPresion.Clear();
-            txtSignosVitales.Clear();
             txtFC.Clear();
             txtFR.Clear();
             txtSaturacion.Clear();
@@ -799,8 +825,210 @@ namespace CLINICA_1
             txtExamenFisico.Clear();
         }
 
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
 
+        }
 
+        private void backgroundWorker1_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
+        {
+
+        }
+
+        private void label3_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label6_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label7_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label8_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label9_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label11_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label12_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label13_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label15_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label16_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label19_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtExamenesLaboratorio_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtExamenesGabinete_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label21_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label22_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label23_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtImpresion_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtPresion_TextChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtFC_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtFR_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtSaturacion_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label17_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label14_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label18_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label24_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtPlan_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtAntecedentesPersonales_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtPaciente_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label10_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtPresenteEnfermedad_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtConsultaPor_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblNombre_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label20_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblClasificacionIMC_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 
 }
