@@ -95,13 +95,6 @@ namespace CLINICA_1
   
 
 
-
-
-
-
-
-
-
         //boton de guardar
 
         private void btnGuardar_Click_1(object sender, EventArgs e)
@@ -261,25 +254,33 @@ namespace CLINICA_1
                 return;
             }
 
+            if (!int.TryParse(txtEdad.Text, out int edad))
+            {
+                MessageBox.Show("La edad debe ser un número válido.", "Error de formato", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 try
                 {
                     connection.Open();
 
-                    // Verificar si el paciente con ese DUI existe
-                    string verificarQuery = "SELECT COUNT(*) FROM Pacientes WHERE DUI = @DUI";
-                    SqlCommand verificarCmd = new SqlCommand(verificarQuery, connection);
-                    verificarCmd.Parameters.AddWithValue("@DUI", txtdui.Text);
-                    int existe = (int)verificarCmd.ExecuteScalar();
+                    // Verificar si el paciente con ese DUI existe y obtener su nombre real
+                    string obtenerNombreQuery = "SELECT Nombre FROM Pacientes WHERE DUI = @DUI";
+                    SqlCommand obtenerNombreCmd = new SqlCommand(obtenerNombreQuery, connection);
+                    obtenerNombreCmd.Parameters.AddWithValue("@DUI", txtdui.Text);
+                    object resultado = obtenerNombreCmd.ExecuteScalar();
 
-                    if (existe == 0)
+                    if (resultado == null)
                     {
                         MessageBox.Show("No se encontró un paciente con ese DUI. No se puede editar.", "No encontrado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         return;
                     }
 
-                    // Si existe, actualiza
+                    string nombrePacienteBD = resultado.ToString();
+
+                    // Actualizar en base de datos
                     string updateQuery = @"
                 UPDATE Pacientes SET
                     Nombre = @Nombre,
@@ -294,7 +295,7 @@ namespace CLINICA_1
 
                     SqlCommand command = new SqlCommand(updateQuery, connection);
                     command.Parameters.AddWithValue("@Nombre", txtNombre.Text);
-                    command.Parameters.AddWithValue("@Edad", int.Parse(txtEdad.Text));
+                    command.Parameters.AddWithValue("@Edad", edad);
                     command.Parameters.AddWithValue("@Telefono", txtTelefono.Text);
                     command.Parameters.AddWithValue("@Direccion", txtDireccion.Text);
                     command.Parameters.AddWithValue("@Responsable", txtresponsable.Text);
@@ -307,16 +308,62 @@ namespace CLINICA_1
 
                     if (filasAfectadas > 0)
                     {
-                        MessageBox.Show("Los datos del paciente fueron actualizados correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        // Crear ruta segura desde nombre real del paciente
+                        string carpetaDocumentos = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+                        string carpetaBase = Path.Combine(carpetaDocumentos, "Pacientes");
+
+                        string nombreSeguro = nombrePacienteBD.Trim();
+                        foreach (char c in Path.GetInvalidFileNameChars())
+                            nombreSeguro = nombreSeguro.Replace(c, '_');
+
+                        string rutaPaciente = Path.Combine(carpetaBase, nombreSeguro);
+                        if (!Directory.Exists(rutaPaciente))
+                            Directory.CreateDirectory(rutaPaciente);
+
+                        string rutaArchivoWord = Path.Combine(rutaPaciente, "Datos Personales del Paciente.docx");
+
+                        // Eliminar archivo anterior si existe
+                        if (File.Exists(rutaArchivoWord))
+                            File.Delete(rutaArchivoWord);
+
+                        // Crear documento Word actualizado
+                        DateTime fechaNacimiento = dateTimePickerNacimiento.Value;
+                        DateTime fechaHoraRegistro = dateTimePicker1.Value;
+
+                        using (WordprocessingDocument wordDoc = WordprocessingDocument.Create(rutaArchivoWord, DocumentFormat.OpenXml.WordprocessingDocumentType.Document))
+                        {
+                            MainDocumentPart mainPart = wordDoc.AddMainDocumentPart();
+                            mainPart.Document = new Document();
+                            Body body = new Body();
+
+                            void AddTexto(string texto)
+                            {
+                                body.Append(new Paragraph(new Run(new Text(texto))));
+                            }
+
+                            AddTexto("Datos del Paciente:");
+                            AddTexto($"Nombre: {txtNombre.Text}");
+                            AddTexto($"Edad: {edad} años");
+                            AddTexto($"Fecha de Nacimiento: {fechaNacimiento:yyyy-MM-dd}");
+                            AddTexto($"Teléfono: {txtTelefono.Text}");
+                            AddTexto($"Dirección: {txtDireccion.Text}");
+                            AddTexto($"DUI: {txtdui.Text}");
+                            AddTexto($"Responsable: {txtresponsable.Text}");
+                            AddTexto($"Teléfono Responsable: {txttelefono2.Text}");
+                            AddTexto($"Dirección Responsable: {txtdireccion2.Text}");
+                            AddTexto($"Correo Responsable: {txtcorreo.Text}");
+                            AddTexto($"Fecha y Hora de Registro: {fechaHoraRegistro:yyyy-MM-dd hh:mm tt}");
+
+                            mainPart.Document.Append(body);
+                            mainPart.Document.Save();
+                        }
+
+                        MessageBox.Show("Datos actualizados correctamente en la base de datos y el documento Word ha sido reemplazado.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
                     {
                         MessageBox.Show("No se pudo actualizar el registro.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
-                }
-                catch (FormatException)
-                {
-                    MessageBox.Show("La edad debe ser un número válido.", "Error de formato", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 catch (Exception ex)
                 {
@@ -324,6 +371,7 @@ namespace CLINICA_1
                 }
             }
         }
+
 
         private void btnBuscar_Click_1(object sender, EventArgs e)
         {
@@ -425,6 +473,55 @@ namespace CLINICA_1
         {
             Menu menuForm = new Menu(); // Crear una instancia del formulario Menu
             this.Hide();
+        }
+
+        private void txtTelefono_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtTelefono_Leave(object sender, EventArgs e)
+        {
+
+            string input = txtTelefono.Text.Trim().Replace("-", "").Replace(" ", "");
+
+            if (input.Length == 8 && long.TryParse(input, out _))
+            {
+                string formatted = $"+503-{input.Substring(0, 4)}-{input.Substring(4, 4)}";
+                txtTelefono.Text = formatted;
+            }
+            else if (input.StartsWith("+503") && input.Length == 13)
+            {
+                // Ya está bien formateado
+                txtTelefono.Text = input;
+            }
+            else
+            {
+                MessageBox.Show("Ingrese un número válido de 8 dígitos", "Teléfono inválido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtTelefono.Focus();
+            }
+        }
+
+        private void txttelefono2_Leave(object sender, EventArgs e)
+        {
+            string input = txttelefono2.Text.Trim().Replace("-", "").Replace(" ", "");
+
+            if (input.Length == 8 && long.TryParse(input, out _))
+            {
+                // Formato +503-XXXX-XXXX
+                string formatted = $"+503-{input.Substring(0, 4)}-{input.Substring(4, 4)}";
+                txttelefono2.Text = formatted;
+            }
+            else if (input.StartsWith("+503") && input.Length == 13)
+            {
+                // Ya está correctamente formateado
+                txttelefono2.Text = input;
+            }
+            else
+            {
+                MessageBox.Show("Ingrese un número válido de 8 dígitos", "Teléfono inválido (Responsable)", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txttelefono2.Focus();
+            }
         }
     }
     }

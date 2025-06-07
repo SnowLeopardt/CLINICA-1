@@ -62,9 +62,9 @@ namespace CLINICA_1
             this.label18 = new System.Windows.Forms.Label();
             this.txtExamenFisico = new System.Windows.Forms.TextBox();
             this.label24 = new System.Windows.Forms.Label();
-            this.txtPlan = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblClasificacionIMC = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.txtAntecedentesPersonales = new System.Windows.Forms.TextBox();
             this.txtPaciente = new System.Windows.Forms.TextBox();
@@ -77,7 +77,7 @@ namespace CLINICA_1
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnImprimir = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.lblClasificacionIMC = new System.Windows.Forms.Label();
+            this.txtPlan = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -90,12 +90,12 @@ namespace CLINICA_1
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
             this.label3.Location = new System.Drawing.Point(41, 391);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(90, 19);
+            this.label3.Size = new System.Drawing.Size(103, 20);
             this.label3.TabIndex = 217;
             this.label3.Text = "Signo Vitales:";
             this.label3.Click += new System.EventHandler(this.label3_Click_1);
@@ -297,12 +297,12 @@ namespace CLINICA_1
             // 
             this.label21.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label21.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
             this.label21.Location = new System.Drawing.Point(45, 807);
             this.label21.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(181, 20);
+            this.label21.Size = new System.Drawing.Size(207, 21);
             this.label21.TabIndex = 235;
             this.label21.Text = "Examenes de Laboratorio:";
             this.label21.Click += new System.EventHandler(this.label21_Click);
@@ -311,12 +311,12 @@ namespace CLINICA_1
             // 
             this.label22.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label22.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
             this.label22.Location = new System.Drawing.Point(878, 804);
             this.label22.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(161, 20);
+            this.label22.Size = new System.Drawing.Size(186, 21);
             this.label22.TabIndex = 236;
             this.label22.Text = "Impresion Diagnostica:";
             this.label22.Click += new System.EventHandler(this.label22_Click);
@@ -325,12 +325,12 @@ namespace CLINICA_1
             // 
             this.label23.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label23.AutoSize = true;
-            this.label23.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label23.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
             this.label23.Location = new System.Drawing.Point(470, 806);
             this.label23.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(163, 20);
+            this.label23.Size = new System.Drawing.Size(187, 21);
             this.label23.TabIndex = 237;
             this.label23.Text = "Examenes de Gabinete:";
             this.label23.Click += new System.EventHandler(this.label23_Click);
@@ -370,6 +370,7 @@ namespace CLINICA_1
             this.txtPresion.Name = "txtPresion";
             this.txtPresion.Size = new System.Drawing.Size(248, 22);
             this.txtPresion.TabIndex = 241;
+            this.txtPresion.Text = "/";
             this.txtPresion.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtPresion.TextChanged += new System.EventHandler(this.txtPresion_TextChanged_1);
             // 
@@ -466,12 +467,12 @@ namespace CLINICA_1
             // 
             this.label18.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label18.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
             this.label18.Location = new System.Drawing.Point(40, 700);
             this.label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(105, 20);
+            this.label18.Size = new System.Drawing.Size(122, 21);
             this.label18.TabIndex = 256;
             this.label18.Text = "Examen Fisico:";
             this.label18.Click += new System.EventHandler(this.label18_Click_1);
@@ -492,27 +493,15 @@ namespace CLINICA_1
             // 
             this.label24.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label24.AutoSize = true;
-            this.label24.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label24.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
             this.label24.Location = new System.Drawing.Point(61, 936);
             this.label24.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(40, 20);
+            this.label24.Size = new System.Drawing.Size(48, 21);
             this.label24.TabIndex = 258;
             this.label24.Text = "Plan:";
             this.label24.Click += new System.EventHandler(this.label24_Click);
-            // 
-            // txtPlan
-            // 
-            this.txtPlan.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPlan.Location = new System.Drawing.Point(132, 923);
-            this.txtPlan.MaxLength = 70000;
-            this.txtPlan.Multiline = true;
-            this.txtPlan.Name = "txtPlan";
-            this.txtPlan.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtPlan.Size = new System.Drawing.Size(733, 72);
-            this.txtPlan.TabIndex = 259;
-            this.txtPlan.TextChanged += new System.EventHandler(this.txtPlan_TextChanged);
             // 
             // pictureBox1
             // 
@@ -528,10 +517,10 @@ namespace CLINICA_1
             // panel1
             // 
             this.panel1.AutoScroll = true;
+            this.panel1.Controls.Add(this.txtPlan);
             this.panel1.Controls.Add(this.lblClasificacionIMC);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Controls.Add(this.txtPlan);
             this.panel1.Controls.Add(this.label24);
             this.panel1.Controls.Add(this.txtExamenFisico);
             this.panel1.Controls.Add(this.label18);
@@ -579,6 +568,16 @@ namespace CLINICA_1
             this.panel1.Size = new System.Drawing.Size(1197, 1050);
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // lblClasificacionIMC
+            // 
+            this.lblClasificacionIMC.AutoSize = true;
+            this.lblClasificacionIMC.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblClasificacionIMC.Location = new System.Drawing.Point(525, 638);
+            this.lblClasificacionIMC.Name = "lblClasificacionIMC";
+            this.lblClasificacionIMC.Size = new System.Drawing.Size(0, 16);
+            this.lblClasificacionIMC.TabIndex = 264;
+            this.lblClasificacionIMC.Click += new System.EventHandler(this.lblClasificacionIMC_Click);
             // 
             // button1
             // 
@@ -652,12 +651,12 @@ namespace CLINICA_1
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
             this.label1.Location = new System.Drawing.Point(9, 127);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(161, 21);
+            this.label1.Size = new System.Drawing.Size(177, 21);
             this.label1.TabIndex = 249;
             this.label1.Text = "Presente Enfermedad:";
             this.label1.Click += new System.EventHandler(this.label1_Click_1);
@@ -737,7 +736,7 @@ namespace CLINICA_1
             // label2
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
             this.label2.Location = new System.Drawing.Point(13, 261);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -747,15 +746,16 @@ namespace CLINICA_1
             this.label2.Text = "Antecedentes Personales:";
             this.label2.Click += new System.EventHandler(this.label2_Click_1);
             // 
-            // lblClasificacionIMC
+            // txtPlan
             // 
-            this.lblClasificacionIMC.AutoSize = true;
-            this.lblClasificacionIMC.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblClasificacionIMC.Location = new System.Drawing.Point(525, 638);
-            this.lblClasificacionIMC.Name = "lblClasificacionIMC";
-            this.lblClasificacionIMC.Size = new System.Drawing.Size(0, 16);
-            this.lblClasificacionIMC.TabIndex = 264;
-            this.lblClasificacionIMC.Click += new System.EventHandler(this.lblClasificacionIMC_Click);
+            this.txtPlan.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPlan.Location = new System.Drawing.Point(116, 936);
+            this.txtPlan.Name = "txtPlan";
+            this.txtPlan.Size = new System.Drawing.Size(691, 72);
+            this.txtPlan.TabIndex = 265;
+            this.txtPlan.Text = "";
+            this.txtPlan.TextChanged += new System.EventHandler(this.txtPlan_TextChanged_1);
+            this.txtPlan.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPlan_KeyDown);
             // 
             // HistoriaClinica
             // 
@@ -813,7 +813,6 @@ namespace CLINICA_1
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.TextBox txtExamenFisico;
         private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.TextBox txtPlan;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox txtAntecedentesPersonales;
@@ -829,5 +828,6 @@ namespace CLINICA_1
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label lblClasificacionIMC;
+        private System.Windows.Forms.RichTextBox txtPlan;
     }
 }

@@ -356,7 +356,7 @@ namespace CLINICA_1
 
         private void botonAbrirCarpeta_Click(object sender, EventArgs e)
         {
-            string ruta = @"C:\Users\User\Documents\Pacientes"; // Cambia esta ruta si está en otro lugar
+            string ruta = @"C:\Users\User\OneDrive\Documentos\Pacientes"; // Cambia esta ruta si está en otro lugar
 
             if (Directory.Exists(ruta))
             {

@@ -110,6 +110,7 @@ namespace CLINICA_1
             this.txttelefono2.Size = new System.Drawing.Size(318, 21);
             this.txttelefono2.TabIndex = 45;
             this.txttelefono2.TextChanged += new System.EventHandler(this.txttelefono2_TextChanged);
+            this.txttelefono2.Leave += new System.EventHandler(this.txttelefono2_Leave);
             // 
             // txtcorreo
             // 
@@ -263,6 +264,8 @@ namespace CLINICA_1
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(295, 22);
             this.txtTelefono.TabIndex = 31;
+            this.txtTelefono.TextChanged += new System.EventHandler(this.txtTelefono_TextChanged);
+            this.txtTelefono.Leave += new System.EventHandler(this.txtTelefono_Leave);
             // 
             // lblDireccion
             // 
