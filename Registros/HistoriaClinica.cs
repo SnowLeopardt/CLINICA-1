@@ -63,7 +63,7 @@ namespace CLINICA_1
                 }
             }
         }
-            private void textBox1_TextChanged(object sender, EventArgs e)
+        private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
         }
@@ -71,7 +71,7 @@ namespace CLINICA_1
         private void HistoriaClinica_Load(object sender, EventArgs e)
         {
             txtMasaCorporal.ReadOnly = true;
-          txtPlan.Text = "1. ";
+            txtPlan.Text = "1. ";
         }
 
         private void lblNombre_Click(object sender, EventArgs e)
@@ -388,11 +388,11 @@ INSERT INTO HistoriaClinica(
                         }
                     }
                 }
-                    }
+            }
 
 
-                    // Método para limpiar los campos
-                    void LimpiarCampos()
+            // Método para limpiar los campos
+            void LimpiarCampos()
             {
                 txtConsultaPor.Clear();
                 txtPaciente.Clear();
@@ -522,13 +522,11 @@ INSERT INTO HistoriaClinica(
 
                 iTextSharp.text.Document pdfDoc = new iTextSharp.text.Document(iTextSharp.text.PageSize.A4, 40f, 40f, 40f, 40f);
                 PdfWriter writer = PdfWriter.GetInstance(pdfDoc, new FileStream(rutaPDF, FileMode.Create));
-                writer.PageEvent = new FondoPaginaCompleto(System.Drawing.SystemColors.ActiveCaption);
+                writer.PageEvent = new FondoPaginaCompleto(System.Drawing.SystemColors.ActiveCaption); // Fondo solo pantalla
                 pdfDoc.Open();
 
-                // 🖼️ Agregar imagen superior derecha (sello que SÍ se imprime)
+                // Agregar imagen sello arriba a la derecha
                 string rutaImagenSello = @"C:\Users\User\OneDrive\Documentos\imagenes\selloimprimir.png";
-            
-
 
                 if (File.Exists(rutaImagenSello))
                 {
@@ -537,20 +535,17 @@ INSERT INTO HistoriaClinica(
                     sello.SetAbsolutePosition(pdfDoc.PageSize.Width - sello.ScaledWidth - 40f, pdfDoc.PageSize.Height - sello.ScaledHeight - 40f);
                     pdfDoc.Add(sello);
                 }
-               
 
-                // 🖋️ Fuentes
                 var fuenteTitulo = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 20, BaseColor.BLACK);
                 var fuenteCampo = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 12);
                 var fuenteTexto = FontFactory.GetFont(FontFactory.HELVETICA, 12);
 
-                // 🧩 Función para agregar campos
                 void AddCampoValor(string campo, string valor)
                 {
                     iTextSharp.text.Paragraph p = new iTextSharp.text.Paragraph();
-                    p.SpacingAfter = 10f; // Espacio entre secciones
+                    p.SpacingAfter = 10f;
                     p.Add(new Chunk(campo + ":", fuenteCampo));
-                    p.Add(new Chunk(Environment.NewLine + valor, fuenteTexto)); // ⬅️ Esto pone el valor debajo
+                    p.Add(new Chunk(Environment.NewLine + valor, fuenteTexto));
                     pdfDoc.Add(p);
                 }
 
@@ -564,11 +559,10 @@ INSERT INTO HistoriaClinica(
                     pdfDoc.Add(p);
                 }
 
-                // 🔍 Datos desde SQL
                 string nombrePaciente = txtPaciente.Text.Trim();
                 string cs = "Server=localhost;Database=ClinicaVargas;Integrated Security=True;";
                 string sql = @"SELECT Nombre, Edad, Telefono, Direccion, DUI, Responsable, TelResponsable, DirResponsable, CorreoResponsable, FechaNacimiento, FechaHoraRegistro 
-                   FROM Pacientes WHERE Nombre = @Nombre";
+                       FROM Pacientes WHERE Nombre = @Nombre";
 
                 int edad = 0;
                 string telefono = "", direccion = "", dui = "", responsable = "", telResponsable = "", dirResponsable = "", correoResponsable = "";
@@ -595,7 +589,6 @@ INSERT INTO HistoriaClinica(
                     }
                 }
 
-                // 📝 Escritura de datos
                 AddTitulo("HISTORIA CLÍNICA");
                 AddCampoValor("Paciente", nombrePaciente);
                 AddCampoValor("Consulta por", txtConsultaPor.Text);
@@ -643,9 +636,11 @@ INSERT INTO HistoriaClinica(
             {
                 MessageBox.Show("Error al generar el PDF: " + ex.Message);
             }
+        
+    
 
-            // Método para limpiar los campos
-            void LimpiarCampos()
+        // Método para limpiar los campos
+        void LimpiarCampos()
             {
                 txtConsultaPor.Clear();
                 txtPaciente.Clear();

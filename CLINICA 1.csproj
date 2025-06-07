@@ -118,6 +118,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FondoPaginaCompleto.cs" />
     <Compile Include="Seguridad\CambiarContrasena.cs">
       <SubType>Form</SubType>
     </Compile>
