@@ -2,41 +2,38 @@
 using iTextSharp.text.pdf;
 using System.Drawing;
 
+// Clase para manejar el fondo de la página
 public class FondoPaginaCompleto : PdfPageEventHelper
 {
-    private readonly BaseColor _colorFondo;
-
-    public FondoPaginaCompleto(System.Drawing.Color colorFondo)
+    private readonly BaseColor colorFondo;
+    public FondoPaginaCompleto(System.Drawing.Color color)
     {
-        _colorFondo = new BaseColor(colorFondo);
+        colorFondo = new BaseColor(color.R, color.G, color.B);
     }
-
     public override void OnEndPage(PdfWriter writer, Document document)
     {
-        PdfContentByte cb = writer.DirectContentUnder;
+        // Establecer el fondo de color
+        PdfContentByte canvas = writer.DirectContentUnder;
+        canvas.SetColorFill(colorFondo);
+        canvas.Rectangle(0, 0, document.PageSize.Width, document.PageSize.Height);
+        canvas.Fill();
+    }
+    public override void OnCloseDocument(PdfWriter writer, Document document)
+    {
+        // Cambiar el fondo a blanco al imprimir
+        writer.PageEvent = new FondoPaginaBlanco();
+    }
 
-        // Crear la capa manualmente como diccionario PDF
-        PdfLayer capaPantalla = new PdfLayer("SoloPantalla", writer);
-        PdfDictionary usage = new PdfDictionary();
-
-        PdfDictionary view = new PdfDictionary();
-        view.Put(PdfName.VIEWSTATE, PdfName.ON);
-        usage.Put(PdfName.VIEW, view);
-
-        PdfDictionary print = new PdfDictionary();
-        print.Put(PdfName.PRINTSTATE, PdfName.OFF); // <- Esto desactiva impresión
-        usage.Put(PdfName.PRINT, print);
-
-        capaPantalla.Put(PdfName.USAGE, usage);
-
-        cb.BeginLayer(capaPantalla);
-        cb.SaveState();
-
-        cb.SetColorFill(_colorFondo);
-        cb.Rectangle(0, 0, document.PageSize.Width, document.PageSize.Height);
-        cb.Fill();
-
-        cb.RestoreState();
-        cb.EndLayer();
+    // Clase para el fondo blanco al imprimir
+    public class FondoPaginaBlanco : PdfPageEventHelper
+    {
+        public override void OnEndPage(PdfWriter writer, Document document)
+        {
+            // Establecer el fondo blanco
+            PdfContentByte canvas = writer.DirectContentUnder;
+            canvas.SetColorFill(BaseColor.WHITE);
+            canvas.Rectangle(0, 0, document.PageSize.Width, document.PageSize.Height);
+            canvas.Fill();
+        }
     }
 }

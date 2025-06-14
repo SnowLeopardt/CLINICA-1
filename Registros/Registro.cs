@@ -18,7 +18,7 @@ namespace CLINICA_1
     public partial class Registro : Form
     {
         // Cadena de conexión a SQL Server  //Cambiar Conexion:
-        private string connectionString = "Server=LAPTOP-M35CB1FF;Database=ClinicaVargas;Integrated Security=True;";
+        private string connectionString = "Server=localhost;Database=ClinicaVargas;Integrated Security=True;";
 
         public static string NombrePacienteSeleccionado = "";
         public Registro()

@@ -64,6 +64,7 @@ namespace CLINICA_1
             this.label24 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txtPlan = new System.Windows.Forms.RichTextBox();
             this.lblClasificacionIMC = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.txtAntecedentesPersonales = new System.Windows.Forms.TextBox();
@@ -77,7 +78,6 @@ namespace CLINICA_1
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnImprimir = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtPlan = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -569,6 +569,17 @@ namespace CLINICA_1
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
+            // txtPlan
+            // 
+            this.txtPlan.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPlan.Location = new System.Drawing.Point(116, 936);
+            this.txtPlan.Name = "txtPlan";
+            this.txtPlan.Size = new System.Drawing.Size(691, 72);
+            this.txtPlan.TabIndex = 265;
+            this.txtPlan.Text = "";
+            this.txtPlan.TextChanged += new System.EventHandler(this.txtPlan_TextChanged_1);
+            this.txtPlan.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPlan_KeyDown);
+            // 
             // lblClasificacionIMC
             // 
             this.lblClasificacionIMC.AutoSize = true;
@@ -618,7 +629,7 @@ namespace CLINICA_1
             this.txtPaciente.Name = "txtPaciente";
             this.txtPaciente.Size = new System.Drawing.Size(284, 33);
             this.txtPaciente.TabIndex = 252;
-            this.txtPaciente.TextChanged += new System.EventHandler(this.txtPaciente_TextChanged);
+            this.txtPaciente.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPaciente_KeyDown);
             // 
             // label10
             // 
@@ -746,24 +757,13 @@ namespace CLINICA_1
             this.label2.Text = "Antecedentes Personales:";
             this.label2.Click += new System.EventHandler(this.label2_Click_1);
             // 
-            // txtPlan
-            // 
-            this.txtPlan.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPlan.Location = new System.Drawing.Point(116, 936);
-            this.txtPlan.Name = "txtPlan";
-            this.txtPlan.Size = new System.Drawing.Size(691, 72);
-            this.txtPlan.TabIndex = 265;
-            this.txtPlan.Text = "";
-            this.txtPlan.TextChanged += new System.EventHandler(this.txtPlan_TextChanged_1);
-            this.txtPlan.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPlan_KeyDown);
-            // 
             // HistoriaClinica
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoScroll = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(1226, 1028);
+            this.ClientSize = new System.Drawing.Size(1260, 1028);
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);

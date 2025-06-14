@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 using System.Linq;
 using System.Windows.Forms;
 using System.Data.SqlClient;
@@ -6,13 +7,11 @@ using System.IO;
 using System.Diagnostics;
 using DocumentFormat.OpenXml.Packaging;
 using DocumentFormat.OpenXml.Wordprocessing;
-using PdfDocument = iTextSharp.text.Document;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
 using WordDocument = DocumentFormat.OpenXml.Wordprocessing.Document;
 using WordParagraph = DocumentFormat.OpenXml.Wordprocessing.Paragraph;
 using WordRun = DocumentFormat.OpenXml.Wordprocessing.Run;
-using WordBreak = DocumentFormat.OpenXml.Wordprocessing.Break;
 using WordBody = DocumentFormat.OpenXml.Wordprocessing.Body;
 using WordText = DocumentFormat.OpenXml.Wordprocessing.Text;
 using WordRunProperties = DocumentFormat.OpenXml.Wordprocessing.RunProperties;
@@ -20,9 +19,9 @@ using WordBold = DocumentFormat.OpenXml.Wordprocessing.Bold;
 using WordFontSize = DocumentFormat.OpenXml.Wordprocessing.FontSize;
 using DocumentFormat.OpenXml;
 
-
 namespace CLINICA_1
 {
+    
     public partial class HistoriaClinica : Form
     {
         //Cambiar Conexion:
@@ -30,12 +29,16 @@ namespace CLINICA_1
         string clasificacionIMC = "";
         private int pacienteId;
 
+        
         public HistoriaClinica() : this(0) { }
         public HistoriaClinica(int idPaciente)
         {
             InitializeComponent();
-
+            
+            txtPaciente.KeyDown += txtPaciente_KeyDown;
+            
             pacienteId = idPaciente;
+           
             CargarNombrePaciente();
 
             txtPeso.KeyPress += txtPeso_KeyPress;
@@ -250,13 +253,13 @@ INSERT INTO HistoriaClinica(
     Paciente, ConsultaPor, PresenteEnfermedad, AntecedentesPersonales, PresionArterial,
     FrecuenciaCardiaca, FrecuenciaRespiratoria, SaturacionOxigeno, Peso, Talla,
     IndiceMasaCorporal, ClasificacionIMC, ExamenFisico, ExamenesLaboratorios,
-    ExamenesGabinete, Impresion, [Plan]
+    ExamenesGabinete, Impresion, [Plan], FechaHoraRegistro
 ) VALUES(
     @Paciente, @ConsultaPor, @PresenteEnfermedad, @AntecedentesPersonales, @PresionArterial,
     @FrecuenciaCardiaca, @FrecuenciaRespiratoria, @SaturacionOxigeno, @Peso, @Talla,
     @IndiceMasaCorporal, @ClasificacionIMC, @ExamenFisico, @ExamenesLaboratorios,
-    @ExamenesGabinete, @Impresion, @Plan
-); ";
+    @ExamenesGabinete, @Impresion, @Plan, @FechaHoraRegistro
+);";
 
                     using (SqlCommand cmd = new SqlCommand(query, con))
                     {
@@ -285,6 +288,7 @@ INSERT INTO HistoriaClinica(
                         cmd.Parameters.AddWithValue("@ExamenesGabinete", txtExamenesGabinete.Text);
                         cmd.Parameters.AddWithValue("@Impresion", txtImpresion.Text);
                         cmd.Parameters.AddWithValue("@Plan", txtPlan.Text);
+                        cmd.Parameters.AddWithValue("@FechaHoraRegistro", DateTime.Now);
 
                         try
                         {
@@ -358,6 +362,7 @@ INSERT INTO HistoriaClinica(
 
                                 AddLabeledParagraph("Paciente:", txtPaciente.Text);
                                 AddLabeledParagraph("Consulta por:", txtConsultaPor.Text);
+                                AddLabeledParagraph("Fecha y Hora:", DateTime.Now.ToString("dd/MM/yyyy hh:mm tt"));
                                 AddLabeledParagraph("Presente Enfermedad:", txtPresenteEnfermedad.Text);
                                 AddLabeledParagraph("Antecedentes Personales:", txtAntecedentesPersonales.Text);
 
@@ -412,6 +417,56 @@ INSERT INTO HistoriaClinica(
                 txtExamenFisico.Clear();
             }
         }
+
+
+
+        public string LeerAntecedentesPaciente(string ruta)
+        {
+            try
+            {
+                using (WordprocessingDocument doc = WordprocessingDocument.Open(ruta, false))
+                {
+                    var body = doc.MainDocumentPart.Document.Body;
+                    var paragraphs = body.Elements<DocumentFormat.OpenXml.Wordprocessing.Paragraph>().ToList();
+
+                    bool dentroDeAntecedentes = false;
+                    StringBuilder resultado = new StringBuilder();
+
+                    foreach (var p in paragraphs)
+                    {
+                        string texto = p.InnerText.Trim();
+
+                        if (!dentroDeAntecedentes)
+                        {
+                            if (texto.Equals("Antecedentes Personales:", StringComparison.OrdinalIgnoreCase))
+                            {
+                                dentroDeAntecedentes = true;
+                                continue;
+                            }
+                        }
+                        else
+                        {
+                            if (texto.EndsWith(":") && texto.Length < 50)
+                                break;
+
+                            if (!string.IsNullOrWhiteSpace(texto))
+                                resultado.AppendLine(texto);
+                        }
+                    }
+
+                    return resultado.ToString().Trim();
+                }
+            }
+            catch
+            {
+                return "";
+            }
+        }
+
+
+
+
+
         private void CalcularIMC()
         {
             if (double.TryParse(txtPeso.Text, out double peso) &&
@@ -637,8 +692,6 @@ INSERT INTO HistoriaClinica(
                 MessageBox.Show("Error al generar el PDF: " + ex.Message);
             }
         
-    
-
         // Método para limpiar los campos
         void LimpiarCampos()
             {
@@ -730,22 +783,21 @@ INSERT INTO HistoriaClinica(
     Paciente, ConsultaPor, PresenteEnfermedad, AntecedentesPersonales, PresionArterial,
     FrecuenciaCardiaca, FrecuenciaRespiratoria, SaturacionOxigeno, Peso, Talla,
     IndiceMasaCorporal, ClasificacionIMC, ExamenFisico, ExamenesLaboratorios,
-    ExamenesGabinete, Impresion, [Plan]
+    ExamenesGabinete, Impresion, [Plan], FechaHoraRegistro
 ) VALUES(
     @Paciente, @ConsultaPor, @PresenteEnfermedad, @AntecedentesPersonales, @PresionArterial,
     @FrecuenciaCardiaca, @FrecuenciaRespiratoria, @SaturacionOxigeno, @Peso, @Talla,
     @IndiceMasaCorporal, @ClasificacionIMC, @ExamenFisico, @ExamenesLaboratorios,
-    @ExamenesGabinete, @Impresion, @Plan
-); ";
+    @ExamenesGabinete, @Impresion, @Plan, @FechaHoraRegistro
+);";
 
                     using (SqlCommand cmd = new SqlCommand(query, con))
                     {
-                        // Parámetros visibles en la imagen
+                        // Parámetros
                         cmd.Parameters.AddWithValue("@Paciente", txtPaciente.Text);
                         cmd.Parameters.AddWithValue("@ConsultaPor", txtConsultaPor.Text);
                         cmd.Parameters.AddWithValue("@PresenteEnfermedad", txtPresenteEnfermedad.Text);
                         cmd.Parameters.AddWithValue("@AntecedentesPersonales", txtAntecedentesPersonales.Text);
-
                         cmd.Parameters.AddWithValue("@PresionArterial", txtPresion.Text);
                         cmd.Parameters.AddWithValue("@FrecuenciaCardiaca", txtFC.Text);
                         cmd.Parameters.AddWithValue("@FrecuenciaRespiratoria", txtFR.Text);
@@ -753,18 +805,20 @@ INSERT INTO HistoriaClinica(
                         cmd.Parameters.AddWithValue("@Peso", txtPeso.Text);
                         cmd.Parameters.AddWithValue("@Talla", txtTalla.Text);
                         cmd.Parameters.AddWithValue("@IndiceMasaCorporal", txtMasaCorporal.Text);
-                        // Truncamiento de Clasificación IMC
+
                         string clasificacionIMC = lblClasificacionIMC.Text;
-                        if (clasificacionIMC.Length > 50) // o el límite real de tu campo en SQL
+                        if (clasificacionIMC.Length > 50)
                         {
                             clasificacionIMC = clasificacionIMC.Substring(0, 50);
                         }
                         cmd.Parameters.AddWithValue("@ClasificacionIMC", clasificacionIMC);
+
                         cmd.Parameters.AddWithValue("@ExamenFisico", txtExamenFisico.Text);
                         cmd.Parameters.AddWithValue("@ExamenesLaboratorios", txtExamenesLaboratorio.Text);
                         cmd.Parameters.AddWithValue("@ExamenesGabinete", txtExamenesGabinete.Text);
                         cmd.Parameters.AddWithValue("@Impresion", txtImpresion.Text);
                         cmd.Parameters.AddWithValue("@Plan", txtPlan.Text);
+                        cmd.Parameters.AddWithValue("@FechaHoraRegistro", DateTime.Now);
 
                         try
                         {
@@ -775,10 +829,10 @@ INSERT INTO HistoriaClinica(
                             // GENERAR DOCUMENTO WORD
                             // ================================
                             string pacienteFolder = Path.Combine(
-                                Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments),
-                                "Pacientes",
-                                txtPaciente.Text.Trim()
-                            );
+                               Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments),
+                               "Pacientes",
+                               txtPaciente.Text.Trim()
+                               );
 
                             if (!Directory.Exists(pacienteFolder))
                             {
@@ -786,8 +840,9 @@ INSERT INTO HistoriaClinica(
                                 return;
                             }
 
-                            string fileName = $"HistoriaClinica_{txtPaciente.Text.Trim()}.docx";
-                            string docPath = Path.Combine(pacienteFolder, fileName);
+                            string timestamp = DateTime.Now.ToString("dd-MM-yyyy_hh-mm-tt");
+                            string fileName = $"HistoriaClinica_{txtPaciente.Text.Trim()}_{timestamp}.docx";
+                            string docPath = Path.Combine(pacienteFolder, fileName);  // <== AQUÍ SE DECLARA
 
                             using (WordprocessingDocument wordDoc = WordprocessingDocument.Create(docPath, DocumentFormat.OpenXml.WordprocessingDocumentType.Document))
                             {
@@ -795,47 +850,71 @@ INSERT INTO HistoriaClinica(
                                 mainPart.Document = new WordDocument();
                                 WordBody body = new WordBody();
 
-                                void AddParagraph(string text, bool bold = false, int fontSize = 24)
+
+                                void AddLabeledParagraph(string label, string value)
                                 {
-                                    WordRunProperties props = new WordRunProperties();
-                                    props.Append(new WordFontSize() { Val = fontSize.ToString() });
+                                    // Agrega la etiqueta (en negrita)
+                                    var labelPara = new WordParagraph(
+                                        new WordRun(
+                                            new WordRunProperties(new WordBold()),
+                                            new WordText() { Text = label, Space = SpaceProcessingModeValues.Preserve }
+                                        )
+                                    );
+                                    labelPara.ParagraphProperties = new ParagraphProperties(
+                                        new SpacingBetweenLines() { After = "0" }
+                                    );
+                                    body.Append(labelPara);
 
-                                    if (bold)
-                                        props.Append(new WordBold());
+                                    // Divide el contenido en líneas y preserva espacios/numeraciones
+                                    string[] lines = value.Split(new[] { "\r\n", "\n" }, StringSplitOptions.None);
+                                    foreach (string line in lines)
+                                    {
+                                        var valuePara = new WordParagraph(
+                                            new WordRun(
+                                                new WordText() { Text = line, Space = SpaceProcessingModeValues.Preserve }
+                                            )
+                                        );
+                                        valuePara.ParagraphProperties = new ParagraphProperties(
+                                            new SpacingBetweenLines() { After = "100" }
+                                        );
+                                        body.Append(valuePara);
+                                    }
+                                }
 
-                                    WordRun run = new WordRun();
-                                    run.Append(props);
-                                    run.Append(new WordText(text));
-
-                                    WordParagraph para = new WordParagraph(run);
+                                void AddTitle(string text, int fontSize = 32)
+                                {
+                                    WordRunProperties props = new WordRunProperties(new WordBold(), new WordFontSize() { Val = fontSize.ToString() });
+                                    WordParagraph para = new WordParagraph(new WordRun(props, new WordText(text)));
                                     body.Append(para);
                                 }
 
                                 // Contenido del documento Word
-                                AddParagraph("HISTORIA CLÍNICA", bold: true, fontSize: 32);
-                                AddParagraph($"Paciente: {txtPaciente.Text}");
-                                AddParagraph($"Consulta por: {txtConsultaPor.Text}");
-                                AddParagraph($"Presente Enfermedad: {txtPresenteEnfermedad.Text}");
-                                AddParagraph($"Antecedentes Personales: {txtAntecedentesPersonales.Text}");
+                                AddTitle("HISTORIA CLÍNICA");
 
-                                AddParagraph($"Presión Arterial: {txtPresion.Text}");
-                                AddParagraph($"Frecuencia Cardiaca: {txtFC.Text}");
-                                AddParagraph($"Frecuencia Respiratoria: {txtFR.Text}");
-                                AddParagraph($"Saturación Oxígeno: {txtSaturacion.Text}");
-                                AddParagraph($"Peso: {txtPeso.Text}");
-                                AddParagraph($"Talla: {txtTalla.Text}");
-                                AddParagraph($"IMC: {txtMasaCorporal.Text}");
-                                AddParagraph($"Clasificación IMC: {lblClasificacionIMC.Text}");
+                                AddLabeledParagraph("Paciente:", txtPaciente.Text);
+                                AddLabeledParagraph("Consulta por:", txtConsultaPor.Text);
+                                AddLabeledParagraph("Fecha y Hora:", DateTime.Now.ToString("dd/MM/yyyy hh:mm tt"));
+                                AddLabeledParagraph("Presente Enfermedad:", txtPresenteEnfermedad.Text);
+                                AddLabeledParagraph("Antecedentes Personales:", txtAntecedentesPersonales.Text);
 
+                                AddLabeledParagraph("Presión Arterial:", txtPresion.Text);
+                                AddLabeledParagraph("Frecuencia Cardiaca:", txtFC.Text);
+                                AddLabeledParagraph("Frecuencia Respiratoria:", txtFR.Text);
+                                AddLabeledParagraph("Saturación Oxígeno:", txtSaturacion.Text);
+                                AddLabeledParagraph("Peso:", txtPeso.Text);
+                                AddLabeledParagraph("Talla:", txtTalla.Text);
+                                AddLabeledParagraph("IMC:", txtMasaCorporal.Text);
+                                AddLabeledParagraph("Clasificación IMC:", lblClasificacionIMC.Text);
 
-                                AddParagraph($"Examen Físico: {txtExamenFisico.Text}");
-                                AddParagraph($"Exámenes de Laboratorios: {txtExamenesLaboratorio.Text}");
-                                AddParagraph($"Exámenes de Gabinete: {txtExamenesGabinete.Text}");
-                                AddParagraph($"Impresión Diagnóstica: {txtImpresion.Text}");
-                                AddParagraph($"Plan: {txtPlan.Text}");
+                                AddLabeledParagraph("Examen Físico:", txtExamenFisico.Text);
+                                AddLabeledParagraph("Exámenes de Laboratorios:", txtExamenesLaboratorio.Text);
+                                AddLabeledParagraph("Exámenes de Gabinete:", txtExamenesGabinete.Text);
+                                AddLabeledParagraph("Impresión Diagnóstica:", txtImpresion.Text);
+                                AddLabeledParagraph("Plan:", txtPlan.Text); // Aquí se usa la versión corregida
 
                                 mainPart.Document.Append(body);
                                 mainPart.Document.Save();
+
                             }
 
                             MessageBox.Show("Datos guardados correctamente y documento Word generado.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -847,11 +926,10 @@ INSERT INTO HistoriaClinica(
                         }
                     }
                 }
-
             }
         }
-        
-        void LimpiarCampos()
+
+            void LimpiarCampos()
         {
             txtConsultaPor.Clear();
             txtPaciente.Clear();
@@ -1031,10 +1109,62 @@ INSERT INTO HistoriaClinica(
 
         }
 
-        private void txtPaciente_TextChanged(object sender, EventArgs e)
+        private string ObtenerRutaUltimoArchivo(string nombrePaciente)
         {
+            foreach (char c in Path.GetInvalidFileNameChars())
+                nombrePaciente = nombrePaciente.Replace(c.ToString(), "");
 
+            string carpetaPaciente = Path.Combine(
+                Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments),
+                "Pacientes",
+                nombrePaciente
+            );
+
+            if (!Directory.Exists(carpetaPaciente))
+                return null;
+
+            string prefijo = $"HistoriaClinica_{nombrePaciente}_";
+            var archivos = Directory.GetFiles(carpetaPaciente, $"{prefijo}*.docx");
+
+            if (archivos.Length == 0)
+                return null;
+
+            return archivos.OrderByDescending(f => File.GetLastWriteTime(f)).First();
         }
+
+
+        private void txtPaciente_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                string nombrePaciente = txtPaciente.Text.Trim();
+
+                // Si está vacío o menor de 3 caracteres, limpia antecedentes y termina
+                if (string.IsNullOrWhiteSpace(nombrePaciente) || nombrePaciente.Length < 3)
+                {
+                    txtAntecedentesPersonales.Clear();
+                    return;
+                }
+
+                string ruta = ObtenerRutaUltimoArchivo(nombrePaciente);
+
+                if (!string.IsNullOrEmpty(ruta) && File.Exists(ruta))
+                {
+                    string antecedentes = LeerAntecedentesPaciente(ruta);
+                    txtAntecedentesPersonales.Text = antecedentes;
+                }
+                else
+                {
+                    MessageBox.Show("No se encontró el archivo para el paciente: " + nombrePaciente);
+                    txtAntecedentesPersonales.Clear(); // Asegurar que se limpie si no se encontró
+                }
+            }
+        }
+
+
+
+
 
         private void label10_Click_1(object sender, EventArgs e)
         {
@@ -1091,6 +1221,8 @@ INSERT INTO HistoriaClinica(
                 txtPlan.AppendText(Environment.NewLine + (totalLines + 1).ToString() + ". ");
             }
         }
+
+      
     }
 }
 
