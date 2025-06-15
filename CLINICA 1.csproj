@@ -222,6 +222,7 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Content Include="Imagenes\logoredondo.png" />
     <Content Include="Imagenes\sello jvpm.png" />
     <Content Include="Imagenes\selloimprimir.png" />
   </ItemGroup>

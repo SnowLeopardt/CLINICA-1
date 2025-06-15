@@ -21,7 +21,7 @@ using DocumentFormat.OpenXml;
 
 namespace CLINICA_1
 {
-    
+
     public partial class HistoriaClinica : Form
     {
         //Cambiar Conexion:
@@ -29,16 +29,16 @@ namespace CLINICA_1
         string clasificacionIMC = "";
         private int pacienteId;
 
-        
+
         public HistoriaClinica() : this(0) { }
         public HistoriaClinica(int idPaciente)
         {
             InitializeComponent();
-            
+
             txtPaciente.KeyDown += txtPaciente_KeyDown;
-            
+
             pacienteId = idPaciente;
-           
+
             CargarNombrePaciente();
 
             txtPeso.KeyPress += txtPeso_KeyPress;
@@ -580,9 +580,50 @@ INSERT INTO HistoriaClinica(
                 writer.PageEvent = new FondoPaginaCompleto(System.Drawing.SystemColors.ActiveCaption); // Fondo solo pantalla
                 pdfDoc.Open();
 
-                // Agregar imagen sello arriba a la derecha
-                string rutaImagenSello = @"C:\Users\User\OneDrive\Documentos\imagenes\selloimprimir.png";
+                // ============================== ENCABEZADO ==============================
+                string rutaLogo = @"C:\Users\emili\Downloads\logoredondo.png"; // Ruta real del logo
+                if (File.Exists(rutaLogo))
+                {
+                    iTextSharp.text.Image logo = iTextSharp.text.Image.GetInstance(rutaLogo);
+                    logo.ScaleAbsolute(80f, 80f); // Tamaño del logo
+                    logo.SetAbsolutePosition(40f, pdfDoc.PageSize.Height - 100f); // Arriba izquierda
+                    pdfDoc.Add(logo);
+                }
 
+                var fuenteTituloClinica = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 16);
+                var fuenteDatosClinica = FontFactory.GetFont(FontFactory.HELVETICA, 11);
+
+                // Espacio debajo del logo
+                pdfDoc.Add(new iTextSharp.text.Paragraph("\n"));
+
+                // Nombre clínica centrado
+                iTextSharp.text.Paragraph nombreClinica = new iTextSharp.text.Paragraph("CLÍNICA DE EMERGENCIAS VARGAS", fuenteTituloClinica)
+                {
+                    Alignment = Element.ALIGN_CENTER,
+                    SpacingAfter = 4f
+                };
+                pdfDoc.Add(nombreClinica);
+
+                // Nombre doctor
+                iTextSharp.text.Paragraph nombreDoctor = new iTextSharp.text.Paragraph("Dr. Atilio Vargas Trejo No. Inscripcion: 1763", fuenteDatosClinica)
+                {
+                    Alignment = Element.ALIGN_CENTER
+                };
+                pdfDoc.Add(nombreDoctor);
+
+
+                // Dirección
+                iTextSharp.text.Paragraph direccionClinica = new iTextSharp.text.Paragraph("16ª. Avenida Norte #12 Bis.Laboratorio Clínico “Vargas” Col.Soriano Usulután Este", fuenteDatosClinica)
+                {
+                    Alignment = Element.ALIGN_CENTER,
+                    SpacingAfter = 15f
+                };
+          
+                pdfDoc.Add(direccionClinica);
+                // =======================================================================
+
+                // Agregar imagen sello arriba a la derecha
+                string rutaImagenSello = Path.Combine(Application.StartupPath, "imagenes", "selloimprimir.png");
                 if (File.Exists(rutaImagenSello))
                 {
                     iTextSharp.text.Image sello = iTextSharp.text.Image.GetInstance(rutaImagenSello);
@@ -651,10 +692,7 @@ INSERT INTO HistoriaClinica(
                 AddCampoValor("Fecha de Nacimiento", fechaNacimiento.ToShortDateString());
                 AddCampoValor("Teléfono", telefono);
                 AddCampoValor("Dirección", direccion);
-                AddCampoValor("DUI", dui);
-
-                pdfDoc.Add(new iTextSharp.text.Paragraph("\n"));
-
+                AddCampoValor("DUI", dui);     
                 AddCampoValor("Responsable", responsable);
                 AddCampoValor("Telefono Responsable", telResponsable);
                 AddCampoValor("Direccion Responsable", dirResponsable);
