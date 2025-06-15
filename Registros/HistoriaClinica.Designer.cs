@@ -78,6 +78,7 @@ namespace CLINICA_1
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnImprimir = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
+            this.btnAnteriores = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -517,6 +518,7 @@ namespace CLINICA_1
             // panel1
             // 
             this.panel1.AutoScroll = true;
+            this.panel1.Controls.Add(this.btnAnteriores);
             this.panel1.Controls.Add(this.txtPlan);
             this.panel1.Controls.Add(this.lblClasificacionIMC);
             this.panel1.Controls.Add(this.button1);
@@ -757,6 +759,19 @@ namespace CLINICA_1
             this.label2.Text = "Antecedentes Personales:";
             this.label2.Click += new System.EventHandler(this.label2_Click_1);
             // 
+            // btnAnteriores
+            // 
+            this.btnAnteriores.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(176)))), ((int)(((byte)(73)))));
+            this.btnAnteriores.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAnteriores.ForeColor = System.Drawing.Color.White;
+            this.btnAnteriores.Location = new System.Drawing.Point(259, 806);
+            this.btnAnteriores.Name = "btnAnteriores";
+            this.btnAnteriores.Size = new System.Drawing.Size(80, 27);
+            this.btnAnteriores.TabIndex = 266;
+            this.btnAnteriores.Text = "Anteriores:";
+            this.btnAnteriores.UseVisualStyleBackColor = false;
+            this.btnAnteriores.Click += new System.EventHandler(this.btnAnteriores_Click);
+            // 
             // HistoriaClinica
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -829,5 +844,6 @@ namespace CLINICA_1
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label lblClasificacionIMC;
         private System.Windows.Forms.RichTextBox txtPlan;
+        private System.Windows.Forms.Button btnAnteriores;
     }
 }

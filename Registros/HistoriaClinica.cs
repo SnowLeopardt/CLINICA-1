@@ -18,6 +18,7 @@ using WordRunProperties = DocumentFormat.OpenXml.Wordprocessing.RunProperties;
 using WordBold = DocumentFormat.OpenXml.Wordprocessing.Bold;
 using WordFontSize = DocumentFormat.OpenXml.Wordprocessing.FontSize;
 using DocumentFormat.OpenXml;
+using System.Globalization;
 
 namespace CLINICA_1
 {
@@ -47,6 +48,50 @@ namespace CLINICA_1
 
             txtMasaCorporal.ReadOnly = true;
         }
+
+
+        private void btnAnteriores_Click(object sender, EventArgs e)
+        {
+            string examenes = ObtenerExamenesLaboratorioAnteriores();
+            ores ventana = new ores(examenes);
+            ventana.ShowDialog();
+        }
+
+        private string ObtenerExamenesLaboratorioAnteriores()
+        {
+            string resultado = "";
+
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                con.Open();
+                string query = "SELECT ExamenesLaboratorios FROM HistoriaClinica WHERE Paciente = @Paciente";
+
+                using (SqlCommand cmd = new SqlCommand(query, con))
+                {
+                    cmd.Parameters.AddWithValue("@Paciente", txtPaciente.Text);
+
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            string examenes = reader["ExamenesLaboratorios"].ToString();
+
+                            // Divide por salto de línea si hay varios exámenes en una sola celda
+                            string[] lista = examenes.Split(new[] { '\n', '\r' }, StringSplitOptions.RemoveEmptyEntries);
+
+                            foreach (var examen in lista)
+                            {
+                                resultado += "• " + examen.Trim() + Environment.NewLine;
+                            }
+                        }
+                    }
+                }
+            }
+
+            return resultado;
+        }
+
+
 
         private void CargarNombrePaciente()
         {
@@ -244,6 +289,12 @@ namespace CLINICA_1
         private void guardar_Click(object sender, EventArgs e)
         {
             CalcularIMC();
+            // Validación
+            if (string.IsNullOrWhiteSpace(txtPaciente.Text))
+            {
+                MessageBox.Show("El campo 'Paciente' no puede estar vacío.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
             using (SqlConnection con = new SqlConnection(connectionString))
             {
@@ -464,14 +515,10 @@ INSERT INTO HistoriaClinica(
             }
         }
 
-
-
-
-
         private void CalcularIMC()
         {
-            if (double.TryParse(txtPeso.Text, out double peso) &&
-                double.TryParse(txtTalla.Text, out double tallaEnMetros) && tallaEnMetros > 0)
+            if (double.TryParse(txtPeso.Text, NumberStyles.Any, CultureInfo.InvariantCulture, out double peso) &&
+         double.TryParse(txtTalla.Text, NumberStyles.Any, CultureInfo.InvariantCulture, out double tallaEnMetros) && tallaEnMetros > 0)
             {
                 double imc = peso / (tallaEnMetros * tallaEnMetros);
                 txtMasaCorporal.Text = imc.ToString("0.00");
@@ -577,8 +624,16 @@ INSERT INTO HistoriaClinica(
                 string rutaPDF = Path.Combine(Path.GetTempPath(), $"HistoriaClinica_{txtPaciente.Text.Trim()}.pdf");
 
                 iTextSharp.text.Document pdfDoc = new iTextSharp.text.Document(iTextSharp.text.PageSize.A4, 40f, 40f, 40f, 40f);
+                bool modoImpresion = true; // true = fondo blanco para imprimir, false = fondo de color para pantalla
                 PdfWriter writer = PdfWriter.GetInstance(pdfDoc, new FileStream(rutaPDF, FileMode.Create));
-                writer.PageEvent = new FondoPaginaCompleto(System.Drawing.SystemColors.ActiveCaption); // Fondo solo pantalla
+                if (modoImpresion)
+                {
+                    writer.PageEvent = new FondoPaginaBlanco();
+                }
+                else
+                {
+                    writer.PageEvent = new FondoPaginaCompleto(System.Drawing.SystemColors.ActiveCaption);
+                }
                 pdfDoc.Open();
 
                 // ============================== ENCABEZADO ==============================
@@ -619,8 +674,8 @@ INSERT INTO HistoriaClinica(
                     Alignment = Element.ALIGN_CENTER,
                     SpacingAfter = 15f
                 };
-          
-                pdfDoc.Add(direccionClinica);             
+
+                pdfDoc.Add(direccionClinica);
                 // ========================== LÍNEA DESPUÉS DEL ENCABEZADO ==========================
                 PdfContentByte cb = writer.DirectContent;
                 cb.SetLineWidth(1f);
@@ -705,7 +760,7 @@ INSERT INTO HistoriaClinica(
                 AddCampoValor("Fecha de Nacimiento", fechaNacimiento.ToShortDateString());
                 AddCampoValor("Teléfono", telefono);
                 AddCampoValor("Dirección", direccion);
-                AddCampoValor("DUI", dui);     
+                AddCampoValor("DUI", dui);
                 AddCampoValor("Responsable", responsable);
                 AddCampoValor("Telefono Responsable", telResponsable);
                 AddCampoValor("Direccion Responsable", dirResponsable);
@@ -742,9 +797,9 @@ INSERT INTO HistoriaClinica(
             {
                 MessageBox.Show("Error al generar el PDF: " + ex.Message);
             }
-        
-        // Método para limpiar los campos
-        void LimpiarCampos()
+
+            // Método para limpiar los campos
+            void LimpiarCampos()
             {
                 txtConsultaPor.Clear();
                 txtPaciente.Clear();
@@ -824,6 +879,13 @@ INSERT INTO HistoriaClinica(
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             CalcularIMC();
+         
+            // Validación
+            if (string.IsNullOrWhiteSpace(txtPaciente.Text))
+            {
+                MessageBox.Show("Completar todos los campos de la historia clinica.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
             using (SqlConnection con = new SqlConnection(connectionString))
             {
@@ -980,7 +1042,7 @@ INSERT INTO HistoriaClinica(
             }
         }
 
-            void LimpiarCampos()
+        void LimpiarCampos()
         {
             txtConsultaPor.Clear();
             txtPaciente.Clear();
@@ -1160,6 +1222,7 @@ INSERT INTO HistoriaClinica(
 
         }
 
+        //Esto es para lo de mostrar los datos antecedentes
         private string ObtenerRutaUltimoArchivo(string nombrePaciente)
         {
             foreach (char c in Path.GetInvalidFileNameChars())
@@ -1213,10 +1276,6 @@ INSERT INTO HistoriaClinica(
             }
         }
 
-
-
-
-
         private void label10_Click_1(object sender, EventArgs e)
         {
 
@@ -1259,7 +1318,7 @@ INSERT INTO HistoriaClinica(
 
         private void txtPlan_TextChanged_1(object sender, EventArgs e)
         {
-    
+
         }
 
         private void txtPlan_KeyDown(object sender, KeyEventArgs e)
@@ -1272,8 +1331,24 @@ INSERT INTO HistoriaClinica(
                 txtPlan.AppendText(Environment.NewLine + (totalLines + 1).ToString() + ". ");
             }
         }
+
+
+
+
+        public class FondoPaginaBlanco : iTextSharp.text.pdf.PdfPageEventHelper
+        {
+            public override void OnEndPage(iTextSharp.text.pdf.PdfWriter writer, iTextSharp.text.Document document)
+            {
+                var content = writer.DirectContentUnder;
+                content.SaveState();
+                content.SetColorFill(iTextSharp.text.BaseColor.WHITE);
+                content.Rectangle(0, 0, document.PageSize.Width, document.PageSize.Height);
+                content.Fill();
+                content.RestoreState();
+            }
+        }
     }
-  }
+}
 
 
     

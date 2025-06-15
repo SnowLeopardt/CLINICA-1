@@ -119,6 +119,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FondoPaginaCompleto.cs" />
+    <Compile Include="FormExamenesAnteriores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormExamenesAnteriores.Designer.cs">
+      <DependentUpon>FormExamenesAnteriores.cs</DependentUpon>
+    </Compile>
     <Compile Include="Seguridad\CambiarContrasena.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -168,6 +174,9 @@
       <DependentUpon>HistoriaClinica.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormExamenesAnteriores.resx">
+      <DependentUpon>FormExamenesAnteriores.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Seguridad\CambiarContrasena.resx">
       <DependentUpon>CambiarContrasena.cs</DependentUpon>
     </EmbeddedResource>
