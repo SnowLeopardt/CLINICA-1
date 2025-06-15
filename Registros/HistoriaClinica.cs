@@ -35,6 +35,7 @@ namespace CLINICA_1
         {
             InitializeComponent();
 
+
             txtPaciente.KeyDown += txtPaciente_KeyDown;
 
             pacienteId = idPaciente;
@@ -605,7 +606,7 @@ INSERT INTO HistoriaClinica(
                 pdfDoc.Add(nombreClinica);
 
                 // Nombre doctor
-                iTextSharp.text.Paragraph nombreDoctor = new iTextSharp.text.Paragraph("Dr. Atilio Vargas Trejo No. Inscripcion: 1763", fuenteDatosClinica)
+                iTextSharp.text.Paragraph nombreDoctor = new iTextSharp.text.Paragraph("Dr. Atilio Vargas Trejo No. Inscripcion: 1763.", fuenteDatosClinica)
                 {
                     Alignment = Element.ALIGN_CENTER
                 };
@@ -613,14 +614,26 @@ INSERT INTO HistoriaClinica(
 
 
                 // Dirección
-                iTextSharp.text.Paragraph direccionClinica = new iTextSharp.text.Paragraph("16ª. Avenida Norte #12 Bis.Laboratorio Clínico “Vargas” Col.Soriano Usulután Este", fuenteDatosClinica)
+                iTextSharp.text.Paragraph direccionClinica = new iTextSharp.text.Paragraph("16ª. Avenida Norte #12 Bis.Laboratorio Clínico “Vargas” Col.Soriano Usulután Este.", fuenteDatosClinica)
                 {
                     Alignment = Element.ALIGN_CENTER,
                     SpacingAfter = 15f
                 };
           
-                pdfDoc.Add(direccionClinica);
-                // =======================================================================
+                pdfDoc.Add(direccionClinica);             
+                // ========================== LÍNEA DESPUÉS DEL ENCABEZADO ==========================
+                PdfContentByte cb = writer.DirectContent;
+                cb.SetLineWidth(1f);
+
+                float margenIzquierdo = 40f;
+                float margenDerecho = pdfDoc.PageSize.Width - 40f;
+                float posicionY = pdfDoc.PageSize.Height - 150f; // Ajusta si necesitas moverla más arriba o abajo
+
+                cb.MoveTo(margenIzquierdo, posicionY);
+                cb.LineTo(margenDerecho, posicionY);
+                cb.Stroke();
+                // ==================================================================================
+                pdfDoc.Add(new iTextSharp.text.Paragraph("\n"));
 
                 // Agregar imagen sello arriba a la derecha
                 string rutaImagenSello = Path.Combine(Application.StartupPath, "imagenes", "selloimprimir.png");
@@ -1259,10 +1272,9 @@ INSERT INTO HistoriaClinica(
                 txtPlan.AppendText(Environment.NewLine + (totalLines + 1).ToString() + ". ");
             }
         }
-
-      
     }
-}
+  }
+
 
     
 
