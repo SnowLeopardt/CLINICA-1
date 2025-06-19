@@ -49,7 +49,6 @@ namespace CLINICA_1
             this.label21 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
-            this.txtImpresion = new System.Windows.Forms.TextBox();
             this.txtTalla = new System.Windows.Forms.TextBox();
             this.txtPresion = new System.Windows.Forms.TextBox();
             this.txtFC = new System.Windows.Forms.TextBox();
@@ -64,6 +63,7 @@ namespace CLINICA_1
             this.label24 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnAnteriores = new System.Windows.Forms.Button();
             this.txtPlan = new System.Windows.Forms.RichTextBox();
             this.lblClasificacionIMC = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
@@ -78,7 +78,7 @@ namespace CLINICA_1
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnImprimir = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.btnAnteriores = new System.Windows.Forms.Button();
+            this.rtbImpresionDiagnostica = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -336,19 +336,6 @@ namespace CLINICA_1
             this.label23.Text = "Examenes de Gabinete:";
             this.label23.Click += new System.EventHandler(this.label23_Click);
             // 
-            // txtImpresion
-            // 
-            this.txtImpresion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtImpresion.Location = new System.Drawing.Point(870, 838);
-            this.txtImpresion.MaxLength = 70000;
-            this.txtImpresion.Multiline = true;
-            this.txtImpresion.Name = "txtImpresion";
-            this.txtImpresion.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtImpresion.Size = new System.Drawing.Size(313, 68);
-            this.txtImpresion.TabIndex = 238;
-            this.txtImpresion.UseWaitCursor = true;
-            this.txtImpresion.TextChanged += new System.EventHandler(this.txtImpresion_TextChanged);
-            // 
             // txtTalla
             // 
             this.txtTalla.Anchor = System.Windows.Forms.AnchorStyles.Left;
@@ -518,6 +505,7 @@ namespace CLINICA_1
             // panel1
             // 
             this.panel1.AutoScroll = true;
+            this.panel1.Controls.Add(this.rtbImpresionDiagnostica);
             this.panel1.Controls.Add(this.btnAnteriores);
             this.panel1.Controls.Add(this.txtPlan);
             this.panel1.Controls.Add(this.lblClasificacionIMC);
@@ -542,7 +530,6 @@ namespace CLINICA_1
             this.panel1.Controls.Add(this.txtFC);
             this.panel1.Controls.Add(this.txtPresion);
             this.panel1.Controls.Add(this.txtTalla);
-            this.panel1.Controls.Add(this.txtImpresion);
             this.panel1.Controls.Add(this.label23);
             this.panel1.Controls.Add(this.label22);
             this.panel1.Controls.Add(this.label21);
@@ -570,6 +557,19 @@ namespace CLINICA_1
             this.panel1.Size = new System.Drawing.Size(1197, 1050);
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // btnAnteriores
+            // 
+            this.btnAnteriores.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(176)))), ((int)(((byte)(73)))));
+            this.btnAnteriores.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAnteriores.ForeColor = System.Drawing.Color.White;
+            this.btnAnteriores.Location = new System.Drawing.Point(259, 806);
+            this.btnAnteriores.Name = "btnAnteriores";
+            this.btnAnteriores.Size = new System.Drawing.Size(80, 27);
+            this.btnAnteriores.TabIndex = 266;
+            this.btnAnteriores.Text = "Anteriores:";
+            this.btnAnteriores.UseVisualStyleBackColor = false;
+            this.btnAnteriores.Click += new System.EventHandler(this.btnAnteriores_Click);
             // 
             // txtPlan
             // 
@@ -759,18 +759,18 @@ namespace CLINICA_1
             this.label2.Text = "Antecedentes Personales:";
             this.label2.Click += new System.EventHandler(this.label2_Click_1);
             // 
-            // btnAnteriores
+            // rtbImpresionDiagnostica
             // 
-            this.btnAnteriores.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(176)))), ((int)(((byte)(73)))));
-            this.btnAnteriores.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAnteriores.ForeColor = System.Drawing.Color.White;
-            this.btnAnteriores.Location = new System.Drawing.Point(259, 806);
-            this.btnAnteriores.Name = "btnAnteriores";
-            this.btnAnteriores.Size = new System.Drawing.Size(80, 27);
-            this.btnAnteriores.TabIndex = 266;
-            this.btnAnteriores.Text = "Anteriores:";
-            this.btnAnteriores.UseVisualStyleBackColor = false;
-            this.btnAnteriores.Click += new System.EventHandler(this.btnAnteriores_Click);
+            this.rtbImpresionDiagnostica.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rtbImpresionDiagnostica.Location = new System.Drawing.Point(882, 840);
+            this.rtbImpresionDiagnostica.Name = "rtbImpresionDiagnostica";
+            this.rtbImpresionDiagnostica.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.ForcedVertical;
+            this.rtbImpresionDiagnostica.Size = new System.Drawing.Size(301, 68);
+            this.rtbImpresionDiagnostica.TabIndex = 267;
+            this.rtbImpresionDiagnostica.Text = "";
+            this.rtbImpresionDiagnostica.TextChanged += new System.EventHandler(this.rtbImpresionDiagnostica_TextChanged);
+            this.rtbImpresionDiagnostica.Enter += new System.EventHandler(this.rtbImpresionDiagnostica_Enter);
+            this.rtbImpresionDiagnostica.KeyDown += new System.Windows.Forms.KeyEventHandler(this.rtbImpresionDiagnostica_KeyDown);
             // 
             // HistoriaClinica
             // 
@@ -815,7 +815,6 @@ namespace CLINICA_1
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.TextBox txtImpresion;
         private System.Windows.Forms.TextBox txtTalla;
         private System.Windows.Forms.TextBox txtPresion;
         private System.Windows.Forms.TextBox txtFC;
@@ -845,5 +844,6 @@ namespace CLINICA_1
         private System.Windows.Forms.Label lblClasificacionIMC;
         private System.Windows.Forms.RichTextBox txtPlan;
         private System.Windows.Forms.Button btnAnteriores;
+        private System.Windows.Forms.RichTextBox rtbImpresionDiagnostica;
     }
 }

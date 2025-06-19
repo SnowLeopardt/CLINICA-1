@@ -136,12 +136,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Registros\RegistroEnfermera.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Registros\RegistroEnfermera.Designer.cs">
-      <DependentUpon>RegistroEnfermera.cs</DependentUpon>
-    </Compile>
     <Compile Include="Menu\Menu Enfermera.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -199,9 +193,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Registros\RegistroEnfermera.resx">
-      <DependentUpon>RegistroEnfermera.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

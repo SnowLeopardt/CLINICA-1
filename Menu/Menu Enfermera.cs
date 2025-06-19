@@ -22,7 +22,7 @@ namespace CLINICA_1
         private void rEGISTRARDATOSToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
-            RegistroEnfermera VentanaDeRegistro = new RegistroEnfermera();
+            Registro VentanaDeRegistro = new Registro();
             VentanaDeRegistro.Show();
         }
 

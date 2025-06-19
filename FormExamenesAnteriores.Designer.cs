@@ -54,17 +54,17 @@ namespace CLINICA_1
             this.txtExameness.Name = "txtExameness";
             this.txtExameness.ReadOnly = true;
             this.txtExameness.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtExameness.Size = new System.Drawing.Size(445, 404);
+            this.txtExameness.Size = new System.Drawing.Size(415, 408);
             this.txtExameness.TabIndex = 0;
             // 
             // ores
             // 
-            this.ClientSize = new System.Drawing.Size(445, 404);
+            this.ClientSize = new System.Drawing.Size(415, 408);
             this.Controls.Add(this.txtExameness);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ores";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "CLINICA VARGAS - EXAMENES ANTERIORES - DOCTOR";
+            this.Text = "CLINICA VARGAS - EXAMENES ANTERIORES ";
             this.Load += new System.EventHandler(this.FormExamenesAnteriores_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -89,7 +89,7 @@ namespace CLINICA_1
             this.txtresponsable.Location = new System.Drawing.Point(687, 236);
             this.txtresponsable.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtresponsable.Name = "txtresponsable";
-            this.txtresponsable.Size = new System.Drawing.Size(318, 22);
+            this.txtresponsable.Size = new System.Drawing.Size(318, 30);
             this.txtresponsable.TabIndex = 47;
             // 
             // txtdireccion2
@@ -98,7 +98,7 @@ namespace CLINICA_1
             this.txtdireccion2.Location = new System.Drawing.Point(687, 277);
             this.txtdireccion2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtdireccion2.Name = "txtdireccion2";
-            this.txtdireccion2.Size = new System.Drawing.Size(318, 22);
+            this.txtdireccion2.Size = new System.Drawing.Size(318, 30);
             this.txtdireccion2.TabIndex = 46;
             // 
             // txttelefono2
@@ -107,7 +107,7 @@ namespace CLINICA_1
             this.txttelefono2.Location = new System.Drawing.Point(687, 319);
             this.txttelefono2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txttelefono2.Name = "txttelefono2";
-            this.txttelefono2.Size = new System.Drawing.Size(318, 21);
+            this.txttelefono2.Size = new System.Drawing.Size(318, 28);
             this.txttelefono2.TabIndex = 45;
             this.txttelefono2.TextChanged += new System.EventHandler(this.txttelefono2_TextChanged);
             this.txttelefono2.Leave += new System.EventHandler(this.txttelefono2_Leave);
@@ -118,7 +118,7 @@ namespace CLINICA_1
             this.txtcorreo.Location = new System.Drawing.Point(687, 355);
             this.txtcorreo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtcorreo.Name = "txtcorreo";
-            this.txtcorreo.Size = new System.Drawing.Size(318, 21);
+            this.txtcorreo.Size = new System.Drawing.Size(318, 28);
             this.txtcorreo.TabIndex = 44;
             // 
             // label5
@@ -129,7 +129,7 @@ namespace CLINICA_1
             this.label5.Location = new System.Drawing.Point(569, 235);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(110, 21);
+            this.label5.Size = new System.Drawing.Size(165, 32);
             this.label5.TabIndex = 43;
             this.label5.Text = "Responsable:";
             // 
@@ -141,7 +141,7 @@ namespace CLINICA_1
             this.label4.Location = new System.Drawing.Point(592, 278);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(87, 21);
+            this.label4.Size = new System.Drawing.Size(131, 32);
             this.label4.TabIndex = 42;
             this.label4.Text = "Direccion:";
             // 
@@ -153,7 +153,7 @@ namespace CLINICA_1
             this.label3.Location = new System.Drawing.Point(598, 319);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(81, 21);
+            this.label3.Size = new System.Drawing.Size(121, 32);
             this.label3.TabIndex = 41;
             this.label3.Text = "Télefono:";
             // 
@@ -165,7 +165,7 @@ namespace CLINICA_1
             this.label2.Location = new System.Drawing.Point(524, 355);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(155, 21);
+            this.label2.Size = new System.Drawing.Size(235, 32);
             this.label2.TabIndex = 40;
             this.label2.Text = "Correo Electronico:";
             // 
@@ -177,7 +177,7 @@ namespace CLINICA_1
             this.label1.Location = new System.Drawing.Point(139, 368);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(43, 21);
+            this.label1.Size = new System.Drawing.Size(65, 32);
             this.label1.TabIndex = 39;
             this.label1.Text = "DUI:";
             // 
@@ -187,7 +187,7 @@ namespace CLINICA_1
             this.txtdui.Location = new System.Drawing.Point(187, 368);
             this.txtdui.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtdui.Name = "txtdui";
-            this.txtdui.Size = new System.Drawing.Size(295, 22);
+            this.txtdui.Size = new System.Drawing.Size(295, 30);
             this.txtdui.TabIndex = 38;
             // 
             // lblTitulo
@@ -198,7 +198,7 @@ namespace CLINICA_1
             this.lblTitulo.Location = new System.Drawing.Point(364, 80);
             this.lblTitulo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(333, 45);
+            this.lblTitulo.Size = new System.Drawing.Size(494, 65);
             this.lblTitulo.TabIndex = 25;
             this.lblTitulo.Text = "DATOS PERSONALES";
             // 
@@ -210,7 +210,7 @@ namespace CLINICA_1
             this.lblNombre.Location = new System.Drawing.Point(101, 259);
             this.lblNombre.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(77, 21);
+            this.lblNombre.Size = new System.Drawing.Size(116, 32);
             this.lblNombre.TabIndex = 26;
             this.lblNombre.Text = "Nombre:";
             // 
@@ -220,7 +220,7 @@ namespace CLINICA_1
             this.txtNombre.Location = new System.Drawing.Point(185, 259);
             this.txtNombre.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(295, 22);
+            this.txtNombre.Size = new System.Drawing.Size(295, 30);
             this.txtNombre.TabIndex = 27;
             // 
             // lblEdad
@@ -231,7 +231,7 @@ namespace CLINICA_1
             this.lblEdad.Location = new System.Drawing.Point(126, 293);
             this.lblEdad.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblEdad.Name = "lblEdad";
-            this.lblEdad.Size = new System.Drawing.Size(52, 21);
+            this.lblEdad.Size = new System.Drawing.Size(78, 32);
             this.lblEdad.TabIndex = 28;
             this.lblEdad.Text = "Edad:";
             // 
@@ -241,7 +241,8 @@ namespace CLINICA_1
             this.txtEdad.Location = new System.Drawing.Point(185, 294);
             this.txtEdad.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtEdad.Name = "txtEdad";
-            this.txtEdad.Size = new System.Drawing.Size(295, 22);
+            this.txtEdad.ReadOnly = true;
+            this.txtEdad.Size = new System.Drawing.Size(295, 30);
             this.txtEdad.TabIndex = 29;
             // 
             // lblTelefono
@@ -252,7 +253,7 @@ namespace CLINICA_1
             this.lblTelefono.Location = new System.Drawing.Point(101, 404);
             this.lblTelefono.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTelefono.Name = "lblTelefono";
-            this.lblTelefono.Size = new System.Drawing.Size(81, 21);
+            this.lblTelefono.Size = new System.Drawing.Size(121, 32);
             this.lblTelefono.TabIndex = 30;
             this.lblTelefono.Text = "Teléfono:";
             // 
@@ -262,7 +263,7 @@ namespace CLINICA_1
             this.txtTelefono.Location = new System.Drawing.Point(187, 405);
             this.txtTelefono.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtTelefono.Name = "txtTelefono";
-            this.txtTelefono.Size = new System.Drawing.Size(295, 22);
+            this.txtTelefono.Size = new System.Drawing.Size(295, 30);
             this.txtTelefono.TabIndex = 31;
             this.txtTelefono.TextChanged += new System.EventHandler(this.txtTelefono_TextChanged);
             this.txtTelefono.Leave += new System.EventHandler(this.txtTelefono_Leave);
@@ -275,7 +276,7 @@ namespace CLINICA_1
             this.lblDireccion.Location = new System.Drawing.Point(95, 441);
             this.lblDireccion.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDireccion.Name = "lblDireccion";
-            this.lblDireccion.Size = new System.Drawing.Size(87, 21);
+            this.lblDireccion.Size = new System.Drawing.Size(131, 32);
             this.lblDireccion.TabIndex = 32;
             this.lblDireccion.Text = "Dirección:";
             // 
@@ -285,7 +286,7 @@ namespace CLINICA_1
             this.txtDireccion.Location = new System.Drawing.Point(187, 442);
             this.txtDireccion.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtDireccion.Name = "txtDireccion";
-            this.txtDireccion.Size = new System.Drawing.Size(295, 22);
+            this.txtDireccion.Size = new System.Drawing.Size(295, 30);
             this.txtDireccion.TabIndex = 33;
             // 
             // btnNuevo
@@ -356,7 +357,7 @@ namespace CLINICA_1
             this.label6.Location = new System.Drawing.Point(61, 331);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(119, 21);
+            this.label6.Size = new System.Drawing.Size(178, 32);
             this.label6.TabIndex = 50;
             this.label6.Text = "F. Nacimiento:";
             // 
@@ -365,7 +366,7 @@ namespace CLINICA_1
             this.dateTimePickerNacimiento.Location = new System.Drawing.Point(185, 331);
             this.dateTimePickerNacimiento.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dateTimePickerNacimiento.Name = "dateTimePickerNacimiento";
-            this.dateTimePickerNacimiento.Size = new System.Drawing.Size(295, 20);
+            this.dateTimePickerNacimiento.Size = new System.Drawing.Size(295, 26);
             this.dateTimePickerNacimiento.TabIndex = 52;
             this.dateTimePickerNacimiento.ValueChanged += new System.EventHandler(this.dateTimePickerNacimiento_ValueChanged);
             // 
@@ -374,7 +375,7 @@ namespace CLINICA_1
             this.dateTimePicker1.Location = new System.Drawing.Point(185, 225);
             this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(297, 20);
+            this.dateTimePicker1.Size = new System.Drawing.Size(297, 26);
             this.dateTimePicker1.TabIndex = 53;
             this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
@@ -386,7 +387,7 @@ namespace CLINICA_1
             this.label7.Location = new System.Drawing.Point(107, 225);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(71, 21);
+            this.label7.Size = new System.Drawing.Size(109, 32);
             this.label7.TabIndex = 54;
             this.label7.Text = "Ingreso:";
             // 
@@ -484,7 +485,7 @@ namespace CLINICA_1
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Registro";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "CLINICA VARGAS - REGISTRO DE DATOS - DOCTOR";
+            this.Text = "CLINICA VARGAS - REGISTRO DE DATOS ";
             this.Load += new System.EventHandler(this.Registro_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel1.ResumeLayout(false);

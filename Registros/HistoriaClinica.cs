@@ -49,7 +49,7 @@ namespace CLINICA_1
             txtMasaCorporal.ReadOnly = true;
         }
 
-
+        //EXAMENES 
         private void btnAnteriores_Click(object sender, EventArgs e)
         {
             string examenes = ObtenerExamenesLaboratorioAnteriores();
@@ -57,6 +57,7 @@ namespace CLINICA_1
             ventana.ShowDialog();
         }
 
+        //EXAMENES
         private string ObtenerExamenesLaboratorioAnteriores()
         {
             string resultado = "";
@@ -64,7 +65,11 @@ namespace CLINICA_1
             using (SqlConnection con = new SqlConnection(connectionString))
             {
                 con.Open();
-                string query = "SELECT ExamenesLaboratorios FROM HistoriaClinica WHERE Paciente = @Paciente";
+                string query = @"
+            SELECT FechaRegistro, ExamenesLaboratorios, ExamenesGabinete
+            FROM HistoriaClinica
+            WHERE Paciente = @Paciente
+            ORDER BY FechaRegistro ASC";
 
                 using (SqlCommand cmd = new SqlCommand(query, con))
                 {
@@ -74,15 +79,41 @@ namespace CLINICA_1
                     {
                         while (reader.Read())
                         {
-                            string examenes = reader["ExamenesLaboratorios"].ToString();
+                            // 📅 Mostrar fecha
+                            DateTime fecha = reader.GetDateTime(reader.GetOrdinal("FechaRegistro"));
+                            resultado += "#####################################\n";
+                            resultado += "         FECHA: " + fecha.ToString("dd/MM/yyyy") + "\n";
+                            resultado += "#####################################\n\n";
 
-                            // Divide por salto de línea si hay varios exámenes en una sola celda
-                            string[] lista = examenes.Split(new[] { '\n', '\r' }, StringSplitOptions.RemoveEmptyEntries);
-
-                            foreach (var examen in lista)
+                            // ✅ EXÁMENES DE LABORATORIO
+                            string examenesLab = reader["ExamenesLaboratorios"]?.ToString();
+                            if (!string.IsNullOrWhiteSpace(examenesLab))
                             {
-                                resultado += "• " + examen.Trim() + Environment.NewLine;
+                                resultado += "------ EXÁMENES DE LABORATORIO ------\n";
+                                string[] listaLab = examenesLab.Split(new[] { '\n', '\r' }, StringSplitOptions.RemoveEmptyEntries);
+                                foreach (var examen in listaLab)
+                                {
+                                    string limpio = examen.TrimStart('•', ' ', '\t');
+                                    resultado += "• " + limpio.Trim() + Environment.NewLine;
+                                }
+                                resultado += Environment.NewLine;
                             }
+
+                            // ✅ EXÁMENES DE GABINETE
+                            string examenesGab = reader["ExamenesGabinete"]?.ToString();
+                            if (!string.IsNullOrWhiteSpace(examenesGab))
+                            {
+                                resultado += "-------- EXÁMENES DE GABINETE --------\n";
+                                string[] listaGab = examenesGab.Split(new[] { '\n', '\r' }, StringSplitOptions.RemoveEmptyEntries);
+                                foreach (var examen in listaGab)
+                                {
+                                    string limpio = examen.TrimStart('•', ' ', '\t');
+                                    resultado += "• " + limpio.Trim() + Environment.NewLine;
+                                }
+                                resultado += Environment.NewLine;
+                            }
+
+                            resultado += Environment.NewLine;
                         }
                     }
                 }
@@ -90,6 +121,7 @@ namespace CLINICA_1
 
             return resultado;
         }
+
 
 
 
@@ -338,7 +370,7 @@ INSERT INTO HistoriaClinica(
                         cmd.Parameters.AddWithValue("@ExamenFisico", txtExamenFisico.Text);
                         cmd.Parameters.AddWithValue("@ExamenesLaboratorios", txtExamenesLaboratorio.Text);
                         cmd.Parameters.AddWithValue("@ExamenesGabinete", txtExamenesGabinete.Text);
-                        cmd.Parameters.AddWithValue("@Impresion", txtImpresion.Text);
+                        cmd.Parameters.AddWithValue("@Impresion", rtbImpresionDiagnostica.Text);
                         cmd.Parameters.AddWithValue("@Plan", txtPlan.Text);
                         cmd.Parameters.AddWithValue("@FechaHoraRegistro", DateTime.Now);
 
@@ -430,7 +462,7 @@ INSERT INTO HistoriaClinica(
                                 AddLabeledParagraph("Examen Físico:", txtExamenFisico.Text);
                                 AddLabeledParagraph("Exámenes de Laboratorios:", txtExamenesLaboratorio.Text);
                                 AddLabeledParagraph("Exámenes de Gabinete:", txtExamenesGabinete.Text);
-                                AddLabeledParagraph("Impresión Diagnóstica:", txtImpresion.Text);
+                                AddLabeledParagraph("Impresión Diagnóstica:", rtbImpresionDiagnostica.Text);
                                 AddLabeledParagraph("Plan:", txtPlan.Text); // Aquí se usa la versión corregida
 
                                 mainPart.Document.Append(body);
@@ -462,7 +494,7 @@ INSERT INTO HistoriaClinica(
                 txtTalla.Clear();
                 txtMasaCorporal.Clear();
                 txtExamenesGabinete.Clear();
-                txtImpresion.Clear();
+                rtbImpresionDiagnostica.Clear();
                 txtExamenesLaboratorio.Clear();
                 txtPlan.Clear();
                 txtAntecedentesPersonales.Clear();
@@ -637,7 +669,7 @@ INSERT INTO HistoriaClinica(
                 pdfDoc.Open();
 
                 // ============================== ENCABEZADO ==============================
-                string rutaLogo = @"C:\Users\emili\Downloads\logoredondo.png"; // Ruta real del logo
+                string rutaLogo = @"C:\Users\User\OneDrive\Documentos\imagenes\logoredondo.png"; // Ruta real del logo
                 if (File.Exists(rutaLogo))
                 {
                     iTextSharp.text.Image logo = iTextSharp.text.Image.GetInstance(rutaLogo);
@@ -653,7 +685,7 @@ INSERT INTO HistoriaClinica(
                 pdfDoc.Add(new iTextSharp.text.Paragraph("\n"));
 
                 // Nombre clínica centrado
-                iTextSharp.text.Paragraph nombreClinica = new iTextSharp.text.Paragraph("CLÍNICA DE EMERGENCIAS VARGAS", fuenteTituloClinica)
+                iTextSharp.text.Paragraph nombreClinica = new iTextSharp.text.Paragraph("CLÍNICA DE EMERGENCIAS MEDICAS VARGAS", fuenteTituloClinica)
                 {
                     Alignment = Element.ALIGN_CENTER,
                     SpacingAfter = 4f
@@ -782,7 +814,7 @@ INSERT INTO HistoriaClinica(
                 AddCampoValor("Examen Físico", txtExamenFisico.Text);
                 AddCampoValor("Exámenes de Laboratorio", txtExamenesLaboratorio.Text);
                 AddCampoValor("Exámenes de Gabinete", txtExamenesGabinete.Text);
-                AddCampoValor("Impresión Diagnóstica", txtImpresion.Text);
+                AddCampoValor("Impresión Diagnóstica", rtbImpresionDiagnostica.Text);
                 AddCampoValor("Plan", txtPlan.Text);
 
                 pdfDoc.Close();
@@ -812,7 +844,7 @@ INSERT INTO HistoriaClinica(
                 txtTalla.Clear();
                 txtMasaCorporal.Clear();
                 txtExamenesGabinete.Clear();
-                txtImpresion.Clear();
+                rtbImpresionDiagnostica.Clear();
                 txtExamenesLaboratorio.Clear();
                 txtPlan.Clear();
                 txtAntecedentesPersonales.Clear();
@@ -929,7 +961,7 @@ INSERT INTO HistoriaClinica(
                         cmd.Parameters.AddWithValue("@ExamenFisico", txtExamenFisico.Text);
                         cmd.Parameters.AddWithValue("@ExamenesLaboratorios", txtExamenesLaboratorio.Text);
                         cmd.Parameters.AddWithValue("@ExamenesGabinete", txtExamenesGabinete.Text);
-                        cmd.Parameters.AddWithValue("@Impresion", txtImpresion.Text);
+                        cmd.Parameters.AddWithValue("@Impresion", rtbImpresionDiagnostica.Text);
                         cmd.Parameters.AddWithValue("@Plan", txtPlan.Text);
                         cmd.Parameters.AddWithValue("@FechaHoraRegistro", DateTime.Now);
 
@@ -1022,7 +1054,7 @@ INSERT INTO HistoriaClinica(
                                 AddLabeledParagraph("Examen Físico:", txtExamenFisico.Text);
                                 AddLabeledParagraph("Exámenes de Laboratorios:", txtExamenesLaboratorio.Text);
                                 AddLabeledParagraph("Exámenes de Gabinete:", txtExamenesGabinete.Text);
-                                AddLabeledParagraph("Impresión Diagnóstica:", txtImpresion.Text);
+                                AddLabeledParagraph("Impresión Diagnóstica:", rtbImpresionDiagnostica.Text);
                                 AddLabeledParagraph("Plan:", txtPlan.Text); // Aquí se usa la versión corregida
 
                                 mainPart.Document.Append(body);
@@ -1055,7 +1087,7 @@ INSERT INTO HistoriaClinica(
             txtTalla.Clear();
             txtMasaCorporal.Clear();
             txtExamenesGabinete.Clear();
-            txtImpresion.Clear();
+            rtbImpresionDiagnostica.Clear();
             txtExamenesLaboratorio.Clear();
             txtPlan.Clear();
             txtAntecedentesPersonales.Clear();
@@ -1345,6 +1377,24 @@ INSERT INTO HistoriaClinica(
                 content.Rectangle(0, 0, document.PageSize.Width, document.PageSize.Height);
                 content.Fill();
                 content.RestoreState();
+            }
+        }
+
+        private void rtbImpresionDiagnostica_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void rtbImpresionDiagnostica_Enter(object sender, EventArgs e)
+        {
+            rtbImpresionDiagnostica.SelectionBullet = true;
+        }
+
+        private void rtbImpresionDiagnostica_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                rtbImpresionDiagnostica.SelectionBullet = true;
             }
         }
     }
