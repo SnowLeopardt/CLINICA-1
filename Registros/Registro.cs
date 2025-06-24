@@ -89,10 +89,10 @@ namespace CLINICA_1
 
         private void Registro_Load(object sender, EventArgs e)
         {
-           
+
         }
 
-  
+
 
 
         //boton de guardar
@@ -458,15 +458,15 @@ namespace CLINICA_1
         }
 
         private void dateTimePickerNacimiento_ValueChanged(object sender, EventArgs e)
-        {         
-                DateTime fechaNacimiento = dateTimePickerNacimiento.Value;
-                int edad = DateTime.Now.Year - fechaNacimiento.Year;
+        {
+            DateTime fechaNacimiento = dateTimePickerNacimiento.Value;
+            int edad = DateTime.Now.Year - fechaNacimiento.Year;
 
-                if (DateTime.Now.Date < fechaNacimiento.Date.AddYears(edad))
-                    edad--;
+            if (DateTime.Now.Date < fechaNacimiento.Date.AddYears(edad))
+                edad--;
 
-                txtEdad.Text = edad.ToString();
-            }
+            txtEdad.Text = edad.ToString();
+        }
 
         //BOTON DE REGRESAR
         private void button1_Click(object sender, EventArgs e)
@@ -482,25 +482,25 @@ namespace CLINICA_1
 
         private void txtTelefono_Leave(object sender, EventArgs e)
         {
-
-            string input = txtTelefono.Text.Trim().Replace("-", "").Replace(" ", "");
+            string input = txttelefono2.Text.Trim().Replace("-", "").Replace(" ", "");
 
             if (input.Length == 8 && long.TryParse(input, out _))
             {
+                // Formato +503-XXXX-XXXX
                 string formatted = $"+503-{input.Substring(0, 4)}-{input.Substring(4, 4)}";
-                txtTelefono.Text = formatted;
+                txttelefono2.Text = formatted;
             }
             else if (input.StartsWith("+503") && input.Length == 13)
             {
-                // Ya está bien formateado
-                txtTelefono.Text = input;
+                // Ya está correctamente formateado
+                txttelefono2.Text = input;
             }
             else
             {
-                MessageBox.Show("Ingrese un número válido de 8 dígitos", "Teléfono inválido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtTelefono.Focus();
+                // No hacer nada, dejar el texto como está
             }
         }
+
 
         private void txttelefono2_Leave(object sender, EventArgs e)
         {
@@ -519,9 +519,8 @@ namespace CLINICA_1
             }
             else
             {
-                MessageBox.Show("Ingrese un número válido de 8 dígitos", "Teléfono inválido (Responsable)", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txttelefono2.Focus();
+                // No hacer nada, dejar el texto como está
             }
         }
     }
-    }
+}

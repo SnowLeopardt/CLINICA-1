@@ -728,7 +728,7 @@ namespace CLINICA_1
             this.btnGuardar.TabIndex = 230;
             this.btnGuardar.Text = "GUARDAR";
             this.btnGuardar.UseVisualStyleBackColor = false;
-            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
+            this.btnGuardar.Click += new System.EventHandler(this.Guardar_Click);
             // 
             // btnImprimir
             // 

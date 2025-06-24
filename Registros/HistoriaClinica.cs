@@ -403,10 +403,8 @@ INSERT INTO HistoriaClinica(
                                 mainPart.Document = new WordDocument();
                                 WordBody body = new WordBody();
 
-
                                 void AddLabeledParagraph(string label, string value)
                                 {
-                                    // Agrega la etiqueta (en negrita)
                                     var labelPara = new WordParagraph(
                                         new WordRun(
                                             new WordRunProperties(new WordBold()),
@@ -414,11 +412,11 @@ INSERT INTO HistoriaClinica(
                                         )
                                     );
                                     labelPara.ParagraphProperties = new ParagraphProperties(
-                                        new SpacingBetweenLines() { After = "0" }
+                                        new SpacingBetweenLines() { After = "0" },
+                                        new Justification() { Val = JustificationValues.Both }
                                     );
                                     body.Append(labelPara);
 
-                                    // Divide el contenido en líneas y preserva espacios/numeraciones
                                     string[] lines = value.Split(new[] { "\r\n", "\n" }, StringSplitOptions.None);
                                     foreach (string line in lines)
                                     {
@@ -428,7 +426,8 @@ INSERT INTO HistoriaClinica(
                                             )
                                         );
                                         valuePara.ParagraphProperties = new ParagraphProperties(
-                                            new SpacingBetweenLines() { After = "100" }
+                                            new SpacingBetweenLines() { After = "100" },
+                                            new Justification() { Val = JustificationValues.Both }
                                         );
                                         body.Append(valuePara);
                                     }
@@ -463,7 +462,7 @@ INSERT INTO HistoriaClinica(
                                 AddLabeledParagraph("Exámenes de Laboratorios:", txtExamenesLaboratorio.Text);
                                 AddLabeledParagraph("Exámenes de Gabinete:", txtExamenesGabinete.Text);
                                 AddLabeledParagraph("Impresión Diagnóstica:", rtbImpresionDiagnostica.Text);
-                                AddLabeledParagraph("Plan:", txtPlan.Text); // Aquí se usa la versión corregida
+                                AddLabeledParagraph("Plan:", txtPlan.Text);
 
                                 mainPart.Document.Append(body);
                                 mainPart.Document.Save();
@@ -478,10 +477,12 @@ INSERT INTO HistoriaClinica(
                     }
                 }
             }
+  
 
 
-            // Método para limpiar los campos
-            void LimpiarCampos()
+
+        // Método para limpiar los campos
+        void LimpiarCampos()
             {
                 txtConsultaPor.Clear();
                 txtPaciente.Clear();
@@ -740,10 +741,17 @@ INSERT INTO HistoriaClinica(
                 {
                     iTextSharp.text.Paragraph p = new iTextSharp.text.Paragraph();
                     p.SpacingAfter = 10f;
-                    p.Add(new Chunk(campo + ":", fuenteCampo));
-                    p.Add(new Chunk(Environment.NewLine + valor, fuenteTexto));
+                    p.Alignment = Element.ALIGN_JUSTIFIED;
+
+                    // Usamos dos frases separadas para mantener estilos
+                    Phrase frase = new Phrase();
+                    frase.Add(new Chunk(campo + ":\n", fuenteCampo));
+                    frase.Add(new Chunk(valor, fuenteTexto));
+
+                    p.Add(frase);
                     pdfDoc.Add(p);
                 }
+
 
                 void AddTitulo(string texto)
                 {
@@ -908,14 +916,13 @@ INSERT INTO HistoriaClinica(
 
         }
 
-        private void btnGuardar_Click(object sender, EventArgs e)
+        private void Guardar_Click(object sender, EventArgs e)
         {
             CalcularIMC();
-         
             // Validación
             if (string.IsNullOrWhiteSpace(txtPaciente.Text))
             {
-                MessageBox.Show("Completar todos los campos de la historia clinica.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("El campo 'Paciente' no puede estar vacío.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -974,10 +981,10 @@ INSERT INTO HistoriaClinica(
                             // GENERAR DOCUMENTO WORD
                             // ================================
                             string pacienteFolder = Path.Combine(
-                               Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments),
-                               "Pacientes",
-                               txtPaciente.Text.Trim()
-                               );
+                                Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments),
+                                "Pacientes",
+                                txtPaciente.Text.Trim()
+                            );
 
                             if (!Directory.Exists(pacienteFolder))
                             {
@@ -985,9 +992,8 @@ INSERT INTO HistoriaClinica(
                                 return;
                             }
 
-                            string timestamp = DateTime.Now.ToString("dd-MM-yyyy_hh-mm-tt");
-                            string fileName = $"HistoriaClinica_{txtPaciente.Text.Trim()}_{timestamp}.docx";
-                            string docPath = Path.Combine(pacienteFolder, fileName);  // <== AQUÍ SE DECLARA
+                            string fileName = $"HistoriaClinica_{txtPaciente.Text.Trim()}.docx";
+                            string docPath = Path.Combine(pacienteFolder, fileName);
 
                             using (WordprocessingDocument wordDoc = WordprocessingDocument.Create(docPath, DocumentFormat.OpenXml.WordprocessingDocumentType.Document))
                             {
@@ -995,10 +1001,8 @@ INSERT INTO HistoriaClinica(
                                 mainPart.Document = new WordDocument();
                                 WordBody body = new WordBody();
 
-
                                 void AddLabeledParagraph(string label, string value)
                                 {
-                                    // Agrega la etiqueta (en negrita)
                                     var labelPara = new WordParagraph(
                                         new WordRun(
                                             new WordRunProperties(new WordBold()),
@@ -1006,11 +1010,11 @@ INSERT INTO HistoriaClinica(
                                         )
                                     );
                                     labelPara.ParagraphProperties = new ParagraphProperties(
-                                        new SpacingBetweenLines() { After = "0" }
+                                        new SpacingBetweenLines() { After = "0" },
+                                        new Justification() { Val = JustificationValues.Both }
                                     );
                                     body.Append(labelPara);
 
-                                    // Divide el contenido en líneas y preserva espacios/numeraciones
                                     string[] lines = value.Split(new[] { "\r\n", "\n" }, StringSplitOptions.None);
                                     foreach (string line in lines)
                                     {
@@ -1020,7 +1024,8 @@ INSERT INTO HistoriaClinica(
                                             )
                                         );
                                         valuePara.ParagraphProperties = new ParagraphProperties(
-                                            new SpacingBetweenLines() { After = "100" }
+                                            new SpacingBetweenLines() { After = "100" },
+                                            new Justification() { Val = JustificationValues.Both }
                                         );
                                         body.Append(valuePara);
                                     }
@@ -1055,15 +1060,13 @@ INSERT INTO HistoriaClinica(
                                 AddLabeledParagraph("Exámenes de Laboratorios:", txtExamenesLaboratorio.Text);
                                 AddLabeledParagraph("Exámenes de Gabinete:", txtExamenesGabinete.Text);
                                 AddLabeledParagraph("Impresión Diagnóstica:", rtbImpresionDiagnostica.Text);
-                                AddLabeledParagraph("Plan:", txtPlan.Text); // Aquí se usa la versión corregida
+                                AddLabeledParagraph("Plan:", txtPlan.Text);
 
                                 mainPart.Document.Append(body);
                                 mainPart.Document.Save();
-
                             }
 
                             MessageBox.Show("Datos guardados correctamente y documento Word generado.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            LimpiarCampos();
                         }
                         catch (Exception ex)
                         {
@@ -1073,6 +1076,7 @@ INSERT INTO HistoriaClinica(
                 }
             }
         }
+
 
         void LimpiarCampos()
         {
