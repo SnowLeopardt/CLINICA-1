@@ -125,6 +125,12 @@
     <Compile Include="FormExamenesAnteriores.Designer.cs">
       <DependentUpon>FormExamenesAnteriores.cs</DependentUpon>
     </Compile>
+    <Compile Include="Registros\Indicaciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registros\Indicaciones.Designer.cs">
+      <DependentUpon>Indicaciones.cs</DependentUpon>
+    </Compile>
     <Compile Include="Seguridad\CambiarContrasena.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -170,6 +176,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormExamenesAnteriores.resx">
       <DependentUpon>FormExamenesAnteriores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Registros\Indicaciones.resx">
+      <DependentUpon>Indicaciones.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Seguridad\CambiarContrasena.resx">
       <DependentUpon>CambiarContrasena.cs</DependentUpon>

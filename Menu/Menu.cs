@@ -38,7 +38,8 @@ namespace CLINICA_1
 
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {
-
+            Indicaciones VentanaDeIndicaciones = new Indicaciones();
+            VentanaDeIndicaciones.Show();
         }
 
         private void button2_Click(object sender, EventArgs e)
