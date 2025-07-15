@@ -34,7 +34,7 @@ namespace CLINICA_1
             this.ntxt = new System.Windows.Forms.TextBox();
             this.ttxt = new System.Windows.Forms.TextBox();
             this.mtxt = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtordenes = new System.Windows.Forms.TextBox();
             this.dateTimePickerFechaOrden = new System.Windows.Forms.DateTimePicker();
             this.habitaciontxt = new System.Windows.Forms.TextBox();
             this.pacientetxt = new System.Windows.Forms.TextBox();
@@ -49,21 +49,15 @@ namespace CLINICA_1
             this.label4 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.btnimprimirindicaciones = new System.Windows.Forms.Button();
-            this.btneditarindicacion = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.button3);
-            this.panel1.Controls.Add(this.btneditarindicacion);
-            this.panel1.Controls.Add(this.btnimprimirindicaciones);
             this.panel1.Controls.Add(this.ntxt);
             this.panel1.Controls.Add(this.ttxt);
             this.panel1.Controls.Add(this.mtxt);
-            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.txtordenes);
             this.panel1.Controls.Add(this.dateTimePickerFechaOrden);
             this.panel1.Controls.Add(this.habitaciontxt);
             this.panel1.Controls.Add(this.pacientetxt);
@@ -107,21 +101,21 @@ namespace CLINICA_1
             this.mtxt.Size = new System.Drawing.Size(48, 22);
             this.mtxt.TabIndex = 51;
             // 
-            // textBox1
+            // txtordenes
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(190, 228);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox1.Size = new System.Drawing.Size(568, 278);
-            this.textBox1.TabIndex = 50;
+            this.txtordenes.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtordenes.Location = new System.Drawing.Point(190, 228);
+            this.txtordenes.Multiline = true;
+            this.txtordenes.Name = "txtordenes";
+            this.txtordenes.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtordenes.Size = new System.Drawing.Size(568, 278);
+            this.txtordenes.TabIndex = 50;
             // 
             // dateTimePickerFechaOrden
             // 
             this.dateTimePickerFechaOrden.Location = new System.Drawing.Point(166, 135);
             this.dateTimePickerFechaOrden.Name = "dateTimePickerFechaOrden";
-            this.dateTimePickerFechaOrden.Size = new System.Drawing.Size(307, 26);
+            this.dateTimePickerFechaOrden.Size = new System.Drawing.Size(307, 20);
             this.dateTimePickerFechaOrden.TabIndex = 49;
             // 
             // habitaciontxt
@@ -172,7 +166,7 @@ namespace CLINICA_1
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.Location = new System.Drawing.Point(862, 120);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(18, 16);
+            this.label9.Size = new System.Drawing.Size(19, 16);
             this.label9.TabIndex = 44;
             this.label9.Text = "N";
             // 
@@ -182,7 +176,7 @@ namespace CLINICA_1
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.Location = new System.Drawing.Point(796, 120);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(17, 16);
+            this.label8.Size = new System.Drawing.Size(18, 16);
             this.label8.TabIndex = 43;
             this.label8.Text = "T";
             // 
@@ -192,7 +186,7 @@ namespace CLINICA_1
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(725, 120);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(19, 16);
+            this.label7.Size = new System.Drawing.Size(20, 16);
             this.label7.TabIndex = 42;
             this.label7.Text = "M";
             // 
@@ -202,7 +196,7 @@ namespace CLINICA_1
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(40, 183);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(337, 32);
+            this.label6.Size = new System.Drawing.Size(338, 32);
             this.label6.TabIndex = 41;
             this.label6.Text = "ORDENES PARA EXAMENES, TRATAMIENTO, \r\nDIETA, CONSULTA, ETC:\r\n";
             // 
@@ -212,7 +206,7 @@ namespace CLINICA_1
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(704, 89);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(202, 16);
+            this.label5.Size = new System.Drawing.Size(203, 16);
             this.label5.TabIndex = 40;
             this.label5.Text = "HORAS DE CUMPLIMIENTO";
             // 
@@ -222,7 +216,7 @@ namespace CLINICA_1
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(80, 95);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(72, 16);
+            this.label2.Size = new System.Drawing.Size(73, 16);
             this.label2.TabIndex = 37;
             this.label2.Text = "Paciente:";
             // 
@@ -232,7 +226,7 @@ namespace CLINICA_1
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(485, 58);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(110, 16);
+            this.label4.Size = new System.Drawing.Size(111, 16);
             this.label4.TabIndex = 39;
             this.label4.Text = "Habitación No:";
             // 
@@ -242,7 +236,7 @@ namespace CLINICA_1
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(90, 58);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(62, 16);
+            this.label1.Size = new System.Drawing.Size(63, 16);
             this.label1.TabIndex = 36;
             this.label1.Text = "Médico:";
             // 
@@ -252,45 +246,9 @@ namespace CLINICA_1
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(17, 139);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(144, 16);
+            this.label3.Size = new System.Drawing.Size(145, 16);
             this.label3.TabIndex = 38;
             this.label3.Text = "FECHA DE ORDEN:";
-            // 
-            // btnimprimirindicaciones
-            // 
-            this.btnimprimirindicaciones.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.btnimprimirindicaciones.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnimprimirindicaciones.ForeColor = System.Drawing.Color.White;
-            this.btnimprimirindicaciones.Location = new System.Drawing.Point(800, 271);
-            this.btnimprimirindicaciones.Name = "btnimprimirindicaciones";
-            this.btnimprimirindicaciones.Size = new System.Drawing.Size(106, 42);
-            this.btnimprimirindicaciones.TabIndex = 54;
-            this.btnimprimirindicaciones.Text = "IMPRIMIR";
-            this.btnimprimirindicaciones.UseVisualStyleBackColor = false;
-            // 
-            // btneditarindicacion
-            // 
-            this.btneditarindicacion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(176)))), ((int)(((byte)(73)))));
-            this.btneditarindicacion.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btneditarindicacion.ForeColor = System.Drawing.Color.White;
-            this.btneditarindicacion.Location = new System.Drawing.Point(800, 328);
-            this.btneditarindicacion.Name = "btneditarindicacion";
-            this.btneditarindicacion.Size = new System.Drawing.Size(107, 42);
-            this.btneditarindicacion.TabIndex = 55;
-            this.btneditarindicacion.Text = "EDITAR";
-            this.btneditarindicacion.UseVisualStyleBackColor = false;
-            // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.button3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(799, 386);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(106, 42);
-            this.button3.TabIndex = 56;
-            this.button3.Text = "GUARDAR";
-            this.button3.UseVisualStyleBackColor = false;
             // 
             // Indicaciones
             // 
@@ -303,6 +261,7 @@ namespace CLINICA_1
             this.Name = "Indicaciones";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CLINICA VARGAS - HOJA DE INDICACIONES - DOCTOR";
+            this.Load += new System.EventHandler(this.Indicaciones_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -315,7 +274,7 @@ namespace CLINICA_1
         private System.Windows.Forms.TextBox ntxt;
         private System.Windows.Forms.TextBox ttxt;
         private System.Windows.Forms.TextBox mtxt;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtordenes;
         private System.Windows.Forms.DateTimePicker dateTimePickerFechaOrden;
         private System.Windows.Forms.TextBox habitaciontxt;
         private System.Windows.Forms.TextBox pacientetxt;
@@ -330,8 +289,5 @@ namespace CLINICA_1
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button btneditarindicacion;
-        private System.Windows.Forms.Button btnimprimirindicaciones;
     }
 }

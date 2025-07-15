@@ -7,6 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
+using System.IO;
 
 namespace CLINICA_1
 {
@@ -16,5 +20,32 @@ namespace CLINICA_1
         {
             InitializeComponent();
         }
+
+        private void Indicaciones_Load(object sender, EventArgs e)
+        {
+             
+        }
+
+     
+
+      
+
+
+
+
+
+
+
+
+
+
+
+  
+
+      
+
+    
     }
 }
+
+   
