@@ -21,5 +21,10 @@ namespace CLINICA_1.Registros
         {
 
         }
+
+        private void Consentimiento_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

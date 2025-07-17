@@ -49,11 +49,17 @@ namespace CLINICA_1
             this.label4 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.button3);
+            this.panel1.Controls.Add(this.button2);
+            this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.ntxt);
             this.panel1.Controls.Add(this.ttxt);
             this.panel1.Controls.Add(this.mtxt);
@@ -74,7 +80,7 @@ namespace CLINICA_1
             this.panel1.Controls.Add(this.label3);
             this.panel1.Location = new System.Drawing.Point(-7, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(932, 535);
+            this.panel1.Size = new System.Drawing.Size(1505, 888);
             this.panel1.TabIndex = 0;
             // 
             // ntxt
@@ -82,7 +88,7 @@ namespace CLINICA_1
             this.ntxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ntxt.Location = new System.Drawing.Point(848, 139);
             this.ntxt.Name = "ntxt";
-            this.ntxt.Size = new System.Drawing.Size(47, 22);
+            this.ntxt.Size = new System.Drawing.Size(47, 30);
             this.ntxt.TabIndex = 53;
             // 
             // ttxt
@@ -90,7 +96,7 @@ namespace CLINICA_1
             this.ttxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ttxt.Location = new System.Drawing.Point(780, 139);
             this.ttxt.Name = "ttxt";
-            this.ttxt.Size = new System.Drawing.Size(47, 22);
+            this.ttxt.Size = new System.Drawing.Size(47, 30);
             this.ttxt.TabIndex = 52;
             // 
             // mtxt
@@ -98,7 +104,7 @@ namespace CLINICA_1
             this.mtxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mtxt.Location = new System.Drawing.Point(710, 139);
             this.mtxt.Name = "mtxt";
-            this.mtxt.Size = new System.Drawing.Size(48, 22);
+            this.mtxt.Size = new System.Drawing.Size(48, 30);
             this.mtxt.TabIndex = 51;
             // 
             // txtordenes
@@ -115,7 +121,7 @@ namespace CLINICA_1
             // 
             this.dateTimePickerFechaOrden.Location = new System.Drawing.Point(166, 135);
             this.dateTimePickerFechaOrden.Name = "dateTimePickerFechaOrden";
-            this.dateTimePickerFechaOrden.Size = new System.Drawing.Size(307, 20);
+            this.dateTimePickerFechaOrden.Size = new System.Drawing.Size(307, 26);
             this.dateTimePickerFechaOrden.TabIndex = 49;
             // 
             // habitaciontxt
@@ -156,7 +162,7 @@ namespace CLINICA_1
             this.label10.Image = ((System.Drawing.Image)(resources.GetObject("label10.Image")));
             this.label10.Location = new System.Drawing.Point(704, 27);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(209, 38);
+            this.label10.Size = new System.Drawing.Size(321, 60);
             this.label10.TabIndex = 45;
             this.label10.Text = "HOJA DE INDICACIONES \r\nMEDICAS";
             // 
@@ -166,7 +172,7 @@ namespace CLINICA_1
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.Location = new System.Drawing.Point(862, 120);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(19, 16);
+            this.label9.Size = new System.Drawing.Size(27, 25);
             this.label9.TabIndex = 44;
             this.label9.Text = "N";
             // 
@@ -176,7 +182,7 @@ namespace CLINICA_1
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.Location = new System.Drawing.Point(796, 120);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(18, 16);
+            this.label8.Size = new System.Drawing.Size(26, 25);
             this.label8.TabIndex = 43;
             this.label8.Text = "T";
             // 
@@ -186,7 +192,7 @@ namespace CLINICA_1
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(725, 120);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(20, 16);
+            this.label7.Size = new System.Drawing.Size(30, 25);
             this.label7.TabIndex = 42;
             this.label7.Text = "M";
             // 
@@ -196,7 +202,7 @@ namespace CLINICA_1
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(40, 183);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(338, 32);
+            this.label6.Size = new System.Drawing.Size(486, 50);
             this.label6.TabIndex = 41;
             this.label6.Text = "ORDENES PARA EXAMENES, TRATAMIENTO, \r\nDIETA, CONSULTA, ETC:\r\n";
             // 
@@ -206,7 +212,7 @@ namespace CLINICA_1
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(704, 89);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(203, 16);
+            this.label5.Size = new System.Drawing.Size(294, 25);
             this.label5.TabIndex = 40;
             this.label5.Text = "HORAS DE CUMPLIMIENTO";
             // 
@@ -216,7 +222,7 @@ namespace CLINICA_1
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(80, 95);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(73, 16);
+            this.label2.Size = new System.Drawing.Size(103, 25);
             this.label2.TabIndex = 37;
             this.label2.Text = "Paciente:";
             // 
@@ -226,7 +232,7 @@ namespace CLINICA_1
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(485, 58);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(111, 16);
+            this.label4.Size = new System.Drawing.Size(154, 25);
             this.label4.TabIndex = 39;
             this.label4.Text = "Habitación No:";
             // 
@@ -236,7 +242,7 @@ namespace CLINICA_1
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(90, 58);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(63, 16);
+            this.label1.Size = new System.Drawing.Size(89, 25);
             this.label1.TabIndex = 36;
             this.label1.Text = "Médico:";
             // 
@@ -246,16 +252,43 @@ namespace CLINICA_1
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(17, 139);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(145, 16);
+            this.label3.Size = new System.Drawing.Size(208, 25);
             this.label3.TabIndex = 38;
             this.label3.Text = "FECHA DE ORDEN:";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(867, 243);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(130, 58);
+            this.button1.TabIndex = 54;
+            this.button1.Text = "IMPRIMIR";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(867, 335);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(130, 58);
+            this.button2.TabIndex = 55;
+            this.button2.Text = "GUARDAR";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(867, 431);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(130, 58);
+            this.button3.TabIndex = 56;
+            this.button3.Text = "LIMPIAR";
+            this.button3.UseVisualStyleBackColor = true;
             // 
             // Indicaciones
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(934, 534);
+            this.ClientSize = new System.Drawing.Size(1465, 857);
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Indicaciones";
@@ -289,5 +322,8 @@ namespace CLINICA_1
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
     }
 }

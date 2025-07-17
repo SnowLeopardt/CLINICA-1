@@ -66,10 +66,11 @@ namespace CLINICA_1
             {
                 con.Open();
                 string query = @"
-            SELECT FechaRegistro, ExamenesLaboratorios, ExamenesGabinete
-            FROM HistoriaClinica
-            WHERE Paciente = @Paciente
-            ORDER BY FechaRegistro ASC";
+SELECT TOP 1 FechaRegistro, ExamenesLaboratorios, ExamenesGabinete
+FROM HistoriaClinica
+WHERE Paciente = @Paciente
+ORDER BY FechaRegistro DESC";
+
 
                 using (SqlCommand cmd = new SqlCommand(query, con))
                 {
@@ -77,7 +78,7 @@ namespace CLINICA_1
 
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
-                        while (reader.Read())
+                        if (reader.Read())
                         {
                             // 📅 Mostrar fecha
                             DateTime fecha = reader.GetDateTime(reader.GetOrdinal("FechaRegistro"));
@@ -394,7 +395,8 @@ INSERT INTO HistoriaClinica(
                                 return;
                             }
 
-                            string fileName = $"HistoriaClinica_{txtPaciente.Text.Trim()}.docx";
+                            string timestamp = DateTime.Now.ToString("yyyyMMdd_HHmmss");
+                            string fileName = $"HistoriaClinica_{txtPaciente.Text.Trim()}_{timestamp}.docx";
                             string docPath = Path.Combine(pacienteFolder, fileName);
 
                             using (WordprocessingDocument wordDoc = WordprocessingDocument.Create(docPath, DocumentFormat.OpenXml.WordprocessingDocumentType.Document))
@@ -915,7 +917,7 @@ INSERT INTO HistoriaClinica(
         {
 
         }
-
+        //VERDADERO GUARDAR______________________________________________________
         private void Guardar_Click(object sender, EventArgs e)
         {
             CalcularIMC();
@@ -992,7 +994,8 @@ INSERT INTO HistoriaClinica(
                                 return;
                             }
 
-                            string fileName = $"HistoriaClinica_{txtPaciente.Text.Trim()}.docx";
+                            string timestamp = DateTime.Now.ToString("yyyy-MM-dd - hh-mm-ss tt", CultureInfo.InvariantCulture);
+                            string fileName = $"HistoriaClinica_{txtPaciente.Text.Trim()}_{timestamp}.docx";
                             string docPath = Path.Combine(pacienteFolder, fileName);
 
                             using (WordprocessingDocument wordDoc = WordprocessingDocument.Create(docPath, DocumentFormat.OpenXml.WordprocessingDocumentType.Document))
@@ -1067,6 +1070,7 @@ INSERT INTO HistoriaClinica(
                             }
 
                             MessageBox.Show("Datos guardados correctamente y documento Word generado.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            LimpiarCampos();
                         }
                         catch (Exception ex)
                         {
@@ -1258,28 +1262,50 @@ INSERT INTO HistoriaClinica(
 
         }
 
-        //Esto es para lo de mostrar los datos antecedentes
         private string ObtenerRutaUltimoArchivo(string nombrePaciente)
         {
-            foreach (char c in Path.GetInvalidFileNameChars())
-                nombrePaciente = nombrePaciente.Replace(c.ToString(), "");
+            string nombreLimpio = LimpiarNombreArchivo(nombrePaciente);
 
             string carpetaPaciente = Path.Combine(
                 Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments),
                 "Pacientes",
-                nombrePaciente
+                nombreLimpio
             );
 
             if (!Directory.Exists(carpetaPaciente))
+            {
+                MessageBox.Show($"La carpeta no existe:\n{carpetaPaciente}", "Error");
                 return null;
+            }
 
-            string prefijo = $"HistoriaClinica_{nombrePaciente}_";
-            var archivos = Directory.GetFiles(carpetaPaciente, $"{prefijo}*.docx");
+            // Buscar todos los .docx de la carpeta
+            var todosLosArchivos = Directory.GetFiles(carpetaPaciente, "*.docx");
 
-            if (archivos.Length == 0)
+            // Filtrar los que tengan el nombre del paciente en cualquier parte del nombre
+            var archivosFiltrados = todosLosArchivos
+                .Where(f => Path.GetFileName(f).ToUpper().Contains($"HISTORIACLINICA_{nombrePaciente.ToUpper()}"))
+                .ToList();
+
+            if (archivosFiltrados.Count == 0)
+            {
+                MessageBox.Show($"No se encontraron archivos que contengan:\nHISTORIACLINICA_{nombrePaciente.ToUpper()}\n\nEn carpeta:\n{carpetaPaciente}", "Aviso");
                 return null;
+            }
 
-            return archivos.OrderByDescending(f => File.GetLastWriteTime(f)).First();
+            // Retornar el más reciente
+            return archivosFiltrados.OrderByDescending(f => File.GetLastWriteTime(f)).First();
+        }
+
+
+
+
+        private string LimpiarNombreArchivo(string nombre)
+        {
+            foreach (char c in Path.GetInvalidFileNameChars())
+            {
+                nombre = nombre.Replace(c.ToString(), "");
+            }
+            return nombre.Trim();
         }
 
 
@@ -1290,7 +1316,6 @@ INSERT INTO HistoriaClinica(
                 e.SuppressKeyPress = true;
                 string nombrePaciente = txtPaciente.Text.Trim();
 
-                // Si está vacío o menor de 3 caracteres, limpia antecedentes y termina
                 if (string.IsNullOrWhiteSpace(nombrePaciente) || nombrePaciente.Length < 3)
                 {
                     txtAntecedentesPersonales.Clear();
@@ -1306,11 +1331,24 @@ INSERT INTO HistoriaClinica(
                 }
                 else
                 {
-                    MessageBox.Show("No se encontró el archivo para el paciente: " + nombrePaciente);
-                    txtAntecedentesPersonales.Clear(); // Asegurar que se limpie si no se encontró
+                    // ✅ Depuración: mostrar la ruta que intentó buscar
+                    string carpeta = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "Pacientes", LimpiarNombreArchivo(nombrePaciente));
+                    string[] archivos = Directory.Exists(carpeta)
+                        ? Directory.GetFiles(carpeta)
+                        : new string[0];
+
+                    string mensaje = $"No se encontró el archivo para el paciente: {nombrePaciente}\n\n";
+                    mensaje += $"Carpeta buscada: {carpeta}\n";
+                    mensaje += archivos.Length == 0
+                        ? "No hay archivos en esa carpeta."
+                        : $"Archivos encontrados:\n{string.Join("\n", archivos)}";
+
+                    MessageBox.Show(mensaje, "Depuración");
+                    txtAntecedentesPersonales.Clear();
                 }
             }
         }
+
 
         private void label10_Click_1(object sender, EventArgs e)
         {

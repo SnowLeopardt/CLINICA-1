@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CLINICA_1.Registros;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -50,6 +51,12 @@ namespace CLINICA_1
             // Volver al formulario de login
             Login login = new Login();
             login.Show();
+        }
+
+        private void toolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+            Consentimiento consentimiento = new Consentimiento(); // se usa el constructor sin parámetros
+            consentimiento.Show();
         }
     }
 }

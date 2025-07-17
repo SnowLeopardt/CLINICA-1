@@ -63,6 +63,7 @@ namespace CLINICA_1
             this.label24 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.rtbImpresionDiagnostica = new System.Windows.Forms.RichTextBox();
             this.btnAnteriores = new System.Windows.Forms.Button();
             this.txtPlan = new System.Windows.Forms.RichTextBox();
             this.lblClasificacionIMC = new System.Windows.Forms.Label();
@@ -78,7 +79,6 @@ namespace CLINICA_1
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnImprimir = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.rtbImpresionDiagnostica = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -96,7 +96,7 @@ namespace CLINICA_1
             this.label3.Location = new System.Drawing.Point(41, 391);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(103, 20);
+            this.label3.Size = new System.Drawing.Size(153, 30);
             this.label3.TabIndex = 217;
             this.label3.Text = "Signo Vitales:";
             this.label3.Click += new System.EventHandler(this.label3_Click_1);
@@ -110,7 +110,7 @@ namespace CLINICA_1
             this.label4.Location = new System.Drawing.Point(150, 428);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(105, 19);
+            this.label4.Size = new System.Drawing.Size(149, 28);
             this.label4.TabIndex = 218;
             this.label4.Text = "Presion Arterial:";
             this.label4.Click += new System.EventHandler(this.label4_Click_1);
@@ -124,7 +124,7 @@ namespace CLINICA_1
             this.label5.Location = new System.Drawing.Point(105, 530);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(150, 19);
+            this.label5.Size = new System.Drawing.Size(215, 28);
             this.label5.TabIndex = 219;
             this.label5.Text = "Saturacion de Oxigeno:";
             this.label5.Click += new System.EventHandler(this.label5_Click_1);
@@ -138,7 +138,7 @@ namespace CLINICA_1
             this.label6.Location = new System.Drawing.Point(103, 495);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(152, 19);
+            this.label6.Size = new System.Drawing.Size(217, 28);
             this.label6.TabIndex = 220;
             this.label6.Text = "Frecuencia Respiratoria:";
             this.label6.Click += new System.EventHandler(this.label6_Click_1);
@@ -152,7 +152,7 @@ namespace CLINICA_1
             this.label7.Location = new System.Drawing.Point(123, 463);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(132, 19);
+            this.label7.Size = new System.Drawing.Size(188, 28);
             this.label7.TabIndex = 221;
             this.label7.Text = "Frecuencia Cardiaca:";
             this.label7.Click += new System.EventHandler(this.label7_Click_1);
@@ -166,7 +166,7 @@ namespace CLINICA_1
             this.label8.Location = new System.Drawing.Point(215, 569);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(40, 19);
+            this.label8.Size = new System.Drawing.Size(56, 28);
             this.label8.TabIndex = 222;
             this.label8.Text = "Peso:";
             this.label8.Click += new System.EventHandler(this.label8_Click_1);
@@ -180,7 +180,7 @@ namespace CLINICA_1
             this.label9.Location = new System.Drawing.Point(218, 603);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(37, 19);
+            this.label9.Size = new System.Drawing.Size(54, 28);
             this.label9.TabIndex = 223;
             this.label9.Text = "Talla:";
             this.label9.Click += new System.EventHandler(this.label9_Click_1);
@@ -194,7 +194,7 @@ namespace CLINICA_1
             this.label11.Location = new System.Drawing.Point(519, 463);
             this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(80, 19);
+            this.label11.Size = new System.Drawing.Size(113, 28);
             this.label11.TabIndex = 224;
             this.label11.Text = "Por minuto:";
             this.label11.Click += new System.EventHandler(this.label11_Click_1);
@@ -208,7 +208,7 @@ namespace CLINICA_1
             this.label12.Location = new System.Drawing.Point(520, 428);
             this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(51, 19);
+            this.label12.Size = new System.Drawing.Size(72, 28);
             this.label12.TabIndex = 225;
             this.label12.Text = "mmHg";
             this.label12.Click += new System.EventHandler(this.label12_Click_1);
@@ -222,7 +222,7 @@ namespace CLINICA_1
             this.label13.Location = new System.Drawing.Point(519, 603);
             this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(87, 19);
+            this.label13.Size = new System.Drawing.Size(122, 28);
             this.label13.TabIndex = 226;
             this.label13.Text = "Centimetros:";
             this.label13.Click += new System.EventHandler(this.label13_Click_1);
@@ -236,7 +236,7 @@ namespace CLINICA_1
             this.label15.Location = new System.Drawing.Point(519, 529);
             this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(23, 21);
+            this.label15.Size = new System.Drawing.Size(35, 32);
             this.label15.TabIndex = 227;
             this.label15.Text = "%";
             this.label15.Click += new System.EventHandler(this.label15_Click_1);
@@ -250,7 +250,7 @@ namespace CLINICA_1
             this.label16.Location = new System.Drawing.Point(519, 497);
             this.label16.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(80, 19);
+            this.label16.Size = new System.Drawing.Size(113, 28);
             this.label16.TabIndex = 228;
             this.label16.Text = "Por minuto:";
             this.label16.Click += new System.EventHandler(this.label16_Click_1);
@@ -264,7 +264,7 @@ namespace CLINICA_1
             this.label19.Location = new System.Drawing.Point(754, 457);
             this.label19.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(219, 76);
+            this.label19.Size = new System.Drawing.Size(304, 112);
             this.label19.TabIndex = 231;
             this.label19.Text = "Bajo peso: IMC menor 18.5\r\nNormal: IMC entre 18.5 y 24.9 \r\nSobrepeso: IMC entre 2" +
     "5.0 y 29.9 \r\nObesidad: IMC de 30.0 a o mas ";
@@ -303,7 +303,7 @@ namespace CLINICA_1
             this.label21.Location = new System.Drawing.Point(45, 807);
             this.label21.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(207, 21);
+            this.label21.Size = new System.Drawing.Size(311, 32);
             this.label21.TabIndex = 235;
             this.label21.Text = "Examenes de Laboratorio:";
             this.label21.Click += new System.EventHandler(this.label21_Click);
@@ -317,7 +317,7 @@ namespace CLINICA_1
             this.label22.Location = new System.Drawing.Point(878, 804);
             this.label22.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(186, 21);
+            this.label22.Size = new System.Drawing.Size(280, 32);
             this.label22.TabIndex = 236;
             this.label22.Text = "Impresion Diagnostica:";
             this.label22.Click += new System.EventHandler(this.label22_Click);
@@ -331,7 +331,7 @@ namespace CLINICA_1
             this.label23.Location = new System.Drawing.Point(470, 806);
             this.label23.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(187, 21);
+            this.label23.Size = new System.Drawing.Size(279, 32);
             this.label23.TabIndex = 237;
             this.label23.Text = "Examenes de Gabinete:";
             this.label23.Click += new System.EventHandler(this.label23_Click);
@@ -356,7 +356,7 @@ namespace CLINICA_1
             this.txtPresion.Location = new System.Drawing.Point(263, 428);
             this.txtPresion.Margin = new System.Windows.Forms.Padding(4);
             this.txtPresion.Name = "txtPresion";
-            this.txtPresion.Size = new System.Drawing.Size(248, 22);
+            this.txtPresion.Size = new System.Drawing.Size(248, 30);
             this.txtPresion.TabIndex = 241;
             this.txtPresion.Text = "/";
             this.txtPresion.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -369,7 +369,7 @@ namespace CLINICA_1
             this.txtFC.Location = new System.Drawing.Point(263, 461);
             this.txtFC.Margin = new System.Windows.Forms.Padding(4);
             this.txtFC.Name = "txtFC";
-            this.txtFC.Size = new System.Drawing.Size(248, 22);
+            this.txtFC.Size = new System.Drawing.Size(248, 30);
             this.txtFC.TabIndex = 242;
             this.txtFC.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtFC.TextChanged += new System.EventHandler(this.txtFC_TextChanged);
@@ -381,7 +381,7 @@ namespace CLINICA_1
             this.txtFR.Location = new System.Drawing.Point(263, 495);
             this.txtFR.Margin = new System.Windows.Forms.Padding(4);
             this.txtFR.Name = "txtFR";
-            this.txtFR.Size = new System.Drawing.Size(248, 22);
+            this.txtFR.Size = new System.Drawing.Size(248, 30);
             this.txtFR.TabIndex = 243;
             this.txtFR.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtFR.TextChanged += new System.EventHandler(this.txtFR_TextChanged);
@@ -393,7 +393,7 @@ namespace CLINICA_1
             this.txtSaturacion.Location = new System.Drawing.Point(263, 528);
             this.txtSaturacion.Margin = new System.Windows.Forms.Padding(4);
             this.txtSaturacion.Name = "txtSaturacion";
-            this.txtSaturacion.Size = new System.Drawing.Size(248, 22);
+            this.txtSaturacion.Size = new System.Drawing.Size(248, 30);
             this.txtSaturacion.TabIndex = 244;
             this.txtSaturacion.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtSaturacion.TextChanged += new System.EventHandler(this.txtSaturacion_TextChanged);
@@ -419,7 +419,7 @@ namespace CLINICA_1
             this.txtMasaCorporal.Location = new System.Drawing.Point(264, 632);
             this.txtMasaCorporal.Margin = new System.Windows.Forms.Padding(4);
             this.txtMasaCorporal.Name = "txtMasaCorporal";
-            this.txtMasaCorporal.Size = new System.Drawing.Size(248, 22);
+            this.txtMasaCorporal.Size = new System.Drawing.Size(248, 30);
             this.txtMasaCorporal.TabIndex = 246;
             this.txtMasaCorporal.TextChanged += new System.EventHandler(this.txtMasaCorporal_TextChanged);
             // 
@@ -432,7 +432,7 @@ namespace CLINICA_1
             this.label17.Location = new System.Drawing.Point(92, 632);
             this.label17.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(163, 19);
+            this.label17.Size = new System.Drawing.Size(230, 28);
             this.label17.TabIndex = 253;
             this.label17.Text = "Indice De Masa Corporal:";
             this.label17.Click += new System.EventHandler(this.label17_Click_1);
@@ -446,7 +446,7 @@ namespace CLINICA_1
             this.label14.Location = new System.Drawing.Point(518, 565);
             this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(40, 19);
+            this.label14.Size = new System.Drawing.Size(58, 28);
             this.label14.TabIndex = 254;
             this.label14.Text = "Kilos:";
             this.label14.Click += new System.EventHandler(this.label14_Click_1);
@@ -460,7 +460,7 @@ namespace CLINICA_1
             this.label18.Location = new System.Drawing.Point(40, 700);
             this.label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(122, 21);
+            this.label18.Size = new System.Drawing.Size(182, 32);
             this.label18.TabIndex = 256;
             this.label18.Text = "Examen Fisico:";
             this.label18.Click += new System.EventHandler(this.label18_Click_1);
@@ -486,7 +486,7 @@ namespace CLINICA_1
             this.label24.Location = new System.Drawing.Point(61, 936);
             this.label24.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(48, 21);
+            this.label24.Size = new System.Drawing.Size(72, 32);
             this.label24.TabIndex = 258;
             this.label24.Text = "Plan:";
             this.label24.Click += new System.EventHandler(this.label24_Click);
@@ -558,6 +558,19 @@ namespace CLINICA_1
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
+            // rtbImpresionDiagnostica
+            // 
+            this.rtbImpresionDiagnostica.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rtbImpresionDiagnostica.Location = new System.Drawing.Point(882, 840);
+            this.rtbImpresionDiagnostica.Name = "rtbImpresionDiagnostica";
+            this.rtbImpresionDiagnostica.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.ForcedVertical;
+            this.rtbImpresionDiagnostica.Size = new System.Drawing.Size(301, 68);
+            this.rtbImpresionDiagnostica.TabIndex = 267;
+            this.rtbImpresionDiagnostica.Text = "";
+            this.rtbImpresionDiagnostica.TextChanged += new System.EventHandler(this.rtbImpresionDiagnostica_TextChanged);
+            this.rtbImpresionDiagnostica.Enter += new System.EventHandler(this.rtbImpresionDiagnostica_Enter);
+            this.rtbImpresionDiagnostica.KeyDown += new System.Windows.Forms.KeyEventHandler(this.rtbImpresionDiagnostica_KeyDown);
+            // 
             // btnAnteriores
             // 
             this.btnAnteriores.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(176)))), ((int)(((byte)(73)))));
@@ -588,7 +601,7 @@ namespace CLINICA_1
             this.lblClasificacionIMC.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblClasificacionIMC.Location = new System.Drawing.Point(525, 638);
             this.lblClasificacionIMC.Name = "lblClasificacionIMC";
-            this.lblClasificacionIMC.Size = new System.Drawing.Size(0, 16);
+            this.lblClasificacionIMC.Size = new System.Drawing.Size(0, 25);
             this.lblClasificacionIMC.TabIndex = 264;
             this.lblClasificacionIMC.Click += new System.EventHandler(this.lblClasificacionIMC_Click);
             // 
@@ -631,6 +644,7 @@ namespace CLINICA_1
             this.txtPaciente.Name = "txtPaciente";
             this.txtPaciente.Size = new System.Drawing.Size(284, 33);
             this.txtPaciente.TabIndex = 252;
+            
             this.txtPaciente.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPaciente_KeyDown);
             // 
             // label10
@@ -642,7 +656,7 @@ namespace CLINICA_1
             this.label10.Location = new System.Drawing.Point(123, 32);
             this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(70, 21);
+            this.label10.Size = new System.Drawing.Size(109, 32);
             this.label10.TabIndex = 251;
             this.label10.Text = "Paciente:";
             this.label10.Click += new System.EventHandler(this.label10_Click_1);
@@ -669,7 +683,7 @@ namespace CLINICA_1
             this.label1.Location = new System.Drawing.Point(9, 127);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(177, 21);
+            this.label1.Size = new System.Drawing.Size(266, 32);
             this.label1.TabIndex = 249;
             this.label1.Text = "Presente Enfermedad:";
             this.label1.Click += new System.EventHandler(this.label1_Click_1);
@@ -695,7 +709,7 @@ namespace CLINICA_1
             this.lblNombre.Location = new System.Drawing.Point(92, 86);
             this.lblNombre.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(101, 21);
+            this.lblNombre.Size = new System.Drawing.Size(154, 32);
             this.lblNombre.TabIndex = 247;
             this.lblNombre.Text = "Consulta Por:";
             this.lblNombre.Click += new System.EventHandler(this.lblNombre_Click_1);
@@ -709,7 +723,7 @@ namespace CLINICA_1
             this.label20.ForeColor = System.Drawing.Color.Black;
             this.label20.Location = new System.Drawing.Point(647, 35);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(152, 18);
+            this.label20.Size = new System.Drawing.Size(239, 29);
             this.label20.TabIndex = 232;
             this.label20.Text = "HISTORIA CLINICA";
             this.label20.Click += new System.EventHandler(this.label20_Click);
@@ -759,26 +773,13 @@ namespace CLINICA_1
             this.label2.Text = "Antecedentes Personales:";
             this.label2.Click += new System.EventHandler(this.label2_Click_1);
             // 
-            // rtbImpresionDiagnostica
-            // 
-            this.rtbImpresionDiagnostica.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rtbImpresionDiagnostica.Location = new System.Drawing.Point(882, 840);
-            this.rtbImpresionDiagnostica.Name = "rtbImpresionDiagnostica";
-            this.rtbImpresionDiagnostica.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.ForcedVertical;
-            this.rtbImpresionDiagnostica.Size = new System.Drawing.Size(301, 68);
-            this.rtbImpresionDiagnostica.TabIndex = 267;
-            this.rtbImpresionDiagnostica.Text = "";
-            this.rtbImpresionDiagnostica.TextChanged += new System.EventHandler(this.rtbImpresionDiagnostica_TextChanged);
-            this.rtbImpresionDiagnostica.Enter += new System.EventHandler(this.rtbImpresionDiagnostica_Enter);
-            this.rtbImpresionDiagnostica.KeyDown += new System.Windows.Forms.KeyEventHandler(this.rtbImpresionDiagnostica_KeyDown);
-            // 
             // HistoriaClinica
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoScroll = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(1260, 1028);
+            this.ClientSize = new System.Drawing.Size(1286, 1028);
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
